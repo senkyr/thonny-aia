@@ -1,6 +1,7 @@
 import json
 import os.path
 import shutil
+import sys
 import tkinter as tk
 import types
 import urllib.request
@@ -54,12 +55,27 @@ def _key_urls():
     return API_KEY_URLS
 
 
+def _find_ollama():
+    """Path of the installed ollama executable, or None. An app started from the Finder
+    usually lacks /usr/local/bin and /opt/homebrew/bin in PATH, so look there explicitly."""
+    paths = [
+        shutil.which("ollama"),
+        os.path.join(os.environ.get("LOCALAPPDATA", ""), "Programs", "Ollama", "ollama.exe"),
+    ]
+    if sys.platform == "darwin":
+        paths += [
+            "/usr/local/bin/ollama",
+            "/opt/homebrew/bin/ollama",
+            "/Applications/Ollama.app/Contents/Resources/ollama",
+            os.path.expanduser("~/Applications/Ollama.app/Contents/Resources/ollama"),
+        ]
+    return next((p for p in paths if p and os.path.isfile(p)), None)
+
+
 def ollama_state(model):
     """'missing' (not installed), 'stopped' (installed, server not answering),
     'no_model' (running, model not downloaded) or 'ready'."""
-    exe = shutil.which("ollama") or os.path.exists(
-        os.path.join(os.environ.get("LOCALAPPDATA", ""), "Programs", "Ollama", "ollama.exe")
-    )
+    exe = _find_ollama()
     # no proxy: a school proxy from the Windows registry answers 127.0.0.1 with 503
     opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
     try:

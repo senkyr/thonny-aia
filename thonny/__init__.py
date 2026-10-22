@@ -228,7 +228,9 @@ def _check_welcome():
                 # or saving a file (https://github.com/thonny/thonny/issues/2860).
                 # Let's restart.
                 print("Restarting", macos_app_path)
-                os.system(f"open -n '{macos_app_path}'")
+                import subprocess
+
+                subprocess.Popen(["open", "-n", macos_app_path])
                 sys.exit(0)
 
         return win.ok
@@ -239,11 +241,16 @@ def _check_welcome():
 def _get_macos_app_path() -> Optional[str]:
     if sys.platform != "darwin":
         return None
+    # The native AIA launcher passes the bundle location before exec-ing Python.
+    # Unlike argv, this survives both launcher stages and renamed .app bundles.
+    app_path = os.environ.get("THONNY_APP_PATH")
+    if app_path and os.path.isdir(app_path) and app_path.endswith(".app"):
+        return app_path
     orig_argv = _get_orig_argv()
     if not orig_argv:
         return None
 
-    if orig_argv[0].endswith("Thonny.app/Contents/MacOS/thonny"):
+    if orig_argv[0].endswith(".app/Contents/MacOS/thonny"):
         return orig_argv[0][: -len("/Contents/MacOS/thonny")]
 
     return None
