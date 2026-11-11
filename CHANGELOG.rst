@@ -4,7 +4,11 @@ Version history
 
 Thonny AIA
 ==========
-Thonny AIA is an unofficial fork of Thonny 5.0.0 with the AI assistant AIA (https://github.com/senkyr/thonny-aia). It is not published or supported by the Thonny project. Its versions are below, Thonny's own history follows after them.
+Thonny AIA is an unofficial fork of Thonny 5.0.1 with the AI assistant AIA (https://github.com/senkyr/thonny-aia). It is not published or supported by the Thonny project. Its versions are below, Thonny's own history follows after them.
+
+5.5.0b8 (2026-11-11)
+--------------------
+* Based on Thonny 5.0.1 instead of 5.0.0. Among other things the plugin manager no longer crashes with "NameError: name 'req' is not defined" (thonny#3932) and installing local ESP MicroPython images works again (thonny#3903). See 5.0.1 below.
 
 5.5.0b7 (2026-10-20)
 --------------------
@@ -55,6 +59,15 @@ First beta: Thonny 5.0.0 with the AI assistant AIA instead of the rule-based Ass
 
 Thonny
 ======
+
+5.0.1 (2026-10-26)
+===================
+* BREAKING: Require esptool 5.0, which means require Python 3.10, which means no support Windows 7 and 8 anymore. Yes, this would have technically warranted a major version bump, but the release is otherwise small and the 5.0.0 bundle for Windows also required Windows 10 or 11.
+* Upgrade Python to 3.14.10 in macOS and Windows bundles. This upgrades bundled Tk from 8.6.17 to 9.0.4 (with some extras) and fixes dialog freezes in macOS 27 (#3934).
+* Because of Tk upgrade, several issues involving Unicode characters, especially emojis, got fixed (eg. find/replace in #3925)
+* Fix Plugin manager crashes with NameError: name 'req' is not defined in Thonny 5.0.0, #3932
+* Make installing ESP MicroPython local images working again, #3903
+* Upgrade several dependencies in bundles.
 
 5.0.0 (2026-04-22)
 ====================

@@ -59,6 +59,7 @@ from thonny.ui_utils import (
     select_sequence,
     sequence_to_accelerator,
     shift_is_pressed,
+    get_tk_version_str,
 )
 
 logger = getLogger(__name__)
@@ -449,8 +450,8 @@ class Workbench(tk.Tk):
         self.set_default("view.editor_font_family", default_editor_family)
 
         if running_on_mac_os():
-            self.set_default("view.editor_font_size", 14)
-            self.set_default("view.io_font_size", 12)
+            self.set_default("view.editor_font_size", 13)
+            self.set_default("view.io_font_size", 11)
         elif self.in_simple_mode():
             self.set_default("view.editor_font_size", 12)
             self.set_default("view.io_font_size", 12)
@@ -1866,7 +1867,11 @@ class Workbench(tk.Tk):
         else:
             self._scaling_factor = float(scaling)
 
-        MAC_SCALING_MODIFIER = 1.7
+        if get_tk_version_str().startswith("8."):
+            MAC_SCALING_MODIFIER = 1.7
+        else:
+            MAC_SCALING_MODIFIER = 1.0
+
         if running_on_mac_os():
             self._scaling_factor *= MAC_SCALING_MODIFIER
 

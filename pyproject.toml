@@ -4,11 +4,11 @@ build-backend = "uv_build"
 
 [project]
 name = "thonny"
-version = "5.5.0b7"
+version = "5.5.0b8"
 description = "Python IDE for beginners"
 readme = "README.rst"
 license = "MIT"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 authors = [
     { name = "Aivar Annamaa and others", email = "thonny@googlegroups.com" },
     # Thonny AIA: the AI assistant AIA and the changes of the fork
@@ -46,6 +46,7 @@ classifiers = [
     "Topic :: Text Editors",
 ]
 dependencies = [
+    "packaging",
     "jedi>=0.18.1",
     "setuptools>=45.2",
     "pyserial>=3.4",
@@ -82,7 +83,7 @@ dev = [
     "babel",
     "polib",
     "pyperclip",
-    "esptool",
+    "esptool>=5.0",
     "paramiko",
     "websockets",
     "ptyprocess; sys_platform == 'linux' or sys_platform == 'darwin'",
