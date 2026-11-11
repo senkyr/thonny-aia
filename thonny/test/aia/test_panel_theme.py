@@ -19,12 +19,30 @@ def root():
     except tk.TclError as e:
         pytest.skip(f"no Tk: {e}")
     root.withdraw()
+    # Windows semantic colour names do not exist in Tk/Aqua. Keep testing that
+    # palette on macOS as well, with deterministic light Windows colours.
+    native_rgb = root.winfo_rgb
+
+    def rgb(color):
+        try:
+            return native_rgb(color)
+        except tk.TclError:
+            return native_rgb({"SystemWindow": "white", "SystemWindowText": "black"}[color])
+
+    root.winfo_rgb = rgb
     yield root
     root.destroy()
 
 
 @pytest.fixture
-def panel_view(fake_thonny):
+def panel_view(fake_thonny, monkeypatch):
+    # On macOS ui_utils asks the workbench about a dark UI theme when it builds text widgets.
+    # ui_utils caches the getter at import, before subsequent fixture instances.
+    from thonny import ui_utils
+
+    fake_thonny.uses_dark_ui_theme = lambda: False
+    monkeypatch.setattr(ui_utils, "get_workbench", lambda: fake_thonny)
+
     from thonny.plugins.aia._panel import view as module
 
     return module
@@ -121,7 +139,9 @@ def test_dark_ui_with_light_syntax_theme_stays_dark(panel_view, root, monkeypatc
     assert "selectbackground" not in widget
 
 
-def test_light_ui_keeps_the_colours_of_beta_1_with_a_dark_syntax_theme(panel_view, root, monkeypatch):
+def test_light_ui_keeps_the_colours_of_beta_1_with_a_dark_syntax_theme(
+    panel_view, root, monkeypatch
+):
     options = builtin_syntax_themes(monkeypatch)["Default Dark"]
 
     widget, tags, _ = panel_view.theme_colors(UI_TEXTS["Windows"], options, root.winfo_rgb)

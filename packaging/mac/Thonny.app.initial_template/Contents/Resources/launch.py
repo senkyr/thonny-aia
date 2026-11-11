@@ -11,9 +11,11 @@ ssl_cert_dir = libdir + "/python3.14/site-packages/certifi"
 mainprogram = os.path.join(resdir, "thonnymain.py")
 
 sys.argv.insert(1, mainprogram)
+sys.argv.insert(1, "-B")
 sys.argv.insert(1, "-I")
 
 os.environ["PYTHON_SYS_EXECUTABLE"] = executable
+os.environ["PYTHONDONTWRITEBYTECODE"] = "1"  # also protect the signature in child tools (Jedi)
 os.environ["SSL_CERT_DIR"] = ssl_cert_dir
 os.environ["SSL_CERT_FILE"] = ssl_cert_dir + "/cacert.pem"
 os.environ["TCL_LIBRARY"] = libdir + "/tcl8.6"

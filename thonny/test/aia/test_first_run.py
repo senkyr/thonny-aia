@@ -25,3 +25,21 @@ def test_the_local_choice_names_the_chosen_model(fake_thonny):
         note = first_run._local_note(state, "qwen3:14b")
         assert "GB" not in note and "20-70" not in note, state
     assert "'ollama pull qwen3:14b'." in first_run._local_note("no_model", "qwen3:14b")
+
+
+def test_ollama_outside_path_is_found_on_macos(fake_thonny, monkeypatch):
+    """An app started from the Finder has no /usr/local/bin in PATH: installed but stopped
+    Ollama must not be reported as missing."""
+    from thonny import first_run
+
+    exe = "/Applications/Ollama.app/Contents/Resources/ollama"
+    monkeypatch.setattr(first_run.sys, "platform", "darwin")
+    monkeypatch.setattr(first_run.shutil, "which", lambda name: None)
+    monkeypatch.setattr(first_run.os.path, "isfile", lambda p: p == exe)
+    assert first_run._find_ollama() == exe
+
+    def refuse(*args, **kwargs):
+        raise OSError("connection refused")
+
+    monkeypatch.setattr(first_run.urllib.request.OpenerDirector, "open", refuse)
+    assert first_run.ollama_state("gpt-oss:20b") == "stopped"

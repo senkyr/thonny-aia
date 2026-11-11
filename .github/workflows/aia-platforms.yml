@@ -1,0 +1,39 @@
+name: AIA on macOS and Windows
+on:
+  pull_request:
+    branches: [aia-5.5]
+  push:
+    branches: [aia-5.5]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest]
+        python: ['3.11', '3.14']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install . pytest
+      - run: python -B -m pytest thonny/test/aia thonny/test/test_macos_bundle.py -q
+  macos-app:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - run: python packaging/mac/build_aia.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thonny-aia-macos-arm64
+          path: |
+            dist/*.dmg
+            dist/*.sha256
+            dist/bundled-requirements.txt
