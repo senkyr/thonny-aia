@@ -1999,9 +1999,6 @@ msgstr "同时发送本地导入的文件"
 msgid "Answer style:"
 msgstr "回答风格："
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "回答由 %s 提供。你需要一个 API 密钥：可通过下方链接创建，或向老师索取。你也可以稍后在“工具 > 选项 > AI 助手”中输入。"
-
 msgid "Automatically include current file as context"
 msgstr "自动将当前文件作为上下文发送"
 
@@ -2068,9 +2065,6 @@ msgstr "密钥以明文形式保存在 Thonny 的配置文件中。"
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "请求过多，或账户配额已用完。请稍等片刻再试。"
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "未知的提供商“%s”。请在“工具 > 选项 > AI 助手”中选择一个。"
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "使用基于 AI 的 AIA 代替内置助手"
 
@@ -2098,25 +2092,9 @@ msgstr "Ollama 正在运行，模型 %s 已就绪。"
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "离线运行，需要约 14 GB 可用内存；如果没有性能强的显卡，回答需要 20-70 秒。"
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "尚未选择 AI 提供商。请在“工具 > 选项 > AI 助手”中选择一个。"
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "回答由 %s 提供。你需要一个 API 密钥：可通过下方链接创建，或向老师索取。"
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "未选择提供商：AIA 保持开启，但不会回答。"
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "尚未设置 API 密钥。请在“工具 > 选项 > AI 助手”中输入。"
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API 密钥被拒绝。请在“工具 > 选项 > AI 助手”中检查。"
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2187,10 +2165,6 @@ msgid "The models this key can use."
 msgstr "此密钥能使用的模型。"
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "服务商没有列出此密钥的模型；这些是常用模型。"
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "模型 %s 不可用。请在“工具 > 选项 > AI 助手”中选择其他模型。"
 
@@ -2242,3 +2216,34 @@ msgstr "Ollama 没有响应，因此不知道此电脑上有哪些模型。"
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "模型 %s 超出了电脑的可用内存。请关闭其他程序，或在“工具 > 选项 > AI 助手”中选择更小的模型。"
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "AI 助手需要 API 密钥或本地模型。"
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "AI 助手的 API 密钥无效。助手需要有效的 API 密钥或本地模型。"
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "设置 AI 助手"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "回答由 %s 提供。你需要一个 API 密钥：可通过下方链接创建。"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s 不接受此密钥。请检查密钥，或通过下方链接创建新密钥。"
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "无法连接到 AI 提供商，因此现在无法验证密钥。"
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "回答由 %s 提供。你需要一个 API 密钥：可通过下方链接创建。你也可以稍后在“工具 > 选项 > AI 助手”中输入。"

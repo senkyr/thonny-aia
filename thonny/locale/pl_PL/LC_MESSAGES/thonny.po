@@ -2020,9 +2020,6 @@ msgstr "Dołączaj też lokalnie importowane pliki"
 msgid "Answer style:"
 msgstr "Styl odpowiedzi:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Odpowiedzi dostarcza %s. Potrzebujesz klucza API: utwórz go, korzystając z poniższego linku, albo poproś o niego nauczyciela. Możesz go też wpisać później w Narzędzia > Opcje > Asystent AI."
-
 msgid "Automatically include current file as context"
 msgstr "Automatycznie dołączaj bieżący plik jako kontekst"
 
@@ -2089,9 +2086,6 @@ msgstr "Klucz jest zapisywany jako zwykły tekst w pliku konfiguracyjnym Thonny.
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Zbyt wiele zapytań lub wyczerpano limit konta. Poczekaj chwilę i spróbuj ponownie."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Nieznany dostawca „%s”. Wybierz go w Narzędzia > Opcje > Asystent AI."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Używaj AIA opartego na AI zamiast wbudowanego Asystenta"
 
@@ -2119,25 +2113,9 @@ msgstr "Ollama działa, a model %s jest gotowy."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Działa bez internetu, potrzebuje około 14 GB wolnej pamięci RAM i bez wydajnej karty graficznej odpowiada w 20–70 s."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Nie wybrano jeszcze dostawcy AI. Wybierz go w Narzędzia > Opcje > Asystent AI."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Odpowiedzi dostarcza %s. Potrzebujesz klucza API: utwórz go, korzystając z poniższego linku, albo poproś o niego nauczyciela."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Nie wybrano dostawcy: AIA pozostaje włączony, ale nie odpowiada."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "Nie ustawiono klucza API. Wpisz go w Narzędzia > Opcje > Asystent AI."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "Klucz API został odrzucony. Sprawdź go w Narzędzia > Opcje > Asystent AI."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2208,10 +2186,6 @@ msgid "The models this key can use."
 msgstr "Modele, których może używać ten klucz."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Dostawca nie podał modeli tego klucza; to są zwykłe modele."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Model %s jest niedostępny. Wybierz inny model w Narzędzia > Opcje > Asystent AI."
 
@@ -2263,3 +2237,34 @@ msgstr "Ollama nie odpowiedziała, więc modele na tym komputerze są nieznane."
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Model %s nie mieści się w wolnej pamięci komputera. Zamknij inne programy albo wybierz mniejszy model w Narzędzia > Opcje > Asystent AI."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "Asystent AI potrzebuje klucza API albo modelu lokalnego."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "Klucz API asystenta AI jest nieprawidłowy. Asystent potrzebuje prawidłowego klucza API albo modelu lokalnego."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Skonfiguruj asystenta AI"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Odpowiedzi dostarcza %s. Potrzebujesz klucza API: utwórz go, korzystając z poniższego linku."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s nie akceptuje tego klucza. Sprawdź go albo utwórz nowy, korzystając z poniższego linku."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Nie udało się połączyć z dostawcą AI, więc teraz nie da się sprawdzić klucza."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Odpowiedzi dostarcza %s. Potrzebujesz klucza API: utwórz go, korzystając z poniższego linku. Możesz go też wpisać później w Narzędzia > Opcje > Asystent AI."

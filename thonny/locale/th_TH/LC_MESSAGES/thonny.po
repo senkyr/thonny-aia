@@ -2016,9 +2016,6 @@ msgstr "รวมไฟล์ที่นำเข้า (import) จากใ�
 msgid "Answer style:"
 msgstr "รูปแบบคำตอบ:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "คำตอบมาจาก %s คุณต้องมีคีย์ API: สร้างได้จากลิงก์ด้านล่าง หรือขอจากครูของคุณ คุณยังใส่คีย์ภายหลังได้ใน เครื่องมือ > ตัวเลือก > ผู้ช่วย AI"
-
 msgid "Automatically include current file as context"
 msgstr "ส่งไฟล์ปัจจุบันเป็นบริบทโดยอัตโนมัติ"
 
@@ -2085,9 +2082,6 @@ msgstr "คีย์ถูกเก็บเป็นข้อความธร
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "มีคำขอมากเกินไป หรือโควตาของบัญชีหมดแล้ว รอสักครู่แล้วลองอีกครั้ง"
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "ไม่รู้จักผู้ให้บริการ '%s' เลือกผู้ให้บริการใน เครื่องมือ > ตัวเลือก > ผู้ช่วย AI"
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "ใช้ AIA ที่ทำงานด้วย AI แทนผู้ช่วยในตัว"
 
@@ -2115,25 +2109,9 @@ msgstr "Ollama กำลังทำงาน และโมเดล %s พร
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "ทำงานแบบออฟไลน์ ต้องมี RAM ว่างประมาณ 14 GB และหากไม่มีการ์ดจอที่แรง จะตอบภายใน 20-70 วินาที"
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "ยังไม่ได้เลือกผู้ให้บริการ AI เลือกผู้ให้บริการใน เครื่องมือ > ตัวเลือก > ผู้ช่วย AI"
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "คำตอบมาจาก %s คุณต้องมีคีย์ API: สร้างได้จากลิงก์ด้านล่าง หรือขอจากครูของคุณ"
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "ยังไม่ได้เลือกผู้ให้บริการ: AIA ยังคงเปิดอยู่ แต่จะไม่ตอบ"
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "ยังไม่ได้ตั้งค่าคีย์ API ใส่คีย์ได้ใน เครื่องมือ > ตัวเลือก > ผู้ช่วย AI"
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "คีย์ API ถูกปฏิเสธ ตรวจสอบได้ใน เครื่องมือ > ตัวเลือก > ผู้ช่วย AI"
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2204,10 +2182,6 @@ msgid "The models this key can use."
 msgstr "โมเดลที่คีย์นี้ใช้ได้"
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "ผู้ให้บริการไม่ได้แสดงรายการโมเดลของคีย์นี้ นี่คือโมเดลที่ใช้ทั่วไป"
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "ไม่มีโมเดล %s ให้ใช้ เลือกโมเดลอื่นได้ใน เครื่องมือ > ตัวเลือก > ผู้ช่วย AI"
 
@@ -2259,3 +2233,34 @@ msgstr "Ollama ไม่ตอบ จึงไม่ทราบว่ามี�
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "โมเดล %s ใหญ่เกินหน่วยความจำที่ว่างอยู่ของคอมพิวเตอร์ ปิดโปรแกรมอื่น หรือเลือกโมเดลที่เล็กกว่าได้ใน เครื่องมือ > ตัวเลือก > ผู้ช่วย AI"
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "ผู้ช่วย AI ต้องใช้คีย์ API หรือโมเดลในเครื่อง"
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "คีย์ API ของผู้ช่วย AI ไม่ถูกต้อง ผู้ช่วยต้องใช้คีย์ API ที่ถูกต้องหรือโมเดลในเครื่อง"
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "ตั้งค่าผู้ช่วย AI"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "คำตอบมาจาก %s คุณต้องมีคีย์ API: สร้างได้จากลิงก์ด้านล่าง"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s ไม่ยอมรับคีย์นี้ ตรวจสอบคีย์ หรือสร้างคีย์ใหม่จากลิงก์ด้านล่าง"
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "เชื่อมต่อกับผู้ให้บริการ AI ไม่ได้ จึงยังตรวจสอบคีย์ไม่ได้ในตอนนี้"
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "คำตอบมาจาก %s คุณต้องมีคีย์ API: สร้างได้จากลิงก์ด้านล่าง คุณยังใส่คีย์ภายหลังได้ใน เครื่องมือ > ตัวเลือก > ผู้ช่วย AI"

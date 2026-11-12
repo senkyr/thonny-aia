@@ -2009,9 +2009,6 @@ msgstr "فایل‌های محلیِ واردشده (import) هم فرستاده
 msgid "Answer style:"
 msgstr "سبک پاسخ:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "پاسخ‌ها از %s می‌آیند. به یک کلید API نیاز داری: آن را از پیوند زیر بساز یا از معلمت بگیر. همچنین می‌توانی بعداً آن را در ابزارها > تنظیمات > دستیار هوش مصنوعی وارد کنی."
-
 msgid "Automatically include current file as context"
 msgstr "فایل فعلی به‌طور خودکار به‌عنوان زمینه فرستاده شود"
 
@@ -2078,9 +2075,6 @@ msgstr "کلید به‌صورت متن ساده در فایل پیکربندی 
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "تعداد درخواست‌ها بیش از حد است یا سهمیهٔ حساب تمام شده است. کمی صبر کن و دوباره تلاش کن."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "ارائه‌دهندهٔ ناشناخته «%s». یکی را در ابزارها > تنظیمات > دستیار هوش مصنوعی انتخاب کن."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "استفاده از AIA مبتنی بر هوش مصنوعی به‌جای دستیار داخلی"
 
@@ -2108,25 +2102,9 @@ msgstr "Ollama در حال اجراست و مدل %s آماده است."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "بدون اینترنت کار می‌کند، حدود ۱۴ گیگابایت RAM آزاد لازم دارد و بدون کارت گرافیک قوی، در ۲۰ تا ۷۰ ثانیه پاسخ می‌دهد."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "هنوز هیچ ارائه‌دهندهٔ هوش مصنوعی انتخاب نشده است. یکی را در ابزارها > تنظیمات > دستیار هوش مصنوعی انتخاب کن."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "پاسخ‌ها از %s می‌آیند. به یک کلید API نیاز داری: آن را از پیوند زیر بساز یا از معلمت بگیر."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "هیچ ارائه‌دهنده‌ای انتخاب نشده است: AIA روشن می‌ماند، اما پاسخ نمی‌دهد."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "کلید API تنظیم نشده است. آن را در ابزارها > تنظیمات > دستیار هوش مصنوعی وارد کن."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "کلید API پذیرفته نشد. آن را در ابزارها > تنظیمات > دستیار هوش مصنوعی بررسی کن."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2197,10 +2175,6 @@ msgid "The models this key can use."
 msgstr "مدل‌هایی که این کلید می‌تواند استفاده کند."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "ارائه‌دهنده مدل‌های این کلید را فهرست نکرد؛ این‌ها مدل‌های معمول هستند."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "مدل %s در دسترس نیست. در ابزارها > تنظیمات > دستیار هوش مصنوعی مدل دیگری انتخاب کن."
 
@@ -2252,3 +2226,34 @@ msgstr "Ollama پاسخ نداد، بنابراین مدل‌های این را�
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "مدل %s در حافظهٔ آزاد رایانه جا نمی‌شود. برنامه‌های دیگر را ببند یا در ابزارها > تنظیمات > دستیار هوش مصنوعی مدل کوچک‌تری انتخاب کن."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "دستیار هوش مصنوعی به یک کلید API یا یک مدل محلی نیاز دارد."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "کلید API دستیار هوش مصنوعی معتبر نیست. دستیار به یک کلید API معتبر یا یک مدل محلی نیاز دارد."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "تنظیم دستیار هوش مصنوعی"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "پاسخ‌ها از %s می‌آیند. به یک کلید API نیاز داری: آن را از پیوند زیر بساز."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s این کلید را نمی‌پذیرد. آن را بررسی کن یا از پیوند زیر کلید تازه‌ای بساز."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "اتصال به ارائه‌دهندهٔ هوش مصنوعی ممکن نشد، بنابراین اکنون نمی‌توان کلید را بررسی کرد."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "پاسخ‌ها از %s می‌آیند. به یک کلید API نیاز داری: آن را از پیوند زیر بساز. همچنین می‌توانی بعداً آن را در ابزارها > تنظیمات > دستیار هوش مصنوعی وارد کنی."

@@ -1994,9 +1994,6 @@ msgstr "A helyileg importált fájlok csatolása is"
 msgid "Answer style:"
 msgstr "Válaszstílus:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "A válaszokat a(z) %s adja. API-kulcsra van szükséged: hozd létre az alábbi linken, vagy kérj egyet a tanárodtól. Később is megadhatod az Eszközök > Beállítások > MI-asszisztens menüpontban."
-
 msgid "Automatically include current file as context"
 msgstr "Az aktuális fájl automatikus csatolása kontextusként"
 
@@ -2063,9 +2060,6 @@ msgstr "A kulcs egyszerű szövegként tárolódik a Thonny konfigurációs fáj
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Túl sok kérés, vagy elfogyott a fiók kerete. Várj egy kicsit, és próbáld újra."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Ismeretlen szolgáltató: „%s”. Válassz egyet az Eszközök > Beállítások > MI-asszisztens menüpontban."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "A beépített Asszisztens helyett az MI-alapú AIA használata"
 
@@ -2093,25 +2087,9 @@ msgstr "Az Ollama fut, és a(z) %s modell készen áll."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Internet nélkül fut, körülbelül 14 GB szabad RAM kell hozzá, és erős videokártya nélkül 20–70 másodperc alatt válaszol."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Még nincs kiválasztva MI-szolgáltató. Válassz egyet az Eszközök > Beállítások > MI-asszisztens menüpontban."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "A válaszokat a(z) %s adja. API-kulcsra van szükséged: hozd létre az alábbi linken, vagy kérj egyet a tanárodtól."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Nincs kiválasztva szolgáltató: az AIA bekapcsolva marad, de nem válaszol."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "Nincs beállítva API-kulcs. Add meg az Eszközök > Beállítások > MI-asszisztens menüpontban."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "Az API-kulcsot elutasították. Ellenőrizd az Eszközök > Beállítások > MI-asszisztens menüpontban."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2182,10 +2160,6 @@ msgid "The models this key can use."
 msgstr "A modellek, amelyeket ez a kulcs használhat."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "A szolgáltató nem sorolta fel a kulcs modelljeit; ezek a szokásosak."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "A(z) %s modell nem érhető el. Válassz másik modellt az Eszközök > Beállítások > MI-asszisztens menüpontban."
 
@@ -2237,3 +2211,34 @@ msgstr "Az Ollama nem válaszolt, ezért a számítógép modelljei nem ismertek
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "A(z) %s modell nem fér el a számítógép szabad memóriájában. Zárj be más programokat, vagy válassz kisebb modellt az Eszközök > Beállítások > MI-asszisztens menüpontban."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "Az MI-asszisztensnek API-kulcsra vagy helyi modellre van szüksége."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "Az MI-asszisztens API-kulcsa érvénytelen. Az asszisztensnek érvényes API-kulcsra vagy helyi modellre van szüksége."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "MI-asszisztens beállítása"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "A válaszokat a(z) %s adja. API-kulcsra van szükséged: hozd létre az alábbi linken."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "A(z) %s nem fogadja el ezt a kulcsot. Ellenőrizd, vagy hozz létre újat az alábbi linken."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Nem sikerült kapcsolódni az MI-szolgáltatóhoz, ezért a kulcsot most nem lehet ellenőrizni."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "A válaszokat a(z) %s adja. API-kulcsra van szükséged: hozd létre az alábbi linken. Később is megadhatod az Eszközök > Beállítások > MI-asszisztens menüpontban."

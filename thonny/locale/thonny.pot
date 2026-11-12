@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 20:49+0200\n"
+"POT-Creation-Date: 2026-11-12 16:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -224,7 +224,7 @@ msgstr ""
 msgid "File already exists"
 msgstr ""
 
-#: thonny/base_file_browser.py:1209 thonny/plugins/pip_gui.py:1665
+#: thonny/base_file_browser.py:1209 thonny/plugins/pip_gui.py:1666
 msgid "Not supported"
 msgstr ""
 
@@ -273,8 +273,8 @@ msgid "OK"
 msgstr ""
 
 #: thonny/base_file_browser.py:1382 thonny/config_ui.py:42 thonny/export.py:28
-#: thonny/plugins/aia/_panel/view.py:260
-#: thonny/plugins/backend_config_page.py:288 thonny/plugins/pip_gui.py:1419
+#: thonny/plugins/aia/_panel/view.py:265
+#: thonny/plugins/backend_config_page.py:288 thonny/plugins/pip_gui.py:1420
 #: thonny/ui_utils.py:161 thonny/ui_utils.py:1749 thonny/ui_utils.py:1835
 #: thonny/workdlg.py:206 thonny/workdlg.py:261
 msgid "Cancel"
@@ -311,7 +311,7 @@ msgid "Python files"
 msgstr ""
 
 #: thonny/editors.py:39 thonny/plugins/cpython_frontend/cp_front.py:302
-#: thonny/plugins/pip_gui.py:862 thonny/plugins/pip_gui.py:875
+#: thonny/plugins/pip_gui.py:863 thonny/plugins/pip_gui.py:876
 msgid "all files"
 msgstr ""
 
@@ -433,7 +433,7 @@ msgid "Do you still want to use this name for your script?"
 msgstr ""
 
 #: thonny/editors.py:589 thonny/plugins/micropython/pip_gui.py:26
-#: thonny/plugins/pip_gui.py:1123
+#: thonny/plugins/pip_gui.py:1124
 msgid "Confirmation"
 msgstr ""
 
@@ -462,7 +462,7 @@ msgstr ""
 msgid "Recent files"
 msgstr ""
 
-#: thonny/editors.py:696 thonny/plugins/pip_gui.py:269 thonny/ui_utils.py:497
+#: thonny/editors.py:696 thonny/plugins/pip_gui.py:270 thonny/ui_utils.py:497
 #: thonny/ui_utils.py:1888 thonny/workdlg.py:204
 msgid "Close"
 msgstr ""
@@ -547,102 +547,101 @@ msgstr ""
 msgid "Local model (Ollama, %s)"
 msgstr ""
 
-#: thonny/first_run.py:107
+#: thonny/first_run.py:109
 #, python-format
 msgid ""
-"Answers come from %s. You need an API key: create it at the link below, "
-"or get one from your teacher. You can also enter it later in Tools > "
-"Options > AI Assistant."
+"Answers come from %s. You need an API key: create it at the link below. "
+"You can also enter it later in Tools > Options > AI Assistant."
 msgstr ""
 
-#: thonny/first_run.py:121
+#: thonny/first_run.py:123
 #, python-format
 msgid ""
 "Ollama is not installed. Install it from the link below, then download "
 "the model: 'ollama pull %s' (13 GB)."
 msgstr ""
 
-#: thonny/first_run.py:126
+#: thonny/first_run.py:128
 #, python-format
 msgid ""
 "Ollama is not installed. Install it from the link below, then download "
 "the model: 'ollama pull %s'."
 msgstr ""
 
-#: thonny/first_run.py:130
+#: thonny/first_run.py:132
 msgid "Ollama is installed but not running. Start it."
 msgstr ""
 
-#: thonny/first_run.py:134
+#: thonny/first_run.py:136
 #, python-format
 msgid ""
 "Ollama is running, but the model is missing. Download it: 'ollama pull "
 "%s' (13 GB)."
 msgstr ""
 
-#: thonny/first_run.py:138
+#: thonny/first_run.py:140
 #, python-format
 msgid ""
 "Ollama is running, but the model is missing. Download it: 'ollama pull "
 "%s'."
 msgstr ""
 
-#: thonny/first_run.py:141
+#: thonny/first_run.py:143
 #, python-format
 msgid "Ollama is running and the model %s is ready."
 msgstr ""
 
-#: thonny/first_run.py:144
+#: thonny/first_run.py:146
 msgid ""
 "It runs offline, needs about 14 GB of free RAM and, without a strong "
 "graphics card, answers in 20-70 s."
 msgstr ""
 
-#: thonny/first_run.py:149
+#: thonny/first_run.py:151
 msgid ""
 "It runs offline; how much memory it needs and how fast it answers depends"
 " on the model and the computer."
 msgstr ""
 
-#: thonny/first_run.py:162
+#: thonny/first_run.py:164
 msgid ""
 "AIA sends your messages, the code from the editor (and, if switched on in"
 " the options, the files it imports) and error output to the AI provider "
 "you choose. The local model sends nothing outside your computer."
 msgstr ""
 
-#: thonny/first_run.py:170
+#: thonny/first_run.py:172
 msgid ""
 "AIA stays switched on, but it will answer only after you choose a "
 "provider in Tools > Options > AI Assistant."
 msgstr ""
 
-#: thonny/first_run.py:215
+#: thonny/first_run.py:217
 msgid "Language:"
 msgstr ""
 
-#: thonny/first_run.py:223
+#: thonny/first_run.py:225
 msgid "Initial settings:"
 msgstr ""
 
-#: thonny/first_run.py:230 thonny/plugins/aia/_panel/config_page.py:98
+#: thonny/first_run.py:232 thonny/plugins/aia/_panel/config_page.py:116
 msgid "AI assistant:"
 msgstr ""
 
-#: thonny/first_run.py:256
+#: thonny/first_run.py:258
 msgid "Let's go!"
 msgstr ""
 
-#: thonny/first_run.py:294
+#: thonny/first_run.py:296
 #, python-format
 msgid "Welcome to %s!"
 msgstr ""
 
-#: thonny/first_run.py:329 thonny/plugins/aia/_panel/config_page.py:187
+#: thonny/first_run.py:331 thonny/plugins/aia/_panel/config_page.py:205
 msgid "API key:"
 msgstr ""
 
-#: thonny/first_run.py:330 thonny/plugins/aia/_panel/config_page.py:220
+#: thonny/first_run.py:332 thonny/plugins/aia/_panel/config_page.py:240
 msgid "Check again"
 msgstr ""
 
@@ -671,11 +670,11 @@ msgstr ""
 msgid "Can't find suitable disk"
 msgstr ""
 
-#: thonny/misc_utils.py:570
+#: thonny/misc_utils.py:571
 msgid "Command not available"
 msgstr ""
 
-#: thonny/misc_utils.py:571
+#: thonny/misc_utils.py:572
 msgid "This command is not available if Thonny is run via Flatpak"
 msgstr ""
 
@@ -683,7 +682,7 @@ msgstr ""
 msgid "Run current script"
 msgstr ""
 
-#: thonny/running.py:161 thonny/workbench.py:393
+#: thonny/running.py:161 thonny/workbench.py:394
 msgid "Run"
 msgstr ""
 
@@ -724,7 +723,7 @@ msgid "Clear shell"
 msgstr ""
 
 #: thonny/plugins/shell_config_page.py:82 thonny/shell.py:149
-#: thonny/workbench.py:164
+#: thonny/workbench.py:165
 msgid "Shell"
 msgstr ""
 
@@ -732,7 +731,7 @@ msgstr ""
 msgid "Plotter"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:264 thonny/shell.py:319
+#: thonny/plugins/aia/_panel/view.py:269 thonny/shell.py:319
 msgid "Clear"
 msgstr ""
 
@@ -791,119 +790,119 @@ msgstr ""
 msgid "Select All"
 msgstr ""
 
-#: thonny/workbench.py:390
+#: thonny/workbench.py:391
 msgid "File"
 msgstr ""
 
-#: thonny/workbench.py:391
+#: thonny/workbench.py:392
 msgid "Edit"
 msgstr ""
 
-#: thonny/workbench.py:392
+#: thonny/workbench.py:393
 msgid "View"
 msgstr ""
 
-#: thonny/workbench.py:394
+#: thonny/workbench.py:395
 msgid "Tools"
 msgstr ""
 
-#: thonny/plugins/help/__init__.py:80 thonny/workbench.py:395
+#: thonny/plugins/help/__init__.py:80 thonny/workbench.py:396
 msgid "Help"
 msgstr ""
 
-#: thonny/workbench.py:613
+#: thonny/workbench.py:614
 msgid "Exit"
 msgstr ""
 
-#: thonny/workbench.py:623
+#: thonny/workbench.py:624
 msgid "Options..."
 msgstr ""
 
-#: thonny/workbench.py:630
+#: thonny/workbench.py:631
 msgid "Increase font size"
 msgstr ""
 
-#: thonny/workbench.py:640
+#: thonny/workbench.py:641
 msgid "Decrease font size"
 msgstr ""
 
-#: thonny/workbench.py:652
+#: thonny/workbench.py:653
 msgid "Focus editor"
 msgstr ""
 
-#: thonny/workbench.py:661
+#: thonny/workbench.py:662
 msgid "Focus shell"
 msgstr ""
 
-#: thonny/workbench.py:671
+#: thonny/workbench.py:672
 msgid "Maximize view"
 msgstr ""
 
-#: thonny/workbench.py:683
+#: thonny/workbench.py:684
 msgid "Full screen"
 msgstr ""
 
-#: thonny/workbench.py:694
+#: thonny/workbench.py:695
 msgid "Change font size"
 msgstr ""
 
-#: thonny/workbench.py:695
+#: thonny/workbench.py:696
 msgid "Zoom"
 msgstr ""
 
-#: thonny/workbench.py:704
+#: thonny/workbench.py:705
 msgid "Exit Thonny"
 msgstr ""
 
-#: thonny/workbench.py:707
+#: thonny/workbench.py:708
 msgid "Quit"
 msgstr ""
 
-#: thonny/workbench.py:715 thonny/workbench.py:814
+#: thonny/workbench.py:716 thonny/workbench.py:815
 msgid "Support Ukraine"
 msgstr ""
 
-#: thonny/workbench.py:718
+#: thonny/workbench.py:719
 msgid "Support"
 msgstr ""
 
-#: thonny/workbench.py:885
+#: thonny/workbench.py:886
 msgid "Install MicroPython"
 msgstr ""
 
-#: thonny/workbench.py:889
+#: thonny/workbench.py:890
 msgid "Install CircuitPython"
 msgstr ""
 
-#: thonny/plugins/backend_config_page.py:338 thonny/workbench.py:895
+#: thonny/plugins/backend_config_page.py:338 thonny/workbench.py:896
 msgid "Configure interpreter..."
 msgstr ""
 
-#: thonny/workbench.py:1262 thonny/workbench.py:1270
+#: thonny/workbench.py:1263 thonny/workbench.py:1271
 #, python-format
 msgid "Overwriting theme '%s'"
 msgstr ""
 
-#: thonny/workbench.py:1453
+#: thonny/workbench.py:1454
 msgid "Program arguments:"
 msgstr ""
 
-#: thonny/workbench.py:1482
+#: thonny/workbench.py:1483
 msgid "Program arguments"
 msgstr ""
 
-#: thonny/workbench.py:1496
+#: thonny/workbench.py:1497
 msgid ""
 "Switch to\n"
 "regular\n"
 "mode"
 msgstr ""
 
-#: thonny/workbench.py:1507
+#: thonny/workbench.py:1508
 msgid "Regular mode"
 msgstr ""
 
-#: thonny/workbench.py:1509
+#: thonny/workbench.py:1510
 msgid ""
 "Configuration has been updated. Restart Thonny to start working in "
 "regular mode.\n"
@@ -911,7 +910,7 @@ msgid ""
 "(See 'Tools → Options → General' if you change your mind later.)"
 msgstr ""
 
-#: thonny/workbench.py:1606
+#: thonny/workbench.py:1607
 msgid "Device"
 msgstr ""
 
@@ -1499,226 +1498,226 @@ msgstr ""
 msgid "Pygame Zero mode"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:86
+#: thonny/plugins/pip_gui.py:87
 msgid "Search on PyPI"
 msgstr ""
 
-#: thonny/plugins/micropython/base_flashing_dialog.py:414
-#: thonny/plugins/pip_gui.py:89
+#: thonny/plugins/micropython/base_flashing_dialog.py:415
+#: thonny/plugins/pip_gui.py:90
 msgid "Install"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:92
+#: thonny/plugins/pip_gui.py:93
 msgid "Upgrade"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:95
+#: thonny/plugins/pip_gui.py:96
 msgid "Uninstall"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:160
+#: thonny/plugins/pip_gui.py:161
 msgid "INSTALL"
 msgstr ""
 
 #: thonny/plugins/cpython_frontend/cp_pip_gui.py:47
-#: thonny/plugins/pip_gui.py:385
+#: thonny/plugins/pip_gui.py:386
 msgid "Browse the packages"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:389
+#: thonny/plugins/pip_gui.py:390
 msgid ""
 "With current interpreter you can only browse the packages here.\n"
 "Use 'Tools → Open system shell...' for installing, upgrading or "
 "uninstalling."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:396
+#: thonny/plugins/pip_gui.py:397
 msgid "Packages' directory"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:400
+#: thonny/plugins/pip_gui.py:401
 msgid "Install from PyPI"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:404
+#: thonny/plugins/pip_gui.py:405
 msgid ""
 "If you don't know where to get the package from, then most likely you'll "
 "want to search the Python Package Index. Start by entering the name of "
 "the package in the search box above and pressing ENTER."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:413
+#: thonny/plugins/pip_gui.py:414
 msgid "Install from requirements file"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:415
+#: thonny/plugins/pip_gui.py:416
 msgid "Click "
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:416 thonny/plugins/pip_gui.py:427
+#: thonny/plugins/pip_gui.py:417 thonny/plugins/pip_gui.py:428
 msgid "here"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:420
+#: thonny/plugins/pip_gui.py:421
 msgid "to locate requirements.txt file and install the packages specified in it."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:425
+#: thonny/plugins/pip_gui.py:426
 msgid "Install from local file"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:426
+#: thonny/plugins/pip_gui.py:427
 msgid "Click"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:432
+#: thonny/plugins/pip_gui.py:433
 msgid ""
 "to locate and install the package file (usually with .whl, .tar.gz or "
 ".zip extension)."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:438
+#: thonny/plugins/pip_gui.py:439
 msgid "Upgrade or uninstall"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:440
+#: thonny/plugins/pip_gui.py:441
 msgid "Start by selecting the package from the left."
 msgstr ""
 
-#: thonny/plugins/micropython/pip_gui.py:120 thonny/plugins/pip_gui.py:444
+#: thonny/plugins/micropython/pip_gui.py:120 thonny/plugins/pip_gui.py:445
 msgid "Target"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:449
+#: thonny/plugins/pip_gui.py:450
 msgid ""
 "This dialog lists all available packages, but allows upgrading and "
 "uninstalling only packages from"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:459
+#: thonny/plugins/pip_gui.py:460
 msgid ""
 "New packages will be also installed into this directory. Other locations "
 "must be managed by alternative means."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:511
+#: thonny/plugins/pip_gui.py:512
 msgid "Installed version:"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:513
+#: thonny/plugins/pip_gui.py:514
 msgid "Installed to:"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:590
+#: thonny/plugins/pip_gui.py:591
 msgid "Could not find the package from PyPI."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:593
+#: thonny/plugins/pip_gui.py:594
 msgid "Please check your spelling!"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:597
+#: thonny/plugins/pip_gui.py:598
 msgid "Could not find the package info from PyPI."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:599 thonny/plugins/pip_gui.py:1489
+#: thonny/plugins/pip_gui.py:600 thonny/plugins/pip_gui.py:1490
 msgid "Error code:"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:612
+#: thonny/plugins/pip_gui.py:613
 msgid "Latest stable version"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:614
+#: thonny/plugins/pip_gui.py:615
 msgid "Latest version"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:616
+#: thonny/plugins/pip_gui.py:617
 msgid "Summary"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:618
+#: thonny/plugins/pip_gui.py:619
 msgid "Author"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:620
+#: thonny/plugins/pip_gui.py:621
 msgid "License"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:622
+#: thonny/plugins/pip_gui.py:623
 msgid "Homepage"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:624
+#: thonny/plugins/pip_gui.py:625
 msgid "Bugtracker"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:626
+#: thonny/plugins/pip_gui.py:627
 msgid "Documentation"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:628
+#: thonny/plugins/pip_gui.py:629
 msgid "PyPI page"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:668
+#: thonny/plugins/pip_gui.py:669
 msgid "Requires"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:696
+#: thonny/plugins/pip_gui.py:697
 msgid "Search results"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:697
+#: thonny/plugins/pip_gui.py:698
 msgid "Searching"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:762
+#: thonny/plugins/pip_gui.py:763
 msgid "Can't find package name from the list:"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:801 thonny/plugins/pip_gui.py:890
+#: thonny/plugins/pip_gui.py:802 thonny/plugins/pip_gui.py:891
 #, python-format
 msgid "Installing '%s'"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:807
+#: thonny/plugins/pip_gui.py:808
 #, python-format
 msgid "Upgrading '%s'"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:814
+#: thonny/plugins/pip_gui.py:815
 #, python-format
 msgid "Uninstalling '%s'"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:816
+#: thonny/plugins/pip_gui.py:817
 msgid "Really uninstall?"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:818
+#: thonny/plugins/pip_gui.py:819
 #, python-brace-format
 msgid "Package '{}' is required for installing and uninstalling other packages."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:821
+#: thonny/plugins/pip_gui.py:822
 msgid "Are you sure you want to uninstall it?"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:828
+#: thonny/plugins/pip_gui.py:829
 msgid "Installing"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:862
+#: thonny/plugins/pip_gui.py:863
 msgid "Package"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:985
+#: thonny/plugins/pip_gui.py:986
 #, python-format
 msgid "Manage packages for %s"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1125
+#: thonny/plugins/pip_gui.py:1126
 #, python-format
 msgid ""
 "Looks like you are installing a Thonny-related package.\n"
@@ -1728,83 +1727,83 @@ msgid ""
 "Are you sure you want to install %s for the back-end?"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1216
+#: thonny/plugins/pip_gui.py:1217
 msgid ""
 "NB! There may be another version available which is compatible with "
 "current Thonny version. Click on '...' button to choose the version to "
 "install."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1223
+#: thonny/plugins/pip_gui.py:1224
 msgid "Thonny plugin without requirements"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1239
+#: thonny/plugins/pip_gui.py:1240
 msgid "Unsuitable requirements"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1240
+#: thonny/plugins/pip_gui.py:1241
 msgid "This package requires different Thonny version:"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1244
+#: thonny/plugins/pip_gui.py:1245
 msgid "If you still want it, then please install it from the command line."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1275
+#: thonny/plugins/pip_gui.py:1276
 msgid ""
 "This dialog is for managing Thonny plug-ins and their dependencies.\n"
 "If you want to install packages for your own programs then choose 'Tools "
 "→ Manage packages...'"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1282
+#: thonny/plugins/pip_gui.py:1283
 msgid ""
 "NB! You need to restart Thonny after installing / upgrading / "
 "uninstalling a plug-in."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1291
+#: thonny/plugins/pip_gui.py:1292
 msgid "Thonny plug-ins"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1334
+#: thonny/plugins/pip_gui.py:1335
 msgid "Advanced install / upgrade / downgrade"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1343
+#: thonny/plugins/pip_gui.py:1344
 msgid "Desired version"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1402
+#: thonny/plugins/pip_gui.py:1403
 msgid "Upgrade dependencies"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1487
+#: thonny/plugins/pip_gui.py:1488
 msgid "Requires:"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1491
+#: thonny/plugins/pip_gui.py:1492
 msgid "Error:"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1638
+#: thonny/plugins/pip_gui.py:1639
 msgid "Package manager is not available for this interpreter"
 msgstr ""
 
-#: thonny/plugins/micropython/pip_gui.py:143 thonny/plugins/pip_gui.py:1670
+#: thonny/plugins/micropython/pip_gui.py:143 thonny/plugins/pip_gui.py:1671
 msgid "Not available"
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1671
+#: thonny/plugins/pip_gui.py:1672
 msgid "You need to stop your program before launching the package manager."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1690
+#: thonny/plugins/pip_gui.py:1691
 msgid "Manage packages..."
 msgstr ""
 
-#: thonny/plugins/pip_gui.py:1696
+#: thonny/plugins/pip_gui.py:1697
 msgid "Manage plug-ins..."
 msgstr ""
 
@@ -2025,61 +2024,56 @@ msgid ""
 "Reinstall Thonny AIA."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:307
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
+#: thonny/plugins/aia/_common.py:319
+msgid "The AI assistant needs an API key or a local model."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:310
+#: thonny/plugins/aia/_common.py:324
+msgid ""
+"The AI assistant's API key is not valid. The assistant needs a valid API "
+"key or a local model."
+msgstr ""
+
+#: thonny/plugins/aia/_common.py:330
+msgid "Set up the AI assistant"
+msgstr ""
+
+#: thonny/plugins/aia/_common.py:360
 #, python-format
 msgid ""
 "The model %s is not available. Choose another model in Tools > Options > "
 "AI Assistant."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:315
+#: thonny/plugins/aia/_common.py:365
 #, python-format
 msgid ""
 "The model %s does not fit into the computer's free memory. Close other "
 "programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:320
+#: thonny/plugins/aia/_common.py:370
 msgid ""
 "Too many requests or the account's quota is used up. Wait a moment and "
 "try again."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:323
+#: thonny/plugins/aia/_common.py:373
 msgid "The AI service did not answer in time. Try again."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:327
+#: thonny/plugins/aia/_common.py:377
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:329
+#: thonny/plugins/aia/_common.py:379
 msgid "Cannot connect to the AI service. Check the internet connection."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:445
-msgid ""
-"No AI provider is chosen yet. Choose one in Tools > Options > AI "
-"Assistant."
-msgstr ""
-
-#: thonny/plugins/aia/_common.py:452
+#: thonny/plugins/aia/_common.py:512
 msgid ""
 "Claude Code (the 'claude' command) was not found. Install Claude Code, "
 "sign in by running 'claude' once, then restart Thonny."
-msgstr ""
-
-#: thonny/plugins/aia/_common.py:456
-#, python-format
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr ""
-
-#: thonny/plugins/aia/_common.py:460
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
 msgstr ""
 
 #: thonny/plugins/circuitpython/__init__.py:10
@@ -2275,155 +2269,158 @@ msgstr ""
 msgid "Open system shell..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:44
+#: thonny/plugins/aia/_panel/config_page.py:49
 msgid "Socratic"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:44
+#: thonny/plugins/aia/_panel/config_page.py:49
 msgid "Explanatory"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:44
+#: thonny/plugins/aia/_panel/config_page.py:49
 msgid "Direct"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:49
+#: thonny/plugins/aia/_panel/config_page.py:56
 #, python-format
-msgid ""
-"Answers come from %s. You need an API key: create it at the link below, "
-"or get one from your teacher."
+msgid "Answers come from %s. You need an API key: create it at the link below."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:55
+#: thonny/plugins/aia/_panel/config_page.py:67
+#, python-format
+msgid ""
+"%s does not accept this key. Check it, or create a new one at the link "
+"below."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/config_page.py:72
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:93
+#: thonny/plugins/aia/_panel/config_page.py:111
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:118
+#: thonny/plugins/aia/_panel/config_page.py:136
 msgid "Answer style:"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:139
+#: thonny/plugins/aia/_panel/config_page.py:157
 msgid ""
 "Socratic = guides you to the answer, Explanatory = explains and answers, "
 "Direct = short answer only"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:153
+#: thonny/plugins/aia/_panel/config_page.py:171
 msgid "Context:"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:160
+#: thonny/plugins/aia/_panel/config_page.py:178
 msgid "Automatically include current file as context"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:167
+#: thonny/plugins/aia/_panel/config_page.py:185
 msgid "Also include locally imported files"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:197
+#: thonny/plugins/aia/_panel/config_page.py:217
 msgid "The key is stored in plain text in Thonny's configuration file."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:202
+#: thonny/plugins/aia/_panel/config_page.py:222
 msgid "Model:"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:377
+#: thonny/plugins/aia/_panel/config_page.py:399
 #, python-format
 msgid "%s (default)"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:386
+#: thonny/plugins/aia/_panel/config_page.py:408
 msgid "Asking Ollama for the models on this computer..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:387
+#: thonny/plugins/aia/_panel/config_page.py:409
 msgid "The models Ollama has on this computer."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:388
+#: thonny/plugins/aia/_panel/config_page.py:410
 msgid "Ollama did not answer, so the models on this computer are unknown."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:391
+#: thonny/plugins/aia/_panel/config_page.py:417
 msgid "Enter the API key to see the models it can use."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:392
+#: thonny/plugins/aia/_panel/config_page.py:418
 msgid "Asking the provider for the models of this key..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:393
+#: thonny/plugins/aia/_panel/config_page.py:419
 msgid "The models this key can use."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/config_page.py:395
-msgid ""
-"The provider did not list the models of this key; these are the usual "
-"ones."
+#: thonny/plugins/aia/_panel/config_page.py:420
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:48
+#: thonny/plugins/aia/_panel/view.py:50
 msgid "Thinking..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:53
+#: thonny/plugins/aia/_panel/view.py:55
 msgid "Write a message to the assistant..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:61
+#: thonny/plugins/aia/_panel/view.py:63
 msgid "The assistant is resting..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:62
+#: thonny/plugins/aia/_panel/view.py:64
 msgid "The assistant is loafing around..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:63
+#: thonny/plugins/aia/_panel/view.py:65
 msgid "The assistant is out for lunch..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:64
+#: thonny/plugins/aia/_panel/view.py:66
 msgid "The assistant is having a coffee..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:65
+#: thonny/plugins/aia/_panel/view.py:67
 msgid "The assistant is reading a book..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:66
+#: thonny/plugins/aia/_panel/view.py:68
 msgid "The assistant is looking out of the window..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:67
+#: thonny/plugins/aia/_panel/view.py:69
 msgid "The assistant is stretching..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:79
+#: thonny/plugins/aia/_panel/view.py:81
 msgid "The assistant is waking up..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:256
+#: thonny/plugins/aia/_panel/view.py:261
 msgid "Send"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:466
+#: thonny/plugins/aia/_panel/view.py:489
 msgid "Clear the conversation?"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:467
+#: thonny/plugins/aia/_panel/view.py:490
 msgid "The whole conversation with AIA will be deleted. This cannot be undone."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:484
+#: thonny/plugins/aia/_panel/view.py:507
 msgid "You"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:493 thonny/plugins/aia/_panel/view.py:555
+#: thonny/plugins/aia/_panel/view.py:516 thonny/plugins/aia/_panel/view.py:579
 msgid "cancelled"
 msgstr ""
 

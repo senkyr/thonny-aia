@@ -2016,9 +2016,6 @@ msgstr "Include și fișierele importate local"
 msgid "Answer style:"
 msgstr "Stilul răspunsurilor:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Răspunsurile vin de la %s. Ai nevoie de o cheie API: creeaz-o la linkul de mai jos sau cere-o profesorului. O poți introduce și mai târziu în Instrumente > Opțiuni > Asistent AI."
-
 msgid "Automatically include current file as context"
 msgstr "Include automat fișierul curent ca context"
 
@@ -2085,9 +2082,6 @@ msgstr "Cheia este salvată ca text simplu în fișierul de configurare al Thonn
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Prea multe cereri sau cota contului s-a epuizat. Așteaptă puțin și încearcă din nou."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Furnizor necunoscut „%s”. Alege unul în Instrumente > Opțiuni > Asistent AI."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Folosește AIA, bazat pe AI, în locul Asistentului integrat"
 
@@ -2115,25 +2109,9 @@ msgstr "Ollama rulează și modelul %s este pregătit."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Rulează fără internet, are nevoie de aproximativ 14 GB de RAM liberă și, fără o placă grafică puternică, răspunde în 20–70 s."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Nu a fost ales încă niciun furnizor AI. Alege unul în Instrumente > Opțiuni > Asistent AI."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Răspunsurile vin de la %s. Ai nevoie de o cheie API: creeaz-o la linkul de mai jos sau cere-o profesorului."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Nu este ales niciun furnizor: AIA rămâne pornit, dar nu răspunde."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "Cheia API nu este setată. Introdu-o în Instrumente > Opțiuni > Asistent AI."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "Cheia API a fost respinsă. Verific-o în Instrumente > Opțiuni > Asistent AI."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2204,10 +2182,6 @@ msgid "The models this key can use."
 msgstr "Modelele pe care le poate folosi această cheie."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Furnizorul nu a listat modelele acestei chei; acestea sunt cele obișnuite."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Modelul %s nu este disponibil. Alege alt model în Instrumente > Opțiuni > Asistent AI."
 
@@ -2259,3 +2233,34 @@ msgstr "Ollama nu a răspuns, așa că modelele de pe acest calculator nu se cun
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Modelul %s nu încape în memoria liberă a calculatorului. Închide alte programe sau alege un model mai mic în Instrumente > Opțiuni > Asistent AI."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "Asistentul AI are nevoie de o cheie API sau de un model local."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "Cheia API a asistentului AI nu este validă. Asistentul are nevoie de o cheie API validă sau de un model local."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Configurează asistentul AI"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Răspunsurile vin de la %s. Ai nevoie de o cheie API: creeaz-o la linkul de mai jos."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s nu acceptă această cheie. Verific-o sau creează una nouă la linkul de mai jos."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Nu s-a putut realiza conexiunea cu furnizorul de AI, așa că acum cheia nu poate fi verificată."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Răspunsurile vin de la %s. Ai nevoie de o cheie API: creeaz-o la linkul de mai jos. O poți introduce și mai târziu în Instrumente > Opțiuni > Asistent AI."

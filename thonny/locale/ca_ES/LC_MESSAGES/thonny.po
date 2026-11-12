@@ -2016,9 +2016,6 @@ msgstr "Inclou també els fitxers importats localment"
 msgid "Answer style:"
 msgstr "Estil de resposta:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Les respostes les proporciona %s. Necessites una clau d'API: crea-la a l'enllaç de sota o demana-la al teu professor. També la pots introduir més tard a Eines > Opcions > Assistent d'IA."
-
 msgid "Automatically include current file as context"
 msgstr "Inclou automàticament el fitxer actual com a context"
 
@@ -2085,9 +2082,6 @@ msgstr "La clau es desa com a text sense xifrar al fitxer de configuració de Th
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Massa sol·licituds o s'ha esgotat la quota del compte. Espera un moment i torna-ho a provar."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Proveïdor desconegut «%s». Tria'n un a Eines > Opcions > Assistent d'IA."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Utilitza l'AIA basat en IA en lloc de l'Assistent integrat"
 
@@ -2115,25 +2109,9 @@ msgstr "Ollama s'està executant i el model %s està a punt."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Funciona sense internet, necessita uns 14 GB de RAM lliure i, sense una targeta gràfica potent, respon en 20-70 s."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Encara no s'ha triat cap proveïdor d'IA. Tria'n un a Eines > Opcions > Assistent d'IA."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Les respostes les proporciona %s. Necessites una clau d'API: crea-la a l'enllaç de sota o demana-la al teu professor."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "No s'ha triat cap proveïdor: l'AIA continua activat, però no respon."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "No s'ha definit la clau d'API. Introdueix-la a Eines > Opcions > Assistent d'IA."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "S'ha rebutjat la clau d'API. Comprova-la a Eines > Opcions > Assistent d'IA."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2204,10 +2182,6 @@ msgid "The models this key can use."
 msgstr "Els models que pot fer servir aquesta clau."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "El proveïdor no ha llistat els models d'aquesta clau; aquests són els habituals."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "El model %s no està disponible. Tria un altre model a Eines > Opcions > Assistent d'IA."
 
@@ -2259,3 +2233,34 @@ msgstr "Ollama no ha respost, així que no se saben els models d'aquest ordinado
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "El model %s no cap a la memòria lliure de l'ordinador. Tanca altres programes o tria un model més petit a Eines > Opcions > Assistent d'IA."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "L'assistent d'IA necessita una clau d'API o un model local."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "La clau d'API de l'assistent d'IA no és vàlida. L'assistent necessita una clau d'API vàlida o un model local."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Configura l'assistent d'IA"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Les respostes les proporciona %s. Necessites una clau d'API: crea-la a l'enllaç de sota."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s no accepta aquesta clau. Comprova-la o crea'n una de nova a l'enllaç de sota."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "No s'ha pogut connectar amb el proveïdor d'IA, així que ara no es pot comprovar la clau."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Les respostes les proporciona %s. Necessites una clau d'API: crea-la a l'enllaç de sota. També la pots introduir més tard a Eines > Opcions > Assistent d'IA."

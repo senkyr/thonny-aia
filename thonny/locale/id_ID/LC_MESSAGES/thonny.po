@@ -2006,9 +2006,6 @@ msgstr "Sertakan juga file yang diimpor secara lokal"
 msgid "Answer style:"
 msgstr "Gaya jawaban:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Jawaban berasal dari %s. Anda memerlukan kunci API: buat di tautan di bawah, atau minta dari guru Anda. Anda juga dapat memasukkannya nanti di Tools > Options > Asisten AI."
-
 msgid "Automatically include current file as context"
 msgstr "Otomatis sertakan file saat ini sebagai konteks"
 
@@ -2075,9 +2072,6 @@ msgstr "Kunci disimpan sebagai teks biasa di file konfigurasi Thonny."
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Terlalu banyak permintaan atau kuota akun sudah habis. Tunggu sebentar lalu coba lagi."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Penyedia '%s' tidak dikenal. Pilih penyedia di Tools > Options > Asisten AI."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Gunakan AIA berbasis AI sebagai ganti Assistant bawaan"
 
@@ -2105,25 +2099,9 @@ msgstr "Ollama berjalan dan model %s sudah siap."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Berjalan tanpa internet, memerlukan sekitar 14 GB RAM kosong dan, tanpa kartu grafis yang kuat, menjawab dalam 20-70 detik."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Belum ada penyedia AI yang dipilih. Pilih penyedia di Tools > Options > Asisten AI."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Jawaban berasal dari %s. Anda memerlukan kunci API: buat di tautan di bawah, atau minta dari guru Anda."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Belum ada penyedia yang dipilih: AIA tetap aktif, tetapi tidak menjawab."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "Kunci API belum diatur. Masukkan di Tools > Options > Asisten AI."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "Kunci API ditolak. Periksa di Tools > Options > Asisten AI."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2194,10 +2172,6 @@ msgid "The models this key can use."
 msgstr "Model yang bisa dipakai kunci ini."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Penyedia tidak mencantumkan model kunci ini; ini model yang biasa."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Model %s tidak tersedia. Pilih model lain di Tools > Options > Asisten AI."
 
@@ -2249,3 +2223,34 @@ msgstr "Ollama tidak menjawab, jadi model di komputer ini tidak diketahui."
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Model %s tidak muat di memori kosong komputer. Tutup program lain, atau pilih model yang lebih kecil di Tools > Options > Asisten AI."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "Asisten AI memerlukan kunci API atau model lokal."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "Kunci API asisten AI tidak valid. Asisten memerlukan kunci API yang valid atau model lokal."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Atur asisten AI"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Jawaban berasal dari %s. Anda memerlukan kunci API: buat di tautan di bawah."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s tidak menerima kunci ini. Periksa kunci tersebut, atau buat yang baru di tautan di bawah."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Tidak dapat terhubung ke penyedia AI, jadi kunci belum dapat diperiksa sekarang."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Jawaban berasal dari %s. Anda memerlukan kunci API: buat di tautan di bawah. Anda juga dapat memasukkannya nanti di Tools > Options > Asisten AI."

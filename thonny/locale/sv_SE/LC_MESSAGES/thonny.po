@@ -1985,9 +1985,6 @@ msgstr "Skicka även lokalt importerade filer"
 msgid "Answer style:"
 msgstr "Svarsstil:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Svaren kommer från %s. Du behöver en API-nyckel: skapa den via länken nedan, eller få en av din lärare. Du kan också ange den senare i Verktyg > Alternativ > AI-assistent."
-
 msgid "Automatically include current file as context"
 msgstr "Skicka automatiskt aktuell fil som kontext"
 
@@ -2054,9 +2051,6 @@ msgstr "Nyckeln sparas som klartext i Thonnys konfigurationsfil."
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "För många förfrågningar, eller så är kontots kvot slut. Vänta en stund och försök igen."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Okänd leverantör ”%s”. Välj en i Verktyg > Alternativ > AI-assistent."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Använd AI-baserade AIA i stället för den inbyggda Assistenten"
 
@@ -2084,25 +2078,9 @@ msgstr "Ollama körs och modellen %s är redo."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Den körs utan internet, behöver cirka 14 GB ledigt RAM och svarar på 20–70 s utan ett kraftfullt grafikkort."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Ingen AI-leverantör har valts ännu. Välj en i Verktyg > Alternativ > AI-assistent."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Svaren kommer från %s. Du behöver en API-nyckel: skapa den via länken nedan, eller få en av din lärare."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Ingen leverantör är vald: AIA förblir påslaget, men svarar inte."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "Ingen API-nyckel är angiven. Ange den i Verktyg > Alternativ > AI-assistent."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API-nyckeln avvisades. Kontrollera den i Verktyg > Alternativ > AI-assistent."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2173,10 +2151,6 @@ msgid "The models this key can use."
 msgstr "Modellerna som den här nyckeln kan använda."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Leverantören listade inte modellerna för den här nyckeln; det här är de vanliga."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Modellen %s är inte tillgänglig. Välj en annan modell i Verktyg > Alternativ > AI-assistent."
 
@@ -2228,3 +2202,34 @@ msgstr "Ollama svarade inte, så modellerna på den här datorn är okända."
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Modellen %s får inte plats i datorns lediga minne. Stäng andra program eller välj en mindre modell i Verktyg > Alternativ > AI-assistent."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "AI-assistenten behöver en API-nyckel eller en lokal modell."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "AI-assistentens API-nyckel är ogiltig. Assistenten behöver en giltig API-nyckel eller en lokal modell."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Konfigurera AI-assistenten"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Svaren kommer från %s. Du behöver en API-nyckel: skapa den via länken nedan."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s godtar inte den här nyckeln. Kontrollera den, eller skapa en ny via länken nedan."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Det gick inte att ansluta till AI-leverantören, så nyckeln kan inte kontrolleras nu."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Svaren kommer från %s. Du behöver en API-nyckel: skapa den via länken nedan. Du kan också ange den senare i Verktyg > Alternativ > AI-assistent."

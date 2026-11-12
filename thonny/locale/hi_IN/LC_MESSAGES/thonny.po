@@ -2008,9 +2008,6 @@ msgstr "लोकली इम्पोर्ट की गई फ़ाइल�
 msgid "Answer style:"
 msgstr "जवाब की शैली:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "जवाब %s से आते हैं। आपको एक API कुंजी चाहिए: नीचे दिए लिंक पर बनाएँ, या अपने शिक्षक से लें। इसे बाद में टूल्स > ऑप्शनस > AI असिस्टेंट में भी डाला जा सकता है।"
-
 msgid "Automatically include current file as context"
 msgstr "मौजूदा फ़ाइल को अपने-आप संदर्भ के रूप में शामिल करें"
 
@@ -2077,9 +2074,6 @@ msgstr "कुंजी Thonny की कॉन्फ़िगरेशन फ�
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "बहुत ज़्यादा अनुरोध, या खाते का कोटा खत्म हो गया है। थोड़ा रुकें और फिर से कोशिश करें।"
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "अज्ञात प्रोवाइडर '%s'। टूल्स > ऑप्शनस > AI असिस्टेंट में कोई प्रोवाइडर चुनें।"
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "बिल्ट-इन असिस्टेंट की जगह AI-आधारित AIA इस्तेमाल करें"
 
@@ -2107,25 +2101,9 @@ msgstr "Ollama चल रहा है और मॉडल %s तैयार �
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "यह बिना इंटरनेट के चलता है, इसे लगभग 14 GB खाली RAM चाहिए और दमदार ग्राफ़िक्स कार्ड के बिना यह 20-70 सेकंड में जवाब देता है।"
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "अभी तक कोई AI प्रोवाइडर नहीं चुना गया है। टूल्स > ऑप्शनस > AI असिस्टेंट में कोई प्रोवाइडर चुनें।"
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "जवाब %s से आते हैं। आपको एक API कुंजी चाहिए: नीचे दिए लिंक पर बनाएँ, या अपने शिक्षक से लें।"
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "कोई प्रोवाइडर नहीं चुना गया है: AIA चालू रहता है, लेकिन जवाब नहीं देता।"
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "API कुंजी सेट नहीं है। इसे टूल्स > ऑप्शनस > AI असिस्टेंट में डालें।"
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API कुंजी अस्वीकार कर दी गई। इसे टूल्स > ऑप्शनस > AI असिस्टेंट में जाँचें।"
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2196,10 +2174,6 @@ msgid "The models this key can use."
 msgstr "वे मॉडल जिन्हें यह कुंजी इस्तेमाल कर सकती है।"
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "प्रदाता ने इस कुंजी के मॉडल नहीं बताए; ये सामान्य मॉडल हैं।"
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "मॉडल %s उपलब्ध नहीं है। टूल्स > ऑप्शनस > AI असिस्टेंट में कोई दूसरा मॉडल चुनें।"
 
@@ -2251,3 +2225,34 @@ msgstr "Ollama ने जवाब नहीं दिया, इसलिए �
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "मॉडल %s कंप्यूटर की खाली मेमोरी में नहीं समाता। दूसरे प्रोग्राम बंद करें या टूल्स > ऑप्शनस > AI असिस्टेंट में कोई छोटा मॉडल चुनें।"
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "AI असिस्टेंट को एक API कुंजी या एक लोकल मॉडल चाहिए।"
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "AI असिस्टेंट की API कुंजी मान्य नहीं है। असिस्टेंट को एक मान्य API कुंजी या एक लोकल मॉडल चाहिए।"
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "AI असिस्टेंट सेट करें"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "जवाब %s से आते हैं। आपको एक API कुंजी चाहिए: नीचे दिए लिंक पर बनाएँ।"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s यह कुंजी स्वीकार नहीं करता। इसे जाँचें, या नीचे दिए लिंक पर नई कुंजी बनाएँ।"
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "AI प्रदाता से कनेक्ट नहीं हो सका, इसलिए अभी कुंजी की जाँच नहीं हो सकती।"
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "जवाब %s से आते हैं। आपको एक API कुंजी चाहिए: नीचे दिए लिंक पर बनाएँ। इसे बाद में टूल्स > ऑप्शनस > AI असिस्टेंट में भी डाला जा सकता है।"

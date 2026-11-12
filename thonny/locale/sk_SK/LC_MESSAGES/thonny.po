@@ -2011,9 +2011,6 @@ msgstr "Posielať aj lokálne importované súbory"
 msgid "Answer style:"
 msgstr "Štýl odpovedí:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Odpovede poskytuje %s. Potrebuješ API kľúč: vytvor si ho na odkaze nižšie, alebo ti ho dá vyučujúci. Zadať ho môžeš aj neskôr v Nástroje > Možnosti > AI asistent."
-
 msgid "Automatically include current file as context"
 msgstr "Automaticky posielať aktuálny súbor ako kontext"
 
@@ -2080,9 +2077,6 @@ msgstr "Kľúč sa ukladá ako obyčajný text do konfiguračného súboru Thonn
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Príliš veľa požiadaviek alebo je vyčerpaný limit účtu. Chvíľu počkaj a skús to znova."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Neznámy poskytovateľ „%s“. Vyber ho v Nástroje > Možnosti > AI asistent."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Používať AI asistenta (AIA) namiesto vstavaného Asistenta"
 
@@ -2110,25 +2104,9 @@ msgstr "Ollama beží a model %s je pripravený."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Beží bez internetu, potrebuje asi 14 GB voľnej pamäte RAM a bez výkonnej grafickej karty odpovedá za 20–70 s."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Zatiaľ nie je vybraný poskytovateľ AI. Vyber ho v Nástroje > Možnosti > AI asistent."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Odpovede poskytuje %s. Potrebuješ API kľúč: vytvor si ho na odkaze nižšie, alebo ti ho dá vyučujúci."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Nie je vybraný žiadny poskytovateľ: AIA zostáva zapnutá, ale neodpovedá."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "API kľúč nie je nastavený. Zadaj ho v Nástroje > Možnosti > AI asistent."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API kľúč bol odmietnutý. Skontroluj ho v Nástroje > Možnosti > AI asistent."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2199,10 +2177,6 @@ msgid "The models this key can use."
 msgstr "Modely, ktoré tento kľúč môže používať."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Poskytovateľ modely tohto kľúča nevypísal, toto sú bežné."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Model %s nie je k dispozícii. Vyber iný model v Nástroje > Možnosti > AI asistent."
 
@@ -2254,3 +2228,34 @@ msgstr "Ollama neodpovedala, takže modely v tomto počítači nie sú známe."
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Model %s sa nezmestí do voľnej pamäte počítača. Zatvor iné programy alebo vyber menší model v Nástroje > Možnosti > AI asistent."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "AI asistent potrebuje API kľúč alebo lokálny model."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "Kľúč k AI asistentovi je neplatný. Asistent potrebuje platný API kľúč alebo lokálny model."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Nastaviť AI asistenta"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Odpovede poskytuje %s. Potrebuješ API kľúč: vytvor si ho na odkaze nižšie."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "Tento kľúč %s neprijíma. Skontroluj ho alebo vytvor nový na odkaze nižšie."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Nepodarilo sa pripojiť k poskytovateľovi AI, kľúč teraz nemožno overiť."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Odpovede poskytuje %s. Potrebuješ API kľúč: vytvor si ho na odkaze nižšie. Zadať ho môžeš aj neskôr v Nástroje > Možnosti > AI asistent."

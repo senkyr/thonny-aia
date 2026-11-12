@@ -2016,9 +2016,6 @@ msgstr "ローカルでインポートしたファイルも含める"
 msgid "Answer style:"
 msgstr "回答スタイル:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "回答は %s から提供されます。APIキーが必要です。下のリンクから作成するか、先生からもらってください。後から ツール > オプション > AIアシスタント で入力することもできます。"
-
 msgid "Automatically include current file as context"
 msgstr "現在のファイルを自動的にコンテキストとして含める"
 
@@ -2085,9 +2082,6 @@ msgstr "キーはThonnyの設定ファイルに平文で保存されます。"
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "リクエストが多すぎるか、アカウントの利用枠を使い切りました。しばらく待ってからもう一度お試しください。"
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "不明なプロバイダー「%s」です。ツール > オプション > AIアシスタント で選択してください。"
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "内蔵のアシスタントの代わりにAIベースのAIAを使う"
 
@@ -2115,25 +2109,9 @@ msgstr "Ollamaは起動しており、モデル %s の準備ができていま�
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "オフラインで動作し、約14 GBの空きRAMが必要です。高性能なグラフィックスカードがない場合、回答に20～70秒かかります。"
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "AIプロバイダーがまだ選択されていません。ツール > オプション > AIアシスタント で選択してください。"
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "回答は %s から提供されます。APIキーが必要です。下のリンクから作成するか、先生からもらってください。"
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "プロバイダーが選択されていません。AIAはオンのままですが、応答しません。"
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "APIキーが設定されていません。ツール > オプション > AIアシスタント で入力してください。"
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "APIキーが拒否されました。ツール > オプション > AIアシスタント で確認してください。"
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2204,10 +2182,6 @@ msgid "The models this key can use."
 msgstr "このキーで使えるモデルです。"
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "プロバイダーがこのキーのモデルを返しませんでした。通常のモデルを表示しています。"
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "モデル %s は利用できません。ツール > オプション > AIアシスタント で別のモデルを選んでください。"
 
@@ -2259,3 +2233,34 @@ msgstr "Ollamaが応答しなかったため、このコンピューターのモ
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "モデル %s はコンピューターの空きメモリーに収まりません。ほかのプログラムを閉じるか、ツール > オプション > AIアシスタント でもっと小さいモデルを選んでください。"
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "AIアシスタントにはAPIキーかローカルモデルが必要です。"
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "AIアシスタントのAPIキーが無効です。有効なAPIキーかローカルモデルが必要です。"
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "AIアシスタントを設定"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "回答は %s から提供されます。APIキーが必要です。下のリンクから作成してください。"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s はこのキーを受け付けていません。キーを確認するか、下のリンクから新しいキーを作成してください。"
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "AIプロバイダーに接続できなかったため、今はキーを確認できません。"
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "回答は %s から提供されます。APIキーが必要です。下のリンクから作成してください。後から ツール > オプション > AIアシスタント で入力することもできます。"

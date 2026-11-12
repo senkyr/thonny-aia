@@ -2016,9 +2016,6 @@ msgstr "Sartu lokalki inportatutako fitxategiak ere"
 msgid "Answer style:"
 msgstr "Erantzun-estiloa:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Erantzunen hornitzailea: %s. API gako bat behar duzu: sortu beheko estekan, edo eskatu irakasleari. Geroago ere sar dezakezu hemen: Tresnak > Aukerak > AA laguntzailea."
-
 msgid "Automatically include current file as context"
 msgstr "Sartu uneko fitxategia testuinguru gisa automatikoki"
 
@@ -2085,9 +2082,6 @@ msgstr "Gakoa testu arrunt gisa gordetzen da Thonnyren konfigurazio-fitxategian.
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Eskaera gehiegi, edo kontuaren kuota agortu da. Itxaron une bat eta saiatu berriro."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "«%s» hornitzaile ezezaguna. Hautatu bat hemen: Tresnak > Aukerak > AA laguntzailea."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Erabili AAn oinarritutako AIA, integratutako Laguntzailearen ordez"
 
@@ -2115,25 +2109,9 @@ msgstr "Ollama martxan dago eta %s eredua prest dago."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Internetik gabe dabil, 14 GB inguru RAM libre behar ditu eta, txartel grafiko indartsurik gabe, 20-70 segundotan erantzuten du."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Oraindik ez da AA hornitzailerik hautatu. Hautatu bat hemen: Tresnak > Aukerak > AA laguntzailea."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Erantzunen hornitzailea: %s. API gako bat behar duzu: sortu beheko estekan, edo eskatu irakasleari."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Ez da hornitzailerik hautatu: AIA piztuta geratzen da, baina ez du erantzuten."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "API gakoa ez dago ezarrita. Sartu hemen: Tresnak > Aukerak > AA laguntzailea."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API gakoa baztertu egin da. Egiaztatu hemen: Tresnak > Aukerak > AA laguntzailea."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2204,10 +2182,6 @@ msgid "The models this key can use."
 msgstr "Gako honek erabil ditzakeen ereduak."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Hornitzaileak ez ditu gako honen ereduak zerrendatu; hauek dira ohikoak."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "%s eredua ez dago erabilgarri. Aukeratu beste eredu bat hemen: Tresnak > Aukerak > AA laguntzailea."
 
@@ -2259,3 +2233,34 @@ msgstr "Ollamak ez du erantzun; beraz, ordenagailu honetako ereduak ez dira ezag
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "%s eredua ez da sartzen ordenagailuaren memoria librean. Itxi beste programa batzuk edo aukeratu eredu txikiago bat hemen: Tresnak > Aukerak > AA laguntzailea."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "AA laguntzaileak API gako bat edo eredu lokal bat behar du."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "AA laguntzailearen API gakoa ez da baliozkoa. Laguntzaileak baliozko API gako bat edo eredu lokal bat behar du."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Konfiguratu AA laguntzailea"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Erantzunen hornitzailea: %s. API gako bat behar duzu: sortu beheko estekan."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s hornitzaileak ez du gako hau onartzen. Egiaztatu, edo sortu berri bat beheko estekan."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Ezin izan da AA hornitzailearekin konektatu, beraz ezin da gakoa orain egiaztatu."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Erantzunen hornitzailea: %s. API gako bat behar duzu: sortu beheko estekan. Geroago ere sar dezakezu hemen: Tresnak > Aukerak > AA laguntzailea."

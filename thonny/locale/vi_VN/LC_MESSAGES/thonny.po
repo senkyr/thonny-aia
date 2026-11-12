@@ -2015,9 +2015,6 @@ msgstr "Gửi kèm cả các tệp được import cục bộ"
 msgid "Answer style:"
 msgstr "Kiểu trả lời:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Câu trả lời đến từ %s. Bạn cần một khóa API: hãy tạo khóa tại liên kết bên dưới hoặc xin giáo viên của bạn. Bạn cũng có thể nhập khóa sau trong Công cụ > Thiết lập > Trợ lý AI."
-
 msgid "Automatically include current file as context"
 msgstr "Tự động gửi tệp hiện tại làm ngữ cảnh"
 
@@ -2084,9 +2081,6 @@ msgstr "Khóa được lưu dưới dạng văn bản thuần trong tệp cấu 
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Quá nhiều yêu cầu hoặc tài khoản đã hết hạn mức. Hãy chờ một lát rồi thử lại."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Không rõ nhà cung cấp '%s'. Hãy chọn một nhà cung cấp trong Công cụ > Thiết lập > Trợ lý AI."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Dùng AIA dựa trên AI thay cho Trợ lý tích hợp sẵn"
 
@@ -2114,25 +2108,9 @@ msgstr "Ollama đang chạy và mô hình %s đã sẵn sàng."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Chạy ngoại tuyến, cần khoảng 14 GB RAM trống; nếu không có card đồ họa mạnh, mỗi câu trả lời mất 20-70 giây."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Chưa chọn nhà cung cấp AI. Hãy chọn một nhà cung cấp trong Công cụ > Thiết lập > Trợ lý AI."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Câu trả lời đến từ %s. Bạn cần một khóa API: hãy tạo khóa tại liên kết bên dưới hoặc xin giáo viên của bạn."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Chưa chọn nhà cung cấp nào: AIA vẫn được bật, nhưng không trả lời."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "Chưa đặt khóa API. Hãy nhập khóa trong Công cụ > Thiết lập > Trợ lý AI."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "Khóa API bị từ chối. Hãy kiểm tra trong Công cụ > Thiết lập > Trợ lý AI."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2203,10 +2181,6 @@ msgid "The models this key can use."
 msgstr "Các mô hình mà khóa này có thể dùng."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Nhà cung cấp không liệt kê mô hình của khóa này; đây là các mô hình thường dùng."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Mô hình %s không khả dụng. Hãy chọn mô hình khác trong Công cụ > Thiết lập > Trợ lý AI."
 
@@ -2258,3 +2232,34 @@ msgstr "Ollama không phản hồi, nên chưa biết trên máy tính này có 
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Mô hình %s không vừa với bộ nhớ trống của máy tính. Hãy đóng các chương trình khác hoặc chọn mô hình nhỏ hơn trong Công cụ > Thiết lập > Trợ lý AI."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "Trợ lý AI cần một khóa API hoặc một mô hình cục bộ."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "Khóa API của trợ lý AI không hợp lệ. Trợ lý cần một khóa API hợp lệ hoặc một mô hình cục bộ."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Thiết lập trợ lý AI"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Câu trả lời đến từ %s. Bạn cần một khóa API: hãy tạo khóa tại liên kết bên dưới."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s không chấp nhận khóa này. Hãy kiểm tra lại hoặc tạo khóa mới tại liên kết bên dưới."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Không thể kết nối với nhà cung cấp AI nên hiện chưa thể kiểm tra khóa."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Câu trả lời đến từ %s. Bạn cần một khóa API: hãy tạo khóa tại liên kết bên dưới. Bạn cũng có thể nhập khóa sau trong Công cụ > Thiết lập > Trợ lý AI."

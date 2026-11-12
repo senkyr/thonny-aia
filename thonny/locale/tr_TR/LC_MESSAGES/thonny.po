@@ -2015,9 +2015,6 @@ msgstr "Yerel olarak içe aktarılan dosyaları da ekle"
 msgid "Answer style:"
 msgstr "Yanıt stili:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Yanıtlar %s tarafından sağlanır. Bir API anahtarına ihtiyacın var: aşağıdaki bağlantıdan oluştur veya öğretmeninden al. Anahtarı daha sonra Araçlar > Seçenekler > AI Yardımcısı bölümünde de girebilirsin."
-
 msgid "Automatically include current file as context"
 msgstr "Geçerli dosyayı bağlam olarak otomatik ekle"
 
@@ -2084,9 +2081,6 @@ msgstr "Anahtar, Thonny'nin yapılandırma dosyasında düz metin olarak saklan�
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Çok fazla istek var veya hesabın kotası doldu. Biraz bekleyip tekrar dene."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Bilinmeyen sağlayıcı: '%s'. Araçlar > Seçenekler > AI Yardımcısı bölümünden bir sağlayıcı seç."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Yerleşik Yardımcı yerine yapay zekâ tabanlı AIA'yı kullan"
 
@@ -2114,25 +2108,9 @@ msgstr "Ollama çalışıyor ve %s modeli hazır."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "İnternetsiz çalışır, yaklaşık 14 GB boş RAM gerektirir ve güçlü bir ekran kartı yoksa 20-70 saniyede yanıt verir."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Henüz bir AI sağlayıcısı seçilmedi. Araçlar > Seçenekler > AI Yardımcısı bölümünden bir sağlayıcı seç."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Yanıtlar %s tarafından sağlanır. Bir API anahtarına ihtiyacın var: aşağıdaki bağlantıdan oluştur veya öğretmeninden al."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Hiçbir sağlayıcı seçilmedi: AIA açık kalır, ancak yanıt vermez."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "API anahtarı ayarlanmamış. Araçlar > Seçenekler > AI Yardımcısı bölümünde gir."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API anahtarı reddedildi. Araçlar > Seçenekler > AI Yardımcısı bölümünden kontrol et."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2203,10 +2181,6 @@ msgid "The models this key can use."
 msgstr "Bu anahtarın kullanabileceği modeller."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Sağlayıcı bu anahtarın modellerini listelemedi; bunlar olağan modeller."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "%s modeli kullanılamıyor. Araçlar > Seçenekler > AI Yardımcısı bölümünde başka bir model seç."
 
@@ -2258,3 +2232,34 @@ msgstr "Ollama yanıt vermedi, bu yüzden bu bilgisayardaki modeller bilinmiyor.
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "%s modeli bilgisayarın boş belleğine sığmıyor. Başka programları kapat ya da Araçlar > Seçenekler > AI Yardımcısı bölümünde daha küçük bir model seç."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "AI Yardımcısının bir API anahtarına veya yerel bir modele ihtiyacı var."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "AI Yardımcısının API anahtarı geçersiz. Yardımcının geçerli bir API anahtarına veya yerel bir modele ihtiyacı var."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "AI Yardımcısını ayarla"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Yanıtlar %s tarafından sağlanır. Bir API anahtarına ihtiyacın var: aşağıdaki bağlantıdan oluştur."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s bu anahtarı kabul etmiyor. Anahtarı kontrol et veya aşağıdaki bağlantıdan yeni bir tane oluştur."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "AI sağlayıcısına bağlanılamadı, bu yüzden anahtar şu anda kontrol edilemiyor."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Yanıtlar %s tarafından sağlanır. Bir API anahtarına ihtiyacın var: aşağıdaki bağlantıdan oluştur. Anahtarı daha sonra Araçlar > Seçenekler > AI Yardımcısı bölümünde de girebilirsin."

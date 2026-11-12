@@ -2007,9 +2007,6 @@ msgstr "Να συμπεριλαμβάνονται και τα τοπικά ει�
 msgid "Answer style:"
 msgstr "Ύφος απαντήσεων:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Οι απαντήσεις προέρχονται από %s. Χρειάζεσαι κλειδί API: δημιούργησέ το από τον παρακάτω σύνδεσμο ή ζήτησέ το από τον καθηγητή σου. Μπορείς επίσης να το εισαγάγεις αργότερα στο Εργαλεία > Επιλογές > Βοηθός ΤΝ."
-
 msgid "Automatically include current file as context"
 msgstr "Αυτόματη συμπερίληψη του τρέχοντος αρχείου ως πλαίσιο"
 
@@ -2076,9 +2073,6 @@ msgstr "Το κλειδί αποθηκεύεται ως απλό κείμενο 
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Πάρα πολλά αιτήματα ή εξαντλήθηκε το όριο του λογαριασμού. Περίμενε λίγο και δοκίμασε ξανά."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Άγνωστος πάροχος «%s». Επίλεξε έναν στο Εργαλεία > Επιλογές > Βοηθός ΤΝ."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Χρήση του AIA με ΤΝ αντί του ενσωματωμένου Βοηθού"
 
@@ -2106,25 +2100,9 @@ msgstr "Το Ollama εκτελείται και το μοντέλο %s είνα�
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Λειτουργεί χωρίς διαδίκτυο, χρειάζεται περίπου 14 GB ελεύθερης μνήμης RAM και, χωρίς ισχυρή κάρτα γραφικών, απαντά σε 20–70 δευτ."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Δεν έχει επιλεγεί ακόμη πάροχος ΤΝ. Επίλεξε έναν στο Εργαλεία > Επιλογές > Βοηθός ΤΝ."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Οι απαντήσεις προέρχονται από %s. Χρειάζεσαι κλειδί API: δημιούργησέ το από τον παρακάτω σύνδεσμο ή ζήτησέ το από τον καθηγητή σου."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Δεν έχει επιλεγεί πάροχος: το AIA παραμένει ενεργό, αλλά δεν απαντά."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "Δεν έχει οριστεί κλειδί API. Πληκτρολόγησέ το στο Εργαλεία > Επιλογές > Βοηθός ΤΝ."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "Το κλειδί API απορρίφθηκε. Έλεγξέ το στο Εργαλεία > Επιλογές > Βοηθός ΤΝ."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2195,10 +2173,6 @@ msgid "The models this key can use."
 msgstr "Τα μοντέλα που μπορεί να χρησιμοποιήσει αυτό το κλειδί."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Ο πάροχος δεν έδωσε τα μοντέλα αυτού του κλειδιού· αυτά είναι τα συνηθισμένα."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Το μοντέλο %s δεν είναι διαθέσιμο. Διάλεξε άλλο μοντέλο στο Εργαλεία > Επιλογές > Βοηθός ΤΝ."
 
@@ -2250,3 +2224,34 @@ msgstr "Το Ollama δεν απάντησε, οπότε τα μοντέλα σε
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Το μοντέλο %s δεν χωράει στην ελεύθερη μνήμη του υπολογιστή. Κλείσε άλλα προγράμματα ή διάλεξε μικρότερο μοντέλο στο Εργαλεία > Επιλογές > Βοηθός ΤΝ."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "Ο βοηθός ΤΝ χρειάζεται κλειδί API ή τοπικό μοντέλο."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "Το κλειδί API του βοηθού ΤΝ δεν είναι έγκυρο. Ο βοηθός χρειάζεται έγκυρο κλειδί API ή τοπικό μοντέλο."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Ρύθμιση βοηθού ΤΝ"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Οι απαντήσεις προέρχονται από %s. Χρειάζεσαι κλειδί API: δημιούργησέ το από τον παρακάτω σύνδεσμο."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "Αυτό το κλειδί δεν γίνεται δεκτό από %s. Έλεγξέ το ή δημιούργησε νέο από τον παρακάτω σύνδεσμο."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Δεν ήταν δυνατή η σύνδεση με τον πάροχο ΤΝ, οπότε το κλειδί δεν μπορεί να ελεγχθεί τώρα."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Οι απαντήσεις προέρχονται από %s. Χρειάζεσαι κλειδί API: δημιούργησέ το από τον παρακάτω σύνδεσμο. Μπορείς επίσης να το εισαγάγεις αργότερα στο Εργαλεία > Επιλογές > Βοηθός ΤΝ."

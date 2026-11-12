@@ -1998,9 +1998,6 @@ msgstr "Įtraukti ir vietoje importuotus failus"
 msgid "Answer style:"
 msgstr "Atsakymo stilius:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Atsakymus teikia %s. Tau reikia API rakto: susikurk jį toliau pateiktoje nuorodoje arba gauk iš mokytojo. Jį gali įvesti ir vėliau skiltyje Įrankiai > Nustatymai > DI asistentas."
-
 msgid "Automatically include current file as context"
 msgstr "Automatiškai įtraukti dabartinį failą kaip kontekstą"
 
@@ -2067,9 +2064,6 @@ msgstr "Raktas saugomas paprastu tekstu Thonny konfigūracijos faile."
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Per daug užklausų arba išnaudota paskyros kvota. Šiek tiek palauk ir bandyk dar kartą."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Nežinomas teikėjas „%s“. Pasirink teikėją skiltyje Įrankiai > Nustatymai > DI asistentas."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Naudoti DI pagrįstą AIA vietoj įtaisyto Asistento"
 
@@ -2097,25 +2091,9 @@ msgstr "Ollama veikia, o modelis %s paruoštas."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Veikia be interneto, reikia apie 14 GB laisvos RAM, o be galingos vaizdo plokštės atsako per 20–70 s."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "DI teikėjas dar nepasirinktas. Pasirink jį skiltyje Įrankiai > Nustatymai > DI asistentas."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Atsakymus teikia %s. Tau reikia API rakto: susikurk jį toliau pateiktoje nuorodoje arba gauk iš mokytojo."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Nepasirinktas joks teikėjas: AIA lieka įjungtas, bet neatsako."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "API raktas nenustatytas. Įvesk jį skiltyje Įrankiai > Nustatymai > DI asistentas."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API raktas atmestas. Patikrink jį skiltyje Įrankiai > Nustatymai > DI asistentas."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2186,10 +2164,6 @@ msgid "The models this key can use."
 msgstr "Modeliai, kuriuos gali naudoti šis raktas."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Teikėjas nepateikė šio rakto modelių; tai įprasti modeliai."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Modelis %s nepasiekiamas. Pasirink kitą modelį skiltyje Įrankiai > Nustatymai > DI asistentas."
 
@@ -2241,3 +2215,34 @@ msgstr "Ollama neatsakė, todėl šio kompiuterio modeliai nežinomi."
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Modelis %s netelpa į laisvą kompiuterio atmintį. Uždaryk kitas programas arba pasirink mažesnį modelį skiltyje Įrankiai > Nustatymai > DI asistentas."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "DI asistentui reikia API rakto arba vietinio modelio."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "DI asistento API raktas negalioja. Asistentui reikia galiojančio API rakto arba vietinio modelio."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Nustatyti DI asistentą"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Atsakymus teikia %s. Tau reikia API rakto: susikurk jį toliau pateiktoje nuorodoje."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s nepriima šio rakto. Patikrink jį arba susikurk naują toliau pateiktoje nuorodoje."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Nepavyko prisijungti prie DI paslaugų teikėjo, todėl rakto dabar patikrinti negalima."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Atsakymus teikia %s. Tau reikia API rakto: susikurk jį toliau pateiktoje nuorodoje. Jį gali įvesti ir vėliau skiltyje Įrankiai > Nustatymai > DI asistentas."

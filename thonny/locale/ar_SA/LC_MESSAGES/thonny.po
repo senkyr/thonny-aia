@@ -2003,9 +2003,6 @@ msgstr "تضمين الملفات المستوردة محليًا أيضًا"
 msgid "Answer style:"
 msgstr "أسلوب الإجابة:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "تأتي الإجابات من %s. يلزم مفتاح API: يمكن إنشاؤه من الرابط أدناه أو الحصول عليه من المعلم. ويمكن أيضًا إدخاله لاحقًا من أدوات > الخيارات > مساعد الذكاء الاصطناعي."
-
 msgid "Automatically include current file as context"
 msgstr "تضمين الملف الحالي تلقائيًا كسياق"
 
@@ -2072,9 +2069,6 @@ msgstr "يُخزَّن المفتاح كنص عادي في ملف إعدادات
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "طلبات كثيرة جدًا أو نفدت حصة الحساب. يُرجى الانتظار قليلًا ثم المحاولة مرة أخرى."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "مزوّد غير معروف «%s». يُرجى اختيار مزوّد من أدوات > الخيارات > مساعد الذكاء الاصطناعي."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "استخدام AIA المعتمد على الذكاء الاصطناعي بدلًا من المساعد المدمج"
 
@@ -2102,25 +2096,9 @@ msgstr "Ollama قيد التشغيل والنموذج %s جاهز."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "يعمل دون إنترنت، ويحتاج إلى نحو 14 GB من ذاكرة RAM الحرة، ومن دون بطاقة رسومات قوية يجيب خلال 20-70 ثانية."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "لم يتم اختيار مزوّد ذكاء اصطناعي بعد. يُرجى اختيار مزوّد من أدوات > الخيارات > مساعد الذكاء الاصطناعي."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "تأتي الإجابات من %s. يلزم مفتاح API: يمكن إنشاؤه من الرابط أدناه أو الحصول عليه من المعلم."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "لم يتم اختيار أي مزوّد: يبقى AIA مفعّلًا، لكنه لا يجيب."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "لم يتم تعيين مفتاح API. يُرجى إدخاله في أدوات > الخيارات > مساعد الذكاء الاصطناعي."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "تم رفض مفتاح API. يُرجى التحقق منه في أدوات > الخيارات > مساعد الذكاء الاصطناعي."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2191,10 +2169,6 @@ msgid "The models this key can use."
 msgstr "النماذج التي يمكن لهذا المفتاح استخدامها."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "لم يُدرج المزوّد نماذج هذا المفتاح؛ هذه هي النماذج المعتادة."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "النموذج %s غير متاح. يُرجى اختيار نموذج آخر في أدوات > الخيارات > مساعد الذكاء الاصطناعي."
 
@@ -2246,3 +2220,34 @@ msgstr "لم يُجب Ollama، لذا فالنماذج الموجودة على �
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "النموذج %s لا يتسع في الذاكرة المتاحة للحاسوب. يُرجى إغلاق البرامج الأخرى أو اختيار نموذج أصغر في أدوات > الخيارات > مساعد الذكاء الاصطناعي."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "يحتاج مساعد الذكاء الاصطناعي إلى مفتاح API أو نموذج محلي."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "مفتاح API لمساعد الذكاء الاصطناعي غير صالح. يحتاج المساعد إلى مفتاح API صالح أو نموذج محلي."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "إعداد مساعد الذكاء الاصطناعي"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "تأتي الإجابات من %s. يلزم مفتاح API: يمكن إنشاؤه من الرابط أدناه."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "لا يقبل %s هذا المفتاح. تحقّق منه أو أنشئ مفتاحًا جديدًا من الرابط أدناه."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "تعذّر الاتصال بمزوّد الذكاء الاصطناعي، لذا لا يمكن التحقق من المفتاح الآن."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "تأتي الإجابات من %s. يلزم مفتاح API: يمكن إنشاؤه من الرابط أدناه. ويمكن أيضًا إدخاله لاحقًا من أدوات > الخيارات > مساعد الذكاء الاصطناعي."

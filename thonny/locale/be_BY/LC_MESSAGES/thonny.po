@@ -2030,9 +2030,6 @@ msgstr "Дасылаць таксама лакальна імпартаваны�
 msgid "Answer style:"
 msgstr "Стыль адказаў:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Адказы дае %s. Табе патрэбны API-ключ: ствары яго па спасылцы ніжэй або атрымай у настаўніка. Ты таксама можаш увесці яго пазней у Інструменты > Налады > ШІ-памочнік."
-
 msgid "Automatically include current file as context"
 msgstr "Аўтаматычна дасылаць бягучы файл як кантэкст"
 
@@ -2099,9 +2096,6 @@ msgstr "Ключ захоўваецца як звычайны тэкст у фа
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Занадта шмат запытаў або вычарпаны ліміт уліковага запісу. Пачакай крыху і паспрабуй яшчэ раз."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Невядомы пастаўшчык «%s». Выберы пастаўшчыка ў Інструменты > Налады > ШІ-памочнік."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Выкарыстоўваць AIA на аснове ШІ замест убудаванага Памочніка"
 
@@ -2129,25 +2123,9 @@ msgstr "Ollama працуе, і мадэль %s гатова."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Працуе без інтэрнэту, патрабуе каля 14 ГБ вольнай аператыўнай памяці (RAM) і без магутнай відэакарты адказвае за 20–70 с."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Пастаўшчык ШІ яшчэ не выбраны. Выберы пастаўшчыка ў Інструменты > Налады > ШІ-памочнік."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Адказы дае %s. Табе патрэбны API-ключ: ствары яго па спасылцы ніжэй або атрымай у настаўніка."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Пастаўшчык не выбраны: AIA застаецца ўключаным, але не адказвае."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "API-ключ не зададзены. Увядзі яго ў Інструменты > Налады > ШІ-памочнік."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API-ключ быў адхілены. Правер яго ў Інструменты > Налады > ШІ-памочнік."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2218,10 +2196,6 @@ msgid "The models this key can use."
 msgstr "Мадэлі, якія можа выкарыстоўваць гэты ключ."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Пастаўшчык не паказаў мадэлі гэтага ключа; гэта звычайныя мадэлі."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Мадэль %s недаступная. Выберы іншую мадэль у Інструменты > Налады > ШІ-памочнік."
 
@@ -2273,3 +2247,34 @@ msgstr "Ollama не адказала, таму мадэлі на гэтым ка
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Мадэль %s не змяшчаецца ў вольную памяць камп’ютара. Зачыні іншыя праграмы або выберы меншую мадэль у Інструменты > Налады > ШІ-памочнік."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "ШІ-памочніку патрэбны API-ключ або лакальная мадэль."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "API-ключ ШІ-памочніка несапраўдны. Памочніку патрэбны сапраўдны API-ключ або лакальная мадэль."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Наладзіць ШІ-памочніка"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Адказы дае %s. Табе патрэбны API-ключ: ствары яго па спасылцы ніжэй."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s не прымае гэты ключ. Правер яго або ствары новы па спасылцы ніжэй."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Не ўдалося падключыцца да пастаўшчыка ШІ, таму ключ зараз нельга праверыць."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Адказы дае %s. Табе патрэбны API-ключ: ствары яго па спасылцы ніжэй. Ты таксама можаш увесці яго пазней у Інструменты > Налады > ШІ-памочнік."

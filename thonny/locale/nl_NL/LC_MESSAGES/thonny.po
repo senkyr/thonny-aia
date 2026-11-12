@@ -2000,9 +2000,6 @@ msgstr "Ook lokaal geïmporteerde bestanden meesturen"
 msgid "Answer style:"
 msgstr "Antwoordstijl:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "De antwoorden komen van %s. Je hebt een API-sleutel nodig: maak die aan via de onderstaande link of vraag er een aan je docent. Je kunt de sleutel ook later invoeren in Hulpmiddelen > Opties > AI-assistent."
-
 msgid "Automatically include current file as context"
 msgstr "Huidig bestand automatisch meesturen als context"
 
@@ -2069,9 +2066,6 @@ msgstr "De sleutel wordt als platte tekst opgeslagen in het configuratiebestand 
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Te veel verzoeken of het tegoed van het account is op. Wacht even en probeer het opnieuw."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Onbekende provider '%s'. Kies er een in Hulpmiddelen > Opties > AI-assistent."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "AI-gebaseerde AIA gebruiken in plaats van de ingebouwde Assistent"
 
@@ -2099,25 +2093,9 @@ msgstr "Ollama draait en het model %s is gereed."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Het werkt offline, heeft ongeveer 14 GB vrij RAM-geheugen nodig en antwoordt zonder krachtige videokaart in 20-70 s."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Er is nog geen AI-provider gekozen. Kies er een in Hulpmiddelen > Opties > AI-assistent."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "De antwoorden komen van %s. Je hebt een API-sleutel nodig: maak die aan via de onderstaande link of vraag er een aan je docent."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Er is geen provider gekozen: AIA blijft ingeschakeld, maar geeft geen antwoord."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "Geen API-sleutel ingesteld. Geef de sleutel op in Hulpmiddelen > Opties > AI-assistent."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "De API-sleutel is geweigerd. Controleer de sleutel in Hulpmiddelen > Opties > AI-assistent."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2188,10 +2166,6 @@ msgid "The models this key can use."
 msgstr "De modellen die deze sleutel kan gebruiken."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "De aanbieder gaf de modellen van deze sleutel niet; dit zijn de gebruikelijke."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Het model %s is niet beschikbaar. Kies een ander model in Hulpmiddelen > Opties > AI-assistent."
 
@@ -2243,3 +2217,34 @@ msgstr "Ollama antwoordde niet, dus de modellen op deze computer zijn onbekend."
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Het model %s past niet in het vrije geheugen van de computer. Sluit andere programma's of kies een kleiner model in Hulpmiddelen > Opties > AI-assistent."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "De AI-assistent heeft een API-sleutel of een lokaal model nodig."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "De API-sleutel van de AI-assistent is ongeldig. De assistent heeft een geldige API-sleutel of een lokaal model nodig."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "AI-assistent instellen"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "De antwoorden komen van %s. Je hebt een API-sleutel nodig: maak die aan via de onderstaande link."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s accepteert deze sleutel niet. Controleer hem of maak een nieuwe aan via de onderstaande link."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Kan geen verbinding maken met de AI-aanbieder, dus de sleutel kan nu niet worden gecontroleerd."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "De antwoorden komen van %s. Je hebt een API-sleutel nodig: maak die aan via de onderstaande link. Je kunt de sleutel ook later invoeren in Hulpmiddelen > Opties > AI-assistent."

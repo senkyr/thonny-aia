@@ -2009,9 +2009,6 @@ msgstr "Përfshi edhe kartelat e importuara lokalisht"
 msgid "Answer style:"
 msgstr "Stili i përgjigjeve:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Përgjigjet vijnë nga %s. Të duhet një çelës API: krijoje te lidhja më poshtë ose merre nga mësuesi. Mund ta futësh edhe më vonë te Mjete > Opsione > Asistenti AI."
-
 msgid "Automatically include current file as context"
 msgstr "Përfshi automatikisht kartelën aktuale si kontekst"
 
@@ -2078,9 +2075,6 @@ msgstr "Çelësi ruhet si tekst i thjeshtë në kartelën e konfigurimit të Tho
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Shumë kërkesa ose kuota e llogarisë është shteruar. Prit pak dhe provo përsëri."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Ofrues i panjohur «%s». Zgjidh një te Mjete > Opsione > Asistenti AI."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Përdor AIA-n me AI në vend të Asistentit të integruar"
 
@@ -2108,25 +2102,9 @@ msgstr "Ollama po ekzekutohet dhe modeli %s është gati."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Funksionon pa internet, i duhen rreth 14 GB RAM të lirë dhe, pa një kartë grafike të fuqishme, përgjigjet për 20–70 s."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Ende nuk është zgjedhur asnjë ofrues AI. Zgjidh një te Mjete > Opsione > Asistenti AI."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Përgjigjet vijnë nga %s. Të duhet një çelës API: krijoje te lidhja më poshtë ose merre nga mësuesi."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Nuk është zgjedhur asnjë ofrues: AIA mbetet e aktivizuar, por nuk përgjigjet."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "Çelësi API nuk është vendosur. Fute te Mjete > Opsione > Asistenti AI."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "Çelësi API u refuzua. Kontrolloje te Mjete > Opsione > Asistenti AI."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2197,10 +2175,6 @@ msgid "The models this key can use."
 msgstr "Modelet që mund të përdorë ky çelës."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Ofruesi nuk i listoi modelet e këtij çelësi; këto janë të zakonshmet."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Modeli %s nuk është i disponueshëm. Zgjidh një model tjetër te Mjete > Opsione > Asistenti AI."
 
@@ -2252,3 +2226,34 @@ msgstr "Ollama nuk u përgjigj, prandaj modelet në këtë kompjuter nuk dihen."
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Modeli %s nuk nxë në memorien e lirë të kompjuterit. Mbyll programe të tjera ose zgjidh një model më të vogël te Mjete > Opsione > Asistenti AI."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "Asistentit AI i duhet një çelës API ose një model lokal."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "Çelësi API i asistentit AI nuk është i vlefshëm. Asistentit i duhet një çelës API i vlefshëm ose një model lokal."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Konfiguro asistentin AI"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Përgjigjet vijnë nga %s. Të duhet një çelës API: krijoje te lidhja më poshtë."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s nuk e pranon këtë çelës. Kontrolloje ose krijo një të ri te lidhja më poshtë."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Nuk u arrit lidhja me ofruesin e AI-së, ndaj çelësi nuk mund të kontrollohet tani."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Përgjigjet vijnë nga %s. Të duhet një çelës API: krijoje te lidhja më poshtë. Mund ta futësh edhe më vonë te Mjete > Opsione > Asistenti AI."

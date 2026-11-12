@@ -2016,9 +2016,6 @@ msgstr "Taka líka með skrár sem eru fluttar inn staðbundið"
 msgid "Answer style:"
 msgstr "Svarstíll:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Svörin koma frá %s. Þú þarft API-lykil: búðu hann til á tenglinum hér fyrir neðan eða fáðu hann hjá kennaranum þínum. Þú getur líka slegið hann inn seinna í Tól > Valkostir > Gervigreindaraðstoð."
-
 msgid "Automatically include current file as context"
 msgstr "Taka núverandi skrá sjálfkrafa með sem samhengi"
 
@@ -2085,9 +2082,6 @@ msgstr "Lykillinn er vistaður sem venjulegur texti í stillingaskrá Thonny."
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Of margar fyrirspurnir eða kvóti aðgangsins er uppurinn. Bíddu aðeins og reyndu aftur."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Óþekktur þjónustuaðili '%s'. Veldu einn í Tól > Valkostir > Gervigreindaraðstoð."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Nota AIA með gervigreind í stað innbyggðrar Kóðarýni"
 
@@ -2115,25 +2109,9 @@ msgstr "Ollama er í gangi og líkanið %s er tilbúið."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Keyrir án internets, þarf um 14 GB af lausu vinnsluminni (RAM) og svarar á 20-70 sekúndum án öflugs skjákorts."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "Enginn gervigreindarþjónustuaðili hefur verið valinn enn. Veldu einn í Tól > Valkostir > Gervigreindaraðstoð."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Svörin koma frá %s. Þú þarft API-lykil: búðu hann til á tenglinum hér fyrir neðan eða fáðu hann hjá kennaranum þínum."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Enginn þjónustuaðili er valinn: AIA er áfram virkt en svarar ekki."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "API-lykill er ekki stilltur. Sláðu hann inn í Tól > Valkostir > Gervigreindaraðstoð."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API-lyklinum var hafnað. Athugaðu hann í Tól > Valkostir > Gervigreindaraðstoð."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2204,10 +2182,6 @@ msgid "The models this key can use."
 msgstr "Líkönin sem þessi lykill getur notað."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Þjónustuaðilinn gaf ekki upp líkön þessa lykils; þetta eru þau venjulegu."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Líkanið %s er ekki í boði. Veldu annað líkan í Tól > Valkostir > Gervigreindaraðstoð."
 
@@ -2259,3 +2233,34 @@ msgstr "Ollama svaraði ekki, svo ekki er vitað hvaða líkön eru á þessari 
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Líkanið %s kemst ekki fyrir í lausu minni tölvunnar. Lokaðu öðrum forritum eða veldu minna líkan í Tól > Valkostir > Gervigreindaraðstoð."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "Gervigreindaraðstoðin þarf API-lykil eða staðbundið líkan."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "API-lykill gervigreindaraðstoðarinnar er ógildur. Aðstoðin þarf gildan API-lykil eða staðbundið líkan."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Setja upp gervigreindaraðstoð"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Svörin koma frá %s. Þú þarft API-lykil: búðu hann til á tenglinum hér fyrir neðan."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s tekur ekki við þessum lykli. Athugaðu hann eða búðu til nýjan á tenglinum hér fyrir neðan."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "Ekki tókst að tengjast gervigreindarþjónustunni, svo ekki er hægt að athuga lykilinn núna."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Svörin koma frá %s. Þú þarft API-lykil: búðu hann til á tenglinum hér fyrir neðan. Þú getur líka slegið hann inn seinna í Tól > Valkostir > Gervigreindaraðstoð."

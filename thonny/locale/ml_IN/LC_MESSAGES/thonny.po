@@ -1966,9 +1966,6 @@ msgstr "പ്രാദേശികമായി ഇംപോർട്ട് ച�
 msgid "Answer style:"
 msgstr "മറുപടി ശൈലി:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "മറുപടികൾ %s-ൽ നിന്നാണ് വരുന്നത്. നിങ്ങൾക്ക് ഒരു API കീ വേണം: താഴെയുള്ള ലിങ്കിൽ അത് സൃഷ്ടിക്കുക, അല്ലെങ്കിൽ നിങ്ങളുടെ അധ്യാപകനിൽ നിന്ന് ഒന്ന് വാങ്ങുക. ഉപകരണങ്ങൾ > ഐച്ഛികങ്ങൾ > AI സഹായി എന്നതിൽ പിന്നീടും ഇത് നൽകാം."
-
 msgid "Automatically include current file as context"
 msgstr "നിലവിലെ ഫയൽ സന്ദർഭമായി സ്വയമേവ ഉൾപ്പെടുത്തുക"
 
@@ -2035,9 +2032,6 @@ msgstr "Thonny-യുടെ കോൺഫിഗറേഷൻ ഫയലിൽ ക�
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "അഭ്യർത്ഥനകൾ വളരെ കൂടുതലാണ്, അല്ലെങ്കിൽ അക്കൗണ്ടിന്റെ പരിധി തീർന്നു. അൽപ്പസമയം കാത്തിരുന്ന് വീണ്ടും ശ്രമിക്കുക."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "അജ്ഞാത ദാതാവ് '%s'. ഉപകരണങ്ങൾ > ഐച്ഛികങ്ങൾ > AI സഹായി എന്നതിൽ ഒന്ന് തിരഞ്ഞെടുക്കുക."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "ബിൽറ്റ്-ഇൻ സഹായിക്ക് പകരം AI അടിസ്ഥാനമാക്കിയ AIA ഉപയോഗിക്കുക"
 
@@ -2065,25 +2059,9 @@ msgstr "Ollama പ്രവർത്തിക്കുന്നുണ്ട്, 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "ഇന്റർനെറ്റ് ഇല്ലാതെ പ്രവർത്തിക്കുന്നു, ഏകദേശം 14 GB സ്വതന്ത്ര RAM വേണം; ശക്തമായ ഗ്രാഫിക്സ് കാർഡ് ഇല്ലെങ്കിൽ 20-70 സെക്കൻഡിൽ മറുപടി നൽകും."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "ഇതുവരെ AI ദാതാവിനെ തിരഞ്ഞെടുത്തിട്ടില്ല. ഉപകരണങ്ങൾ > ഐച്ഛികങ്ങൾ > AI സഹായി എന്നതിൽ ഒന്ന് തിരഞ്ഞെടുക്കുക."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "മറുപടികൾ %s-ൽ നിന്നാണ് വരുന്നത്. നിങ്ങൾക്ക് ഒരു API കീ വേണം: താഴെയുള്ള ലിങ്കിൽ അത് സൃഷ്ടിക്കുക, അല്ലെങ്കിൽ നിങ്ങളുടെ അധ്യാപകനിൽ നിന്ന് ഒന്ന് വാങ്ങുക."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "ഒരു ദാതാവിനെയും തിരഞ്ഞെടുത്തിട്ടില്ല: AIA ഓണായിത്തന്നെ തുടരും, പക്ഷേ മറുപടി നൽകില്ല."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "API കീ സജ്ജമാക്കിയിട്ടില്ല. ഉപകരണങ്ങൾ > ഐച്ഛികങ്ങൾ > AI സഹായി എന്നതിൽ അത് നൽകുക."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API കീ നിരസിക്കപ്പെട്ടു. ഉപകരണങ്ങൾ > ഐച്ഛികങ്ങൾ > AI സഹായി എന്നതിൽ അത് പരിശോധിക്കുക."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2154,10 +2132,6 @@ msgid "The models this key can use."
 msgstr "ഈ കീക്ക് ഉപയോഗിക്കാവുന്ന മോഡലുകൾ."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "ദാതാവ് ഈ കീയുടെ മോഡലുകൾ പട്ടികപ്പെടുത്തിയില്ല; ഇവ സാധാരണ മോഡലുകളാണ്."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "മോഡൽ %s ലഭ്യമല്ല. ഉപകരണങ്ങൾ > ഐച്ഛികങ്ങൾ > AI സഹായി എന്നതിൽ മറ്റൊരു മോഡൽ തിരഞ്ഞെടുക്കൂ."
 
@@ -2209,3 +2183,34 @@ msgstr "Ollama മറുപടി നൽകിയില്ല, അതിനാ�
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "മോഡൽ %s കമ്പ്യൂട്ടറിന്റെ ഒഴിവുള്ള മെമ്മറിയിൽ ഉൾക്കൊള്ളുന്നില്ല. മറ്റ് പ്രോഗ്രാമുകൾ അടയ്ക്കൂ, അല്ലെങ്കിൽ ഉപകരണങ്ങൾ > ഐച്ഛികങ്ങൾ > AI സഹായി എന്നതിൽ ചെറിയൊരു മോഡൽ തിരഞ്ഞെടുക്കൂ."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "AI സഹായിക്ക് ഒരു API കീ അല്ലെങ്കിൽ ഒരു ലോക്കൽ മോഡൽ വേണം."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "AI സഹായിയുടെ API കീ സാധുവല്ല. സഹായിക്ക് സാധുവായ ഒരു API കീ അല്ലെങ്കിൽ ഒരു ലോക്കൽ മോഡൽ വേണം."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "AI സഹായി സജ്ജമാക്കുക"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "മറുപടികൾ %s-ൽ നിന്നാണ് വരുന്നത്. നിങ്ങൾക്ക് ഒരു API കീ വേണം: താഴെയുള്ള ലിങ്കിൽ അത് സൃഷ്ടിക്കുക."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s ഈ കീ സ്വീകരിക്കുന്നില്ല. അത് പരിശോധിക്കുക, അല്ലെങ്കിൽ താഴെയുള്ള ലിങ്കിൽ പുതിയൊരെണ്ണം സൃഷ്ടിക്കുക."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "AI ദാതാവുമായി ബന്ധിപ്പിക്കാനായില്ല, അതിനാൽ ഇപ്പോൾ കീ പരിശോധിക്കാൻ കഴിയില്ല."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "മറുപടികൾ %s-ൽ നിന്നാണ് വരുന്നത്. നിങ്ങൾക്ക് ഒരു API കീ വേണം: താഴെയുള്ള ലിങ്കിൽ അത് സൃഷ്ടിക്കുക. ഉപകരണങ്ങൾ > ഐച്ഛികങ്ങൾ > AI സഹായി എന്നതിൽ പിന്നീടും ഇത് നൽകാം."

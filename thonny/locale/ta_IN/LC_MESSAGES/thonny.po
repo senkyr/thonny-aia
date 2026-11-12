@@ -2009,9 +2009,6 @@ msgstr "உள்ளூரில் இறக்குமதி செய்ய�
 msgid "Answer style:"
 msgstr "பதில் பாணி:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "பதில்கள் %s இலிருந்து வருகின்றன. உங்களுக்கு ஒரு API விசை தேவை: கீழே உள்ள இணைப்பில் அதை உருவாக்கவும், அல்லது உங்கள் ஆசிரியரிடமிருந்து பெறவும். கருவிகள் > விருப்பங்கள் > AI உதவியாளர் என்பதில் பின்னரும் அதை உள்ளிடலாம்."
-
 msgid "Automatically include current file as context"
 msgstr "தற்போதைய கோப்பைத் தானாகவே சூழலாகச் சேர்"
 
@@ -2078,9 +2075,6 @@ msgstr "விசை Thonny-இன் உள்ளமைவுக் கோப�
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "அதிகமான கோரிக்கைகள், அல்லது கணக்கின் ஒதுக்கீடு தீர்ந்துவிட்டது. சிறிது நேரம் காத்திருந்து மீண்டும் முயற்சிக்கவும்."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "அறியப்படாத வழங்குநர் '%s'. கருவிகள் > விருப்பங்கள் > AI உதவியாளர் என்பதில் ஒன்றைத் தேர்ந்தெடுக்கவும்."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "உள்ளமைந்த உதவியாளருக்குப் பதிலாக AI அடிப்படையிலான AIA-வைப் பயன்படுத்து"
 
@@ -2108,25 +2102,9 @@ msgstr "Ollama இயங்குகிறது, %s மாதிரி தய�
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "இணையம் இல்லாமல் இயங்குகிறது, சுமார் 14 GB காலியான RAM தேவை; சக்திவாய்ந்த கிராபிக்ஸ் அட்டை இல்லையெனில் 20-70 வினாடிகளில் பதிலளிக்கும்."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "இன்னும் AI வழங்குநர் தேர்ந்தெடுக்கப்படவில்லை. கருவிகள் > விருப்பங்கள் > AI உதவியாளர் என்பதில் ஒன்றைத் தேர்ந்தெடுக்கவும்."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "பதில்கள் %s இலிருந்து வருகின்றன. உங்களுக்கு ஒரு API விசை தேவை: கீழே உள்ள இணைப்பில் அதை உருவாக்கவும், அல்லது உங்கள் ஆசிரியரிடமிருந்து பெறவும்."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "எந்த வழங்குநரும் தேர்ந்தெடுக்கப்படவில்லை: AIA இயக்கத்தில் இருக்கும், ஆனால் பதிலளிக்காது."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "API விசை அமைக்கப்படவில்லை. கருவிகள் > விருப்பங்கள் > AI உதவியாளர் என்பதில் அதை உள்ளிடவும்."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API விசை நிராகரிக்கப்பட்டது. கருவிகள் > விருப்பங்கள் > AI உதவியாளர் என்பதில் அதைச் சரிபார்க்கவும்."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2197,10 +2175,6 @@ msgid "The models this key can use."
 msgstr "இந்த விசை பயன்படுத்தக்கூடிய மாதிரிகள்."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "வழங்குநர் இந்த விசையின் மாதிரிகளைப் பட்டியலிடவில்லை; இவை வழக்கமானவை."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "மாதிரி %s கிடைக்கவில்லை. கருவிகள் > விருப்பங்கள் > AI உதவியாளர் என்பதில் வேறொரு மாதிரியைத் தேர்ந்தெடுக்கவும்."
 
@@ -2252,3 +2226,34 @@ msgstr "Ollama பதிலளிக்கவில்லை, எனவே இ�
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "மாதிரி %s கணினியின் காலி நினைவகத்தில் அடங்கவில்லை. மற்ற நிரல்களை மூடவும், அல்லது கருவிகள் > விருப்பங்கள் > AI உதவியாளர் என்பதில் சிறிய மாதிரியைத் தேர்ந்தெடுக்கவும்."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "AI உதவியாளருக்கு ஒரு API விசை அல்லது ஒரு உள்ளூர் மாதிரி தேவை."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "AI உதவியாளரின் API விசை செல்லாதது. உதவியாளருக்கு செல்லுபடியாகும் API விசை அல்லது ஒரு உள்ளூர் மாதிரி தேவை."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "AI உதவியாளரை அமைக்கவும்"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "பதில்கள் %s இலிருந்து வருகின்றன. உங்களுக்கு ஒரு API விசை தேவை: கீழே உள்ள இணைப்பில் அதை உருவாக்கவும்."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s இந்த விசையை ஏற்கவில்லை. அதைச் சரிபார்க்கவும், அல்லது கீழே உள்ள இணைப்பில் புதியதை உருவாக்கவும்."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "AI வழங்குநருடன் இணைக்க முடியவில்லை, எனவே இப்போது விசையைச் சரிபார்க்க முடியாது."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "பதில்கள் %s இலிருந்து வருகின்றன. உங்களுக்கு ஒரு API விசை தேவை: கீழே உள்ள இணைப்பில் அதை உருவாக்கவும். கருவிகள் > விருப்பங்கள் > AI உதவியாளர் என்பதில் பின்னரும் அதை உள்ளிடலாம்."

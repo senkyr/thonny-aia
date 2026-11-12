@@ -2019,9 +2019,6 @@ msgstr "Kaasa ka kohalikult imporditud failid"
 msgid "Answer style:"
 msgstr "Vastuse stiil:"
 
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher. You can also enter it later in Tools > Options > AI Assistant."
-msgstr "Vastuseid annab %s. Vajad API-võtit: loo see allolevalt lingilt või küsi õpetajalt. Saad selle sisestada ka hiljem menüüs Tööriistad > Seaded > AI-assistent."
-
 msgid "Automatically include current file as context"
 msgstr "Kaasa avatud fail automaatselt kontekstina"
 
@@ -2088,9 +2085,6 @@ msgstr "Võti salvestatakse Thonny seadistusfaili lihttekstina."
 msgid "Too many requests or the account's quota is used up. Wait a moment and try again."
 msgstr "Liiga palju päringuid või konto kvoot on täis. Oota hetk ja proovi uuesti."
 
-msgid "Unknown provider '%s'. Choose one in Tools > Options > AI Assistant."
-msgstr "Tundmatu teenusepakkuja „%s“. Vali see menüüs Tööriistad > Seaded > AI-assistent."
-
 msgid "Use AI-based AIA instead of the built-in Assistant"
 msgstr "Kasuta sisseehitatud Juhendaja asemel tehisintellektil põhinevat AIA-d"
 
@@ -2118,25 +2112,9 @@ msgstr "Ollama töötab ja mudel %s on valmis."
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Töötab ilma internetita, vajab umbes 14 GB vaba RAM-i ja vastab ilma võimsa graafikakaardita 20–70 sekundiga."
 
-#: thonny/plugins/aia/_common.py
-msgid "No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant."
-msgstr "AI-teenusepakkujat pole veel valitud. Vali see menüüs Tööriistad > Seaded > AI-assistent."
-
-#: thonny/plugins/aia
-msgid "Answers come from %s. You need an API key: create it at the link below, or get one from your teacher."
-msgstr "Vastuseid annab %s. Vajad API-võtit: loo see allolevalt lingilt või küsi õpetajalt."
-
 #: thonny/plugins/aia
 msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Teenusepakkujat pole valitud: AIA jääb sisse lülitatuks, kuid ei vasta."
-
-#: thonny/plugins/aia
-msgid "API key not set. Enter it in Tools > Options > AI Assistant."
-msgstr "API-võti pole määratud. Sisesta see menüüs Tööriistad > Seaded > AI-assistent."
-
-#: thonny/plugins/aia
-msgid "The API key was rejected. Check it in Tools > Options > AI Assistant."
-msgstr "API-võti lükati tagasi. Kontrolli seda menüüs Tööriistad > Seaded > AI-assistent."
 
 #: thonny/plugins/aia
 msgid "Thinking..."
@@ -2207,10 +2185,6 @@ msgid "The models this key can use."
 msgstr "Mudelid, mida see võti kasutada saab."
 
 #: thonny/plugins/aia
-msgid "The provider did not list the models of this key; these are the usual ones."
-msgstr "Teenusepakkuja ei andnud selle võtme mudeleid; need on tavalised."
-
-#: thonny/plugins/aia
 msgid "The model %s is not available. Choose another model in Tools > Options > AI Assistant."
 msgstr "Mudel %s pole saadaval. Vali teine mudel menüüs Tööriistad > Seaded > AI-assistent."
 
@@ -2262,3 +2236,34 @@ msgstr "Ollama ei vastanud, seega pole selle arvuti mudelid teada."
 #, python-format
 msgid "The model %s does not fit into the computer's free memory. Close other programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr "Mudel %s ei mahu arvuti vabasse mällu. Sulge teised programmid või vali väiksem mudel menüüs Tööriistad > Seaded > AI-assistent."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant needs an API key or a local model."
+msgstr "AI-assistent vajab API-võtit või kohalikku mudelit."
+
+#: thonny/plugins/aia/_common.py
+msgid "The AI assistant's API key is not valid. The assistant needs a valid API key or a local model."
+msgstr "AI-assistendi API-võti ei kehti. Assistent vajab kehtivat API-võtit või kohalikku mudelit."
+
+#: thonny/plugins/aia/_common.py
+msgid "Set up the AI assistant"
+msgstr "Seadista AI-assistent"
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below."
+msgstr "Vastuseid annab %s. Vajad API-võtit: loo see allolevalt lingilt."
+
+#: thonny/plugins/aia/_panel/config_page.py
+#, python-format
+msgid "%s does not accept this key. Check it, or create a new one at the link below."
+msgstr "%s ei aktsepteeri seda võtit. Kontrolli seda või loo allolevalt lingilt uus."
+
+#: thonny/plugins/aia/_panel/config_page.py
+msgid "Could not connect to the AI provider, so the key cannot be checked now."
+msgstr "AI-teenuse pakkujaga ei õnnestunud ühendust luua, seega ei saa võtit praegu kontrollida."
+
+#: thonny/first_run.py
+#, python-format
+msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
+msgstr "Vastuseid annab %s. Vajad API-võtit: loo see allolevalt lingilt. Saad selle sisestada ka hiljem menüüs Tööriistad > Seaded > AI-assistent."
