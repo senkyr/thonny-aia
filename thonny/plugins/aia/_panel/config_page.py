@@ -26,7 +26,12 @@ from thonny import first_run, get_workbench, ui_utils
 from thonny.languages import tr
 from thonny.config_ui import ConfigurationPage
 
-from thonny.plugins.aia._common import AIACore, MODEL_CHOICE_PROVIDERS, model_option
+from thonny.plugins.aia._common import (
+    AIACore,
+    MODEL_CHOICE_PROVIDERS,
+    is_rejected_key,
+    model_option,
+)
 from thonny.plugins.aia.prompts import answer_style
 
 logger = logging.getLogger(__name__)
@@ -44,10 +49,22 @@ def style_names():
     return {"socratic": tr("Socratic"), "explanatory": tr("Explanatory"), "direct": tr("Direct")}
 
 
+# No "ask your teacher" (Jakub 2026-11-12, cortex-zamestnani#117): students get no key from the
+# school, the AI assistant needs their own API key or a local model
 def _cloud_note(provider):
     return tr(
-        "Answers come from %s. You need an API key: create it at the link below, or get one "
-        "from your teacher."
+        "Answers come from %s. You need an API key: create it at the link below."
+    ) % first_run.COMPANY[provider]
+
+
+# Red, below the key, when the provider refused it (Jakub 2026-11-12, cortex-zamestnani#117);
+# a provider that cannot be reached says so in the model note instead
+REJECTED_COLOR = "#c0392b"
+
+
+def _rejected_note(provider):
+    return tr(
+        "%s does not accept this key. Check it, or create a new one at the link below."
     ) % first_run.COMPANY[provider]
 
 
@@ -74,6 +91,7 @@ class AIAPanelConfigPage(ConfigurationPage):
         self._key_timer = None
         self._poll_timer = None
         self._failed = {}  # provider -> key whose listing failed
+        self._rejected = {}  # provider -> key the provider refused
         self._model_ids = []
         self._labels = first_run._ai_labels(self._current_models())
 
@@ -190,6 +208,8 @@ class AIAPanelConfigPage(ConfigurationPage):
         self._key_var = tk.StringVar()
         d.key_widgets.append(ttk.Entry(d.key_frame, textvariable=self._key_var, show="*", width=36))
         d.key_widgets[-1].grid(row=1, column=2, sticky="w", padx=(COMBO_PAD, 0))
+        d.key_error = ttk.Label(d.key_frame, foreground=REJECTED_COLOR)
+        d.key_error.grid(row=2, column=1, columnspan=2, sticky="w", pady=(2, 0))
         # Thonny 5 has no secrets store (the API key dialog said so before, keep saying it)
         d.key_widgets.append(
             ttk.Label(
@@ -198,9 +218,9 @@ class AIAPanelConfigPage(ConfigurationPage):
                 foreground="#7f8c8d",
             )
         )
-        d.key_widgets[-1].grid(row=2, column=1, columnspan=2, sticky="w", pady=(2, 0))
+        d.key_widgets[-1].grid(row=3, column=1, columnspan=2, sticky="w", pady=(2, 0))
         self._choice_labels.append(ttk.Label(d.key_frame, text=tr("Model:")))
-        self._choice_labels[-1].grid(row=3, column=1, sticky="w", pady=(7, 0))
+        self._choice_labels[-1].grid(row=4, column=1, sticky="w", pady=(7, 0))
         self._model_var = tk.StringVar()
         d.model_combo = ttk.Combobox(
             d.key_frame,
@@ -209,10 +229,10 @@ class AIAPanelConfigPage(ConfigurationPage):
             exportselection=False,
             width=34,
         )
-        d.model_combo.grid(row=3, column=2, sticky="w", padx=(COMBO_PAD, 0), pady=(7, 0))
+        d.model_combo.grid(row=4, column=2, sticky="w", padx=(COMBO_PAD, 0), pady=(7, 0))
         d.model_combo.bind("<<ComboboxSelected>>", self._on_model_changed)
         d.model_note = ttk.Label(d.key_frame, foreground="#7f8c8d")
-        d.model_note.grid(row=4, column=1, columnspan=2, sticky="w", pady=(2, 0))
+        d.model_note.grid(row=5, column=1, columnspan=2, sticky="w", pady=(2, 0))
         self._key_var.trace_add("write", self._on_key_changed)
         # width -6 = at least 6 characters: Thonny's UI themes give TButton a fixed width of 6,
         # which cut "Zkontrolovat znovu" to "Zkontrolo" (until beta 6)
@@ -292,6 +312,7 @@ class AIAPanelConfigPage(ConfigurationPage):
         wraplength = max(self._legend.winfo_reqwidth(), self._ai_combo.winfo_reqwidth())
         self._detail.note.configure(wraplength=wraplength)
         self._detail.model_note.configure(wraplength=wraplength)
+        self._detail.key_error.configure(wraplength=wraplength)
         width = height = 0
         for ai, ollama, local_model in variants:
             self._fill(ai, ollama, measure=True, local_model=local_model)
@@ -388,29 +409,36 @@ class AIAPanelConfigPage(ConfigurationPage):
                 "listed": tr("The models Ollama has on this computer."),
                 "failed": tr("Ollama did not answer, so the models on this computer are unknown."),
             }
+        # Until beta 8 a refused key and a provider that cannot be reached both said "The
+        # provider did not list the models of this key; these are the usual ones" (Jakub
+        # 2026-11-12, cortex-zamestnani#117: the student does not know what a provider is, why
+        # it should list models and why it matters). A refused key is now red below the key.
         return {
             "no_key": tr("Enter the API key to see the models it can use."),
             "asking": tr("Asking the provider for the models of this key..."),
             "listed": tr("The models this key can use."),
-            "failed": tr(
-                "The provider did not list the models of this key; these are the usual ones."
-            ),
+            "failed": tr("Could not connect to the AI provider, so the key cannot be checked now."),
+            "rejected": "",
         }
 
-    def _model_note(self, provider):
+    def _model_state(self, provider):
         key = self._token(provider)
         listed = self._listed.get(provider)
         if not key:
-            state = "no_key"
-        elif self._listing_key.get(provider) == key:
-            state = "asking"
-        elif listed and listed[0] == key:
-            state = "listed"
-        elif self._failed.get(provider) == key:
-            state = "failed"
-        else:
-            return ""
-        return self._model_notes(provider)[state]
+            return "no_key"
+        if self._listing_key.get(provider) == key:
+            return "asking"
+        if listed and listed[0] == key:
+            return "listed"
+        if self._rejected.get(provider) == key:
+            return "rejected"
+        if self._failed.get(provider) == key:
+            return "failed"
+        return None
+
+    def _model_note(self, provider):
+        state = self._model_state(provider)
+        return self._model_notes(provider)[state] if state else ""
 
     def _show_models(self, provider, measure=False):
         d = self._detail
@@ -423,6 +451,12 @@ class AIAPanelConfigPage(ConfigurationPage):
         else:
             note = self._model_note(provider)
         d.model_note.configure(text=note)
+        if provider in first_run.AI_CLOUD and (measure or self._model_state(provider) == "rejected"):
+            d.key_error.configure(text=_rejected_note(provider))
+            d.key_error.grid()
+        else:
+            d.key_error.configure(text="")
+            d.key_error.grid_remove()
 
     def _on_model_changed(self, event=None):
         model = self._model_ids[self._detail.model_combo.current()]
@@ -459,7 +493,12 @@ class AIAPanelConfigPage(ConfigurationPage):
             not key
             or registered is None
             or (listed and listed[0] == key)
-            or key in (self._listing_key.get(provider), self._failed.get(provider))
+            or key
+            in (
+                self._listing_key.get(provider),
+                self._failed.get(provider),
+                self._rejected.get(provider),
+            )
         ):
             return
         asking = copy.copy(registered.frozen())  # settings read here, on the UI thread
@@ -468,12 +507,14 @@ class AIAPanelConfigPage(ConfigurationPage):
         self._listing_key[provider] = key
 
         def work():
+            rejected = False
             try:
                 models = asking.list_models()
-            except Exception:
+            except Exception as e:
                 logger.info("AIA: could not list the models of %s", provider, exc_info=True)
                 models = None
-            self._listing.put((provider, key, models))
+                rejected = provider in first_run.AI_CLOUD and is_rejected_key(e)
+            self._listing.put((provider, key, models, rejected))
 
         threading.Thread(target=work, daemon=True).start()
         if self._poll_timer is None:
@@ -488,11 +529,13 @@ class AIAPanelConfigPage(ConfigurationPage):
             return
         try:
             while True:
-                provider, key, models = self._listing.get_nowait()
+                provider, key, models, rejected = self._listing.get_nowait()
                 if self._listing_key.get(provider) == key:
                     del self._listing_key[provider]
                 if models:
                     self._listed[provider] = (key, models)
+                elif rejected:
+                    self._rejected[provider] = key
                 else:
                     self._failed[provider] = key
                 if provider == self._ai:

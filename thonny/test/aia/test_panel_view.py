@@ -65,7 +65,7 @@ def test_late_events_of_a_cancelled_request_are_dropped(panel_view):
     shown = list(view.inserted)
 
     view._events.put((request_id, "chunk", "late text"))
-    view._events.put((request_id, "error", "late error"))
+    view._events.put((request_id, "error", ("late error", False)))
     view._events.put((request_id, "done", " [cancelled]"))
     view._poll_events()
 
@@ -314,6 +314,9 @@ class _Core:
             return self
 
     def check_ready(self):
+        return None
+
+    def ready_problem(self):
         return None
 
     def get_current_provider_id(self):
@@ -599,6 +602,70 @@ def test_an_answer_of_the_local_model_tells_the_keeper(panel_view, monkeypatch):
     assert answered == [True]
 
     request_id, _ = start_request(view, "ollama")
-    view._events.put((request_id, "error", "The model x does not fit"))
+    view._events.put((request_id, "error", ("The model x does not fit", True)))
     view._poll_events()
     assert answered == [True]
+
+
+def _tagged_view(panel_view):
+    view = make_view(panel_view)
+    view.tagged = []
+    view._insert = lambda text, tag=None: view.tagged.append((text, tag))
+    return view
+
+
+def test_a_rejected_key_says_what_the_assistant_needs_with_a_link(panel_view):
+    """Jakub 2026-11-12, #117: a refused key in the panel, one click to the options."""
+    from thonny.plugins.aia._common import friendly_error, error_opens_settings
+
+    class AuthenticationError(Exception):
+        status_code = 401
+
+    exc = AuthenticationError("secret sk-ant-xyz")
+    view = _tagged_view(panel_view)
+    request_id, _ = start_request(view, "anthropic")
+    view._events.put(
+        (request_id, "error", (friendly_error(exc, "anthropic", "m"), error_opens_settings(exc)))
+    )
+    view._poll_events()
+
+    shown = "".join(text for text, _ in view.tagged)
+    assert "API key is not valid" in shown and "local model" in shown and "sk-" not in shown
+    assert ("Set up the AI assistant", "settings_link") in view.tagged
+    assert view.busy[-1] is False
+
+
+def test_a_connection_error_has_no_link(panel_view):
+    from thonny.plugins.aia._common import error_opens_settings, friendly_error
+
+    exc = ConnectionError("no network")
+    assert not error_opens_settings(exc, "openai")
+    view = _tagged_view(panel_view)
+    request_id, _ = start_request(view, "openai")
+    view._events.put((request_id, "error", (friendly_error(exc, "openai"), False)))
+    view._poll_events()
+    assert all(tag != "settings_link" for _, tag in view.tagged)
+
+
+def test_no_provider_gives_the_needs_text_with_a_link(panel_view, fake_thonny):
+    fake_thonny.options["aia.provider"] = ""
+    view = _tagged_view(panel_view)
+    view._core = panel_view.AIACore()
+    view._core.register_providers()
+
+    view._request_llm_response()
+
+    assert ("\nThe AI assistant needs an API key or a local model.", "error_text") in view.tagged
+    assert ("Set up the AI assistant", "settings_link") in view.tagged
+    assert view._cancel_event is None  # no request started
+
+
+def test_the_link_opens_the_ai_assistant_options(panel_view, fake_thonny, monkeypatch):
+    opened = []
+    monkeypatch.setattr(
+        fake_thonny, "show_options", lambda page=None: opened.append(page), raising=False
+    )
+    view = make_view(panel_view)
+    view._messages_text = _FakeText()
+    view._open_settings()
+    assert opened == ["aia"]

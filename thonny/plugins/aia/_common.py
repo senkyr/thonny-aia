@@ -12,7 +12,7 @@ import importlib.util
 import logging
 import os
 import re
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 from thonny import get_workbench
 from thonny.languages import LANGUAGES_DICT, tr
@@ -289,22 +289,72 @@ def is_out_of_memory(exc: BaseException) -> bool:
     return any(needle in text for needle in OUT_OF_MEMORY_TEXTS)
 
 
+def _status(exc: BaseException) -> Optional[int]:
+    status = getattr(exc, "status_code", None)
+    if status is None:
+        code = getattr(exc, "code", None)
+        status = code if isinstance(code, int) else None
+    return status
+
+
+# Google answers a wrong Gemini key with 400 INVALID_ARGUMENT, not 401 (measured 2026-11-12,
+# cortex-zamestnani#117: "API key not valid. Please pass a valid API key.", reason
+# API_KEY_INVALID); Anthropic and OpenAI answer 401
+REJECTED_KEY_TEXTS = ("api key not valid", "api_key_invalid")
+
+
+def is_rejected_key(exc: BaseException) -> bool:
+    """The provider refused the API key (a typo, a deleted or an expired key)."""
+    name = type(exc).__name__
+    if _status(exc) in (401, 403) or "Authentication" in name or "PermissionDenied" in name:
+        return True
+    text = str(exc).lower()
+    return any(needle in text for needle in REJECTED_KEY_TEXTS)
+
+
+# Texts that say what the AI assistant needs, with a link to Tools > Options > AI Assistant
+# in the panel (Jakub 2026-11-12, cortex-zamestnani#117: the student does not know what a
+# provider is; no "ask your teacher", the options have a short guide for every choice)
+def needs_text() -> str:
+    return tr("The AI assistant needs an API key or a local model.")
+
+
+def rejected_key_text() -> str:
+    return tr(
+        "The AI assistant's API key is not valid. The assistant needs a valid API key or a "
+        "local model."
+    )
+
+
+def settings_link_text() -> str:
+    return tr("Set up the AI assistant")
+
+
+def error_opens_settings(exc: BaseException, provider_id: str = "") -> bool:
+    """The problem behind friendly_error() is fixed in Tools > Options > AI Assistant."""
+    if isinstance(exc, ImportError):
+        return False
+    return (
+        is_rejected_key(exc)
+        or _status(exc) == 404
+        or "NotFound" in type(exc).__name__
+        or (provider_id == "ollama" and is_out_of_memory(exc))
+    )
+
+
 def friendly_error(exc: BaseException, provider_id: str = "", model: str = "") -> str:
     """Turn an SDK exception into a short message a student can act on.
 
     Deliberately does not echo the raw text of auth errors, which some SDKs
     build from (partially masked) API keys.
     """
-    status = getattr(exc, "status_code", None)
-    if status is None:
-        code = getattr(exc, "code", None)
-        status = code if isinstance(code, int) else None
+    status = _status(exc)
     name = type(exc).__name__
 
     if isinstance(exc, ImportError):
         return install_hint(provider_id)
-    if status in (401, 403) or "Authentication" in name or "PermissionDenied" in name:
-        return tr("The API key was rejected. Check it in Tools > Options > AI Assistant.")
+    if is_rejected_key(exc):
+        return rejected_key_text()
     if status == 404 or "NotFound" in name:
         return tr(
             "The model %s is not available. Choose another model in "
@@ -440,24 +490,33 @@ class AIACore:
 
     def check_ready(self) -> Optional[str]:
         """Return None if the current provider can be used, else a user-facing reason."""
+        problem = self.ready_problem()
+        return problem[0] if problem else None
+
+    def ready_problem(self) -> Optional[Tuple[str, bool]]:
+        """None if the current provider can be used, else (reason, fixed in Tools > Options).
+
+        No provider, an unknown one and a missing key all say what the AI assistant needs
+        (Jakub 2026-11-12, cortex-zamestnani#117), the options then guide through every choice.
+        """
         provider_id = self.get_current_provider_id()
         if not provider_id:
-            return tr("No AI provider is chosen yet. Choose one in Tools > Options > AI Assistant.")
+            return needs_text(), True
         provider = self._providers.get(provider_id)
         if provider is None:
             if provider_id in PROVIDER_PACKAGES:
-                return install_hint(provider_id)
+                return install_hint(provider_id), False
             if provider_id == "claude_code":
-                return tr(
-                    "Claude Code (the 'claude' command) was not found. Install Claude Code, "
-                    "sign in by running 'claude' once, then restart Thonny."
+                return (
+                    tr(
+                        "Claude Code (the 'claude' command) was not found. Install Claude Code, "
+                        "sign in by running 'claude' once, then restart Thonny."
+                    ),
+                    False,
                 )
-            return (
-                tr("Unknown provider '%s'. Choose one in Tools > Options > AI Assistant.")
-                % provider_id
-            )
+            return needs_text(), True
         if not provider.is_available():
-            return tr("API key not set. Enter it in Tools > Options > AI Assistant.")
+            return needs_text(), True
         return None
 
     @property

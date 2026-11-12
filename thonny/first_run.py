@@ -103,9 +103,11 @@ def _ai_labels(models):
 
 
 def _cloud_note(provider):
+    # No "get one from your teacher" (Jakub 2026-11-12, cortex-zamestnani#117): the school gives
+    # students no key
     return tr(
-        "Answers come from %s. You need an API key: create it at the link below, or get one "
-        "from your teacher. You can also enter it later in Tools > Options > AI Assistant."
+        "Answers come from %s. You need an API key: create it at the link below. You can also "
+        "enter it later in Tools > Options > AI Assistant."
     ) % COMPANY[provider]
 
 

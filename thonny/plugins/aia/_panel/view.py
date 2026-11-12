@@ -24,12 +24,14 @@ from thonny.ui_utils import AutomaticPanedWindow, scrollbar_style
 
 from thonny.plugins.aia._common import (
     AIACore,
+    error_opens_settings,
     error_report,
     friendly_error,
     install_error_report,
     interface_language,
     last_run_shell_output,
     prepare_messages,
+    settings_link_text,
     snapshot_editor_context,
 )
 from thonny.plugins.aia.local_model import is_loading, model_answered
@@ -93,6 +95,7 @@ TAG_COLORS = {  # tag -> syntax theme tag whose foreground it takes
     "system_text": "comment",
     "loading_text": "comment",
     "error_text": "stderr",  # the colour of an error in the Shell
+    "settings_link": "builtin",  # like the student's label: readable, not the error's colour
 }
 FALLBACK_COLORS = {
     # light: the colours of beta 1
@@ -102,6 +105,7 @@ FALLBACK_COLORS = {
         "system_text": "#7f8c8d",
         "loading_text": "#7f8c8d",
         "error_text": "#c0392b",
+        "settings_link": "#1a5276",
     },
     # dark: those of the Default Dark syntax theme
     True: {
@@ -110,6 +114,7 @@ FALLBACK_COLORS = {
         "system_text": "#D4D44E",
         "loading_text": "#D4D44E",
         "error_text": "#EB5B83",
+        "settings_link": "#A9B1C9",
     },
 }
 BORDER_MIX = 0.4  # border of the input: this much of the text colour, the rest background
@@ -301,6 +306,24 @@ class AIAView(ttk.Frame):
         # font of the conversation
         self._messages_text.tag_configure("user_header", font=bold_font)
         self._messages_text.tag_configure("assistant_header", font=bold_font)
+
+        # One click opens Tools > Options > AI Assistant (Jakub 2026-11-12, cortex-zamestnani#117)
+        text = self._messages_text
+        text.tag_configure("settings_link", underline=True)
+        text.tag_bind("settings_link", "<Button-1>", self._open_settings)
+        text.tag_bind("settings_link", "<Enter>", lambda e: text.configure(cursor="hand2"))
+        text.tag_bind("settings_link", "<Leave>", lambda e: text.configure(cursor=""))
+
+    def _open_settings(self, event=None):
+        self._messages_text.configure(cursor="")
+        get_workbench().show_options("aia")
+
+    def _insert_problem(self, message: str, settings: bool):
+        """A problem in the error colour; with a link to the options when it is fixed there."""
+        self._insert("\n" + message, "error_text")
+        if settings:
+            self._insert("\n")
+            self._insert(settings_link_text(), "settings_link")
 
     def _apply_theme(self, event=None):
         """Colours of the active themes; also called when a theme changes."""
@@ -494,9 +517,10 @@ class AIAView(ttk.Frame):
 
     def _request_llm_response(self):
         """Collect everything on the UI thread, then stream in a worker thread."""
-        problem = self._core.check_ready()
+        problem = self._core.ready_problem()
         if problem:
-            self._insert(f"\n{problem}\n", "error_text")
+            self._insert_problem(*problem)
+            self._insert("\n")
             return
 
         wb = get_workbench()
@@ -558,7 +582,8 @@ class AIAView(ttk.Frame):
             put((request_id, "done", ""))
         except Exception as e:
             logger.exception("AIA: error during chat completion")
-            put((request_id, "error", friendly_error(e, provider_id, model)))
+            message = friendly_error(e, provider_id, model)
+            put((request_id, "error", (message, error_opens_settings(e, provider_id))))
         finally:
             close = getattr(stream, "close", None)
             if close is not None:
@@ -619,7 +644,7 @@ class AIAView(ttk.Frame):
                         model_answered()  # the keeper may have given up on the load
                 elif kind == "error":
                     self._hide_loading()
-                    self._insert(f"\n{payload}", "error_text")
+                    self._insert_problem(*payload)
                     self._finish("")
         except queue.Empty:
             pass
