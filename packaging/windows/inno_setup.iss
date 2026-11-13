@@ -164,6 +164,10 @@ Filename: "{app}\pythonw.exe"; Parameters: "-m compileall ."; StatusMsg: "Compil
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}\*"
 Type: filesandordirs; Name: "{app}"
+; the local model that Thonny AIA prepared (Ollama and the models, cortex-zamestnani#120);
+; the user's settings in %APPDATA%\Thonny AIA stay, like upstream's
+Type: filesandordirs; Name: "{localappdata}\Thonny AIA\local-models"
+Type: dirifempty; Name: "{localappdata}\Thonny AIA"
 
 [Messages]
 FinishedHeadingLabel=Great success!

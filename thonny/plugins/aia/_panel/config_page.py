@@ -335,7 +335,7 @@ class AIAPanelConfigPage(ConfigurationPage):
         variants = [(ai, None, None) for ai in self._labels if ai != first_run.AI_LOCAL]
         # the default local model's texts, and those of another model with a long name
         for model in (self._models[first_run.AI_LOCAL], "x" * 40):
-            variants += [(first_run.AI_LOCAL, v, model) for v in self._local_variants(model)]
+            variants += [(first_run.AI_LOCAL, v, model) for v in local_ui.measure_variants(model, self._models[first_run.AI_LOCAL])]
         # the note is as wide as the page's widest line (the legend of the answer styles)
         self.update_idletasks()
         wraplength = max(self._legend.winfo_reqwidth(), self._ai_combo.winfo_reqwidth())
@@ -369,36 +369,6 @@ class AIAPanelConfigPage(ConfigurationPage):
         self._show(self._ai)
 
     # --- the local model that the application prepares (cortex-zamestnani#120) ---
-
-    def _local_variants(self, model):
-        """(state, check, status) of the longest texts, for _fix_detail_size."""
-        default = model == self._models[first_run.AI_LOCAL]
-        size = 13_793_441_566 if default else 999 * lm.GB
-        info = {
-            "model": model,
-            "size": size,
-            "need": size,
-            "free": 999 * lm.GB,
-            "ram": 16 * lm.GIB,
-            "ram_class": "slow",
-            "enough_disk": True,
-        }
-        check = {"model": model, "system": False, "own": False, "info": info}
-        progress = {"stage": "model", "done": 99.9 * lm.GB, "total": 999 * lm.GB, "eta": 99 * 3600}
-        return [
-            (lm.CONSENT, check, {}),
-            (lm.CONSENT, dict(check, info=dict(info, size=None)), {}),
-            (lm.CONSENT, dict(check, info=dict(info, enough_disk=False)), {}),
-            (lm.CONSENT, dict(check, info=dict(info, ram=8 * lm.GIB, ram_class="weak")), {}),
-            (local_ui.ASKING, None, {}),
-            (local_ui.READY_STATE, dict(check, own=True), {}),
-            (lm.DOWNLOADING, check, dict(progress, phase=lm.DOWNLOADING)),
-            (lm.PAUSED, check, dict(progress, phase=lm.PAUSED, reason=lm.USER)),
-            (lm.PAUSED, check, {"phase": lm.PAUSED, "reason": lm.NO_SPACE}),
-            (lm.PAUSED, check, {"phase": lm.PAUSED, "reason": lm.NETWORK}),
-            (lm.FAILED, check, {"phase": lm.FAILED, "reason": lm.SIGNATURE}),
-            (lm.FAILED, check, {"phase": lm.FAILED, "reason": lm.SERVER}),
-        ]
 
     def _local_view(self, model):
         """(state, check, status) of the local model shown; asks check_model() once."""

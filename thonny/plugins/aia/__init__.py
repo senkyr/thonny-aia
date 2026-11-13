@@ -36,6 +36,9 @@ def load_plugin():
     wb.set_default("aia.include_local_imports", False)
     wb.set_default("aia.openai_api_base", "")
     wb.set_default("aia.ollama_host", "")
+    # the version whose welcome dialog was shown last (cortex-zamestnani#118: once more after
+    # an update for those without a working AI, thonny.first_run.needs_welcome_again)
+    wb.set_default("aia.welcome_version", "")
 
     # Answer styles were renamed on 2026-10-10 (mentor -> socratic, balanced -> explanatory)
     stored = wb.get_option("aia.mentoring_level")

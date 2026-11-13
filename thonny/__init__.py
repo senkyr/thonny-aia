@@ -220,28 +220,42 @@ def get_ipc_file_path():
 def _check_welcome():
     from thonny import misc_utils
 
-    if not os.path.exists(CONFIGURATION_FILE) and not misc_utils.running_on_rpi():
-        from thonny.config import ConfigurationManager
-        from thonny.first_run import FirstRunWindow
-
-        mgr = ConfigurationManager(CONFIGURATION_FILE)
-
-        win = FirstRunWindow(mgr)
-        win.mainloop()
-
-        if win.ok and sys.platform == "darwin":
-            macos_app_path = _get_macos_app_path()
-            if macos_app_path:
-                # Shouldn't proceed to the main window in the same process, as TkAqua will crash on opening a menu
-                # or saving a file (https://github.com/thonny/thonny/issues/2860).
-                # Let's restart.
-                print("Restarting", macos_app_path)
-                os.system(f"open -n '{macos_app_path}'")
-                sys.exit(0)
-
-        return win.ok
-    else:
+    if misc_utils.running_on_rpi():
         return True
+    fresh = not os.path.exists(CONFIGURATION_FILE)
+    if not fresh:
+        # Thonny AIA: once more after an update for those without a working AI (Jakub
+        # 2026-11-12, cortex-zamestnani#118), filled in with their settings
+        from thonny.config import ConfigurationManager
+        from thonny.first_run import needs_welcome_again
+
+        try:
+            if not needs_welcome_again(ConfigurationManager(CONFIGURATION_FILE), get_version()):
+                return True
+        except Exception:
+            logger.exception("Could not decide about the welcome dialog")
+            return True
+
+    from thonny.config import ConfigurationManager
+    from thonny.first_run import FirstRunWindow
+
+    mgr = ConfigurationManager(CONFIGURATION_FILE)
+
+    win = FirstRunWindow(mgr, upgrade=not fresh)
+    win.mainloop()
+
+    if win.ok and sys.platform == "darwin":
+        macos_app_path = _get_macos_app_path()
+        if macos_app_path:
+            # Shouldn't proceed to the main window in the same process, as TkAqua will crash on opening a menu
+            # or saving a file (https://github.com/thonny/thonny/issues/2860).
+            # Let's restart.
+            print("Restarting", macos_app_path)
+            os.system(f"open -n '{macos_app_path}'")
+            sys.exit(0)
+
+    # closing the dialog after an update does not end Thonny
+    return win.ok or not fresh
 
 
 def _get_macos_app_path() -> Optional[str]:

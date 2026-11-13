@@ -29,7 +29,12 @@ EVENT = "AIALocalModel"
 DECIMAL_POINT = ("en", "zh", "ja", "ko", "th", "hi", "ta", "ml", "he", "ga", "vi", "id")
 
 
+dialog_language = None  # the welcome dialog's language: it runs before the workbench
+
+
 def _language() -> str:
+    if dialog_language:
+        return dialog_language.lower()
     try:
         from thonny import get_workbench
 
@@ -387,3 +392,34 @@ def install(wb, core, check_updates: bool = True) -> Wiring:
     _wiring = Wiring(wb, core)
     _wiring.install(check_updates)
     return _wiring
+
+
+def measure_variants(model: str, default_model: str):
+    """(state, check, status) of the longest texts, for _fix_detail_size."""
+    default = model == default_model
+    size = 13_793_441_566 if default else 999 * lm.GB
+    info = {
+        "model": model,
+        "size": size,
+        "need": size,
+        "free": 999 * lm.GB,
+        "ram": 16 * lm.GIB,
+        "ram_class": "slow",
+        "enough_disk": True,
+    }
+    check = {"model": model, "system": False, "own": False, "info": info}
+    progress = {"stage": "model", "done": 99.9 * lm.GB, "total": 999 * lm.GB, "eta": 99 * 3600}
+    return [
+        (lm.CONSENT, check, {}),
+        (lm.CONSENT, dict(check, info=dict(info, size=None)), {}),
+        (lm.CONSENT, dict(check, info=dict(info, enough_disk=False)), {}),
+        (lm.CONSENT, dict(check, info=dict(info, ram=8 * lm.GIB, ram_class="weak")), {}),
+        (ASKING, None, {}),
+        (READY_STATE, dict(check, own=True), {}),
+        (lm.DOWNLOADING, check, dict(progress, phase=lm.DOWNLOADING)),
+        (lm.PAUSED, check, dict(progress, phase=lm.PAUSED, reason=lm.USER)),
+        (lm.PAUSED, check, {"phase": lm.PAUSED, "reason": lm.NO_SPACE}),
+        (lm.PAUSED, check, {"phase": lm.PAUSED, "reason": lm.NETWORK}),
+        (lm.FAILED, check, {"phase": lm.FAILED, "reason": lm.SIGNATURE}),
+        (lm.FAILED, check, {"phase": lm.FAILED, "reason": lm.SERVER}),
+    ]
