@@ -2024,9 +2024,6 @@ msgstr "AI hizmetine bağlanılamıyor. İnternet bağlantısını kontrol et."
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Ollama'ya ulaşılamıyor. Çalışıyor mu (ollama serve) ve sunucu adresi doğru mu?"
 
-msgid "Check again"
-msgstr "Tekrar kontrol et"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Code ('claude' komutu) bulunamadı. Claude Code'u kur, 'claude' komutunu bir kez çalıştırarak oturum aç, ardından Thonny'yi yeniden başlat."
 
@@ -2050,9 +2047,6 @@ msgstr "Dil:"
 
 msgid "Let's go!"
 msgstr "Hadi başlayalım!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Yerel model (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (basit)"
@@ -2092,18 +2086,6 @@ msgstr "Sen"
 
 msgid "cancelled"
 msgstr "iptal edildi"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama kurulu değil. Aşağıdaki bağlantıdan kur, ardından modeli indir: 'ollama pull %s' (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama kurulu, ancak çalışmıyor. Başlat."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama çalışıyor, ancak model eksik. İndir: 'ollama pull %s' (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama çalışıyor ve %s modeli hazır."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "İnternetsiz çalışır, yaklaşık 14 GB boş RAM gerektirir ve güçlü bir ekran kartı yoksa 20-70 saniyede yanıt verir."
@@ -2205,28 +2187,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(AI yardımcısı AIA ve Thonny AIA'daki değişiklikler)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama kurulu değil. Aşağıdaki bağlantıdan kur, ardından modeli indir: 'ollama pull %s'."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama çalışıyor, ancak model eksik. İndir: 'ollama pull %s'."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "İnternetsiz çalışır; ne kadar bellek gerektirdiği ve ne kadar hızlı yanıt verdiği modele ve bilgisayara bağlıdır."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Ollama'ya bu bilgisayardaki modeller soruluyor..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Ollama'nın bu bilgisayardaki modelleri."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama yanıt vermedi, bu yüzden bu bilgisayardaki modeller bilinmiyor."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2263,3 +2225,148 @@ msgstr "AI sağlayıcısına bağlanılamadı, bu yüzden anahtar şu anda kontr
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Yanıtlar %s tarafından sağlanır. Bir API anahtarına ihtiyacın var: aşağıdaki bağlantıdan oluştur. Anahtarı daha sonra Araçlar > Seçenekler > AI Yardımcısı bölümünde de girebilirsin."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Yerel model (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Yerel model yanıt vermiyor. Thonny'yi kapat ve yeniden başlat."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d dk"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d sa %d dk"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Yardımcı hazır."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Yardımcı hazırlanıyor... %s / %s, bir dakikadan az kaldı"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Yardımcı hazırlanıyor... %s / %s, yaklaşık %s kaldı"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Yardımcı hazırlanıyor... %s / %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Yardımcı hazırlanıyor..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "İndirme kaldığı yerden devam ediyor."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Yerel model henüz indirilmedi."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Bu bilgisayarda %s bellek var, yerel model ise en az 16 GB gerektiriyor. Bunun yerine bir API anahtarı kullan."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Diskte yerel model için yeterli yer yok. Biraz yer aç, sonra Araçlar > Seçenekler > AI Yardımcısı bölümünden devam et."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Yardımcının hazırlanması durdu: internet bağlantısı yok. Bir dakika sonra yeniden denenecek."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Yardımcının hazırlanması duraklatıldı (%s / %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Yardımcının hazırlanması duraklatıldı."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "Yerel modelin indirilen dosyalarının imzası doğru olmadığı için başlatılmadı."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Yerel model bu bilgisayarda başlatılamıyor. Bunun yerine bir API anahtarı kullan."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Yerel modelin hazırlanması başarısız oldu: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "%s modeli indirilecek; boyutu şu anda öğrenilemiyor. İndirme arka planda sürer, bu arada Thonny'yi kullanabilirsin."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "%s modeli diskte %s yer gerektiriyor, ama yalnızca %s boş. Önce biraz yer aç."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "%s indirilecek, diskte %s boş yerin var. İndirme arka planda sürer, bu arada Thonny'yi kullanabilirsin."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Bu bilgisayarda %s bellek var: yerel model yavaş olacak."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Kaldır (%s yer açar)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Kaldır"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "%s yerel modeli indirildi ve hazır."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "%s modelini indirmenin neler gerektirdiği öğreniliyor..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Hazırla"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Duraklat"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Devam et"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Bu bilgisayarda hangi modellerin olduğu öğreniliyor..."

@@ -2020,9 +2020,6 @@ msgstr "Nedá sa pripojiť k AI službe. Skontroluj pripojenie k internetu."
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Ollama nie je dostupná. Beží (ollama serve) a je adresa správna?"
 
-msgid "Check again"
-msgstr "Skontrolovať znova"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Code (príkaz „claude“) sa nenašiel. Nainštaluj Claude Code, raz spusti „claude“ a prihlás sa, potom Thonny reštartuj."
 
@@ -2046,9 +2043,6 @@ msgstr "Jazyk:"
 
 msgid "Let's go!"
 msgstr "Poďme na to!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Lokálny model (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (jednoduché)"
@@ -2088,18 +2082,6 @@ msgstr "Ty"
 
 msgid "cancelled"
 msgstr "zrušené"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama nie je nainštalovaná. Nainštaluj ju z odkazu nižšie a stiahni model: „ollama pull %s“ (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama je nainštalovaná, ale nebeží. Spusti ju."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama beží, ale chýba model. Stiahni ho: „ollama pull %s“ (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama beží a model %s je pripravený."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Beží bez internetu, potrebuje asi 14 GB voľnej pamäte RAM a bez výkonnej grafickej karty odpovedá za 20–70 s."
@@ -2201,28 +2183,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(AI asistent AIA a úpravy Thonny AIA)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama nie je nainštalovaná. Nainštaluj ju z odkazu nižšie a stiahni model: „ollama pull %s“."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama beží, ale chýba model. Stiahni ho: „ollama pull %s“."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Beží bez internetu. Koľko potrebuje pamäte a ako rýchlo odpovedá, závisí od modelu a počítača."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Pýtam sa Ollamy na modely v tomto počítači..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Modely, ktoré má Ollama v tomto počítači."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama neodpovedala, takže modely v tomto počítači nie sú známe."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2259,3 +2221,148 @@ msgstr "Nepodarilo sa pripojiť k poskytovateľovi AI, kľúč teraz nemožno ov
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Odpovede poskytuje %s. Potrebuješ API kľúč: vytvor si ho na odkaze nižšie. Zadať ho môžeš aj neskôr v Nástroje > Možnosti > AI asistent."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Lokálny model (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Lokálny model neodpovedá. Zavri Thonny a spusti ho znova."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d min"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d h %d min"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Asistent je pripravený."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Asistent sa pripravuje... %s z %s, zostáva menej než minúta"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Asistent sa pripravuje... %s z %s, zostáva približne %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Asistent sa pripravuje... %s z %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Asistent sa pripravuje..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "Sťahovanie pokračuje od miesta, kde sa zastavilo."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Lokálny model ešte nie je stiahnutý."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Tento počítač má %s pamäte, lokálny model potrebuje aspoň 16 GB. Použi namiesto neho API kľúč."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Na disku nie je pre lokálny model dosť miesta. Uvoľni miesto a potom pokračuj v Nástroje > Možnosti > AI asistent."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Príprava asistenta sa zastavila: nie je pripojenie na internet. O minútu to skúsi znova."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Príprava asistenta je pozastavená (%s z %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Príprava asistenta je pozastavená."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "Stiahnuté súbory lokálneho modelu nemajú správny podpis, preto sa nespustili."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Lokálny model sa na tomto počítači nedá spustiť. Použi namiesto neho API kľúč."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Príprava lokálneho modelu zlyhala: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Stiahne sa model %s, jeho veľkosť sa teraz nedá zistiť. Sťahovanie pobeží na pozadí, Thonny môžeš medzitým používať."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "Model %s potrebuje na disku %s, voľných je však len %s. Najprv uvoľni miesto."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Stiahne sa %s, na disku máš voľných %s. Sťahovanie pobeží na pozadí, Thonny môžeš medzitým používať."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Tento počítač má %s pamäte: lokálny model bude pomalý."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Odstrániť (uvoľní %s)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Odstrániť"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "Lokálny model %s je stiahnutý a pripravený."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "Zisťujem, čo obnáša stiahnutie modelu %s..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Pripraviť"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Pozastaviť"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Pokračovať"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Zisťujem, aké modely sú na tomto počítači..."

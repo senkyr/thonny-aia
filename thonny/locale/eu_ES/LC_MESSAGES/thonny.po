@@ -2025,9 +2025,6 @@ msgstr "Ezin da AA zerbitzura konektatu. Egiaztatu Interneteko konexioa."
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Ollama ez dago eskuragarri. Martxan al dago (ollama serve) eta ostalaria zuzena al da?"
 
-msgid "Check again"
-msgstr "Egiaztatu berriro"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Ez da Claude Code aurkitu («claude» komandoa). Instalatu Claude Code, hasi saioa «claude» behin exekutatuz, eta berrabiarazi Thonny."
 
@@ -2051,9 +2048,6 @@ msgstr "Hizkuntza:"
 
 msgid "Let's go!"
 msgstr "Goazen!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Eredu lokala (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (sinplea)"
@@ -2093,18 +2087,6 @@ msgstr "Zu"
 
 msgid "cancelled"
 msgstr "bertan behera utzita"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama ez dago instalatuta. Instalatu beheko estekatik eta deskargatu eredua: «ollama pull %s» (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama instalatuta dago, baina ez dago martxan. Abiarazi."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama martxan dago, baina eredua falta da. Deskargatu: «ollama pull %s» (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama martxan dago eta %s eredua prest dago."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Internetik gabe dabil, 14 GB inguru RAM libre behar ditu eta, txartel grafiko indartsurik gabe, 20-70 segundotan erantzuten du."
@@ -2206,28 +2188,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(AIA AA laguntzailea eta Thonny AIAren aldaketak)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama ez dago instalatuta. Instalatu beheko estekatik eta deskargatu eredua: «ollama pull %s»."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama martxan dago, baina eredua falta da. Deskargatu: «ollama pull %s»."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Internetik gabe dabil; behar duen memoria eta erantzuteko abiadura ereduaren eta ordenagailuaren araberakoak dira."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Ordenagailu honetako ereduak Ollamari galdetzen..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Ollamak ordenagailu honetan dituen ereduak."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollamak ez du erantzun; beraz, ordenagailu honetako ereduak ez dira ezagutzen."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2264,3 +2226,148 @@ msgstr "Ezin izan da AA hornitzailearekin konektatu, beraz ezin da gakoa orain e
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Erantzunen hornitzailea: %s. API gako bat behar duzu: sortu beheko estekan. Geroago ere sar dezakezu hemen: Tresnak > Aukerak > AA laguntzailea."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Eredu lokala (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Eredu lokalak ez du erantzuten. Itxi Thonny eta abiarazi berriro."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d min"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d h %d min"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Laguntzailea prest dago."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Laguntzailea prestatzen ari da... %s / %s, minutu bat baino gutxiago falta da"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Laguntzailea prestatzen ari da... %s / %s, %s inguru falta dira"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Laguntzailea prestatzen ari da... %s / %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Laguntzailea prestatzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "Deskarga geratu zen tokitik jarraitzen du."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Eredu lokala ez dago deskargatuta oraindik."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Ordenagailu honek %s memoria du, eta eredu lokalak 16 GB behar ditu gutxienez. Erabili API gako bat horren ordez."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Diskoan ez dago leku nahikorik eredu lokalarentzat. Egin lekua eta jarraitu hemen: Tresnak > Aukerak > AA laguntzailea."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Laguntzailearen prestaketa gelditu da: ez dago Interneteko konexiorik. Minutu batean berriro saiatuko da."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Laguntzailearen prestaketa pausatuta dago (%s / %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Laguntzailearen prestaketa pausatuta dago."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "Eredu lokalaren deskargatutako fitxategien sinadura ez da zuzena, beraz ez dira abiarazi."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Eredu lokala ezin da abiarazi ordenagailu honetan. Erabili API gako bat horren ordez."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Eredu lokalaren prestaketak huts egin du: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "%s eredua deskargatuko da; haren tamaina ezin da orain jakin. Deskarga atzeko planoan egingo da, eta bitartean Thonny erabil dezakezu."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "%s ereduak %s behar ditu diskoan, baina %s baino ez daude libre. Egin lekua lehenik."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "%s deskargatuko da, eta diskoan %s libre dituzu. Deskarga atzeko planoan egingo da, eta bitartean Thonny erabil dezakezu."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Ordenagailu honek %s memoria du: eredu lokala motela izango da."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Kendu (%s askatuko ditu)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Kendu"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "%s eredu lokala deskargatuta eta prest dago."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "%s eredua deskargatzeko zer behar den aztertzen..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Prestatu"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Pausatu"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Jarraitu"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Ordenagailu honetan zer eredu dauden aztertzen..."

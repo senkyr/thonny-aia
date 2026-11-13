@@ -2312,36 +2312,12 @@ msgid "cancelled"
 msgstr "zrušeno"
 
 #: thonny/first_run.py
-msgid "Local model (Ollama, %s)"
-msgstr "Lokální model (Ollama, %s)"
-
-#: thonny/first_run.py
 msgid "I will set it up later"
 msgstr "Nastavím později"
 
 #: thonny/first_run.py
 msgid "AIA stays switched on, but it will answer only after you choose a provider in Tools > Options > AI Assistant."
 msgstr "AIA zůstane zapnutá, ale odpovídat začne, až v Nástroje > Volby > AI asistent vybereš poskytovatele."
-
-#: thonny/first_run.py
-msgid "Check again"
-msgstr "Zkontrolovat znovu"
-
-#: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama není nainstalovaná. Nainstaluj ji z odkazu níže a stáhni model: „ollama pull %s“ (13 GB)."
-
-#: thonny/first_run.py
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama je nainstalovaná, ale neběží. Spusť ji."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama běží, ale chybí model. Stáhni ho: „ollama pull %s“ (13 GB)."
-
-#: thonny/first_run.py
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama běží a model %s je připravený."
 
 #: thonny/first_run.py
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
@@ -2444,28 +2420,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(AI asistent AIA a úpravy Thonny AIA)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama není nainstalovaná. Nainstaluj ji z odkazu níže a stáhni model: „ollama pull %s“."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama běží, ale chybí model. Stáhni ho: „ollama pull %s“."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Běží bez internetu. Kolik potřebuje paměti a jak rychle odpovídá, záleží na modelu a počítači."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Ptám se Ollamy na modely v tomto počítači..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Modely, které má Ollama v tomto počítači."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama neodpověděla, takže modely v tomto počítači nejsou známé."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2502,3 +2458,148 @@ msgstr "Nepodařilo se připojit k poskytovateli AI, klíč teď nejde ověřit.
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Odpovědi poskytuje %s. Potřebuješ API klíč: vytvoř si ho na odkazu níže. Zadat ho můžeš i později v Nástroje > Volby > AI asistent."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Lokální model (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Lokální model neodpovídá. Zavři Thonny a spusť ho znovu."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d min"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d h %d min"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Asistent je připravený."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Asistent se připravuje... %s z %s, zbývá necelá minuta"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Asistent se připravuje... %s z %s, zbývá asi %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Asistent se připravuje... %s z %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Asistent se připravuje..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "Stahování pokračuje tam, kde skončilo."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Lokální model ještě není stažený."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Tento počítač má %s paměti, lokální model potřebuje aspoň 16 GB. Použij místo něj API klíč."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Na disku není pro lokální model dost místa. Uvolni místo a pak pokračuj v Nástroje > Volby > AI asistent."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Příprava asistenta se zastavila: není připojení k internetu. Za minutu to zkusí znovu."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Příprava asistenta je pozastavená (%s z %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Příprava asistenta je pozastavená."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "Stažené soubory lokálního modelu nemají správný podpis, proto se nespustily."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Lokální model na tomto počítači nejde spustit. Použij místo něj API klíč."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Příprava lokálního modelu selhala: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Stáhne se model %s, jeho velikost teď nejde zjistit. Stahování poběží na pozadí, Thonny můžeš mezitím používat."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "Model %s potřebuje na disku %s, volných je ale jen %s. Nejdřív uvolni místo."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Stáhne se %s, na disku máš volných %s. Stahování poběží na pozadí, Thonny můžeš mezitím používat."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Tento počítač má %s paměti: lokální model bude pomalý."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Odebrat (uvolní %s)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Odebrat"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "Lokální model %s je stažený a připravený."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "Zjišťuji, co obnáší stažení modelu %s..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Připravit"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Pozastavit"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Pokračovat"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Zjišťuji, jaké modely jsou na tomto počítači..."

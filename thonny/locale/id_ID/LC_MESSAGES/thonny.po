@@ -2015,9 +2015,6 @@ msgstr "Tidak dapat terhubung ke layanan AI. Periksa koneksi internet."
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Tidak dapat menghubungi Ollama. Apakah Ollama berjalan (ollama serve) dan apakah host-nya benar?"
 
-msgid "Check again"
-msgstr "Periksa lagi"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Code (perintah 'claude') tidak ditemukan. Instal Claude Code, masuk dengan menjalankan 'claude' sekali, lalu mulai ulang Thonny."
 
@@ -2041,9 +2038,6 @@ msgstr "Bahasa:"
 
 msgid "Let's go!"
 msgstr "Ayo mulai!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Model lokal (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (sederhana)"
@@ -2083,18 +2077,6 @@ msgstr "Kamu"
 
 msgid "cancelled"
 msgstr "dibatalkan"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama belum terinstal. Instal dari tautan di bawah, lalu unduh modelnya: 'ollama pull %s' (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama sudah terinstal, tetapi tidak berjalan. Jalankan Ollama."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama berjalan, tetapi modelnya tidak ada. Unduh modelnya: 'ollama pull %s' (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama berjalan dan model %s sudah siap."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Berjalan tanpa internet, memerlukan sekitar 14 GB RAM kosong dan, tanpa kartu grafis yang kuat, menjawab dalam 20-70 detik."
@@ -2196,28 +2178,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(asisten AI AIA dan perubahan Thonny AIA)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama belum terinstal. Instal dari tautan di bawah, lalu unduh modelnya: 'ollama pull %s'."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama berjalan, tetapi modelnya tidak ada. Unduh modelnya: 'ollama pull %s'."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Berjalan tanpa internet; kebutuhan memori dan kecepatan jawabannya bergantung pada model dan komputer."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Menanyakan model di komputer ini ke Ollama..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Model yang dimiliki Ollama di komputer ini."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama tidak menjawab, jadi model di komputer ini tidak diketahui."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2254,3 +2216,148 @@ msgstr "Tidak dapat terhubung ke penyedia AI, jadi kunci belum dapat diperiksa s
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Jawaban berasal dari %s. Anda memerlukan kunci API: buat di tautan di bawah. Anda juga dapat memasukkannya nanti di Tools > Options > Asisten AI."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Model lokal (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Model lokal tidak merespons. Tutup Thonny lalu jalankan lagi."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d mnt"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d jam %d mnt"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Asisten sudah siap."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Asisten sedang bersiap... %s dari %s, kurang dari semenit lagi"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Asisten sedang bersiap... %s dari %s, sekitar %s lagi"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Asisten sedang bersiap... %s dari %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Asisten sedang bersiap..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "Pengunduhan dilanjutkan dari titik terakhir."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Model lokal belum diunduh."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Komputer ini memiliki memori %s, sedangkan model lokal membutuhkan minimal 16 GB. Gunakan kunci API sebagai gantinya."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Ruang disk tidak cukup untuk model lokal. Kosongkan sebagian ruang, lalu lanjutkan di Tools > Options > Asisten AI."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Persiapan asisten terhenti: tidak ada koneksi internet. Akan dicoba lagi dalam semenit."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Persiapan asisten dijeda (%s dari %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Persiapan asisten dijeda."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "Berkas model lokal yang diunduh tidak memiliki tanda tangan yang benar, sehingga tidak dijalankan."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Model lokal tidak dapat dijalankan di komputer ini. Gunakan kunci API sebagai gantinya."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Persiapan model lokal gagal: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Model %s akan diunduh; ukurannya belum dapat diketahui sekarang. Pengunduhan berjalan di latar belakang, Anda tetap bisa memakai Thonny."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "Model %s membutuhkan %s di disk, tetapi hanya tersisa %s. Kosongkan ruang terlebih dahulu."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "%s akan diunduh, ruang kosong di disk Anda %s. Pengunduhan berjalan di latar belakang, Anda tetap bisa memakai Thonny."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Komputer ini memiliki memori %s: model lokal akan lambat."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Hapus (membebaskan %s)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Hapus"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "Model lokal %s sudah diunduh dan siap."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "Mencari tahu apa yang diperlukan untuk mengunduh model %s..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Siapkan"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Jeda"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Lanjutkan"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Mencari tahu model apa saja yang ada di komputer ini..."

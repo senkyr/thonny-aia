@@ -2024,9 +2024,6 @@ msgstr "Không thể kết nối với dịch vụ AI. Hãy kiểm tra kết n�
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Không thể kết nối với Ollama. Ollama có đang chạy (ollama serve) không và địa chỉ máy chủ có đúng không?"
 
-msgid "Check again"
-msgstr "Kiểm tra lại"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Không tìm thấy Claude Code (lệnh 'claude'). Hãy cài đặt Claude Code, chạy 'claude' một lần để đăng nhập, rồi khởi động lại Thonny."
 
@@ -2050,9 +2047,6 @@ msgstr "Ngôn ngữ:"
 
 msgid "Let's go!"
 msgstr "Bắt đầu thôi!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Mô hình cục bộ (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (đơn giản)"
@@ -2092,18 +2086,6 @@ msgstr "Bạn"
 
 msgid "cancelled"
 msgstr "đã hủy"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama chưa được cài đặt. Hãy cài đặt từ liên kết bên dưới, rồi tải mô hình xuống: 'ollama pull %s' (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama đã được cài đặt nhưng chưa chạy. Hãy khởi động Ollama."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama đang chạy nhưng thiếu mô hình. Hãy tải xuống: 'ollama pull %s' (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama đang chạy và mô hình %s đã sẵn sàng."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Chạy ngoại tuyến, cần khoảng 14 GB RAM trống; nếu không có card đồ họa mạnh, mỗi câu trả lời mất 20-70 giây."
@@ -2205,28 +2187,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(trợ lý AI AIA và các thay đổi của Thonny AIA)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama chưa được cài đặt. Hãy cài đặt từ liên kết bên dưới, rồi tải mô hình xuống: 'ollama pull %s'."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama đang chạy nhưng thiếu mô hình. Hãy tải xuống: 'ollama pull %s'."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Chạy ngoại tuyến; lượng bộ nhớ cần dùng và tốc độ trả lời tùy thuộc vào mô hình và máy tính."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Đang hỏi Ollama các mô hình trên máy tính này..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Các mô hình mà Ollama có trên máy tính này."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama không phản hồi, nên chưa biết trên máy tính này có những mô hình nào."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2263,3 +2225,148 @@ msgstr "Không thể kết nối với nhà cung cấp AI nên hiện chưa th�
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Câu trả lời đến từ %s. Bạn cần một khóa API: hãy tạo khóa tại liên kết bên dưới. Bạn cũng có thể nhập khóa sau trong Công cụ > Thiết lập > Trợ lý AI."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Mô hình cục bộ (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Mô hình cục bộ không phản hồi. Hãy đóng Thonny và khởi động lại."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d phút"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d giờ %d phút"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Trợ lý đã sẵn sàng."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Trợ lý đang chuẩn bị... %s / %s, còn chưa đến 1 phút"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Trợ lý đang chuẩn bị... %s / %s, còn khoảng %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Trợ lý đang chuẩn bị... %s / %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Trợ lý đang chuẩn bị..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "Quá trình tải xuống sẽ tiếp tục từ chỗ đã dừng."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Mô hình cục bộ chưa được tải xuống."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Máy tính này có %s bộ nhớ, còn mô hình cục bộ cần ít nhất 16 GB. Hãy dùng khóa API thay thế."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Ổ đĩa không đủ chỗ cho mô hình cục bộ. Hãy giải phóng bớt dung lượng, rồi tiếp tục trong Công cụ > Thiết lập > Trợ lý AI."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Việc chuẩn bị trợ lý đã dừng: không có kết nối Internet. Sau 1 phút sẽ thử lại."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Việc chuẩn bị trợ lý đang tạm dừng (%s / %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Việc chuẩn bị trợ lý đang tạm dừng."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "Các tệp đã tải của mô hình cục bộ không có chữ ký hợp lệ nên không được khởi chạy."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Không thể khởi chạy mô hình cục bộ trên máy tính này. Hãy dùng khóa API thay thế."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Chuẩn bị mô hình cục bộ không thành công: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Mô hình %s sẽ được tải xuống; hiện chưa biết dung lượng của nó. Quá trình tải chạy ngầm, trong lúc đó bạn vẫn có thể dùng Thonny."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "Mô hình %s cần %s trên ổ đĩa, nhưng chỉ còn trống %s. Hãy giải phóng bớt dung lượng trước."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Sẽ tải xuống %s, ổ đĩa của bạn còn trống %s. Quá trình tải chạy ngầm, trong lúc đó bạn vẫn có thể dùng Thonny."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Máy tính này có %s bộ nhớ: mô hình cục bộ sẽ chạy chậm."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Gỡ bỏ (giải phóng %s)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Gỡ bỏ"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "Mô hình cục bộ %s đã được tải xuống và sẵn sàng."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "Đang tìm hiểu việc tải mô hình %s cần những gì..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Chuẩn bị"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Tạm dừng"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Tiếp tục"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Đang tìm xem máy tính này có những mô hình nào..."

@@ -2018,9 +2018,6 @@ msgstr "Nuk mund të lidhet me shërbimin AI. Kontrollo lidhjen me internetin."
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Ollama nuk arrihet. A po ekzekutohet (ollama serve) dhe a është i saktë hosti?"
 
-msgid "Check again"
-msgstr "Kontrollo përsëri"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Code (komanda «claude») nuk u gjet. Instalo Claude Code, identifikohu duke ekzekutuar «claude» një herë, pastaj rinis Thonny."
 
@@ -2044,9 +2041,6 @@ msgstr "Gjuha:"
 
 msgid "Let's go!"
 msgstr "Fillojmë!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Model lokal (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (i thjeshtë)"
@@ -2086,18 +2080,6 @@ msgstr "Ti"
 
 msgid "cancelled"
 msgstr "anuluar"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama nuk është e instaluar. Instaloje nga lidhja më poshtë, pastaj shkarko modelin: «ollama pull %s» (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama është e instaluar, por nuk po ekzekutohet. Nise."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama po ekzekutohet, por modeli mungon. Shkarkoje: «ollama pull %s» (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama po ekzekutohet dhe modeli %s është gati."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Funksionon pa internet, i duhen rreth 14 GB RAM të lirë dhe, pa një kartë grafike të fuqishme, përgjigjet për 20–70 s."
@@ -2199,28 +2181,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(asistenti AI AIA dhe ndryshimet e Thonny AIA)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama nuk është e instaluar. Instaloje nga lidhja më poshtë, pastaj shkarko modelin: «ollama pull %s»."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama po ekzekutohet, por modeli mungon. Shkarkoje: «ollama pull %s»."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Funksionon pa internet; sa memorie i duhet dhe sa shpejt përgjigjet varet nga modeli dhe kompjuteri."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Po pyes Ollama për modelet në këtë kompjuter..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Modelet që Ollama ka në këtë kompjuter."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama nuk u përgjigj, prandaj modelet në këtë kompjuter nuk dihen."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2257,3 +2219,148 @@ msgstr "Nuk u arrit lidhja me ofruesin e AI-së, ndaj çelësi nuk mund të kont
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Përgjigjet vijnë nga %s. Të duhet një çelës API: krijoje te lidhja më poshtë. Mund ta futësh edhe më vonë te Mjete > Opsione > Asistenti AI."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Model lokal (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Modeli lokal nuk përgjigjet. Mbylle Thonny dhe nise përsëri."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d min"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d orë %d min"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Asistenti është gati."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Asistenti po përgatitet... %s nga %s, mbeten më pak se një minutë"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Asistenti po përgatitet... %s nga %s, mbeten rreth %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Asistenti po përgatitet... %s nga %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Asistenti po përgatitet..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "Shkarkimi vazhdon aty ku ishte ndërprerë."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Modeli lokal ende nuk është shkarkuar."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Ky kompjuter ka %s memorie, ndërsa modeli lokal kërkon të paktën 16 GB. Përdor në vend të tij një çelës API."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Nuk ka hapësirë të mjaftueshme në disk për modelin lokal. Liro pak hapësirë, pastaj vazhdo te Mjete > Opsione > Asistenti AI."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Përgatitja e asistentit u ndalua: nuk ka lidhje me internetin. Do të provojë përsëri pas një minute."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Përgatitja e asistentit është pezulluar (%s nga %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Përgatitja e asistentit është pezulluar."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "Skedarët e shkarkuar të modelit lokal nuk kanë nënshkrim të saktë, prandaj nuk u nisën."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Modeli lokal nuk mund të niset në këtë kompjuter. Përdor në vend të tij një çelës API."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Përgatitja e modelit lokal dështoi: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Do të shkarkohet modeli %s; madhësia e tij nuk mund të merret vesh tani. Shkarkimi ecën në prapavijë, ndërkohë mund ta përdorësh Thonny."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "Modeli %s kërkon %s në disk, por janë të lira vetëm %s. Së pari liro pak hapësirë."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Do të shkarkohet %s, ndërsa në disk ke %s të lira. Shkarkimi ecën në prapavijë, ndërkohë mund ta përdorësh Thonny."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Ky kompjuter ka %s memorie: modeli lokal do të jetë i ngadaltë."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Hiq (liron %s)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Hiq"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "Modeli lokal %s është shkarkuar dhe është gati."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "Po shqyrtoj çfarë kërkon shkarkimi i modelit %s..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Përgatit"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Pezulloje"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Vazhdo"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Po shqyrtoj cilat modele ka në këtë kompjuter..."

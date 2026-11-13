@@ -26,7 +26,7 @@ RETRY_MS = 60 * 1000
 EVENT = "AIALocalModel"
 
 # Languages that write a decimal point; the others get a decimal comma
-DECIMAL_POINT = ("en", "zh", "ja", "ko", "th", "hi", "ta", "ml", "he", "ga", "vi", "id")
+DECIMAL_POINT = ("en", "zh", "ja", "ko", "th", "hi", "ta", "ml", "he", "ga")
 
 
 dialog_language = None  # the welcome dialog's language: it runs before the workbench

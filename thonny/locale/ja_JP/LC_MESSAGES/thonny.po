@@ -2025,9 +2025,6 @@ msgstr "AIサービスに接続できません。インターネット接続を�
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Ollamaに接続できません。Ollamaは起動していますか（ollama serve）？ホストは正しいですか？"
 
-msgid "Check again"
-msgstr "もう一度確認"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Code（「claude」コマンド）が見つかりません。Claude Codeをインストールし、一度「claude」を実行してサインインしてから、Thonnyを再起動してください。"
 
@@ -2051,9 +2048,6 @@ msgstr "言語:"
 
 msgid "Let's go!"
 msgstr "始めましょう！"
-
-msgid "Local model (Ollama, %s)"
-msgstr "ローカルモデル（Ollama、%s）"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi（シンプル）"
@@ -2093,18 +2087,6 @@ msgstr "あなた"
 
 msgid "cancelled"
 msgstr "キャンセル済み"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollamaがインストールされていません。下のリンクからインストールし、モデルをダウンロードしてください：「ollama pull %s」（13 GB）。"
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollamaはインストールされていますが、起動していません。起動してください。"
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollamaは起動していますが、モデルがありません。ダウンロードしてください：「ollama pull %s」（13 GB）。"
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollamaは起動しており、モデル %s の準備ができています。"
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "オフラインで動作し、約14 GBの空きRAMが必要です。高性能なグラフィックスカードがない場合、回答に20～70秒かかります。"
@@ -2206,28 +2188,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "（AIアシスタントAIAおよびThonny AIAの変更点）"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollamaがインストールされていません。下のリンクからインストールし、モデルをダウンロードしてください：「ollama pull %s」。"
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollamaは起動していますが、モデルがありません。ダウンロードしてください：「ollama pull %s」。"
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "オフラインで動作します。必要なメモリ量と応答速度は、モデルとコンピューターによって異なります。"
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "このコンピューターのモデルをOllamaに問い合わせています..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "このコンピューターでOllamaが持っているモデルです。"
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollamaが応答しなかったため、このコンピューターのモデルは不明です。"
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2264,3 +2226,148 @@ msgstr "AIプロバイダーに接続できなかったため、今はキーを�
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "回答は %s から提供されます。APIキーが必要です。下のリンクから作成してください。後から ツール > オプション > AIアシスタント で入力することもできます。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "ローカルモデル（%s）"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "ローカルモデルが応答しません。Thonny を閉じて、もう一度起動してください。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d 分"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d 時間 %d 分"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "アシスタントの準備ができました。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "アシスタントを準備しています... %s / %s、残り1分未満"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "アシスタントを準備しています... %s / %s、残り約 %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "アシスタントを準備しています... %s / %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "アシスタントを準備しています..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "ダウンロードは中断したところから再開されます。"
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "ローカルモデルはまだダウンロードされていません。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "このコンピューターのメモリーは %s で、ローカルモデルには 16 GB 以上が必要です。代わりに API キーを使ってください。"
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "ローカルモデルに必要なディスクの空き容量が足りません。空きを作ってから、ツール > オプション > AIアシスタント で続けてください。"
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "アシスタントの準備が止まりました。インターネットに接続されていません。1分後にもう一度試します。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "アシスタントの準備は一時停止中です（%s / %s）。"
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "アシスタントの準備は一時停止中です。"
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "ダウンロードしたローカルモデルのファイルには正しい署名がないため、起動されませんでした。"
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "このコンピューターではローカルモデルを起動できません。代わりに API キーを使ってください。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "ローカルモデルの準備に失敗しました: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "モデル %s をダウンロードします。サイズは今は確認できません。ダウンロードはバックグラウンドで進むので、その間も Thonny を使えます。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "モデル %s にはディスクの空きが %s 必要ですが、空きは %s しかありません。先に空き容量を作ってください。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "%s をダウンロードします。ディスクの空きは %s です。ダウンロードはバックグラウンドで進むので、その間も Thonny を使えます。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "このコンピューターのメモリーは %s です。ローカルモデルは遅くなります。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "削除（%s を解放）"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "削除"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "ローカルモデル %s のダウンロードが完了し、準備ができました。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "モデル %s のダウンロードに必要なものを確認しています..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "準備する"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "一時停止"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "続ける"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "このコンピューターにあるモデルを確認しています..."

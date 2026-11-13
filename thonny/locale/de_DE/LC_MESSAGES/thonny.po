@@ -2015,9 +2015,6 @@ msgstr "Keine Verbindung zum KI-Dienst. Prüfe die Internetverbindung."
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Ollama ist nicht erreichbar. Läuft es (ollama serve) und ist der Host korrekt?"
 
-msgid "Check again"
-msgstr "Erneut prüfen"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Code (der Befehl „claude“) wurde nicht gefunden. Installiere Claude Code, melde dich an, indem du einmal „claude“ ausführst, und starte Thonny dann neu."
 
@@ -2041,9 +2038,6 @@ msgstr "Sprache:"
 
 msgid "Let's go!"
 msgstr "Los geht's!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Lokales Modell (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (einfach)"
@@ -2083,18 +2077,6 @@ msgstr "Du"
 
 msgid "cancelled"
 msgstr "abgebrochen"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama ist nicht installiert. Installiere es über den Link unten und lade dann das Modell herunter: „ollama pull %s“ (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama ist installiert, läuft aber nicht. Starte es."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama läuft, aber das Modell fehlt. Lade es herunter: „ollama pull %s“ (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama läuft und das Modell %s ist bereit."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Läuft offline, braucht etwa 14 GB freien Arbeitsspeicher (RAM) und antwortet ohne leistungsstarke Grafikkarte in 20–70 s."
@@ -2196,28 +2178,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(KI-Assistent AIA und die Änderungen in Thonny AIA)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama ist nicht installiert. Installiere es über den Link unten und lade dann das Modell herunter: „ollama pull %s“."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama läuft, aber das Modell fehlt. Lade es herunter: „ollama pull %s“."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Läuft offline; wie viel Arbeitsspeicher es braucht und wie schnell es antwortet, hängt vom Modell und vom Computer ab."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Frage Ollama nach den Modellen auf diesem Computer..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Die Modelle, die Ollama auf diesem Computer hat."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama hat nicht geantwortet, daher sind die Modelle auf diesem Computer unbekannt."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2254,3 +2216,148 @@ msgstr "Keine Verbindung zum KI-Anbieter, daher kann der Schlüssel gerade nicht
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Die Antworten kommen von %s. Du brauchst einen API-Schlüssel: Erstelle ihn über den Link unten. Du kannst ihn auch später unter Werkzeuge > Optionen > KI-Assistent eingeben."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Lokales Modell (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Das lokale Modell antwortet nicht. Schließe Thonny und starte es neu."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d Min."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d Std. %d Min."
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Der Assistent ist bereit."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Der Assistent wird vorbereitet... %s von %s, noch weniger als eine Minute"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Der Assistent wird vorbereitet... %s von %s, noch etwa %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Der Assistent wird vorbereitet... %s von %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Der Assistent wird vorbereitet..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "Der Download wird dort fortgesetzt, wo er aufgehört hat."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Das lokale Modell ist noch nicht heruntergeladen."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Dieser Computer hat %s Arbeitsspeicher, das lokale Modell braucht mindestens 16 GB. Verwende stattdessen einen API-Schlüssel."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Auf dem Datenträger ist nicht genug Platz für das lokale Modell. Schaffe Platz und mach dann unter Werkzeuge > Optionen > KI-Assistent weiter."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Die Vorbereitung des Assistenten wurde angehalten: Es besteht keine Internetverbindung. In einer Minute wird es erneut versucht."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Die Vorbereitung des Assistenten ist pausiert (%s von %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Die Vorbereitung des Assistenten ist pausiert."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "Die heruntergeladenen Dateien des lokalen Modells sind nicht korrekt signiert und wurden deshalb nicht gestartet."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Das lokale Modell lässt sich auf diesem Computer nicht starten. Verwende stattdessen einen API-Schlüssel."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Die Vorbereitung des lokalen Modells ist fehlgeschlagen: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Das Modell %s wird heruntergeladen; seine Größe lässt sich gerade nicht ermitteln. Der Download läuft im Hintergrund, du kannst Thonny in der Zwischenzeit weiter benutzen."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "Das Modell %s braucht %s auf dem Datenträger, aber nur %s sind frei. Schaffe zuerst Platz."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Es werden %s heruntergeladen, auf dem Datenträger hast du %s frei. Der Download läuft im Hintergrund, du kannst Thonny in der Zwischenzeit weiter benutzen."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Dieser Computer hat %s Arbeitsspeicher: Das lokale Modell wird langsam sein."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Entfernen (gibt %s frei)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Entfernen"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "Das lokale Modell %s ist heruntergeladen und bereit."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "Ich finde heraus, was der Download des Modells %s erfordert..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Vorbereiten"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Pausieren"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Fortsetzen"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Ich finde heraus, welche Modelle auf diesem Computer sind..."

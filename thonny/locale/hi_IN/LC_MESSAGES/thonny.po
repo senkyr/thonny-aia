@@ -2017,9 +2017,6 @@ msgstr "AI सेवा से कनेक्ट नहीं हो पा र
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Ollama से संपर्क नहीं हो पा रहा। क्या यह चल रहा है (ollama serve) और क्या होस्ट सही है?"
 
-msgid "Check again"
-msgstr "फिर से जाँचें"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Code ('claude' कमांड) नहीं मिला। Claude Code इंस्टॉल करें, एक बार 'claude' चलाकर साइन इन करें, फिर Thonny रीस्टार्ट करें।"
 
@@ -2043,9 +2040,6 @@ msgstr "भाषा:"
 
 msgid "Let's go!"
 msgstr "चलिए शुरू करें!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "लोकल मॉडल (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (सरल)"
@@ -2085,18 +2079,6 @@ msgstr "तुम"
 
 msgid "cancelled"
 msgstr "कैंसिल किया गया"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama इंस्टॉल नहीं है। इसे नीचे दिए लिंक से इंस्टॉल करें, फिर मॉडल डाउनलोड करें: 'ollama pull %s' (13 GB)।"
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama इंस्टॉल है, लेकिन चल नहीं रहा। इसे शुरू करें।"
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama चल रहा है, लेकिन मॉडल मौजूद नहीं है। इसे डाउनलोड करें: 'ollama pull %s' (13 GB)।"
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama चल रहा है और मॉडल %s तैयार है।"
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "यह बिना इंटरनेट के चलता है, इसे लगभग 14 GB खाली RAM चाहिए और दमदार ग्राफ़िक्स कार्ड के बिना यह 20-70 सेकंड में जवाब देता है।"
@@ -2198,28 +2180,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(AI असिस्टेंट AIA और Thonny AIA के बदलाव)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama इंस्टॉल नहीं है। इसे नीचे दिए लिंक से इंस्टॉल करें, फिर मॉडल डाउनलोड करें: 'ollama pull %s'।"
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama चल रहा है, लेकिन मॉडल मौजूद नहीं है। इसे डाउनलोड करें: 'ollama pull %s'।"
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "यह बिना इंटरनेट के चलता है; इसे कितनी मेमोरी चाहिए और यह कितनी जल्दी जवाब देता है, यह मॉडल और कंप्यूटर पर निर्भर करता है।"
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Ollama से इस कंप्यूटर के मॉडल पूछे जा रहे हैं..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "वे मॉडल जो Ollama के पास इस कंप्यूटर पर हैं।"
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama ने जवाब नहीं दिया, इसलिए इस कंप्यूटर के मॉडल पता नहीं हैं।"
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2256,3 +2218,148 @@ msgstr "AI प्रदाता से कनेक्ट नहीं हो �
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "जवाब %s से आते हैं। आपको एक API कुंजी चाहिए: नीचे दिए लिंक पर बनाएँ। इसे बाद में टूल्स > ऑप्शनस > AI असिस्टेंट में भी डाला जा सकता है।"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "लोकल मॉडल (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "लोकल मॉडल जवाब नहीं दे रहा। Thonny बंद करें और फिर से शुरू करें।"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d मिनट"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d घंटे %d मिनट"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "असिस्टेंट तैयार है।"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "असिस्टेंट तैयार हो रहा है... %s / %s, एक मिनट से कम बचा है"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "असिस्टेंट तैयार हो रहा है... %s / %s, लगभग %s बचे हैं"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "असिस्टेंट तैयार हो रहा है... %s / %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "असिस्टेंट तैयार हो रहा है..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "डाउनलोड वहीं से जारी रहेगा जहाँ रुका था।"
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "लोकल मॉडल अभी डाउनलोड नहीं हुआ है।"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "इस कंप्यूटर में %s मेमोरी है, जबकि लोकल मॉडल को कम से कम 16 GB चाहिए। इसकी जगह API कुंजी इस्तेमाल करें।"
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "डिस्क पर लोकल मॉडल के लिए पर्याप्त जगह नहीं है। कुछ जगह खाली करें, फिर टूल्स > ऑप्शनस > AI असिस्टेंट में जारी रखें।"
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "असिस्टेंट की तैयारी रुक गई: इंटरनेट कनेक्शन नहीं है। एक मिनट बाद फिर कोशिश होगी।"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "असिस्टेंट की तैयारी रुकी हुई है (%s / %s)।"
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "असिस्टेंट की तैयारी रुकी हुई है।"
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "लोकल मॉडल की डाउनलोड की गई फ़ाइलों पर सही हस्ताक्षर नहीं हैं, इसलिए उन्हें चालू नहीं किया गया।"
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "इस कंप्यूटर पर लोकल मॉडल चालू नहीं हो सकता। इसकी जगह API कुंजी इस्तेमाल करें।"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "लोकल मॉडल की तैयारी विफल रही: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "मॉडल %s डाउनलोड होगा; उसका आकार अभी पता नहीं चल सकता। डाउनलोड बैकग्राउंड में चलेगा, इस दौरान Thonny इस्तेमाल किया जा सकता है।"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "मॉडल %s को डिस्क पर %s चाहिए, लेकिन केवल %s खाली है। पहले कुछ जगह खाली करें।"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "%s डाउनलोड होगा, डिस्क पर %s खाली है। डाउनलोड बैकग्राउंड में चलेगा, इस दौरान Thonny इस्तेमाल किया जा सकता है।"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "इस कंप्यूटर में %s मेमोरी है: लोकल मॉडल धीमा रहेगा।"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "हटाएँ (%s खाली होगा)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "हटाएँ"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "लोकल मॉडल %s डाउनलोड हो चुका है और तैयार है।"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "पता लगाया जा रहा है कि मॉडल %s को डाउनलोड करने में क्या लगेगा..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "तैयार करें"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "रोकें"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "जारी रखें"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "पता लगाया जा रहा है कि इस कंप्यूटर पर कौन-से मॉडल हैं..."

@@ -2018,9 +2018,6 @@ msgstr "AI சேவையுடன் இணைக்க முடியவி�
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Ollama-வை அணுக முடியவில்லை. அது இயங்குகிறதா (ollama serve), ஹோஸ்ட் சரியாக உள்ளதா?"
 
-msgid "Check again"
-msgstr "மீண்டும் சரிபார்"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Code ('claude' கட்டளை) கிடைக்கவில்லை. Claude Code-ஐ நிறுவி, 'claude'-ஐ ஒருமுறை இயக்கி உள்நுழைந்து, பின்னர் Thonny-ஐ மறுதொடக்கம் செய்யவும்."
 
@@ -2044,9 +2041,6 @@ msgstr "மொழி:"
 
 msgid "Let's go!"
 msgstr "தொடங்குவோம்!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "உள்ளூர் மாதிரி (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (எளிமையானது)"
@@ -2086,18 +2080,6 @@ msgstr "நீங்கள்"
 
 msgid "cancelled"
 msgstr "ரத்து செய்யப்பட்டது"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama நிறுவப்படவில்லை. கீழே உள்ள இணைப்பிலிருந்து அதை நிறுவி, பின்னர் மாதிரியைப் பதிவிறக்கவும்: 'ollama pull %s' (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama நிறுவப்பட்டுள்ளது, ஆனால் இயங்கவில்லை. அதைத் தொடங்கவும்."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama இயங்குகிறது, ஆனால் மாதிரி இல்லை. அதைப் பதிவிறக்கவும்: 'ollama pull %s' (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama இயங்குகிறது, %s மாதிரி தயாராக உள்ளது."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "இணையம் இல்லாமல் இயங்குகிறது, சுமார் 14 GB காலியான RAM தேவை; சக்திவாய்ந்த கிராபிக்ஸ் அட்டை இல்லையெனில் 20-70 வினாடிகளில் பதிலளிக்கும்."
@@ -2199,28 +2181,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(AI உதவியாளர் AIA மற்றும் Thonny AIA-வின் மாற்றங்கள்)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama நிறுவப்படவில்லை. கீழே உள்ள இணைப்பிலிருந்து அதை நிறுவி, பின்னர் மாதிரியைப் பதிவிறக்கவும்: 'ollama pull %s'."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama இயங்குகிறது, ஆனால் மாதிரி இல்லை. அதைப் பதிவிறக்கவும்: 'ollama pull %s'."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "இணையம் இல்லாமல் இயங்குகிறது; எவ்வளவு நினைவகம் தேவை, எவ்வளவு வேகமாகப் பதிலளிக்கும் என்பது மாதிரியையும் கணினியையும் பொறுத்தது."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "இந்தக் கணினியில் உள்ள மாதிரிகளை Ollama-விடம் கேட்கிறேன்..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "இந்தக் கணினியில் Ollama-விடம் உள்ள மாதிரிகள்."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama பதிலளிக்கவில்லை, எனவே இந்தக் கணினியில் உள்ள மாதிரிகள் தெரியவில்லை."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2257,3 +2219,148 @@ msgstr "AI வழங்குநருடன் இணைக்க முடி�
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "பதில்கள் %s இலிருந்து வருகின்றன. உங்களுக்கு ஒரு API விசை தேவை: கீழே உள்ள இணைப்பில் அதை உருவாக்கவும். கருவிகள் > விருப்பங்கள் > AI உதவியாளர் என்பதில் பின்னரும் அதை உள்ளிடலாம்."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "உள்ளூர் மாதிரி (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "உள்ளூர் மாதிரி பதிலளிக்கவில்லை. Thonny ஐ மூடி மீண்டும் தொடங்கவும்."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d நிமி"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d மணி %d நிமி"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "உதவியாளர் தயார்."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "உதவியாளர் தயாராகிறது... %s / %s, ஒரு நிமிடத்திற்கும் குறைவாக உள்ளது"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "உதவியாளர் தயாராகிறது... %s / %s, சுமார் %s மீதம் உள்ளது"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "உதவியாளர் தயாராகிறது... %s / %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "உதவியாளர் தயாராகிறது..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "பதிவிறக்கம் நின்ற இடத்திலிருந்தே தொடரும்."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "உள்ளூர் மாதிரி இன்னும் பதிவிறக்கப்படவில்லை."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "இந்தக் கணினியில் %s நினைவகம் உள்ளது, உள்ளூர் மாதிரிக்குக் குறைந்தது 16 GB தேவை. அதற்குப் பதிலாக API விசையைப் பயன்படுத்தவும்."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "உள்ளூர் மாதிரிக்குத் தேவையான இடம் வட்டில் இல்லை. சிறிது இடத்தை விடுவித்து, பிறகு கருவிகள் > விருப்பங்கள் > AI உதவியாளர் என்பதில் தொடரவும்."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "உதவியாளரைத் தயார்செய்வது நின்றது: இணைய இணைப்பு இல்லை. ஒரு நிமிடத்தில் மீண்டும் முயலும்."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "உதவியாளரைத் தயார்செய்வது இடைநிறுத்தப்பட்டுள்ளது (%s / %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "உதவியாளரைத் தயார்செய்வது இடைநிறுத்தப்பட்டுள்ளது."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "உள்ளூர் மாதிரியின் பதிவிறக்கிய கோப்புகள் சரியாகக் கையொப்பமிடப்படவில்லை, எனவே அவை தொடங்கப்படவில்லை."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "இந்தக் கணினியில் உள்ளூர் மாதிரியைத் தொடங்க முடியாது. அதற்குப் பதிலாக API விசையைப் பயன்படுத்தவும்."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "உள்ளூர் மாதிரியைத் தயார்செய்வது தோல்வியடைந்தது: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "மாதிரி %s பதிவிறக்கப்படும்; அதன் அளவை இப்போது அறிய முடியாது. பதிவிறக்கம் பின்னணியில் நடக்கும், அதற்குள் Thonny ஐப் பயன்படுத்தலாம்."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "மாதிரி %s க்கு வட்டில் %s தேவை, ஆனால் %s மட்டுமே காலியாக உள்ளது. முதலில் சிறிது இடத்தை விடுவிக்கவும்."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "%s பதிவிறக்கப்படும், வட்டில் %s காலியாக உள்ளது. பதிவிறக்கம் பின்னணியில் நடக்கும், அதற்குள் Thonny ஐப் பயன்படுத்தலாம்."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "இந்தக் கணினியில் %s நினைவகம் உள்ளது: உள்ளூர் மாதிரி மெதுவாக இருக்கும்."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "நீக்கு (%s விடுவிக்கும்)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "நீக்கு"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "உள்ளூர் மாதிரி %s பதிவிறக்கப்பட்டு தயாராக உள்ளது."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "மாதிரி %s ஐப் பதிவிறக்க என்ன தேவை என்று கண்டறியப்படுகிறது..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "தயார்செய்"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "இடைநிறுத்து"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "தொடர்"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "இந்தக் கணினியில் எந்த மாதிரிகள் உள்ளன என்று கண்டறியப்படுகிறது..."

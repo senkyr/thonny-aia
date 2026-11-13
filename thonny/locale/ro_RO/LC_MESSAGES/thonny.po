@@ -2025,9 +2025,6 @@ msgstr "Nu se poate realiza conexiunea la serviciul AI. Verifică conexiunea la 
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Ollama nu poate fi accesat. Rulează (ollama serve) și adresa gazdei este corectă?"
 
-msgid "Check again"
-msgstr "Verifică din nou"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Code (comanda „claude”) nu a fost găsit. Instalează Claude Code, autentifică-te rulând o dată „claude”, apoi repornește Thonny."
 
@@ -2051,9 +2048,6 @@ msgstr "Limbă:"
 
 msgid "Let's go!"
 msgstr "Să începem!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Model local (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (simplu)"
@@ -2093,18 +2087,6 @@ msgstr "Tu"
 
 msgid "cancelled"
 msgstr "anulat"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama nu este instalat. Instalează-l de la linkul de mai jos, apoi descarcă modelul: „ollama pull %s” (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama este instalat, dar nu rulează. Pornește-l."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama rulează, dar lipsește modelul. Descarcă-l: „ollama pull %s” (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama rulează și modelul %s este pregătit."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Rulează fără internet, are nevoie de aproximativ 14 GB de RAM liberă și, fără o placă grafică puternică, răspunde în 20–70 s."
@@ -2206,28 +2188,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(asistentul AI AIA și modificările din Thonny AIA)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama nu este instalat. Instalează-l de la linkul de mai jos, apoi descarcă modelul: „ollama pull %s”."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama rulează, dar lipsește modelul. Descarcă-l: „ollama pull %s”."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Rulează fără internet; de câtă memorie are nevoie și cât de repede răspunde depind de model și de calculator."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Întreb Ollama care sunt modelele de pe acest calculator..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Modelele pe care Ollama le are pe acest calculator."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama nu a răspuns, așa că modelele de pe acest calculator nu se cunosc."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2264,3 +2226,148 @@ msgstr "Nu s-a putut realiza conexiunea cu furnizorul de AI, așa că acum cheia
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Răspunsurile vin de la %s. Ai nevoie de o cheie API: creeaz-o la linkul de mai jos. O poți introduce și mai târziu în Instrumente > Opțiuni > Asistent AI."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Model local (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Modelul local nu răspunde. Închide Thonny și pornește-l din nou."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d min"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d h %d min"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Asistentul este pregătit."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Asistentul se pregătește... %s din %s, mai este mai puțin de un minut"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Asistentul se pregătește... %s din %s, mai sunt aproximativ %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Asistentul se pregătește... %s din %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Asistentul se pregătește..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "Descărcarea continuă de unde s-a oprit."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Modelul local nu este încă descărcat."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Acest calculator are %s de memorie, iar modelul local are nevoie de cel puțin 16 GB. Folosește în schimb o cheie API."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Nu este suficient spațiu pe disc pentru modelul local. Eliberează spațiu, apoi continuă în Instrumente > Opțiuni > Asistent AI."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Pregătirea asistentului s-a oprit: nu există conexiune la internet. Va încerca din nou într-un minut."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Pregătirea asistentului este în pauză (%s din %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Pregătirea asistentului este în pauză."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "Fișierele descărcate ale modelului local nu au semnătura corectă, de aceea nu au fost pornite."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Modelul local nu poate fi pornit pe acest calculator. Folosește în schimb o cheie API."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Pregătirea modelului local a eșuat: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Modelul %s va fi descărcat; dimensiunea lui nu poate fi aflată acum. Descărcarea rulează în fundal, între timp poți folosi Thonny."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "Modelul %s are nevoie de %s pe disc, dar sunt libere doar %s. Eliberează mai întâi spațiu."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Se vor descărca %s, iar pe disc ai %s liberi. Descărcarea rulează în fundal, între timp poți folosi Thonny."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Acest calculator are %s de memorie: modelul local va fi lent."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Elimină (eliberează %s)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Elimină"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "Modelul local %s este descărcat și pregătit."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "Aflu ce presupune descărcarea modelului %s..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Pregătește"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Pauză"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Continuă"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Aflu ce modele există pe acest calculator..."

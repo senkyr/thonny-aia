@@ -2007,9 +2007,6 @@ msgstr "Nepavyksta prisijungti prie DI paslaugos. Patikrink interneto ryšį."
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Nepavyksta pasiekti Ollama. Ar ji paleista (ollama serve) ir ar teisingas serverio adresas?"
 
-msgid "Check again"
-msgstr "Tikrinti dar kartą"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Code (komanda „claude“) nerasta. Įdiek Claude Code, vieną kartą paleisk „claude“ ir prisijunk, tada iš naujo paleisk Thonny."
 
@@ -2033,9 +2030,6 @@ msgstr "Kalba:"
 
 msgid "Let's go!"
 msgstr "Pirmyn!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Vietinis modelis (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (paprastas)"
@@ -2075,18 +2069,6 @@ msgstr "Tu"
 
 msgid "cancelled"
 msgstr "atšaukta"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama neįdiegta. Įdiek ją iš toliau pateiktos nuorodos ir atsisiųsk modelį: „ollama pull %s“ (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama įdiegta, bet nepaleista. Paleisk ją."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama veikia, bet trūksta modelio. Atsisiųsk jį: „ollama pull %s“ (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama veikia, o modelis %s paruoštas."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Veikia be interneto, reikia apie 14 GB laisvos RAM, o be galingos vaizdo plokštės atsako per 20–70 s."
@@ -2188,28 +2170,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(DI asistentas AIA ir Thonny AIA pakeitimai)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama neįdiegta. Įdiek ją iš toliau pateiktos nuorodos ir atsisiųsk modelį: „ollama pull %s“."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama veikia, bet trūksta modelio. Atsisiųsk jį: „ollama pull %s“."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Veikia be interneto; kiek atminties reikia ir kaip greitai atsako, priklauso nuo modelio ir kompiuterio."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Klausiu Ollamos apie šio kompiuterio modelius..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Modeliai, kuriuos Ollama turi šiame kompiuteryje."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama neatsakė, todėl šio kompiuterio modeliai nežinomi."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2246,3 +2208,148 @@ msgstr "Nepavyko prisijungti prie DI paslaugų teikėjo, todėl rakto dabar pati
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Atsakymus teikia %s. Tau reikia API rakto: susikurk jį toliau pateiktoje nuorodoje. Jį gali įvesti ir vėliau skiltyje Įrankiai > Nustatymai > DI asistentas."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Vietinis modelis (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Vietinis modelis neatsako. Uždaryk Thonny ir paleisk jį iš naujo."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d min."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d val. %d min."
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Asistentas paruoštas."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Asistentas ruošiasi... %s iš %s, liko mažiau nei minutė"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Asistentas ruošiasi... %s iš %s, liko apie %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Asistentas ruošiasi... %s iš %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Asistentas ruošiasi..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "Atsisiuntimas tęsiamas nuo tos vietos, kur sustojo."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Vietinis modelis dar neatsisiųstas."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Šiame kompiuteryje yra %s atminties, o vietiniam modeliui reikia bent 16 GB. Verčiau naudok API raktą."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Diske nepakanka vietos vietiniam modeliui. Atlaisvink vietos ir tęsk skiltyje Įrankiai > Nustatymai > DI asistentas."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Asistento paruošimas sustojo: nėra ryšio su internetu. Po minutės bus bandoma iš naujo."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Asistento paruošimas pristabdytas (%s iš %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Asistento paruošimas pristabdytas."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "Atsisiųsti vietinio modelio failai neturi tinkamo parašo, todėl jie nebuvo paleisti."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Vietinio modelio šiame kompiuteryje paleisti nepavyksta. Verčiau naudok API raktą."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Vietinio modelio paruošimas nepavyko: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Bus atsisiųstas modelis %s, jo dydžio dabar nustatyti nepavyksta. Atsisiuntimas vyks fone, tuo metu gali naudotis Thonny."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "Modeliui %s diske reikia %s, bet laisva tik %s. Pirmiausia atlaisvink vietos."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Bus atsisiųsta %s, diske turi laisvos vietos: %s. Atsisiuntimas vyks fone, tuo metu gali naudotis Thonny."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Šiame kompiuteryje yra %s atminties: vietinis modelis veiks lėtai."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Pašalinti (atlaisvins %s)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Pašalinti"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "Vietinis modelis %s atsisiųstas ir paruoštas."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "Išsiaiškinama, ko reikia modeliui %s atsisiųsti..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Paruošti"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Pristabdyti"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Tęsti"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Išsiaiškinama, kurie modeliai yra šiame kompiuteryje..."

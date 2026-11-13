@@ -1994,9 +1994,6 @@ msgstr "Kan inte ansluta till AI-tjänsten. Kontrollera internetanslutningen."
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Kan inte nå Ollama. Körs den (ollama serve) och är värden korrekt?"
 
-msgid "Check again"
-msgstr "Kontrollera igen"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Code (kommandot ”claude”) hittades inte. Installera Claude Code, logga in genom att köra ”claude” en gång och starta sedan om Thonny."
 
@@ -2020,9 +2017,6 @@ msgstr "Språk:"
 
 msgid "Let's go!"
 msgstr "Nu kör vi!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Lokal modell (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (enkel)"
@@ -2062,18 +2056,6 @@ msgstr "Du"
 
 msgid "cancelled"
 msgstr "avbruten"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollama är inte installerat. Installera det via länken nedan och ladda sedan ned modellen: ”ollama pull %s” (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama är installerat men körs inte. Starta det."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama körs, men modellen saknas. Ladda ned den: ”ollama pull %s” (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama körs och modellen %s är redo."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Den körs utan internet, behöver cirka 14 GB ledigt RAM och svarar på 20–70 s utan ett kraftfullt grafikkort."
@@ -2175,28 +2157,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(AI-assistenten AIA och ändringarna i Thonny AIA)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollama är inte installerat. Installera det via länken nedan och ladda sedan ned modellen: ”ollama pull %s”."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama körs, men modellen saknas. Ladda ned den: ”ollama pull %s”."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Den körs utan internet; hur mycket minne den behöver och hur snabbt den svarar beror på modellen och datorn."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Frågar Ollama om modellerna på den här datorn..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Modellerna som Ollama har på den här datorn."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama svarade inte, så modellerna på den här datorn är okända."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2233,3 +2195,148 @@ msgstr "Det gick inte att ansluta till AI-leverantören, så nyckeln kan inte ko
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Svaren kommer från %s. Du behöver en API-nyckel: skapa den via länken nedan. Du kan också ange den senare i Verktyg > Alternativ > AI-assistent."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Lokal modell (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Den lokala modellen svarar inte. Stäng Thonny och starta det igen."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d min"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d tim %d min"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Assistenten är redo."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Assistenten görs redo... %s av %s, mindre än en minut kvar"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Assistenten görs redo... %s av %s, ungefär %s kvar"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Assistenten görs redo... %s av %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Assistenten görs redo..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "Nedladdningen fortsätter där den avbröts."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Den lokala modellen är inte nedladdad än."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Den här datorn har %s minne, och den lokala modellen behöver minst 16 GB. Använd en API-nyckel i stället."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Det finns inte tillräckligt med diskutrymme för den lokala modellen. Frigör utrymme och fortsätt sedan i Verktyg > Alternativ > AI-assistent."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Förberedelsen av assistenten stoppades: det finns ingen internetanslutning. Den försöker igen om en minut."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Förberedelsen av assistenten är pausad (%s av %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Förberedelsen av assistenten är pausad."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "De nedladdade filerna för den lokala modellen är inte korrekt signerade och startades därför inte."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Den lokala modellen kan inte startas på den här datorn. Använd en API-nyckel i stället."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Det gick inte att förbereda den lokala modellen: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Modellen %s kommer att laddas ned, men storleken kan inte fastställas just nu. Nedladdningen pågår i bakgrunden, så du kan använda Thonny under tiden."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "Modellen %s behöver %s på disken, men bara %s är ledigt. Frigör utrymme först."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "%s kommer att laddas ned, och du har %s ledigt på disken. Nedladdningen pågår i bakgrunden, så du kan använda Thonny under tiden."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Den här datorn har %s minne: den lokala modellen blir långsam."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Ta bort (frigör %s)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Ta bort"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "Den lokala modellen %s är nedladdad och redo."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "Tar reda på vad nedladdningen av modellen %s kräver..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Förbered"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Pausa"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Fortsätt"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Tar reda på vilka modeller som finns på den här datorn..."

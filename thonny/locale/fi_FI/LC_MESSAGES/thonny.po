@@ -2003,9 +2003,6 @@ msgstr "Tekoälypalveluun ei saada yhteyttä. Tarkista internetyhteys."
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Ollamaan ei saada yhteyttä. Onko se käynnissä (ollama serve) ja onko palvelimen osoite oikein?"
 
-msgid "Check again"
-msgstr "Tarkista uudelleen"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "Claude Codea (komentoa ”claude”) ei löytynyt. Asenna Claude Code, kirjaudu sisään suorittamalla ”claude” kerran ja käynnistä sitten Thonny uudelleen."
 
@@ -2029,9 +2026,6 @@ msgstr "Kieli:"
 
 msgid "Let's go!"
 msgstr "Aloitetaan!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Paikallinen malli (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (yksinkertainen)"
@@ -2071,18 +2065,6 @@ msgstr "Sinä"
 
 msgid "cancelled"
 msgstr "peruttu"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Ollamaa ei ole asennettu. Asenna se alla olevasta linkistä ja lataa sitten malli: ”ollama pull %s” (13 Gt)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama on asennettu, mutta se ei ole käynnissä. Käynnistä se."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama on käynnissä, mutta malli puuttuu. Lataa se: ”ollama pull %s” (13 Gt)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama on käynnissä ja malli %s on valmis."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Toimii ilman internetiä, tarvitsee noin 14 Gt vapaata RAM-muistia ja vastaa ilman tehokasta näytönohjainta 20–70 sekunnissa."
@@ -2184,28 +2166,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(tekoälyavustaja AIA ja Thonny AIA:n muutokset)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Ollamaa ei ole asennettu. Asenna se alla olevasta linkistä ja lataa sitten malli: ”ollama pull %s”."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama on käynnissä, mutta malli puuttuu. Lataa se: ”ollama pull %s”."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Toimii ilman internetiä; muistin tarve ja vastausnopeus riippuvat mallista ja tietokoneesta."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Kysyn Ollamalta tämän tietokoneen malleja..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Mallit, jotka Ollamalla on tässä tietokoneessa."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama ei vastannut, joten tämän tietokoneen malleja ei tiedetä."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2242,3 +2204,148 @@ msgstr "Yhteyttä tekoälypalvelun tarjoajaan ei saatu, joten avainta ei voi nyt
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "Vastaukset tulevat palvelusta %s. Tarvitset API-avaimen: luo se alla olevasta linkistä. Voit syöttää sen myös myöhemmin kohdassa Työkalut > Asetukset > Tekoälyavustaja."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Paikallinen malli (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "Paikallinen malli ei vastaa. Sulje Thonny ja käynnistä se uudelleen."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s Gt"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d min"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d h %d min"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Avustaja on valmis."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Avustajaa valmistellaan... %s / %s, alle minuutti jäljellä"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Avustajaa valmistellaan... %s / %s, noin %s jäljellä"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Avustajaa valmistellaan... %s / %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Avustajaa valmistellaan..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "Lataus jatkuu siitä, mihin se jäi."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "Paikallista mallia ei ole vielä ladattu."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Tässä tietokoneessa on %s muistia, ja paikallinen malli tarvitsee vähintään 16 Gt. Käytä sen sijaan API-avainta."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Levyllä ei ole tarpeeksi tilaa paikalliselle mallille. Vapauta tilaa ja jatka sitten kohdassa Työkalut > Asetukset > Tekoälyavustaja."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Avustajan valmistelu pysähtyi: internetyhteyttä ei ole. Se yrittää uudelleen minuutin kuluttua."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Avustajan valmistelu on tauolla (%s / %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Avustajan valmistelu on tauolla."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "Paikallisen mallin ladattuja tiedostoja ei ole allekirjoitettu oikein, joten niitä ei käynnistetty."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "Paikallista mallia ei voi käynnistää tässä tietokoneessa. Käytä sen sijaan API-avainta."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "Paikallisen mallin valmistelu epäonnistui: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Malli %s ladataan, mutta sen kokoa ei voi nyt selvittää. Lataus tapahtuu taustalla, joten voit käyttää Thonnya sillä aikaa."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "Malli %s tarvitsee levyltä %s, mutta vapaana on vain %s. Vapauta ensin tilaa."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "Ladattavaa on %s, ja levyllä on vapaana %s. Lataus tapahtuu taustalla, joten voit käyttää Thonnya sillä aikaa."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Tässä tietokoneessa on %s muistia: paikallinen malli on hidas."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Poista (vapauttaa %s)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Poista"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "Paikallinen malli %s on ladattu ja valmis."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "Selvitetään, mitä mallin %s lataaminen vaatii..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Valmistele"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Keskeytä"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Jatka"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Selvitetään, mitä malleja tässä tietokoneessa on..."

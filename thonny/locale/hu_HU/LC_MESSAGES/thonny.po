@@ -2003,9 +2003,6 @@ msgstr "Nem sikerült csatlakozni az MI-szolgáltatáshoz. Ellenőrizd az intern
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "Az Ollama nem érhető el. Fut (ollama serve), és helyes a gazdagép címe?"
 
-msgid "Check again"
-msgstr "Újraellenőrzés"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "A Claude Code („claude” parancs) nem található. Telepítsd a Claude Code-ot, jelentkezz be a „claude” egyszeri futtatásával, majd indítsd újra a Thonnyt."
 
@@ -2029,9 +2026,6 @@ msgstr "Nyelv:"
 
 msgid "Let's go!"
 msgstr "Kezdjük!"
-
-msgid "Local model (Ollama, %s)"
-msgstr "Helyi modell (Ollama, %s)"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi (egyszerű)"
@@ -2071,18 +2065,6 @@ msgstr "Te"
 
 msgid "cancelled"
 msgstr "megszakítva"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "Az Ollama nincs telepítve. Telepítsd az alábbi linkről, majd töltsd le a modellt: „ollama pull %s” (13 GB)."
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Az Ollama telepítve van, de nem fut. Indítsd el."
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Az Ollama fut, de hiányzik a modell. Töltsd le: „ollama pull %s” (13 GB)."
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Az Ollama fut, és a(z) %s modell készen áll."
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "Internet nélkül fut, körülbelül 14 GB szabad RAM kell hozzá, és erős videokártya nélkül 20–70 másodperc alatt válaszol."
@@ -2184,28 +2166,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "(az AIA MI-asszisztens és a Thonny AIA módosításai)"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "Az Ollama nincs telepítve. Telepítsd az alábbi linkről, majd töltsd le a modellt: „ollama pull %s”."
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Az Ollama fut, de hiányzik a modell. Töltsd le: „ollama pull %s”."
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "Internet nélkül fut; hogy mennyi memória kell hozzá és milyen gyorsan válaszol, az a modelltől és a számítógéptől függ."
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "Megkérdezem az Ollamát a számítógép modelljeiről..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Az Ollama modelljei ezen a számítógépen."
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Az Ollama nem válaszolt, ezért a számítógép modelljei nem ismertek."
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2242,3 +2204,148 @@ msgstr "Nem sikerült kapcsolódni az MI-szolgáltatóhoz, ezért a kulcsot most
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "A válaszokat a(z) %s adja. API-kulcsra van szükséged: hozd létre az alábbi linken. Később is megadhatod az Eszközök > Beállítások > MI-asszisztens menüpontban."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "Helyi modell (%s)"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "A helyi modell nem válaszol. Zárd be a Thonnyt, és indítsd el újra."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d perc"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d óra %d perc"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "Az asszisztens készen áll."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "Az asszisztens készül... %s / %s, kevesebb mint egy perc van hátra"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "Az asszisztens készül... %s / %s, kb. %s van hátra"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "Az asszisztens készül... %s / %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "Az asszisztens készül..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "A letöltés ott folytatódik, ahol megszakadt."
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "A helyi modell még nincs letöltve."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "Ennek a számítógépnek %s memóriája van, a helyi modellhez legalább 16 GB kell. Használj inkább API-kulcsot."
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "Nincs elég hely a lemezen a helyi modellhez. Szabadíts fel helyet, majd folytasd az Eszközök > Beállítások > MI-asszisztens menüpontban."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "Az asszisztens előkészítése leállt: nincs internetkapcsolat. Egy perc múlva újra megpróbálja."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "Az asszisztens előkészítése szünetel (%s / %s)."
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "Az asszisztens előkészítése szünetel."
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "A helyi modell letöltött fájljainak aláírása nem megfelelő, ezért nem lettek elindítva."
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "A helyi modell nem indítható el ezen a számítógépen. Használj inkább API-kulcsot."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "A helyi modell előkészítése nem sikerült: %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "A(z) %s modell letöltésre kerül, a mérete most nem állapítható meg. A letöltés a háttérben fut, közben használhatod a Thonnyt."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "A(z) %s modellnek %s kell a lemezen, de csak %s szabad. Előbb szabadíts fel helyet."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "%s kerül letöltésre, a lemezen %s szabad helyed van. A letöltés a háttérben fut, közben használhatod a Thonnyt."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "Ennek a számítógépnek %s memóriája van: a helyi modell lassú lesz."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "Eltávolítás (felszabadít: %s)"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "A(z) %s helyi modell letöltve és készen áll."
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "Kiderítem, mivel jár a(z) %s modell letöltése..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "Előkészítés"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "Szünet"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "Folytatás"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "Kiderítem, mely modellek vannak ezen a számítógépen..."

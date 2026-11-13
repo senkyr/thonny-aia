@@ -2008,9 +2008,6 @@ msgstr "無法連線到 AI 服務。請檢查網路連線。"
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr "無法連線到 Ollama。它是否正在執行（ollama serve），主機位址是否正確？"
 
-msgid "Check again"
-msgstr "再次檢查"
-
 msgid "Claude Code (the 'claude' command) was not found. Install Claude Code, sign in by running 'claude' once, then restart Thonny."
 msgstr "找不到 Claude Code（「claude」指令）。請安裝 Claude Code，執行一次「claude」進行登入，然後重新啟動 Thonny。"
 
@@ -2034,9 +2031,6 @@ msgstr "語言："
 
 msgid "Let's go!"
 msgstr "開始吧！"
-
-msgid "Local model (Ollama, %s)"
-msgstr "本機模型（Ollama，%s）"
 
 msgid "Raspberry Pi (simple)"
 msgstr "Raspberry Pi（簡易）"
@@ -2076,18 +2070,6 @@ msgstr "你"
 
 msgid "cancelled"
 msgstr "已取消"
-
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s' (13 GB)."
-msgstr "尚未安裝 Ollama。請透過下方連結安裝，然後下載模型：「ollama pull %s」（13 GB）。"
-
-msgid "Ollama is installed but not running. Start it."
-msgstr "Ollama 已安裝，但沒有在執行。請啟動它。"
-
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s' (13 GB)."
-msgstr "Ollama 正在執行，但缺少模型。請下載：「ollama pull %s」（13 GB）。"
-
-msgid "Ollama is running and the model %s is ready."
-msgstr "Ollama 正在執行，模型 %s 已就緒。"
 
 msgid "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, answers in 20-70 s."
 msgstr "可離線執行，需要約 14 GB 的可用記憶體；若沒有效能強的顯示卡，每次回答需要 20-70 秒。"
@@ -2189,28 +2171,8 @@ msgid "(the AI assistant AIA and the changes of Thonny AIA)"
 msgstr "（AI 助理 AIA 及 Thonny AIA 的修改）"
 
 #: thonny/first_run.py
-msgid "Ollama is not installed. Install it from the link below, then download the model: 'ollama pull %s'."
-msgstr "尚未安裝 Ollama。請透過下方連結安裝，然後下載模型：「ollama pull %s」。"
-
-#: thonny/first_run.py
-msgid "Ollama is running, but the model is missing. Download it: 'ollama pull %s'."
-msgstr "Ollama 正在執行，但缺少模型。請下載：「ollama pull %s」。"
-
-#: thonny/first_run.py
 msgid "It runs offline; how much memory it needs and how fast it answers depends on the model and the computer."
 msgstr "可離線執行；需要多少記憶體、回答多快取決於模型和電腦。"
-
-#: thonny/plugins/aia
-msgid "Asking Ollama for the models on this computer..."
-msgstr "正在向 Ollama 查詢此電腦上的模型..."
-
-#: thonny/plugins/aia
-msgid "The models Ollama has on this computer."
-msgstr "Ollama 在此電腦上的模型。"
-
-#: thonny/plugins/aia
-msgid "Ollama did not answer, so the models on this computer are unknown."
-msgstr "Ollama 沒有回應，因此不知道此電腦上有哪些模型。"
 
 #: thonny/plugins/aia/_common.py
 #, python-format
@@ -2247,3 +2209,148 @@ msgstr "無法連線到 AI 提供者，因此目前無法驗證金鑰。"
 #, python-format
 msgid "Answers come from %s. You need an API key: create it at the link below. You can also enter it later in Tools > Options > AI Assistant."
 msgstr "回答由 %s 提供。您需要 API 金鑰：可透過下方連結建立。您也可以稍後在「工具 > 選項 > AI 助理」中輸入。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Local model (%s)"
+msgstr "本機模型（%s）"
+
+#: thonny/plugins/aia
+msgid "The local model does not answer. Close Thonny and start it again."
+msgstr "本機模型沒有回應。請關閉 Thonny 後重新啟動。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d min"
+msgstr "%d 分鐘"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%d h %d min"
+msgstr "%d 小時 %d 分鐘"
+
+#: thonny/plugins/aia
+msgid "The assistant is ready."
+msgstr "助理已準備好。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, less than a minute left"
+msgstr "助理正在準備... %s / %s，剩餘不到 1 分鐘"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s, about %s left"
+msgstr "助理正在準備... %s / %s，約剩 %s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The assistant is getting ready... %s of %s"
+msgstr "助理正在準備... %s / %s"
+
+#: thonny/plugins/aia
+msgid "The assistant is getting ready..."
+msgstr "助理正在準備..."
+
+#: thonny/plugins/aia
+msgid "The download continues where it stopped."
+msgstr "下載將從中斷處繼續。"
+
+#: thonny/plugins/aia
+msgid "The local model is not downloaded yet."
+msgstr "本機模型尚未下載。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory, the local model needs at least 16 GB. Use an API key instead."
+msgstr "這台電腦的記憶體為 %s，本機模型至少需要 16 GB。請改用 API 金鑰。"
+
+#: thonny/plugins/aia
+msgid "There is not enough space on the disk for the local model. Free some space, then continue in Tools > Options > AI Assistant."
+msgstr "磁碟空間不足，無法存放本機模型。請先騰出空間，然後在「工具 > 選項 > AI 助理」中繼續。"
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant stopped: there is no connection to the internet. It will try again in a minute."
+msgstr "助理的準備已停止：沒有連線到網際網路。1 分鐘後會再試一次。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the assistant is paused (%s of %s)."
+msgstr "助理的準備已暫停（%s / %s）。"
+
+#: thonny/plugins/aia
+msgid "Preparing the assistant is paused."
+msgstr "助理的準備已暫停。"
+
+#: thonny/plugins/aia
+msgid "The downloaded files of the local model are not correctly signed, so they were not started."
+msgstr "已下載的本機模型檔案簽章不正確，因此沒有啟動。"
+
+#: thonny/plugins/aia
+msgid "The local model cannot be started on this computer. Use an API key instead."
+msgstr "這台電腦無法啟動本機模型。請改用 API 金鑰。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Preparing the local model failed: %s"
+msgstr "準備本機模型失敗：%s"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s will be downloaded; its size cannot be found out now. The download runs in the background, you can use Thonny meanwhile."
+msgstr "將下載模型 %s，目前無法得知其大小。下載在背景進行，期間您可以繼續使用 Thonny。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The model %s needs %s on the disk, but only %s is free. Free some space first."
+msgstr "模型 %s 需要 %s 的磁碟空間，但只剩 %s 可用。請先騰出空間。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "%s will be downloaded, you have %s free on the disk. The download runs in the background, you can use Thonny meanwhile."
+msgstr "將下載 %s，磁碟上有 %s 可用。下載在背景進行，期間您可以繼續使用 Thonny。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "This computer has %s of memory: the local model will be slow."
+msgstr "這台電腦的記憶體為 %s：本機模型會比較慢。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Remove (frees %s)"
+msgstr "移除（釋放 %s）"
+
+#: thonny/plugins/aia
+msgid "Remove"
+msgstr "移除"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "The local model %s is downloaded and ready."
+msgstr "本機模型 %s 已下載並準備好。"
+
+#: thonny/plugins/aia
+#, python-format
+msgid "Finding out what downloading the model %s takes..."
+msgstr "正在了解下載模型 %s 需要什麼..."
+
+#: thonny/plugins/aia
+msgid "Prepare"
+msgstr "準備"
+
+#: thonny/plugins/aia
+msgid "Pause"
+msgstr "暫停"
+
+#: thonny/plugins/aia
+msgid "Continue"
+msgstr "繼續"
+
+#: thonny/plugins/aia
+msgid "Finding out which models are on this computer..."
+msgstr "正在查找這台電腦上有哪些模型..."
