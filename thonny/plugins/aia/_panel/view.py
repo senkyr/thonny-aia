@@ -344,19 +344,72 @@ class AIAView(ttk.Frame):
         if "system_text" in tags:
             self._input_text.tag_configure("placeholder", foreground=tags["system_text"])
 
-    def _show_idle(self):
-        """The empty panel: a playful line, or that the local model is loading."""
+    def _idle_content(self):
+        """(text, link to the options, progress 0-1 / "busy" / None) of the empty panel."""
+        from thonny.plugins.aia import local_ui
+        from thonny.plugins.aia import local_models as lm
+
+        status = lm.get_manager().status() if local_ui.handles(get_workbench()) else {}
+        phase = status.get("phase")
+        if phase == lm.DOWNLOADING:
+            # the application prepares the local model (cortex-zamestnani#120): its progress
+            # takes the place of the playful line
+            text = local_ui.preparing_text(status)
+            if status.get("resumed"):
+                text += "\n" + local_ui.resumed_text()
+            if status.get("stage") == "model" and status.get("total"):
+                return text, False, status.get("done", 0) / status["total"]
+            return text, False, "busy"
+        if phase in (lm.CHECKING, lm.STARTING):
+            return waking_text(), False, None
+        problem = local_ui.problem(status) if phase else None
+        if problem:
+            return problem[0], problem[1], None
+        if phase == lm.READY and status.get("just_prepared"):
+            text = local_ui.ready_text()
+            return (text + "\n" + waking_text() if is_loading() else text), False, None
+        if is_loading():
+            return waking_text(), False, None
+        if self._idle_text in idle_texts():
+            return self._idle_text, False, None  # the playful line stays until Clear
+        return random.choice(idle_texts()), False, None
+
+    def _show_idle(self, playful_again: bool = False):
+        """The empty panel: a playful line, that the local model is loading, or how its
+        preparation goes."""
         if self._messages_text.get("1.0", "end-1c"):
             return
-        if is_loading():
-            text = waking_text()
-        else:
-            others = [t for t in idle_texts() if t != self._idle_text]
-            text = random.choice(others)
+        if playful_again and self._idle_text in idle_texts():
+            # another playful line after Clear
+            self._idle_text = random.choice([t for t in idle_texts() if t != self._idle_text])
+        text, link, progress = self._idle_content()
         self._idle_text = text
+        self._idle_key = (text, link, progress)
         self._idle = True
-        self._edit_messages(lambda: self._messages_text.insert("1.0", text, "system_text"))
+
+        def fill():
+            self._messages_text.insert("end", text, "system_text")
+            if link:
+                self._messages_text.insert("end", "\n")
+                self._messages_text.insert("end", settings_link_text(), "settings_link")
+            if progress is not None:
+                bar = self._progress_bar()
+                if progress == "busy":
+                    bar.configure(mode="indeterminate")
+                    bar.start(50)
+                else:
+                    bar.stop()
+                    bar.configure(mode="determinate", value=progress * 1000)
+                self._messages_text.insert("end", "\n")
+                self._messages_text.window_create("end", window=bar, pady=6)
+
+        self._edit_messages(fill)
         self._schedule_idle_check()
+
+    def _progress_bar(self):
+        if getattr(self, "_progress", None) is None:
+            self._progress = ttk.Progressbar(self._messages_text, maximum=1000, length=240)
+        return self._progress
 
     def _schedule_idle_check(self):
         if self._idle_timer is not None:
@@ -372,7 +425,7 @@ class AIAView(ttk.Frame):
         self._idle_timer = None
         if not self._idle:
             return  # the conversation started; clear_conversation() checks again
-        if is_loading() != (self._idle_text == waking_text()):
+        if self._idle_content() != self._idle_key:
             self._hide_idle()
             self._show_idle()  # schedules the next check
         else:
@@ -697,4 +750,4 @@ class AIAView(ttk.Frame):
         self._messages_text.delete("1.0", "end")
         self._messages_text.configure(state="disabled")
         self._idle = False
-        self._show_idle()
+        self._show_idle(playful_again=True)

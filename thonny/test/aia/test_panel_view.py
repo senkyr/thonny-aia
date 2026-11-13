@@ -521,6 +521,23 @@ class _IdleText:
     def see(self, index):
         pass
 
+    def window_create(self, index, window=None, **kw):
+        self.parts.append((window, "window"))
+
+
+class _Bar:
+    def __init__(self):
+        self.options = {}
+
+    def configure(self, **kw):
+        self.options.update(kw)
+
+    def start(self, interval):
+        self.options["running"] = True
+
+    def stop(self):
+        self.options["running"] = False
+
 
 def make_idle_view(module):
     view = module.AIAView.__new__(module.AIAView)
@@ -531,6 +548,7 @@ def make_idle_view(module):
     view.scheduled = []
     view.after = lambda ms, func: view.scheduled.append(func) or func
     view.after_cancel = lambda timer: view.scheduled.remove(timer)
+    view._progress = _Bar()
     return view
 
 
@@ -669,3 +687,49 @@ def test_the_link_opens_the_ai_assistant_options(panel_view, fake_thonny, monkey
     view._messages_text = _FakeText()
     view._open_settings()
     assert opened == ["aia"]
+
+
+# --- the local model that the application prepares (cortex-zamestnani#120) ---
+
+
+def test_empty_panel_shows_the_preparation(panel_view, fake_thonny, local_models_ready):
+    fake_thonny.options.update({"aia.provider": "ollama", "general.language": "en_US"})
+    local_models_ready.phase = "downloading"
+    local_models_ready.extra = {"stage": "model", "done": 3.2e9, "total": 12.8e9, "eta": 360, "resumed": True}
+    view = make_idle_view(panel_view)
+    view._show_idle()
+    (text, tag), (_nl, _), (bar, kind) = view._messages_text.parts
+    assert text == (
+        "The assistant is getting ready... 3.2 GB of 12.8 GB, about 6 min left\n"
+        "The download continues where it stopped."
+    )
+    assert kind == "window" and bar.options["value"] == 250 and bar.options["mode"] == "determinate"
+
+    local_models_ready.extra["done"] = 6.4e9
+    view.scheduled.pop()()  # the progress follows
+    assert view._messages_text.parts[-1][0].options["value"] == 500
+
+    local_models_ready.phase = "ready"
+    local_models_ready.extra = {"just_prepared": True}
+    view.scheduled.pop()()
+    assert view._messages_text.parts == [("The assistant is ready.", "system_text")]
+
+
+def test_empty_panel_links_a_model_that_is_not_downloaded(panel_view, fake_thonny, local_models_ready):
+    fake_thonny.options.update({"aia.provider": "ollama"})
+    local_models_ready.phase = "consent"
+    view = make_idle_view(panel_view)
+    view._show_idle()
+    assert view._messages_text.parts == [
+        ("The local model is not downloaded yet.", "system_text"),
+        ("\n", None),
+        (panel_view.settings_link_text(), "settings_link"),
+    ]
+
+
+def test_another_provider_keeps_the_playful_line(panel_view, fake_thonny, local_models_ready):
+    fake_thonny.options.update({"aia.provider": "anthropic"})
+    local_models_ready.phase = "downloading"
+    view = make_idle_view(panel_view)
+    view._show_idle()
+    assert view._idle_text in panel_view.idle_texts()
