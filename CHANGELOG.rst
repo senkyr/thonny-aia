@@ -6,8 +6,8 @@ Thonny AIA
 ==========
 Thonny AIA is an unofficial fork of Thonny 5.0.1 with the AI assistant AIA (https://github.com/senkyr/thonny-aia). It is not published or supported by the Thonny project. Its versions are below, Thonny's own history follows after them.
 
-5.5.0b9 (not released yet)
---------------------------
+5.5.0b9 (2026-11-13)
+--------------------
 * Thonny AIA prepares the local model itself: after the user agrees (OK with the local model chosen in the welcome dialog or in Tools > Options, or Prepare there) it downloads the processor part of Ollama (about 30 MB, signed by Ollama Inc.) and the chosen model into %LOCALAPPDATA%\Thonny AIA\local-models and runs it without a window. No installer, no administrator rights. An Ollama already running with the chosen model is used as before.
 * The note of the local model says how much will be downloaded and how much space is free. On a computer with less than 16 GB of memory the local model is not offered, with 16-23 GB it comes with a warning that it will be slow.
 * The assistant's panel shows the progress of the download with the remaining time, then "The assistant is ready." The download continues after Thonny AIA is restarted. Tools > Options > AI Assistant can pause, continue or cancel it and remove a downloaded model.
@@ -15,7 +15,7 @@ Thonny AIA is an unofficial fork of Thonny 5.0.1 with the AI assistant AIA (http
 * After an update to a new version the welcome dialog comes once more, filled in, for those whose AI does not work yet (no provider, no key, or a local model not downloaded).
 * Thonny AIA and the regular Thonny can run side by side: opening a file in one no longer hands it over to the other.
 * The texts about the local model no longer mention Ollama.
-* Messages about the API key and the provider say what the AI assistant needs, with a link to its settings (from the work after beta 8).
+* Messages about the API key and the provider say what the AI assistant needs, with a link to its settings. Google's refusal of a wrong Gemini key is recognized too.
 
 5.5.0b8 (2026-11-11)
 --------------------
