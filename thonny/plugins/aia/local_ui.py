@@ -52,9 +52,7 @@ def gb(size: Optional[int]) -> str:
 def duration(seconds: Optional[float]) -> Optional[str]:
     if seconds is None:
         return None
-    minutes = int(round(seconds / 60))
-    if minutes < 1:
-        return tr("less than a minute")
+    minutes = max(1, int(round(seconds / 60)))
     if minutes < 60:
         return tr("%d min") % minutes
     return tr("%d h %d min") % (minutes // 60, minutes % 60)
@@ -70,7 +68,13 @@ def ready_text() -> str:
 def preparing_text(status: Dict) -> str:
     """The panel while the local model is being prepared."""
     if status.get("stage") == "model" and status.get("total"):
-        left = duration(status.get("eta"))
+        eta = status.get("eta")
+        if eta is not None and eta < 30:
+            return tr("The assistant is getting ready... %s of %s, less than a minute left") % (
+                gb(status.get("done", 0)),
+                gb(status["total"]),
+            )
+        left = duration(eta)
         if left:
             return tr("The assistant is getting ready... %s of %s, about %s left") % (
                 gb(status.get("done", 0)),
@@ -186,6 +190,111 @@ def consent_text(info: Dict) -> str:
 
 def can_prepare(info: Dict) -> bool:
     return info.get("ram_class") != "weak" and info.get("enough_disk", True)
+
+
+def check_model(model: str) -> Dict:
+    """Where the model is and what preparing it takes. Blocks (network): worker thread.
+
+    "system": the Ollama on 11434 has it, "own": the application's Ollama has it, "info":
+    lm.model_info() when neither has it.
+    """
+    result = {"model": lm.full_name(model), "system": lm.has_model(lm.SYSTEM_HOST, model)}
+    result["own"] = not result["system"] and lm.has_own_model(model)
+    result["info"] = None if result["system"] or result["own"] else lm.model_info(model)
+    return result
+
+
+def list_local_models() -> list:
+    """Chat models on this computer: of the Ollama on 11434 and of the application's own.
+    Blocks: worker thread."""
+    from thonny.plugins.aia.providers.ollama_provider import OllamaProvider
+
+    found = set(lm.own_models_on_disk())
+    for host in (lm.SYSTEM_HOST, lm.own_host()):
+        if lm.server_version(host) is None:
+            continue
+        try:
+            found.update(OllamaProvider(get_host=lambda h=host: h).list_models())
+        except Exception:
+            logger.debug("Could not list the models of %s", host, exc_info=True)
+    return sorted(found, key=str.lower)
+
+
+# What the options show for the local model: the note's state and the buttons
+READY_STATE = "ready"
+ASKING = "asking"
+
+
+def local_state(check: Optional[Dict], status: Dict) -> str:
+    """check_model() of the model shown (None while asked), status of the manager when it
+    runs that model ({} otherwise)."""
+    phase = status.get("phase")
+    if phase in (lm.DOWNLOADING, lm.PAUSED, lm.STARTING):
+        return phase
+    if phase == lm.FAILED:
+        return lm.FAILED
+    if phase in (lm.READY, lm.SYSTEM):
+        return READY_STATE
+    if check is None:
+        return ASKING
+    if check["system"] or check["own"]:
+        return READY_STATE
+    return lm.CONSENT
+
+
+def local_buttons(state: str, check: Optional[Dict]) -> Dict[str, bool]:
+    """Button -> enabled, for the buttons shown: prepare, pause, resume, cancel, remove."""
+    buttons = {}
+    if state in (lm.CONSENT, lm.FAILED):
+        info = (check or {}).get("info") or {}
+        buttons["prepare"] = can_prepare(info)
+    if state == lm.DOWNLOADING:
+        buttons["pause"] = True
+        buttons["cancel"] = True
+    if state == lm.PAUSED:
+        buttons["resume"] = True
+        buttons["cancel"] = True
+    if check and check.get("own") and state == READY_STATE:
+        buttons["remove"] = True
+    return buttons
+
+
+def remove_label(size: Optional[int]) -> str:
+    return tr("Remove (frees %s)") % gb(size) if size else tr("Remove")
+
+
+def tail_text(model: str, default_model: str) -> str:
+    """What the local model costs, for the default model with numbers (cortex-zamestnani#80)."""
+    if model == default_model:
+        return tr(
+            "It runs offline, needs about 14 GB of free RAM and, without a strong graphics card, "
+            "answers in 20-70 s."
+        )
+    return tr(
+        "It runs offline; how much memory it needs and how fast it answers depends on the "
+        "model and the computer."
+    )
+
+
+def local_note(model: str, default_model: str, state: str, check: Optional[Dict], status: Dict) -> str:
+    if state == READY_STATE:
+        text = tr("The local model %s is downloaded and ready.") % model
+    elif state == ASKING:
+        text = tr("Finding out what downloading the model %s takes...") % model
+    elif state == lm.DOWNLOADING:
+        return preparing_text(status)
+    elif state == lm.PAUSED:
+        return paused_text(status)
+    elif state == lm.STARTING:
+        return tr("The assistant is getting ready...")
+    elif state == lm.FAILED:
+        return failed_text(status)
+    else:
+        info = (check or {}).get("info") or {"model": model}
+        if not can_prepare(info):
+            return consent_text(info)
+        text = consent_text(info)
+    return text + " " + tail_text(model, default_model)
 
 
 # --- wiring ---

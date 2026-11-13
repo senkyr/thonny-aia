@@ -373,6 +373,11 @@ def friendly_error(exc: BaseException, provider_id: str = "", model: str = "") -
         return tr("The AI service did not answer in time. Try again.")
     if "Connect" in name or isinstance(exc, OSError):
         if provider_id == "ollama":
+            from thonny.plugins.aia import local_ui
+
+            if local_ui.handles(get_workbench()):
+                # the application's local model (cortex-zamestnani#120): no Ollama in the text
+                return tr("The local model does not answer. Close Thonny and start it again.")
             return tr(
                 "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
             )

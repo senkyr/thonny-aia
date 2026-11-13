@@ -559,3 +559,15 @@ def test_download_with_a_bad_signature_leaves_nothing(tmp_path, release_server, 
             "1.0", target, url=url, signer_of=lambda p: None if p.endswith("ggml-base.dll") else lm.SIGNER
         )
     assert not os.path.exists(target) and not os.path.exists(target + ".partial")
+
+
+def test_configured_before_start_with_the_update_check(env):
+    """Thonny configures the manager, then starts it with the update check: the check must
+    not swallow the first ensure (seen in the harness: the status stayed "off")."""
+    prepared(env)
+    lm.write_state(dict(lm.read_state(env.base), wanted=None), env.base)
+    m = env.manager()
+    m.configure(MODEL)
+    m.start(check_updates=True)
+    wait_phase(m, lm.READY)
+    m.shutdown()

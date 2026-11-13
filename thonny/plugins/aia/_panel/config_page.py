@@ -32,6 +32,8 @@ from thonny.plugins.aia._common import (
     is_rejected_key,
     model_option,
 )
+from thonny.plugins.aia import local_models as lm
+from thonny.plugins.aia import local_ui
 from thonny.plugins.aia.prompts import answer_style
 
 logger = logging.getLogger(__name__)
@@ -100,7 +102,14 @@ class AIAPanelConfigPage(ConfigurationPage):
         # A provider set by hand in configuration.ini (e.g. claude_code) is not offered here:
         # it stays until the choice is changed on the page
         self._kept_provider = None if stored in self._labels else stored
-        self._ollama = None  # last first_run.ollama_state(), checked when the local model is shown
+        # The local model that the application prepares (cortex-zamestnani#120): where each
+        # model shown is and what preparing it takes (local_ui.check_model, in a worker thread)
+        self._local_check = {}  # full model name -> check_model() result
+        self._local_asking = set()
+        self._local_results = queue.Queue()
+        self._local_timer = None
+        self._local_phase = None
+        wb.bind(local_ui.EVENT, self._on_local_model, True)
         self._keys = {}  # provider -> key as edited on this page
         self._link_url = ""
 
@@ -234,20 +243,29 @@ class AIAPanelConfigPage(ConfigurationPage):
         d.model_note = ttk.Label(d.key_frame, foreground="#7f8c8d")
         d.model_note.grid(row=5, column=1, columnspan=2, sticky="w", pady=(2, 0))
         self._key_var.trace_add("write", self._on_key_changed)
-        # width -6 = at least 6 characters: Thonny's UI themes give TButton a fixed width of 6,
-        # which cut "Zkontrolovat znovu" to "Zkontrolo" (until beta 6)
-        d.check_button = ttk.Button(
-            frame, text=tr("Check again"), command=self._on_check_ollama, width=-6
-        )
-        d.check_button.grid(row=3, column=1, sticky="nw", pady=(7, 0))
+        # The local model's buttons (cortex-zamestnani#120); width -6 = at least 6 characters:
+        # Thonny's UI themes give TButton a fixed width of 6, which cut "Zkontrolovat znovu" to
+        # "Zkontrolo" (until beta 6)
+        d.local_frame = ttk.Frame(frame)
+        d.local_frame.grid(row=3, column=1, sticky="nw", pady=(7, 0))
+        d.local_buttons = {}
+        for name, text, command in (
+            ("prepare", tr("Prepare"), self._on_prepare),
+            ("pause", tr("Pause"), lambda: lm.get_manager().pause()),
+            ("resume", tr("Continue"), lambda: lm.get_manager().resume()),
+            ("cancel", tr("Cancel"), self._on_cancel_download),
+            ("remove", tr("Remove"), self._on_remove),
+        ):
+            d.local_buttons[name] = ttk.Button(d.local_frame, text=text, command=command, width=-6)
         d.link = ui_utils.create_action_label(frame, "", lambda e: webbrowser.open(self._link_url))
         d.link.grid(row=4, column=1, sticky="nw", pady=(3, 0))
         return d
 
-    def _fill(self, ai, ollama, measure=False, local_model=None):
-        """Show the detail of one choice (and one Ollama state for the local model).
+    def _fill(self, ai, local=None, measure=False, local_model=None):
+        """Show the detail of one choice.
 
-        ``measure``: the longest variant of the texts, for _fix_detail_size.
+        ``measure``: the longest variant of the texts, for _fix_detail_size, with ``local``
+        the (state, check, status) of the local model to measure.
         ``local_model``: the local model the note speaks of, else the current one.
         """
         d = self._detail
@@ -258,24 +276,37 @@ class AIAPanelConfigPage(ConfigurationPage):
             for widget in d.key_widgets:
                 widget.grid()
             d.key_frame.grid()
-            d.check_button.grid_remove()
+            d.local_frame.grid_remove()
             link = self._key_urls[ai]
         elif ai == first_run.AI_LOCAL:
             model = local_model or self._current_models()[ai]
-            d.note.configure(text=first_run._local_note(ollama, model))
+            state, check, status = local or self._local_view(model)
+            d.note.configure(
+                text=local_ui.local_note(model, self._models[ai], state, check, status)
+            )
             self._show_models(ai, measure)
             for widget in d.key_widgets:
                 widget.grid_remove()
             d.key_frame.grid()
-            if ollama == "ready":
-                d.check_button.grid_remove()
+            shown = (
+                dict.fromkeys(d.local_buttons, True) if measure else local_ui.local_buttons(state, check)
+            )
+            for name, button in d.local_buttons.items():
+                button.pack_forget()
+                if name in shown:
+                    button.configure(state="normal" if shown[name] else "disabled")
+                    if name == "remove":
+                        size = (status.get("own_models") or {}).get(lm.full_name(model))
+                        button.configure(text=local_ui.remove_label(size or (13.9e9 if measure else None)))
+                    button.pack(side="left", padx=(0, 6))
+            if shown:
+                d.local_frame.grid()
             else:
-                d.check_button.grid()
-            link = first_run.OLLAMA_URL if ollama in ("missing", "stopped") else ""
+                d.local_frame.grid_remove()
         else:
             d.note.configure(text=_later_note())
             d.key_frame.grid_remove()
-            d.check_button.grid_remove()
+            d.local_frame.grid_remove()
         d.link.configure(text=link)
         if link:
             d.link.grid()
@@ -304,9 +335,7 @@ class AIAPanelConfigPage(ConfigurationPage):
         variants = [(ai, None, None) for ai in self._labels if ai != first_run.AI_LOCAL]
         # the default local model's texts, and those of another model with a long name
         for model in (self._models[first_run.AI_LOCAL], "x" * 40):
-            variants += [
-                (first_run.AI_LOCAL, s, model) for s in ("missing", "stopped", "no_model", "ready")
-            ]
+            variants += [(first_run.AI_LOCAL, v, model) for v in self._local_variants(model)]
         # the note is as wide as the page's widest line (the legend of the answer styles)
         self.update_idletasks()
         wraplength = max(self._legend.winfo_reqwidth(), self._ai_combo.winfo_reqwidth())
@@ -314,8 +343,8 @@ class AIAPanelConfigPage(ConfigurationPage):
         self._detail.model_note.configure(wraplength=wraplength)
         self._detail.key_error.configure(wraplength=wraplength)
         width = height = 0
-        for ai, ollama, local_model in variants:
-            self._fill(ai, ollama, measure=True, local_model=local_model)
+        for ai, local, local_model in variants:
+            self._fill(ai, local, measure=True, local_model=local_model)
             self._detail.frame.update_idletasks()
             width = max(width, self._detail.frame.winfo_reqwidth())
             height = max(height, self._detail.frame.winfo_reqheight())
@@ -324,15 +353,13 @@ class AIAPanelConfigPage(ConfigurationPage):
 
     def _show(self, ai):
         if ai == first_run.AI_LOCAL:
-            if self._ollama is None:
-                self._ollama = first_run.ollama_state(self._current_models()[ai])
             self._ask_models(ai)
         if ai in first_run.AI_CLOUD:
             if ai not in self._keys:
                 self._keys[ai] = self._core._get_stored_api_key(ai) or ""
             self._key_var.set(self._keys[ai])
             self._ask_models(ai)  # now, not after KEY_SETTLE_MS
-        self._fill(ai, self._ollama)
+        self._fill(ai)
 
     def _on_ai_changed(self, event=None):
         if self._ai in first_run.AI_CLOUD:
@@ -341,14 +368,130 @@ class AIAPanelConfigPage(ConfigurationPage):
         self._kept_provider = None
         self._show(self._ai)
 
-    def _on_check_ollama(self):
-        local = first_run.AI_LOCAL
-        self._ollama = first_run.ollama_state(self._current_models()[local])
-        # ask for the models again: Ollama may have started or got another model since
-        self._listed.pop(local, None)
-        self._failed.pop(local, None)
-        self._ask_models(local)
-        self._fill(local, self._ollama)
+    # --- the local model that the application prepares (cortex-zamestnani#120) ---
+
+    def _local_variants(self, model):
+        """(state, check, status) of the longest texts, for _fix_detail_size."""
+        default = model == self._models[first_run.AI_LOCAL]
+        size = 13_793_441_566 if default else 999 * lm.GB
+        info = {
+            "model": model,
+            "size": size,
+            "need": size,
+            "free": 999 * lm.GB,
+            "ram": 16 * lm.GIB,
+            "ram_class": "slow",
+            "enough_disk": True,
+        }
+        check = {"model": model, "system": False, "own": False, "info": info}
+        progress = {"stage": "model", "done": 99.9 * lm.GB, "total": 999 * lm.GB, "eta": 99 * 3600}
+        return [
+            (lm.CONSENT, check, {}),
+            (lm.CONSENT, dict(check, info=dict(info, size=None)), {}),
+            (lm.CONSENT, dict(check, info=dict(info, enough_disk=False)), {}),
+            (lm.CONSENT, dict(check, info=dict(info, ram=8 * lm.GIB, ram_class="weak")), {}),
+            (local_ui.ASKING, None, {}),
+            (local_ui.READY_STATE, dict(check, own=True), {}),
+            (lm.DOWNLOADING, check, dict(progress, phase=lm.DOWNLOADING)),
+            (lm.PAUSED, check, dict(progress, phase=lm.PAUSED, reason=lm.USER)),
+            (lm.PAUSED, check, {"phase": lm.PAUSED, "reason": lm.NO_SPACE}),
+            (lm.PAUSED, check, {"phase": lm.PAUSED, "reason": lm.NETWORK}),
+            (lm.FAILED, check, {"phase": lm.FAILED, "reason": lm.SIGNATURE}),
+            (lm.FAILED, check, {"phase": lm.FAILED, "reason": lm.SERVER}),
+        ]
+
+    def _local_view(self, model):
+        """(state, check, status) of the local model shown; asks check_model() once."""
+        name = lm.full_name(model)
+        status = lm.get_manager().status()
+        if status.get("model") != name:
+            status = {}
+        check = self._local_check.get(name)
+        if check is None:
+            self._ask_local(name)
+        return local_ui.local_state(check, status), check, status
+
+    def _ask_local(self, name):
+        if name in self._local_asking:
+            return
+        self._local_asking.add(name)
+
+        def work():
+            try:
+                result = local_ui.check_model(name)
+            except Exception:
+                logger.info("AIA: could not check the local model %s", name, exc_info=True)
+                result = {"model": name, "system": False, "own": False, "info": {"model": name}}
+            self._local_results.put(result)
+
+        threading.Thread(target=work, daemon=True).start()
+        if self._local_timer is None:
+            self._local_timer = self.after(POLL_MS, self._poll_local)
+
+    def _poll_local(self):
+        self._local_timer = None
+        try:
+            if not self.winfo_exists():
+                return
+        except tk.TclError:
+            return
+        try:
+            while True:
+                result = self._local_results.get_nowait()
+                self._local_asking.discard(result["model"])
+                self._local_check[result["model"]] = result
+                if self._ai == first_run.AI_LOCAL:
+                    self._fill(self._ai)
+        except queue.Empty:
+            pass
+        if self._local_asking:
+            self._local_timer = self.after(POLL_MS, self._poll_local)
+
+    def _on_local_model(self, event=None):
+        """The manager's status changed (UI thread, every POLL_MS of local_ui at most)."""
+        try:
+            if not self.winfo_exists():
+                return
+        except tk.TclError:
+            return
+        status = getattr(event, "status", None) or lm.get_manager().status()
+        if status.get("phase") != self._local_phase:
+            # downloaded, removed or cancelled: where the model is has changed
+            self._local_phase = status.get("phase")
+            self._local_check.pop(status.get("model"), None)
+            self._listed.pop(first_run.AI_LOCAL, None)
+            self._failed.pop(first_run.AI_LOCAL, None)
+        if self._ai == first_run.AI_LOCAL:
+            self._fill(self._ai)
+
+    def _shown_local_model(self):
+        return lm.full_name(self._current_models()[first_run.AI_LOCAL])
+
+    def _choose_local(self):
+        """Save the local model as the choice now (Prepare acts at once, not with OK)."""
+        wb = get_workbench()
+        self._kept_provider = None
+        wb.set_option("aia.provider", first_run.AI_LOCAL)
+        wb.set_option(model_option(first_run.AI_LOCAL), self._chosen.get(first_run.AI_LOCAL, ""))
+
+    def _on_prepare(self):
+        self._choose_local()
+        lm.get_manager().prepare(self._shown_local_model())
+
+    def _on_cancel_download(self):
+        lm.get_manager().cancel(self._shown_local_model())
+
+    def _on_remove(self):
+        name = self._shown_local_model()
+        lm.get_manager().remove(name)
+        self._local_check.pop(name, None)
+
+    def destroy(self):
+        try:
+            get_workbench().unbind(local_ui.EVENT, self._on_local_model)
+        except Exception:
+            pass
+        super().destroy()
 
     def _on_style_changed(self, event=None):
         shown = self._style_display_var.get()
@@ -369,6 +512,12 @@ class AIAPanelConfigPage(ConfigurationPage):
         for provider, model in self._chosen.items():
             wb.set_option(model_option(provider), model)
         wb.set_option("aia.model", "")  # a model chosen in earlier versions no longer applies
+        if self._ai == first_run.AI_LOCAL and self._kept_provider is None:
+            # OK with a local model that is not downloaded = consent: its note said the size
+            # (cortex-zamestnani#118); not when the computer or the disk is too small
+            state, check, _status = self._local_view(self._shown_local_model())
+            if state == lm.CONSENT and local_ui.can_prepare((check or {}).get("info") or {}):
+                lm.get_manager().prepare(self._shown_local_model())
         return True
 
     # --- Model (providers with an API key, and the local model) ---
@@ -404,10 +553,11 @@ class AIAPanelConfigPage(ConfigurationPage):
 
     def _model_notes(self, provider):
         if provider == first_run.AI_LOCAL:
+            # no Ollama in the texts (cortex-zamestnani#118): the list is simply what there is
             return {
-                "asking": tr("Asking Ollama for the models on this computer..."),
-                "listed": tr("The models Ollama has on this computer."),
-                "failed": tr("Ollama did not answer, so the models on this computer are unknown."),
+                "asking": tr("Finding out which models are on this computer..."),
+                "listed": "",
+                "failed": "",
             }
         # Until beta 8 a refused key and a provider that cannot be reached both said "The
         # provider did not list the models of this key; these are the usual ones" (Jakub
@@ -466,8 +616,7 @@ class AIAPanelConfigPage(ConfigurationPage):
         self._ai_combo.configure(values=list(self._labels.values()))
         self._ai_var.set(self._labels[self._ai])
         if self._ai == first_run.AI_LOCAL:  # the note says whether this model is downloaded
-            self._ollama = first_run.ollama_state(self._current_models()[self._ai])
-            self._fill(self._ai, self._ollama)
+            self._fill(self._ai)
 
     def _on_key_changed(self, *_args):
         if self._ai not in first_run.AI_CLOUD:
@@ -509,7 +658,10 @@ class AIAPanelConfigPage(ConfigurationPage):
         def work():
             rejected = False
             try:
-                models = asking.list_models()
+                if provider == first_run.AI_LOCAL:
+                    models = local_ui.list_local_models()  # 11434 and the application's own
+                else:
+                    models = asking.list_models()
             except Exception as e:
                 logger.info("AIA: could not list the models of %s", provider, exc_info=True)
                 models = None

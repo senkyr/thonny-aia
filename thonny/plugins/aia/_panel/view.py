@@ -407,7 +407,7 @@ class AIAView(ttk.Frame):
         self._schedule_idle_check()
 
     def _progress_bar(self):
-        if getattr(self, "_progress", None) is None:
+        if getattr(self, "_progress", None) is None or not self._progress.winfo_exists():
             self._progress = ttk.Progressbar(self._messages_text, maximum=1000, length=240)
         return self._progress
 

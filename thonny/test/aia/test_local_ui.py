@@ -26,7 +26,7 @@ def test_sizes_in_decimal_gb(ui, fake_thonny):
 
 def test_remaining_time(ui):
     assert ui.duration(None) is None
-    assert ui.duration(20) == "less than a minute"
+    assert ui.duration(40) == "1 min"
     assert ui.duration(6 * 60) == "6 min"
     assert ui.duration(80 * 60) == "1 h 20 min"
 
@@ -34,6 +34,8 @@ def test_remaining_time(ui):
 def test_progress_text(ui):
     status = {"phase": "downloading", "stage": "model", "done": 3.2e9, "total": 13.8e9, "eta": 360}
     assert ui.preparing_text(status) == "The assistant is getting ready... 3.2 GB of 13.8 GB, about 6 min left"
+    status["eta"] = 20
+    assert ui.preparing_text(status).endswith("13.8 GB, less than a minute left")
     status["eta"] = None
     assert ui.preparing_text(status) == "The assistant is getting ready... 3.2 GB of 13.8 GB"
     assert ui.preparing_text({"stage": "ollama"}) == "The assistant is getting ready..."

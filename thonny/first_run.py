@@ -98,7 +98,9 @@ def _ai_labels(models):
     labels = {AI_LATER: tr("I will set it up later")}
     for p in sorted(AI_CLOUD, key=lambda p: COMPANY[p].lower()):
         labels[p] = "%s (%s)" % (COMPANY[p], MODEL_NAMES.get(models[p], models[p]))
-    labels[AI_LOCAL] = tr("Local model (Ollama, %s)") % models[AI_LOCAL]
+    # no "Ollama" since the application prepares it (cortex-zamestnani#120): the student
+    # installs nothing and does not need the name
+    labels[AI_LOCAL] = tr("Local model (%s)") % models[AI_LOCAL]
     return labels
 
 

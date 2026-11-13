@@ -538,6 +538,9 @@ class _Bar:
     def stop(self):
         self.options["running"] = False
 
+    def winfo_exists(self):
+        return True
+
 
 def make_idle_view(module):
     view = module.AIAView.__new__(module.AIAView)

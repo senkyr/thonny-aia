@@ -812,6 +812,22 @@ def manifest_path(model: str, base: Optional[str] = None) -> str:
     return os.path.join(models_dir(base), "manifests", *parts, tag)
 
 
+def own_models_on_disk(base: Optional[str] = None) -> List[str]:
+    """Models the own Ollama has, by their manifests (no server needed)."""
+    root = os.path.join(models_dir(base), "manifests")
+    found = []
+    for folder, _dirs, files in os.walk(root):
+        parts = os.path.relpath(folder, root).split(os.sep)
+        if len(parts) < 3:
+            continue
+        host, path = parts[0], parts[1:]
+        if host == "registry.ollama.ai" and path[0] == "library":
+            path = path[1:]
+        name = "/".join(path)
+        found.extend("%s:%s" % (name, tag) for tag in files)
+    return sorted(found)
+
+
 def has_own_model(model: str, base: Optional[str] = None) -> bool:
     """Whether the own Ollama has the model, by its manifest on disk (no server needed)."""
     return os.path.isfile(manifest_path(model, base))
@@ -892,7 +908,7 @@ class LocalModels:
             self._thread = threading.Thread(target=self._work, name="AIA local model", daemon=True)
             self._thread.start()
             if check_updates:
-                self._commands.put(("update",))
+                self._start_update_check()  # not queued: ensure must not wait for it
 
     def configure(self, model: Optional[str]):
         """The local model chosen now (None: another provider, AIA off, own host set)."""
@@ -1036,6 +1052,10 @@ class LocalModels:
             return
         if state["paused"]:
             self._set(PAUSED, reason=USER, **self._progress_guess(model))
+            return
+        ram = self._ram()
+        if ram_class(ram) == "weak":  # a consent from another computer (roaming profile)
+            self._set(WEAK, ram=ram, ram_class="weak")
             return
         self._prepare(model)
 
