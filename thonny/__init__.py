@@ -177,6 +177,11 @@ _CONFIGURED_DEBUG = _read_configured_debug_mode()
 _IPC_FILE = None
 
 
+def ipc_dir_name(username: str) -> str:
+    """Folder of the single-instance file: "thonny-aia-<user>" (upstream: "thonny-<user>")."""
+    return "%s-%s" % (APP_NAME.lower().replace(" ", "-"), username)
+
+
 def get_ipc_file_path():
     global _IPC_FILE
     if _IPC_FILE:
@@ -199,7 +204,10 @@ def get_ipc_file_path():
     else:
         username = os.path.basename(os.path.expanduser("~"))
 
-    ipc_dir = os.path.join(base_dir, "thonny-%s" % username)
+    # Thonny AIA has its own folder (thonny-aia-<user>): with upstream's thonny-<user> it shared
+    # the single-instance file with the regular Thonny, so whichever started second handed its
+    # files to the other and quit (Jakub 2026-11-13, cortex-zamestnani#120)
+    ipc_dir = os.path.join(base_dir, ipc_dir_name(username))
     os.makedirs(ipc_dir, exist_ok=True)
 
     if not sys.platform == "win32":
