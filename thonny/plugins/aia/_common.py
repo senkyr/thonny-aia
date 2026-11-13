@@ -433,8 +433,12 @@ class AIACore:
         if package_installed("ollama"):
             from thonny.plugins.aia.providers.ollama_provider import OllamaProvider
 
+            from thonny.plugins.aia.local_models import get_manager
+
+            # An Ollama set by hand, else the one the application prepared (its own, or the
+            # one on 11434 that has the model: local_models.py, cortex-zamestnani#120)
             self._providers["ollama"] = OllamaProvider(
-                get_host=lambda: wb.get_option("aia.ollama_host") or None,
+                get_host=lambda: wb.get_option("aia.ollama_host") or get_manager().host(),
             )
 
         logger.debug("AIA providers available: %s", ", ".join(self._providers) or "none")
@@ -517,6 +521,12 @@ class AIACore:
             return needs_text(), True
         if not provider.is_available():
             return needs_text(), True
+        if provider_id == "ollama":
+            from thonny.plugins.aia import local_ui
+            from thonny.plugins.aia.local_models import get_manager
+
+            if local_ui.handles(get_workbench()):
+                return local_ui.problem(get_manager().status())
         return None
 
     @property

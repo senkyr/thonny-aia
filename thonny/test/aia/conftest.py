@@ -67,3 +67,40 @@ def fake_thonny(monkeypatch):
         if name.startswith("thonny.plugins.aia"):
             monkeypatch.delitem(sys.modules, name)
     return wb
+
+
+class ReadyLocalModels:
+    """Stands in for local_models.LocalModels: the local model is ready, no thread, no network."""
+
+    def __init__(self, phase="ready", host=None, **status):
+        self.phase = phase
+        self._host = host
+        self.extra = status
+        self.calls = []
+
+    def status(self):
+        return {"phase": self.phase, "seq": 1, **self.extra}
+
+    def ready(self):
+        return self.phase in ("ready", "system")
+
+    def host(self):
+        return self._host
+
+    def __getattr__(self, name):  # configure, prepare, pause ... are recorded
+        if name.startswith("_"):
+            raise AttributeError(name)
+        return lambda *args: self.calls.append((name,) + args)
+
+
+@pytest.fixture(autouse=True)
+def local_models_ready(request, monkeypatch):
+    """Tests of the keeper, the panel and the core see a prepared local model unless they set
+    another one (cortex-zamestnani#120)."""
+    if "fake_thonny" in request.fixturenames:
+        request.getfixturevalue("fake_thonny")  # it drops the AIA modules: patch the fresh ones
+    from thonny.plugins.aia import local_models
+
+    manager = ReadyLocalModels()
+    monkeypatch.setattr(local_models, "_manager", manager)
+    return manager

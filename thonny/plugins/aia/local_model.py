@@ -85,7 +85,18 @@ class LocalModelKeeper:
         except Exception:
             logger.debug("Could not trace AIA options", exc_info=True)
         self._wb.bind("WorkbenchClose", self._on_close, True)
+        # the prepared local model becomes usable (or stops being): load it then
+        self._local_ready = None
+        self._wb.bind("AIALocalModel", self._on_local_model, True)
         self._schedule(FIRST_LOAD_DELAY_MS)
+
+    def _on_local_model(self, event=None):
+        from thonny.plugins.aia.local_models import get_manager
+
+        ready = (get_manager().ready(), get_manager().host())
+        if ready != self._local_ready:
+            self._local_ready = ready
+            self._on_settings_changed()
 
     def wanted(self):
         """(frozen provider, model) to keep loaded, or None. UI thread only."""
@@ -95,6 +106,11 @@ class LocalModelKeeper:
         provider = self._core.providers.get("ollama")
         if provider is None:
             return None
+        from thonny.plugins.aia import local_ui
+        from thonny.plugins.aia.local_models import get_manager
+
+        if local_ui.handles(wb) and not get_manager().ready():
+            return None  # being prepared, or not available: nothing to load yet
         return provider.frozen(), self._core.get_current_model(provider)
 
     def _schedule(self, delay_ms, func=None):

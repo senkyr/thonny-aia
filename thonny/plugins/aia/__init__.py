@@ -71,4 +71,8 @@ def _load_panel(wb):
 
     core = AIACore()
     core.register_providers()
+    # The local model that the application prepares by itself (cortex-zamestnani#120)
+    from thonny.plugins.aia import local_ui
+
+    local_ui.install(wb, core)
     LocalModelKeeper(wb, core).install()
