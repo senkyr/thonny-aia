@@ -90,6 +90,16 @@ MAX_IMPORTED_FILE_CHARS = 50_000
 UI_CALL_TIMEOUT = 5.0
 
 
+def clean_api_key(key: Optional[str]) -> str:
+    """The key without whitespace and control characters (no API key contains any).
+
+    A key copied from a mail or a PDF may carry a line break in the middle. Sent like that,
+    the HTTP client refuses the header and its error quotes the whole key: it ended up in
+    Thonny's log and, with Gemini, in the panel.
+    """
+    return "".join(ch for ch in (key or "") if ch.isprintable() and not ch.isspace())
+
+
 def package_installed(import_name: str) -> bool:
     try:
         return importlib.util.find_spec(import_name) is not None
@@ -242,6 +252,32 @@ def install_error_report(command: str, output: str) -> str:
     )
 
 
+_TRACEBACK_FILE = re.compile(r'File "([^"\r\n]+)", line (\d+)')
+
+
+def hide_user_paths(text: str, home: Optional[str] = None) -> str:
+    """Take the folders of the student's computer out of a text that goes to the provider.
+
+    A traceback names every file with its full path, and the path usually carries the login
+    name, which is often the student's name (``C:\\Users\\<login>\\...``, a network home
+    folder). The model needs the file name and the line, so ``File "<path>", line N`` keeps
+    only the file name; the home folder anywhere else (an error message, printed output,
+    pip's log) becomes ``~``.
+    """
+    text = _TRACEBACK_FILE.sub(
+        lambda m: 'File "%s", line %s' % (re.split(r"[\\/]", m.group(1))[-1], m.group(2)), text
+    )
+    if home is None:
+        home = os.path.expanduser("~")
+    home = home.rstrip("\\/")
+    if len(home) < 4 or not re.search(r"[\\/]", home):
+        return text  # no home folder (unexpanded "~", a drive root)
+    # as it is, as repr() prints it in error messages, and with forward slashes
+    for variant in {home, home.replace("\\", "\\\\"), home.replace("\\", "/")}:
+        text = re.sub(re.escape(variant) + r"(?![\w.-])", lambda m: "~", text, flags=re.IGNORECASE)
+    return text
+
+
 def prepare_messages(
     messages: List[Dict[str, str]], max_messages: int = MAX_HISTORY_MESSAGES
 ) -> List[Dict[str, str]]:
@@ -250,7 +286,9 @@ def prepare_messages(
     - keeps only the last ``max_messages`` messages (bounded cost),
     - merges consecutive messages with the same role (e.g. an auto-sent error
       after a cancelled answer),
-    - drops empty messages and makes sure the history starts with a user turn.
+    - drops empty messages and makes sure the history starts with a user turn,
+    - takes the folders of the computer out of the student's side (``hide_user_paths``):
+      the automatic reports carry the Shell's traceback and pip's log.
     """
     merged: List[Dict[str, str]] = []
     for msg in messages:
@@ -258,6 +296,8 @@ def prepare_messages(
         if not content:
             continue
         role = "assistant" if msg.get("role") == "assistant" else "user"
+        if role == "user":
+            content = hide_user_paths(content)
         if merged and merged[-1]["role"] == role:
             merged[-1] = {"role": role, "content": merged[-1]["content"] + "\n\n" + content}
         else:
@@ -454,7 +494,7 @@ class AIACore:
             key = wb.get_secret(f"aia_{provider_name}_api_key", None)
         else:
             key = wb.get_option(f"aia.{provider_name}_api_key")
-        return key.strip() if key and key.strip() else None
+        return clean_api_key(key) or None
 
     def has_stored_api_key(self, provider_name: str) -> bool:
         return self._get_stored_api_key(provider_name) is not None
@@ -465,7 +505,7 @@ class AIACore:
         if key:
             return key
         for env_name in API_KEY_ENV_VARS.get(provider_name, ()):
-            value = os.environ.get(env_name, "").strip()
+            value = clean_api_key(os.environ.get(env_name, ""))
             if value:
                 return value
         return None
@@ -473,7 +513,7 @@ class AIACore:
     def set_api_key(self, provider_name: str, key: Optional[str]):
         """Store (or with an empty key, remove) the API key."""
         wb = get_workbench()
-        key = (key or "").strip()
+        key = clean_api_key(key)
         if hasattr(wb, "set_secret"):
             wb.set_secret(f"aia_{provider_name}_api_key", key or None)
         else:

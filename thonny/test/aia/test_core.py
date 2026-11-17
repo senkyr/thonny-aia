@@ -30,6 +30,67 @@ def test_prepare_messages_merges_trims_and_starts_with_user(fake_thonny):
     assert len(trimmed) <= 5 and trimmed[0]["role"] == "user"
 
 
+def test_user_messages_go_out_without_the_folders_of_the_computer(fake_thonny, monkeypatch):
+    """The automatic reports carried the Shell's traceback and pip's log to the provider with
+    full paths, i.e. with the login name, which is often the student's name."""
+    from thonny.plugins.aia._common import (
+        error_report,
+        hide_user_paths,
+        install_error_report,
+        prepare_messages,
+    )
+
+    home = r"C:\Users\made.up.student"
+    monkeypatch.setenv("USERPROFILE", home)
+    monkeypatch.setenv("HOME", home)
+    # the way Python prints a path in an error message: repr(), backslashes doubled
+    missing = r"[Errno 2] No such file or directory: 'C:\\Users\\made.up.student\\data.txt'"
+    shell = "\n".join(
+        [
+            "1",
+            "2",
+            "Traceback (most recent call last):",
+            r'  File "C:\Users\made.up.student\Documents\ukoly\pokus.py", line 3, in <module>',
+            "    nacti(cesta)",
+            r'  File "\\server\zaci\made.up.student\pomocne.py", line 8, in nacti',
+            "    with open(cesta) as f:",
+            "FileNotFoundError: " + missing,
+        ]
+    )
+    error = {"type_name": "FileNotFoundError", "message": missing, "lineno": 8}
+    pip_log = "\n".join(
+        [
+            r"Using cached x.whl in c:\users\made.up.student\appdata\local\pip\cache",
+            r"ERROR: Could not install packages: 'C:\\Users\\made.up.student\\AppData\\x.pyd'",
+        ]
+    )
+    history = [
+        {"role": "user", "content": error_report(error, shell), "hidden": True},
+        {"role": "assistant", "content": r"V kódu máš C:\Users\made.up.student\data.txt"},
+        {"role": "user", "content": "Proč nejde C:/Users/Made.Up.Student/data.txt?"},
+        {"role": "assistant", "content": "..."},
+        {"role": "user", "content": install_error_report("pip install x", pip_log), "hidden": True},
+    ]
+
+    report, answer, question, _, install = prepare_messages(history)
+
+    assert "made.up.student" not in report["content"]
+    assert 'File "pokus.py", line 3, in <module>' in report["content"]
+    assert 'File "pomocne.py", line 8, in nacti' in report["content"]
+    assert r"'~\\data.txt'" in report["content"]
+    assert "1\n2\nTraceback" in report["content"]  # the output of the run stays
+    assert question["content"] == "Proč nejde ~/data.txt?"
+    assert answer["content"] == history[1]["content"]  # only what the student's side sends
+    assert "made.up.student" not in install["content"]
+    assert r"in ~\appdata\local\pip\cache" in install["content"]
+
+    # another folder that only starts like the home folder is not cut in the middle
+    other = r"C:\Users\made.up.student2\x.txt"
+    assert hide_user_paths(other, home) == other
+    assert hide_user_paths('File "<stdin>", line 1', home) == 'File "<stdin>", line 1'
+    assert hide_user_paths(r"C:\x.txt", "C:\\") == r"C:\x.txt"  # no home folder to hide
+
+
 def test_find_local_imports(fake_thonny, tmp_path):
     from thonny.plugins.aia import _common
 
@@ -149,6 +210,44 @@ def test_api_key_plain_option_without_secret_store(fake_thonny, monkeypatch):
     core.set_api_key("openai", "k")
     assert fake_thonny.options["aia.openai_api_key"] == "k"
     assert core.get_api_key("openai") == "k"
+
+
+def test_api_key_loses_line_breaks_and_control_characters(fake_thonny, monkeypatch):
+    """A key pasted from a mail with a line break in the middle: the HTTP client refused the
+    header and its error quoted the whole key (Thonny's log; with Gemini also the panel)."""
+    from thonny.plugins.aia._common import AIACore
+
+    del fake_thonny.get_secret, fake_thonny.set_secret
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    monkeypatch.delenv("GOOGLE_API_KEY", raising=False)
+    core = AIACore()
+
+    core.set_api_key("gemini", " made-up\r\n-key\t0123\x00​ ")
+    assert fake_thonny.options["aia.gemini_api_key"] == "made-up-key0123"
+    assert core.get_api_key("gemini") == "made-up-key0123"
+
+    # a key stored by an earlier version or by the welcome dialog, and one from the environment
+    fake_thonny.options["aia.gemini_api_key"] = "made-up\n-key"
+    assert core.get_api_key("gemini") == "made-up-key"
+    fake_thonny.options["aia.gemini_api_key"] = " \n"
+    assert core.get_api_key("gemini") is None and not core.has_stored_api_key("gemini")
+    monkeypatch.setenv("GEMINI_API_KEY", "env\x0b-key")
+    assert core.get_api_key("gemini") == "env-key"
+
+
+def test_options_page_asks_for_models_with_a_clean_key(fake_thonny):
+    """The page hands the key in its entry to the provider itself, not through AIACore."""
+    from thonny import first_run
+    from thonny.plugins.aia._panel.config_page import AIAPanelConfigPage
+
+    class _Var:
+        def get(self):
+            return " made-up\n-key "
+
+    page = AIAPanelConfigPage.__new__(AIAPanelConfigPage)
+    page._key_var = _Var()
+    assert page._token("gemini") == "made-up-key"
+    assert page._token(first_run.AI_LOCAL) == "local"
 
 
 def test_register_providers_skips_missing_packages(fake_thonny, monkeypatch):

@@ -29,6 +29,7 @@ from thonny.config_ui import ConfigurationPage
 from thonny.plugins.aia._common import (
     AIACore,
     MODEL_CHOICE_PROVIDERS,
+    clean_api_key,
     is_rejected_key,
     model_option,
 )
@@ -518,8 +519,15 @@ class AIAPanelConfigPage(ConfigurationPage):
         return tr("%s (default)") % model if model == self._models[provider] else model
 
     def _token(self, provider):
-        """What the listing depends on: the key on the page; the local model needs none."""
-        return "local" if provider == first_run.AI_LOCAL else self._key_var.get().strip()
+        """What the listing depends on: the key on the page; the local model needs none.
+
+        The key goes to the provider from here, not through AIACore: cleaned like there, or a
+        key pasted with a line break ends up, whole, in the error of the HTTP client and so
+        in Thonny's log.
+        """
+        if provider == first_run.AI_LOCAL:
+            return "local"
+        return clean_api_key(self._key_var.get())
 
     def _model_notes(self, provider):
         if provider == first_run.AI_LOCAL:
