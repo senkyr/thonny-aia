@@ -2364,3 +2364,7 @@ msgstr "Fortsett"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Finner ut hvilke modeller som finnes på denne datamaskinen..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Assistenten svarte ikke. Prøv igjen."

@@ -2353,3 +2353,7 @@ msgstr "Tęsti"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Išsiaiškinama, kurie modeliai yra šiame kompiuteryje..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Asistentas nieko neatsakė. Bandyk dar kartą."

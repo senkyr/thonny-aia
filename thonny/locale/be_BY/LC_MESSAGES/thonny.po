@@ -2385,3 +2385,7 @@ msgstr "Працягнуць"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Высвятляю, якія мадэлі ёсць на гэтым камп’ютары..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Памочнік нічога не адказаў. Паспрабуй яшчэ раз."

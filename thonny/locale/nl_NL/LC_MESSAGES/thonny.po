@@ -2355,3 +2355,7 @@ msgstr "Doorgaan"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Uitzoeken welke modellen er op deze computer staan..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "De assistent heeft niets geantwoord. Probeer het opnieuw."

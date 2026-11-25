@@ -2370,3 +2370,7 @@ msgstr "Devam et"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Bu bilgisayarda hangi modellerin olduğu öğreniliyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Yardımcı yanıt vermedi. Tekrar dene."

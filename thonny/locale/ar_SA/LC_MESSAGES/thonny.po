@@ -2358,3 +2358,7 @@ msgstr "متابعة"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "جارٍ معرفة النماذج الموجودة على هذا الحاسوب..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "لم يُجب المساعد. يُرجى المحاولة مرة أخرى."

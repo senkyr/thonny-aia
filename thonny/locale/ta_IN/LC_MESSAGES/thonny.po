@@ -2364,3 +2364,7 @@ msgstr "தொடர்"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "இந்தக் கணினியில் எந்த மாதிரிகள் உள்ளன என்று கண்டறியப்படுகிறது..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "உதவியாளர் எந்தப் பதிலும் அளிக்கவில்லை. மீண்டும் முயற்சிக்கவும்."

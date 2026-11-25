@@ -2371,3 +2371,7 @@ msgstr "Halda áfram"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Kanna hvaða líkön eru á þessari tölvu..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Aðstoðin svaraði engu. Reyndu aftur."

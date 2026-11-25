@@ -2363,3 +2363,7 @@ msgstr "जारी रखें"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "पता लगाया जा रहा है कि इस कंप्यूटर पर कौन-से मॉडल हैं..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "असिस्टेंट ने कोई जवाब नहीं दिया। फिर से कोशिश करें।"

@@ -2356,3 +2356,7 @@ msgstr "Reprendre"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Je cherche les modèles présents sur cet ordinateur…"
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "L'assistant n'a rien répondu. Réessaie."

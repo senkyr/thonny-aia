@@ -2340,3 +2340,7 @@ msgstr "Fortsätt"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Tar reda på vilka modeller som finns på den här datorn..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Assistenten svarade inte. Försök igen."

@@ -2349,3 +2349,7 @@ msgstr "Folytatás"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Kiderítem, mely modellek vannak ezen a számítógépen..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Az asszisztens nem válaszolt semmit. Próbáld újra."

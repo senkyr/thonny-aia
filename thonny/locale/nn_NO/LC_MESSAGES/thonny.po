@@ -2363,3 +2363,7 @@ msgstr "Hald fram"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Finn ut kva modellar som finst på denne datamaskina..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Assistenten svara ikkje. Prøv igjen."

@@ -2354,3 +2354,7 @@ msgstr "繼續"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "正在查找這台電腦上有哪些模型..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "助理沒有給出回答。請再試一次。"

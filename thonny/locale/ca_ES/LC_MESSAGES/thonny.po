@@ -2371,3 +2371,7 @@ msgstr "Continua"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Esbrinant quins models hi ha en aquest ordinador..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "L'assistent no ha respost res. Torna-ho a provar."

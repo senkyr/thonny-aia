@@ -2371,3 +2371,7 @@ msgstr "Jarraitu"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Ordenagailu honetan zer eredu dauden aztertzen..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Laguntzaileak ez du ezer erantzun. Saiatu berriro."

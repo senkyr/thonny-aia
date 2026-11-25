@@ -2385,3 +2385,7 @@ msgstr "Nadaljuj"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Ugotavljam, kateri modeli so na tem računalniku..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Pomočnik ni odgovoril ničesar. Poskusi znova."

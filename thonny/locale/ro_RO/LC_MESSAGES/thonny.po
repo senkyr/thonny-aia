@@ -2371,3 +2371,7 @@ msgstr "Continuă"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Aflu ce modele există pe acest calculator..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Asistentul nu a răspuns nimic. Încearcă din nou."

@@ -2371,3 +2371,7 @@ msgstr "ทำต่อ"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "กำลังตรวจสอบว่ามีโมเดลใดบ้างในคอมพิวเตอร์เครื่องนี้..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "ผู้ช่วยไม่ได้ตอบกลับ ลองอีกครั้ง"

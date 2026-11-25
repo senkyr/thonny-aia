@@ -2351,3 +2351,7 @@ msgstr "계속"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "이 컴퓨터에 어떤 모델이 있는지 확인하는 중..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "도우미가 답변하지 않았습니다. 다시 시도하세요."

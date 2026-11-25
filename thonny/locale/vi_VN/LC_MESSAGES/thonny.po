@@ -2370,3 +2370,7 @@ msgstr "Tiếp tục"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Đang tìm xem máy tính này có những mô hình nào..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Trợ lý không trả lời. Hãy thử lại."

@@ -2361,3 +2361,7 @@ msgstr "Lanjutkan"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Mencari tahu model apa saja yang ada di komputer ini..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Asisten tidak memberikan jawaban. Coba lagi."

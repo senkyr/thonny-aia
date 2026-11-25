@@ -2364,3 +2364,7 @@ msgstr "Vazhdo"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Po shqyrtoj cilat modele ka në këtë kompjuter..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Asistenti nuk u përgjigj. Provo përsëri."

@@ -2374,3 +2374,7 @@ msgstr "Jätka"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Selgitan välja, millised mudelid on sellel arvutil..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Assistent ei vastanud midagi. Proovi uuesti."

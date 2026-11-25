@@ -2366,3 +2366,7 @@ msgstr "Pokračovať"
 #: thonny/plugins/aia
 msgid "Finding out which models are on this computer..."
 msgstr "Zisťujem, aké modely sú na tomto počítači..."
+
+#: thonny/plugins/aia
+msgid "The assistant gave no answer. Try asking again."
+msgstr "Asistent nič neodpovedal. Skús sa opýtať znova."
