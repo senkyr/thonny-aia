@@ -6,6 +6,17 @@ Thonny AIA
 ==========
 Thonny AIA is an unofficial fork of Thonny 5.0.1 with the AI assistant AIA (https://github.com/senkyr/thonny-aia). It is not published or supported by the Thonny project. Its versions are below, Thonny's own history follows after them.
 
+5.5.0b10 (2026-11-25)
+---------------------
+* Why the assistant does not answer is in its panel once. Until beta 9 every message and every failed run of a program added the same lines again ("The AI assistant needs an API key or a local model."), so a panel without a provider filled up with them. Now the message stays where it is, or moves below what the student wrote since, and it goes away by itself: with the choice of a provider, with a key or once the local model is prepared, and after a refused key or a lost connection when the settings change or the assistant answers again. A request that fails before its answer starts no longer leaves an empty "AIA:" line.
+* While the local model is being downloaded, the empty panel keeps its progress bar when a program fails; the progress in a conversation follows the download.
+* A failed run that got no answer (no provider, no connection, Cancel) is no longer sent to the AI later together with the newer ones: only the latest one waits, and none when the assistant was not set up.
+* An answer that ends without any text (the provider's filter stopped it) says "The assistant gave no answer. Try asking again." instead of an empty line after "AIA:".
+* A failure of the AI service (errors 500 and 503, an overloaded service) gets a plain message, "The AI service is not available right now. Try again in a moment.", instead of the raw English text of the error.
+* A file in the editor longer than 50 000 characters is sent to the AI provider cut at that length. Until beta 9 the whole file went with every request, whatever its size, so a data file open in the editor made the request expensive or the provider refused it.
+* An API key pasted with a line break or another invisible character works, and no longer ends up in Thonny's log (frontend.log) or, with Gemini, in the panel.
+* What AIA sends to the AI provider no longer carries the folders of the computer, which usually hold the login name: lines of a traceback keep only the file name and the home folder becomes "~".
+
 5.5.0b9 (2026-11-13)
 --------------------
 * Thonny AIA prepares the local model itself: after the user agrees (OK with the local model chosen in the welcome dialog or in Tools > Options, or Prepare there) it downloads the processor part of Ollama (about 30 MB, signed by Ollama Inc.) and the chosen model into %LOCALAPPDATA%\Thonny AIA\local-models and runs it without a window. No installer, no administrator rights. An Ollama already running with the chosen model is used as before.
