@@ -2374,3 +2374,7 @@ msgstr "Bu bilgisayarda hangi modellerin olduğu öğreniliyor..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "Yardımcı yanıt vermedi. Tekrar dene."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "AI hizmeti şu anda kullanılamıyor. Biraz sonra tekrar dene."

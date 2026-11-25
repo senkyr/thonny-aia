@@ -2367,3 +2367,7 @@ msgstr "पता लगाया जा रहा है कि इस कं�
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "असिस्टेंट ने कोई जवाब नहीं दिया। फिर से कोशिश करें।"
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "AI सेवा अभी उपलब्ध नहीं है। थोड़ी देर में फिर से कोशिश करें।"

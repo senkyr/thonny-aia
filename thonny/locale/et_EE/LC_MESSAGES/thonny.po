@@ -2378,3 +2378,7 @@ msgstr "Selgitan välja, millised mudelid on sellel arvutil..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "Assistent ei vastanud midagi. Proovi uuesti."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "AI-teenus ei ole praegu saadaval. Proovi hetke pärast uuesti."

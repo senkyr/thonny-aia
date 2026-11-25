@@ -2362,3 +2362,7 @@ msgstr "جارٍ معرفة النماذج الموجودة على هذا الح
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "لم يُجب المساعد. يُرجى المحاولة مرة أخرى."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "خدمة الذكاء الاصطناعي غير متاحة الآن. يُرجى المحاولة بعد قليل."

@@ -2358,3 +2358,7 @@ msgstr "正在查找這台電腦上有哪些模型..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "助理沒有給出回答。請再試一次。"
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "AI 服務暫時無法使用。請稍後再試一次。"

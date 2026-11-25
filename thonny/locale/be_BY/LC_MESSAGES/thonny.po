@@ -2389,3 +2389,7 @@ msgstr "Высвятляю, якія мадэлі ёсць на гэтым ка�
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "Памочнік нічога не адказаў. Паспрабуй яшчэ раз."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "ШІ-сэрвіс зараз недаступны. Паспрабуй крыху пазней."

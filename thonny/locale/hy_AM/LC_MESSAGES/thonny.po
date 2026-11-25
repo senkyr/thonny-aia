@@ -2366,3 +2366,7 @@ msgstr "Պարզում եմ, թե որ մոդելներն են այս համակ
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "Օգնականը ոչինչ չպատասխանեց։ Փորձիր կրկին։"
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "ԱԲ ծառայությունն այս պահին հասանելի չէ։ Փորձիր կրկին մի փոքր հետո։"

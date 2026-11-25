@@ -2325,3 +2325,7 @@ msgstr "ഈ കമ്പ്യൂട്ടറിൽ ഏതൊക്കെ മോ
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "സഹായി മറുപടി ഒന്നും നൽകിയില്ല. വീണ്ടും ശ്രമിക്കുക."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "AI സേവനം ഇപ്പോൾ ലഭ്യമല്ല. അല്പസമയത്തിനു ശേഷം വീണ്ടും ശ്രമിക്കുക."

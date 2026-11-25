@@ -2373,3 +2373,7 @@ msgstr "A descobrir que modelos existem neste computador..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "O assistente não respondeu nada. Tenta novamente."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "O serviço de IA não está disponível neste momento. Tenta novamente daqui a pouco."

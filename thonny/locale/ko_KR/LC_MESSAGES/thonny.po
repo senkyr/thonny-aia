@@ -2355,3 +2355,7 @@ msgstr "이 컴퓨터에 어떤 모델이 있는지 확인하는 중..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "도우미가 답변하지 않았습니다. 다시 시도하세요."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "지금은 AI 서비스를 사용할 수 없습니다. 잠시 후 다시 시도하세요."

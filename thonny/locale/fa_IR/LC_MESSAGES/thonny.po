@@ -2368,3 +2368,7 @@ msgstr "در حال بررسی اینکه چه مدل‌هایی روی این �
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "دستیار پاسخی نداد. دوباره تلاش کن."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "سرویس هوش مصنوعی در حال حاضر در دسترس نیست. کمی بعد دوباره تلاش کن."

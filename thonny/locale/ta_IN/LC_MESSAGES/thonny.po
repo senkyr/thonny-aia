@@ -2368,3 +2368,7 @@ msgstr "இந்தக் கணினியில் எந்த மாதி
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "உதவியாளர் எந்தப் பதிலும் அளிக்கவில்லை. மீண்டும் முயற்சிக்கவும்."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "AI சேவை இப்போது கிடைக்கவில்லை. சிறிது நேரம் கழித்து மீண்டும் முயற்சிக்கவும்."

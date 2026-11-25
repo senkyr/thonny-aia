@@ -2389,3 +2389,7 @@ msgstr "Ugotavljam, kateri modeli so na tem računalniku..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "Pomočnik ni odgovoril ničesar. Poskusi znova."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "Storitev AI trenutno ni na voljo. Poskusi znova čez trenutek."

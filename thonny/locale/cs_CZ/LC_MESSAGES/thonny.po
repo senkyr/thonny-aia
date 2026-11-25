@@ -2607,3 +2607,7 @@ msgstr "Zjišťuji, jaké modely jsou na tomto počítači..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "Asistent nic neodpověděl. Zkus se zeptat znovu."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "AI služba teď není dostupná. Zkus to za chvíli znovu."

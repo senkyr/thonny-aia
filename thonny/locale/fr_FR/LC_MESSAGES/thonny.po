@@ -2360,3 +2360,7 @@ msgstr "Je cherche les modèles présents sur cet ordinateur…"
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "L'assistant n'a rien répondu. Réessaie."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "Le service d'IA n'est pas disponible pour le moment. Réessaie dans un instant."

@@ -2367,3 +2367,7 @@ msgstr "Finn ut kva modellar som finst på denne datamaskina..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "Assistenten svara ikkje. Prøv igjen."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "KI-tenesta er ikkje tilgjengeleg akkurat no. Prøv igjen om litt."

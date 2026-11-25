@@ -2353,3 +2353,7 @@ msgstr "Kiderítem, mely modellek vannak ezen a számítógépen..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "Az asszisztens nem válaszolt semmit. Próbáld újra."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "Az MI-szolgáltatás most nem érhető el. Próbáld újra egy kis idő múlva."

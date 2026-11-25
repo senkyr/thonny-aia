@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-11-25 09:30+0100\n"
+"POT-Creation-Date: 2026-11-25 09:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1965,64 +1965,68 @@ msgstr ""
 msgid "AI Assistant"
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:114
+#: thonny/plugins/aia/_common.py:115
 #, python-format
 msgid ""
 "The '%s' provider needs the Python package '%s', which is missing. "
 "Reinstall Thonny AIA."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:359
+#: thonny/plugins/aia/_common.py:365
 msgid "The AI assistant needs an API key or a local model."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:364
+#: thonny/plugins/aia/_common.py:370
 msgid ""
 "The AI assistant's API key is not valid. The assistant needs a valid API "
 "key or a local model."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:370
+#: thonny/plugins/aia/_common.py:376
 msgid "Set up the AI assistant"
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:400
+#: thonny/plugins/aia/_common.py:406
 #, python-format
 msgid ""
 "The model %s is not available. Choose another model in Tools > Options > "
 "AI Assistant."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:405
+#: thonny/plugins/aia/_common.py:411
 #, python-format
 msgid ""
 "The model %s does not fit into the computer's free memory. Close other "
 "programs, or choose a smaller model in Tools > Options > AI Assistant."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:410
+#: thonny/plugins/aia/_common.py:416
 msgid ""
 "Too many requests or the account's quota is used up. Wait a moment and "
 "try again."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:413
+#: thonny/plugins/aia/_common.py:419
 msgid "The AI service did not answer in time. Try again."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:420
+#: thonny/plugins/aia/_common.py:423
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr ""
+
+#: thonny/plugins/aia/_common.py:430
 msgid "The local model does not answer. Close Thonny and start it again."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:422
+#: thonny/plugins/aia/_common.py:432
 msgid "Cannot reach Ollama. Is it running (ollama serve) and is the host correct?"
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:424
+#: thonny/plugins/aia/_common.py:434
 msgid "Cannot connect to the AI service. Check the internet connection."
 msgstr ""
 
-#: thonny/plugins/aia/_common.py:576
+#: thonny/plugins/aia/_common.py:586
 msgid ""
 "Claude Code (the 'claude' command) was not found. Install Claude Code, "
 "sign in by running 'claude' once, then restart Thonny."

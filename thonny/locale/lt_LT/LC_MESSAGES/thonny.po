@@ -2357,3 +2357,7 @@ msgstr "Išsiaiškinama, kurie modeliai yra šiame kompiuteryje..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "Asistentas nieko neatsakė. Bandyk dar kartą."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "DI paslauga šiuo metu nepasiekiama. Po akimirkos bandyk dar kartą."

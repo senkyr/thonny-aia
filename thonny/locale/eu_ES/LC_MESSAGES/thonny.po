@@ -2375,3 +2375,7 @@ msgstr "Ordenagailu honetan zer eredu dauden aztertzen..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "Laguntzaileak ez du ezer erantzun. Saiatu berriro."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "AA zerbitzua ez dago erabilgarri une honetan. Saiatu berriro pixka bat barru."

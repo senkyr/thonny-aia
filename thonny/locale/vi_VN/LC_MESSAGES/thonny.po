@@ -2374,3 +2374,7 @@ msgstr "Đang tìm xem máy tính này có những mô hình nào..."
 #: thonny/plugins/aia
 msgid "The assistant gave no answer. Try asking again."
 msgstr "Trợ lý không trả lời. Hãy thử lại."
+
+#: thonny/plugins/aia
+msgid "The AI service is not available right now. Try again in a moment."
+msgstr "Dịch vụ AI hiện không khả dụng. Hãy thử lại sau giây lát."
