@@ -159,6 +159,9 @@ Root: HKA; Subkey: "Software\Classes\.py\ShellNew";  ValueType: string; ValueNam
 
 [Run]
 Filename: "{app}\pythonw.exe"; Parameters: "-m compileall ."; StatusMsg: "Compiling standard library... (takes a while)"
+; "Launch Thonny AIA" on the last page, checked (Jakub 2026-11-25, from 5.5.0); postinstall runs
+; it as the user who started the installer, not elevated; not after /SILENT or /VERYSILENT
+Filename: "{app}\{#ExeName}"; Description: "{cm:LaunchProgram,{#AppTitle}}"; Flags: postinstall nowait skipifsilent
 
 
 [UninstallDelete]
