@@ -23,14 +23,17 @@ from thonny.languages import tr
 from thonny.ui_utils import AutomaticPanedWindow, scrollbar_style
 
 from thonny.plugins.aia._common import (
+    PROVIDERS_NEEDING_KEY,
     AIACore,
     error_opens_settings,
     error_report,
     friendly_error,
     install_error_report,
     interface_language,
+    is_rejected_key,
     last_run_shell_output,
     prepare_messages,
+    rejected_key_text,
     settings_link_text,
     snapshot_editor_context,
 )
@@ -61,6 +64,17 @@ def input_hint_text() -> str:
     return tr("Write a message to the assistant...")
 
 
+# In place of the hint while the input is off because the assistant cannot answer, not playful
+# (Jakub 2026-11-25): something is to be set in Tools > Options (the panel has the link) ...
+def blocked_hint_text() -> str:
+    return tr("You cannot write to the assistant until it has a valid API key or a local model.")
+
+
+# ... or it only has to get ready (the local model being prepared)
+def not_ready_hint_text() -> str:
+    return tr("You cannot write to the assistant until it is ready.")
+
+
 # The empty panel shows one of these, in the font of the conversation, instead of the title and
 # instructions it had until beta 3 (Jakub 2026-10-13, cortex-zamestnani#75: "Asistent
 # odpočívá...", "Asistent lelkuje...", "Asistent je na obědě...", they may take turns).
@@ -89,6 +103,7 @@ def waking_text() -> str:
 
 IDLE_CHECK_MS = 1000  # how often the empty panel asks whether the local model still loads
 PROBLEM_CHECK_MS = 1000  # how often a shown problem asks whether it still holds
+STATE_CHECK_MS = 1000  # how often the panel asks whether the assistant can answer at all
 
 
 # Background and text of the panel follow Thonny's UI theme, like the built-in Assistant it
@@ -178,6 +193,19 @@ class AIAView(ttk.Frame):
     _problem_settings = None  # AIACore.settings_signature() when it was shown
     _problem_timer = None
 
+    # Whether the assistant can answer at all (_watch_state): while it cannot, the input and
+    # Send are off (Jakub 2026-11-25: a message to an assistant known not to work stayed in the
+    # panel unanswered, also after the key was fixed)
+    _refused = None  # AIACore.settings_signature() whose key the provider refused
+    _key_checked = None  # the signature whose key was last checked
+    _key_token = 0  # the key check whose answer counts
+    _key_results = None  # queue of the key checks' answers
+    _state_timer = None
+    _last_message = None  # what the student wrote last, until a request takes it
+    _request_message = None  # what the student wrote for the running request
+    _request_signature = None  # the settings of the running request
+    _placeholder_text = None  # the hint shown in the input
+
     def __init__(self, master):
         super().__init__(master)
 
@@ -194,13 +222,19 @@ class AIAView(ttk.Frame):
         self._note = False  # a note (thinking / the local model waking up) is in the messages area
         self._note_text = None
 
+        self._key_results = queue.Queue()
+
         self._build_ui()
         self._apply_theme()
         # Thonny applies a new UI theme and then the syntax theme, so this event covers both
         get_workbench().bind("SyntaxThemeChanged", self._apply_theme, True)
+        self._state_timer = self.after_idle(self._watch_state)
 
     def destroy(self):
         get_workbench().unbind("SyntaxThemeChanged", self._apply_theme)
+        if self._state_timer is not None:
+            self.after_cancel(self._state_timer)
+            self._state_timer = None
         super().destroy()
 
     # --- UI ---
@@ -429,6 +463,152 @@ class AIAView(ttk.Frame):
                 return
         self._schedule_problem_check()
 
+    def _known_problem(self, signature=None):
+        """(message, link to the options, readiness) when the assistant is known not to
+        answer, else None. UI thread.
+
+        Known: what ready_problem() says (no provider, no key, the local model not prepared),
+        and a key the provider refused (_watch_state's check or a request) while the settings
+        stay the same.
+        """
+        problem = self._core.ready_problem()
+        if problem is not None:
+            return problem[0], problem[1], True
+        if self._refused is not None:
+            if self._refused == (signature or self._core.settings_signature()):
+                return rejected_key_text(), True, False
+        return None
+
+    def _watch_state(self):
+        """Every second while the panel lives: can the assistant answer?
+
+        Until beta 10 the panel found out only from a request: with a key the provider refuses
+        (a typo, an expired key) the empty panel showed its playful line, the student's first
+        message got the error and stayed there unanswered, also after the key was fixed (Jakub
+        2026-11-25). Now the key is checked when the panel starts and after every change of the
+        settings (the provider's model listing, like the options page), what is known shows in
+        the panel and the input is off until it is fixed.
+        """
+        self._state_timer = self.after(STATE_CHECK_MS, self._watch_state)
+        signature = self._core.settings_signature()
+        self._take_key_results(signature)
+        if signature != self._key_checked:
+            self._key_checked = signature
+            self._start_key_check(signature)
+        if self._cancel_event is not None:
+            return  # the running request says how it went
+        known = self._known_problem(signature)
+        if known is not None and self._problem is None and not self._idle_covers():
+            self._show_problem(known[0], known[1], readiness=known[2])
+        self._update_input()
+
+    def _idle_covers(self) -> bool:
+        """The empty panel shows the application's local model in every phase itself."""
+        from thonny.plugins.aia import local_ui
+
+        return bool(getattr(self, "_idle", False)) and local_ui.handles(get_workbench())
+
+    def _start_key_check(self, signature):
+        """Ask the provider in a worker thread whether it accepts the key of ``signature``."""
+        self._key_token += 1
+        provider_id, key = signature[0], signature[1]
+        if provider_id not in PROVIDERS_NEEDING_KEY or not key:
+            return
+        provider = self._core.get_current_provider()
+        if provider is None or self._core.ready_problem() is not None:
+            return
+        asking = provider.frozen()  # the key read here, on the UI thread
+        token = self._key_token
+        results = self._key_results
+
+        def work():
+            try:
+                asking.list_models()
+                refused = False
+            except Exception as e:
+                # no connection, a timeout: unknown, the first request will tell
+                logger.info("AIA: could not check the key of %s", provider_id, exc_info=True)
+                refused = is_rejected_key(e)
+            results.put((token, signature, refused))
+
+        threading.Thread(target=work, daemon=True).start()
+
+    def _take_key_results(self, signature):
+        while True:
+            try:
+                token, checked, refused = self._key_results.get_nowait()
+            except queue.Empty:
+                return
+            if token == self._key_token and refused and checked == signature:
+                self._refused = checked
+
+    def _update_input(self, focus: bool = False):
+        """Input and Send are off while a request runs or the assistant cannot answer."""
+        busy = self._cancel_event is not None
+        known = None if busy else self._known_problem()
+        off = busy or known is not None
+        state = "disabled" if off else "normal"
+        self._send_button.configure(state=state)
+        self._cancel_button.configure(state="normal" if busy else "disabled")
+        self._input_text.configure(state=state)
+        if focus and not off:
+            self._input_text.focus_set()
+        self._refresh_placeholder(known)
+
+    @staticmethod
+    def _hint_for(known) -> str:
+        if known is None:
+            return input_hint_text()
+        return blocked_hint_text() if known[1] else not_ready_hint_text()
+
+    def _input_focused(self) -> bool:
+        try:
+            return self.focus_get() is self._input_text
+        except (KeyError, tk.TclError):  # focus in a widget Tk cannot name (e.g. a menu)
+            return False
+
+    def _refresh_placeholder(self, known):
+        """The hint follows whether the student can write: an empty disabled input says why not."""
+        text = self._input_text
+        if self._placeholder:
+            if known is None and self._input_focused():
+                self._hide_placeholder()  # on again with the focus in it: the student types
+                return
+            hint = self._hint_for(known)
+            if self._placeholder_text != hint:
+
+                def replace():
+                    text.delete("1.0", "end")
+                    text.insert("1.0", hint, "placeholder")
+
+                self._edit_input(replace)
+                self._placeholder_text = hint
+        elif known is not None and not text.get("1.0", "end-1c"):
+            self._show_placeholder()
+
+    def _return_message(self):
+        """The student's message of a request the provider refused goes back to the input.
+
+        The assistant did not see it; it waits there until the key is fixed, instead of staying
+        in the panel unanswered.
+        """
+        text, self._request_message = self._request_message, None
+        if not text or not self._conversation:
+            return
+        if self._conversation[-1] != {"role": "user", "content": text}:
+            return
+        self._conversation.pop()
+        self._forget_unanswered_reports()
+        self._edit_messages(lambda: self._messages_text.delete("message_start", "end-1c"))
+        self._hide_placeholder()
+        if not self._input_text.get("1.0", "end-1c").strip():
+
+            def put_back():
+                self._input_text.delete("1.0", "end")
+                self._input_text.insert("1.0", text)
+
+            self._edit_input(put_back)
+
     def _apply_theme(self, event=None):
         """Colours of the active themes; also called when a theme changes."""
         from thonny.codeview import get_syntax_options_for_tag
@@ -559,18 +739,22 @@ class AIAView(ttk.Frame):
         self._messages_text.see("end")
 
     def _show_placeholder(self, event=None):
-        """The hint shows in the empty input while it does not have the focus."""
+        """The hint shows in the empty input while it does not have the focus; why the student
+        cannot write shows also with the focus."""
         text = self._input_text
-        try:
-            focused = self.focus_get() is text
-        except (KeyError, tk.TclError):  # focus in a widget Tk cannot name (e.g. a menu)
-            focused = False
-        if self._placeholder or focused or text.get("1.0", "end-1c"):
+        if self._placeholder or text.get("1.0", "end-1c"):
             return
+        known = None if self._cancel_event is not None else self._known_problem()
+        if known is None and self._input_focused():
+            return
+        hint = self._hint_for(known)
         self._placeholder = True
-        self._edit_input(lambda: text.insert("1.0", input_hint_text(), "placeholder"))
+        self._placeholder_text = hint
+        self._edit_input(lambda: text.insert("1.0", hint, "placeholder"))
 
     def _hide_placeholder(self, event=None):
+        if event is not None and str(self._input_text.cget("state")) == "disabled":
+            return  # a click into the disabled input: why it is off stays there
         if self._placeholder:
             self._placeholder = False
             self._edit_input(lambda: self._input_text.delete("1.0", "end"))
@@ -583,11 +767,7 @@ class AIAView(ttk.Frame):
         self._input_text.configure(state=state)
 
     def _set_busy(self, busy: bool):
-        self._send_button.configure(state="disabled" if busy else "normal")
-        self._cancel_button.configure(state="normal" if busy else "disabled")
-        self._input_text.configure(state="disabled" if busy else "normal")
-        if not busy:
-            self._input_text.focus_set()
+        self._update_input(focus=not busy)
 
     # --- Event handling ---
 
@@ -647,10 +827,14 @@ class AIAView(ttk.Frame):
             return  # a request is running
         if self._placeholder:
             return  # only the hint is in the input
+        if self._known_problem() is not None:
+            return  # Enter works in a disabled input too; the panel says what is missing
         text = self._input_text.get("1.0", "end-1c").strip()
         if not text:
             return
-        self._input_text.delete("1.0", "end")
+        # also while the input is still off: the settings were fixed less than a second ago and
+        # the message sent back by a refused key is sent now
+        self._edit_input(lambda: self._input_text.delete("1.0", "end"))
         self._add_user_message(text)
         self._request_llm_response()
 
@@ -675,8 +859,13 @@ class AIAView(ttk.Frame):
 
     def _add_user_message(self, text: str):
         self._conversation.append({"role": "user", "content": text})
+        self._hide_idle()
+        # where the message starts: a refused key sends it back to the input (_return_message)
+        self._messages_text.mark_set("message_start", "end-1c")
+        self._messages_text.mark_gravity("message_start", "left")
         self._insert("\n" + tr("You") + ": ", "user_header")
         self._insert(f"{text}\n")
+        self._last_message = text
 
     def _abort_current_request(self):
         """Stop showing the running request (if any) and keep its partial answer."""
@@ -688,13 +877,16 @@ class AIAView(ttk.Frame):
 
     def _request_llm_response(self):
         """Collect everything on the UI thread, then stream in a worker thread."""
-        problem = self._core.ready_problem()
+        self._request_message, self._last_message = self._last_message, None
+        signature = self._core.settings_signature()
+        problem = self._known_problem(signature)
         if problem:
             # The assistant is not set up and saw nothing: a report of this moment is not sent
             # later with the first message either
             self._forget_unanswered_reports()
-            self._show_problem(*problem, readiness=True)
+            self._show_problem(problem[0], problem[1], readiness=problem[2])
             return
+        self._request_signature = signature
         if self._problem is not None and self._problem_readiness:
             self._remove_problem(idle=False)  # it can answer now, _check_problem did not run yet
 
@@ -763,7 +955,8 @@ class AIAView(ttk.Frame):
         except Exception as e:
             logger.exception("AIA: error during chat completion")
             message = friendly_error(e, provider_id, model)
-            put((request_id, "error", (message, error_opens_settings(e, provider_id))))
+            refused = provider_id in PROVIDERS_NEEDING_KEY and is_rejected_key(e)
+            put((request_id, "error", (message, error_opens_settings(e, provider_id), refused)))
         finally:
             close = getattr(stream, "close", None)
             if close is not None:
@@ -817,6 +1010,7 @@ class AIAView(ttk.Frame):
                 elif kind == "chunk":
                     self._hide_loading()
                     self._remove_problem(idle=False)  # the assistant answers again
+                    self._refused = None
                     self._partial.append(payload)
                     self._insert(payload)
                 elif kind == "done":
@@ -828,14 +1022,20 @@ class AIAView(ttk.Frame):
                         model_answered()  # the keeper may have given up on the load
                 elif kind == "error":
                     self._hide_loading()
+                    message, settings, *refused = payload
                     if self._partial:
                         # in the middle of an answer: it stays there, part of the conversation
-                        self._insert_problem(*payload)
+                        self._insert_problem(message, settings)
                         self._finish("")
                     else:
                         self._drop_request_lines()
+                        if refused and refused[0]:
+                            # known now: the input goes off (_end_request) and the message
+                            # waits in it until the key is fixed
+                            self._refused = self._request_signature
+                            self._return_message()
                         self._end_request()
-                        self._show_problem(*payload)
+                        self._show_problem(message, settings)
         except queue.Empty:
             pass
 

@@ -339,3 +339,239 @@ def test_settings_signature_changes_with_the_key_and_the_provider(fake_thonny):
     assert core.settings_signature() != second
     fake_thonny.options["aia.provider"] = ""
     assert core.settings_signature() == ("", None, None, None)
+
+
+# --- The assistant known not to work: the input is off (Jakub 2026-11-25) ---
+#
+# Until beta 10 a refused key showed only after the student's first message, which stayed in the
+# panel unanswered, also after the key was fixed; "the dead prompt should not be possible to
+# enter at all, the assistant does not work and that is known".
+
+
+class Refused(Exception):
+    status_code = 401
+
+
+class Offline(Exception):
+    pass
+
+
+def with_input(view, root, panel_view):
+    """The input and the buttons, real widgets: _update_input switches them."""
+    from tkinter import ttk
+
+    view._input_text = tk.Text(root, height=1)
+    view._placeholder = False
+    view._send_button = ttk.Button(root)
+    view._cancel_button = ttk.Button(root)
+    view._set_busy = lambda busy: panel_view.AIAView._set_busy(view, busy)
+    view._key_results = queue.Queue()
+    view.focus_get = lambda: None
+    return view
+
+
+def run_threads_at_once(monkeypatch, panel_view):
+    class Thread:
+        def __init__(self, target, daemon=None):
+            self._target = target
+
+        def start(self):
+            self._target()
+
+    monkeypatch.setattr(panel_view.threading, "Thread", Thread)
+
+
+def watch(view):
+    """One tick of _watch_state (STATE_CHECK_MS later)."""
+    view.timers[:] = [t for t in view.timers if getattr(t, "__name__", "") != "_watch_state"]
+    view._watch_state()
+
+
+def input_state(view):
+    return str(view._input_text.cget("state")), str(view._send_button.cget("state"))
+
+
+def refuse(view):
+    view._events.put((view._request_id, "error", (REJECTED, True, True)))
+    view._poll_events()
+
+
+def test_a_refused_key_sends_the_message_back_to_the_input(panel_view, root, fake_thonny):
+    core = Core()
+    view = with_input(make_view(panel_view, root, core, fake_thonny), root, panel_view)
+    say(view, "co je cyklus?")
+    refuse(view)
+
+    assert shown(view) == REJECTED + "\n" + LINK + "\n"  # no dead "You: ..." above it
+    assert view._conversation == []
+    assert view._input_text.get("1.0", "end-1c") == "co je cyklus?"
+    assert input_state(view) == ("disabled", "disabled")
+
+    view._on_send()  # Enter works in a disabled Text: nothing is sent
+    assert view._conversation == [] and view._cancel_event is None
+
+    core.settings = ("anthropic", "a fixed key", "claude-haiku-5-5", None)
+    view._show_idle = lambda: None
+    tick(view)
+    watch(view)
+    assert shown(view) == ""
+    assert input_state(view) == ("normal", "normal")
+    assert view._input_text.get("1.0", "end-1c") == "co je cyklus?"  # ready to send again
+
+
+def test_a_refused_key_keeps_the_conversation_before_it(panel_view, root, fake_thonny):
+    view = with_input(make_view(panel_view, root, Core(), fake_thonny), root, panel_view)
+    say(view, "ahoj")
+    answer(view, "Ahoj!")
+    say(view, "co je cyklus?")  # the key expired meanwhile
+    refuse(view)
+
+    assert shown(view) == "You: ahoj\n\nAIA: Ahoj!\n\n" + REJECTED + "\n" + LINK + "\n"
+    assert [m["content"] for m in view._conversation] == ["ahoj", "Ahoj!"]
+
+
+def test_an_error_run_after_a_refused_report_sends_nothing(panel_view, root, fake_thonny):
+    view = with_input(make_view(panel_view, root, Core(), fake_thonny), root, panel_view)
+    error_run(view)
+    refuse(view)
+
+    error_run(view)  # known now: not sent
+
+    assert shown(view) == REJECTED + "\n" + LINK + "\n"
+    assert view._conversation == [] and view._cancel_event is None
+
+
+def test_the_key_is_checked_when_the_panel_starts(panel_view, root, fake_thonny, monkeypatch):
+    run_threads_at_once(monkeypatch, panel_view)
+    core = Core()
+    asked = []
+
+    def list_models():
+        asked.append(core.settings[1])
+        raise Refused("invalid x-api-key")
+
+    monkeypatch.setattr(Core._Provider, "list_models", staticmethod(list_models), raising=False)
+    view = with_input(make_view(panel_view, root, core, fake_thonny), root, panel_view)
+    view._insert("The assistant is resting...", "system_text")
+    view._idle = True
+
+    watch(view)  # asks; the answer is taken at the next tick
+    watch(view)
+
+    assert asked == ["key"]
+    assert shown(view) == REJECTED + "\n" + LINK + "\n"  # in place of the playful line
+    assert input_state(view) == ("disabled", "disabled")
+
+    watch(view)
+    assert asked == ["key"]  # once for the same settings
+    core.settings = ("anthropic", "a new key", "claude-haiku-5-5", None)
+    watch(view)
+    assert asked == ["key", "a new key"]
+
+
+@pytest.mark.parametrize("outcome", [Offline("no connection"), None])
+def test_a_key_not_refused_leaves_the_input_on(
+    panel_view, root, fake_thonny, monkeypatch, outcome
+):
+    run_threads_at_once(monkeypatch, panel_view)
+
+    def list_models():
+        if outcome:
+            raise outcome
+        return ["claude-haiku-5-5"]
+
+    monkeypatch.setattr(Core._Provider, "list_models", staticmethod(list_models), raising=False)
+    view = with_input(make_view(panel_view, root, Core(), fake_thonny), root, panel_view)
+    watch(view)
+    watch(view)
+
+    assert shown(view) == "" and view._problem is None
+    assert input_state(view) == ("normal", "normal")
+
+
+def test_an_old_check_does_not_count(panel_view, root, fake_thonny):
+    core = Core()
+    view = with_input(make_view(panel_view, root, core, fake_thonny), root, panel_view)
+    old = core.settings
+    view._key_checked = old
+    core.settings = ("anthropic", "a new key", "claude-haiku-5-5", None)
+    view._key_results.put((view._key_token, old, True))
+
+    watch(view)
+
+    assert view._refused is None and input_state(view) == ("normal", "normal")
+
+
+def test_without_a_provider_the_empty_panel_says_so_and_the_input_is_off(
+    panel_view, root, fake_thonny
+):
+    core = Core(problem=(NEEDS, True))
+    view = with_input(make_view(panel_view, root, core, fake_thonny), root, panel_view)
+
+    watch(view)
+    error_run(view)
+    watch(view)
+
+    assert shown(view) == NEEDS + "\n" + LINK + "\n"
+    assert input_state(view) == ("disabled", "disabled")
+
+
+BLOCKED_HINT = "You cannot write to the assistant until it has a valid API key or a local model."
+NOT_READY_HINT = "You cannot write to the assistant until it is ready."
+HINT = "Write a message to the assistant..."
+
+
+def hint(view):
+    return view._input_text.get("1.0", "end-1c") if view._placeholder else None
+
+
+def test_the_disabled_input_says_why_and_not_playfully(panel_view, root, fake_thonny):
+    """Jakub 2026-11-25: the hint of the disabled input has to say that the assistant cannot be
+    written to until it has a valid key."""
+    core = Core(problem=(NEEDS, True))
+    view = with_input(make_view(panel_view, root, core, fake_thonny), root, panel_view)
+    view._show_idle = lambda: None
+
+    watch(view)
+    assert hint(view) == BLOCKED_HINT
+
+    view.focus_get = lambda: view._input_text
+    view._hide_placeholder(event=object())  # <FocusIn> by a click: it stays
+    assert hint(view) == BLOCKED_HINT
+
+    core.problem = None
+    tick(view)
+    watch(view)  # on again with the focus in it: empty, ready for typing
+    assert view._placeholder is False and view._input_text.get("1.0", "end-1c") == ""
+
+    view.focus_get = lambda: None
+    view._show_placeholder()  # <FocusOut>
+    assert hint(view) == HINT
+
+
+def test_a_refused_key_turns_the_hint(panel_view, root, fake_thonny):
+    view = with_input(make_view(panel_view, root, Core(), fake_thonny), root, panel_view)
+    view._show_placeholder()
+    assert hint(view) == HINT
+    error_run(view)
+    refuse(view)
+
+    assert hint(view) == BLOCKED_HINT
+
+
+def test_a_local_model_getting_ready_has_its_own_hint(panel_view, root, fake_thonny):
+    core = Core(problem=("The assistant is getting ready... 3.2 GB of 13.8 GB", False))
+    view = with_input(make_view(panel_view, root, core, fake_thonny), root, panel_view)
+
+    watch(view)
+
+    assert hint(view) == NOT_READY_HINT
+
+
+def test_a_running_request_keeps_cancel_on(panel_view, root, fake_thonny):
+    view = with_input(make_view(panel_view, root, Core(), fake_thonny), root, panel_view)
+    say(view, "ahoj")
+    view._set_busy(True)
+
+    assert input_state(view) == ("disabled", "disabled")
+    assert str(view._cancel_button.cget("state")) == "normal"

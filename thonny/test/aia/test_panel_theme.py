@@ -178,6 +178,8 @@ def test_input_hint_shows_while_the_input_is_empty_and_unfocused(panel_view, roo
     themes = builtin_syntax_themes(monkeypatch)
     monkeypatch.setattr(codeview, "_syntax_options", themes["Default Light"])
     view = panel_view.AIAView(root)
+    view._known_problem = lambda signature=None: None  # the assistant can answer
+    view._update_input()  # the fake has no provider: the input started off
     sent = []
     view._request_llm_response = lambda: sent.append(list(view._conversation))
     content = lambda: view._input_text.get("1.0", "end-1c")
