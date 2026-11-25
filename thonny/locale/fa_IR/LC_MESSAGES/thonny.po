@@ -2372,3 +2372,11 @@ msgstr "دستیار پاسخی نداد. دوباره تلاش کن."
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "سرویس هوش مصنوعی در حال حاضر در دسترس نیست. کمی بعد دوباره تلاش کن."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "تا وقتی دستیار کلید API معتبر یا مدل محلی نداشته باشد، نمی‌توانی به او پیام بنویسی."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "تا وقتی دستیار آماده نشده، نمی‌توانی به او پیام بنویسی."

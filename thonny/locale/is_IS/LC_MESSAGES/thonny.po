@@ -2379,3 +2379,11 @@ msgstr "Aðstoðin svaraði engu. Reyndu aftur."
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "Gervigreindarþjónustan er ekki tiltæk núna. Reyndu aftur eftir smástund."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "Þú getur ekki skrifað aðstoðarmanninum fyrr en hann hefur gildan API-lykil eða staðbundið líkan."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "Þú getur ekki skrifað aðstoðarmanninum fyrr en hann er tilbúinn."

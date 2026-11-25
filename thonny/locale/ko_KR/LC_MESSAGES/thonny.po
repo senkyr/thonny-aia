@@ -2359,3 +2359,11 @@ msgstr "도우미가 답변하지 않았습니다. 다시 시도하세요."
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "지금은 AI 서비스를 사용할 수 없습니다. 잠시 후 다시 시도하세요."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "유효한 API 키나 로컬 모델이 있어야 어시스턴트에게 메시지를 보낼 수 있습니다."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "어시스턴트가 준비되어야 메시지를 보낼 수 있습니다."

@@ -2369,3 +2369,11 @@ msgstr "Asisten tidak memberikan jawaban. Coba lagi."
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "Layanan AI sedang tidak tersedia. Coba lagi sebentar lagi."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "Asisten belum bisa diberi pesan sampai memiliki kunci API yang valid atau model lokal."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "Asisten belum bisa diberi pesan sampai siap."

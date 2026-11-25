@@ -2372,3 +2372,11 @@ msgstr "உதவியாளர் எந்தப் பதிலும் அ
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "AI சேவை இப்போது கிடைக்கவில்லை. சிறிது நேரம் கழித்து மீண்டும் முயற்சிக்கவும்."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "சரியான API விசை அல்லது உள்ளூர் மாதிரி கிடைக்கும் வரை உதவியாளருக்கு எழுத முடியாது."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "உதவியாளர் தயாராகும் வரை எழுத முடியாது."

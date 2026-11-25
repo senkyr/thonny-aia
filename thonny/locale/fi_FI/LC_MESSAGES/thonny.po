@@ -2357,3 +2357,11 @@ msgstr "Avustaja ei vastannut mitään. Yritä uudelleen."
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "Tekoälypalvelu ei ole juuri nyt käytettävissä. Yritä hetken kuluttua uudelleen."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "Avustajalle ei voi kirjoittaa, ennen kuin sillä on kelvollinen API-avain tai paikallinen malli."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "Avustajalle ei voi kirjoittaa, ennen kuin se on valmis."

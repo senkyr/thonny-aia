@@ -2379,3 +2379,11 @@ msgstr "アシスタントから回答がありませんでした。もう一度
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "AIサービスは現在利用できません。しばらくしてからもう一度お試しください。"
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "有効なAPIキーかローカルモデルが設定されるまで、アシスタントにメッセージを送れません。"
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "準備ができるまで、アシスタントにメッセージを送れません。"

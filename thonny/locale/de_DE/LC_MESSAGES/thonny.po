@@ -2369,3 +2369,11 @@ msgstr "Der Assistent hat nichts geantwortet. Versuche es erneut."
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "Der KI-Dienst ist gerade nicht erreichbar. Versuche es gleich noch einmal."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "Du kannst dem Assistenten erst schreiben, wenn er einen gültigen API-Schlüssel oder ein lokales Modell hat."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "Du kannst dem Assistenten erst schreiben, wenn er bereit ist."

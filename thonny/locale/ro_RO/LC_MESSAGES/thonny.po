@@ -2379,3 +2379,11 @@ msgstr "Asistentul nu a răspuns nimic. Încearcă din nou."
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "Serviciul AI nu este disponibil acum. Încearcă din nou peste puțin timp."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "Nu poți scrie asistentului până nu are o cheie API validă sau un model local."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "Nu poți scrie asistentului până nu este pregătit."

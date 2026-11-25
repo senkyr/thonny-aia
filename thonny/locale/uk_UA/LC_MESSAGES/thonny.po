@@ -2362,3 +2362,11 @@ msgstr "Асистент нічого не відповів. Спробуй ще
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "ШІ-сервіс зараз недоступний. Спробуй ще раз трохи згодом."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "Писати асистентові не можна, доки в нього немає дійсного ключа API або локальної моделі."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "Писати асистентові не можна, доки він не готовий."

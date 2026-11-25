@@ -2378,3 +2378,11 @@ msgstr "Trợ lý không trả lời. Hãy thử lại."
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "Dịch vụ AI hiện không khả dụng. Hãy thử lại sau giây lát."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "Chưa thể nhắn cho trợ lý cho đến khi trợ lý có khóa API hợp lệ hoặc mô hình cục bộ."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "Chưa thể nhắn cho trợ lý cho đến khi trợ lý sẵn sàng."

@@ -2370,3 +2370,11 @@ msgstr "Ο βοηθός δεν απάντησε. Δοκίμασε ξανά."
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "Η υπηρεσία ΤΝ δεν είναι διαθέσιμη αυτή τη στιγμή. Δοκίμασε ξανά σε λίγο."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "Δεν μπορείς να γράψεις στον βοηθό μέχρι να έχει έγκυρο κλειδί API ή τοπικό μοντέλο."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "Δεν μπορείς να γράψεις στον βοηθό μέχρι να είναι έτοιμος."

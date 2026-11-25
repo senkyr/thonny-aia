@@ -2366,3 +2366,11 @@ msgstr "لم يُجب المساعد. يُرجى المحاولة مرة أخر�
 #: thonny/plugins/aia
 msgid "The AI service is not available right now. Try again in a moment."
 msgstr "خدمة الذكاء الاصطناعي غير متاحة الآن. يُرجى المحاولة بعد قليل."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it has a valid API key or a local model."
+msgstr "لا يمكن الكتابة إلى المساعد حتى يحصل على مفتاح API صالح أو نموذج محلي."
+
+#: thonny/plugins/aia
+msgid "You cannot write to the assistant until it is ready."
+msgstr "لا يمكن الكتابة إلى المساعد حتى يصبح جاهزًا."
