@@ -27,6 +27,9 @@ def make_view(module):
     view._insert = lambda text, tag=None: view.inserted.append(text)
     view._set_busy = lambda busy: view.busy.append(busy)
     view.after = lambda ms, func: None
+    view._messages_text = _FakeText()
+    view._core = _Core()
+    view._idle = False
     return view
 
 
@@ -147,6 +150,15 @@ class _FakeText:
 
     def configure(self, **kwargs):
         pass
+
+    def mark_set(self, name, index):
+        pass
+
+    def mark_gravity(self, name, gravity):
+        pass
+
+    def compare(self, first, op, second):
+        return False
 
 
 def test_local_loading_note_disappears_with_first_token(panel_view):
@@ -327,6 +339,9 @@ class _Core:
 
     def get_current_model(self, provider):
         return "claude-haiku-5-5"
+
+    def settings_signature(self):
+        return ("anthropic", "key", "claude-haiku-5-5", None)
 
 
 def test_thinking_note_follows_the_header_until_the_answer(panel_view):
@@ -652,7 +667,7 @@ def test_a_rejected_key_says_what_the_assistant_needs_with_a_link(panel_view):
 
     shown = "".join(text for text, _ in view.tagged)
     assert "API key is not valid" in shown and "local model" in shown and "sk-" not in shown
-    assert ("Set up the AI assistant", "settings_link") in view.tagged
+    assert ("Set up the AI assistant", ("settings_link", "problem")) in view.tagged
     assert view.busy[-1] is False
 
 
@@ -665,7 +680,7 @@ def test_a_connection_error_has_no_link(panel_view):
     request_id, _ = start_request(view, "openai")
     view._events.put((request_id, "error", (friendly_error(exc, "openai"), False)))
     view._poll_events()
-    assert all(tag != "settings_link" for _, tag in view.tagged)
+    assert all("settings_link" not in (tag or ()) for _, tag in view.tagged)
 
 
 def test_no_provider_gives_the_needs_text_with_a_link(panel_view, fake_thonny):
@@ -676,8 +691,9 @@ def test_no_provider_gives_the_needs_text_with_a_link(panel_view, fake_thonny):
 
     view._request_llm_response()
 
-    assert ("\nThe AI assistant needs an API key or a local model.", "error_text") in view.tagged
-    assert ("Set up the AI assistant", "settings_link") in view.tagged
+    needs = "\nThe AI assistant needs an API key or a local model."
+    assert (needs, ("error_text", "problem")) in view.tagged
+    assert ("Set up the AI assistant", ("settings_link", "problem")) in view.tagged
     assert view._cancel_event is None  # no request started
 
 

@@ -104,3 +104,18 @@ def local_models_ready(request, monkeypatch):
     manager = ReadyLocalModels()
     monkeypatch.setattr(local_models, "_manager", manager)
     return manager
+
+
+@pytest.fixture(scope="session")
+def root():
+    """One Tk interpreter for all tests that need one (skipped where Tk cannot start): a second
+    Tk() in a process sometimes misses init.tcl, and its tests were then skipped."""
+    import tkinter as tk
+
+    try:
+        root = tk.Tk()
+    except tk.TclError as e:
+        pytest.skip(f"no Tk: {e}")
+    root.withdraw()
+    yield root
+    root.destroy()

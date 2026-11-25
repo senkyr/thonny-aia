@@ -537,6 +537,21 @@ class AIACore:
                     return chosen
         return provider.get_default_model()
 
+    def settings_signature(self) -> Tuple:
+        """What a request depends on: provider, its key and model. UI thread.
+
+        The panel keeps a failed request's message until this changes (a refused key stays
+        until another key or another provider is set).
+        """
+        provider_id = self.get_current_provider_id()
+        provider = self._providers.get(provider_id)
+        return (
+            provider_id,
+            self.get_api_key(provider_id) if provider_id in PROVIDERS_NEEDING_KEY else None,
+            self.get_current_model(provider) if provider is not None else None,
+            get_workbench().get_option("aia.ollama_host") if provider_id == "ollama" else None,
+        )
+
     def check_ready(self) -> Optional[str]:
         """Return None if the current provider can be used, else a user-facing reason."""
         problem = self.ready_problem()

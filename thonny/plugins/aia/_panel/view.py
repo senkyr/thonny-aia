@@ -50,6 +50,12 @@ def thinking_text() -> str:
     return tr("Thinking...")
 
 
+# Shown after "AIA: " when the answer ends without any text (the provider's filter stopped it,
+# or the model only thought): until beta 9 the line after "AIA: " stayed empty.
+def no_answer_text() -> str:
+    return tr("The assistant gave no answer. Try asking again.")
+
+
 # Grey hint in the empty input (Jakub 2026-10-13, cortex-zamestnani#74)
 def input_hint_text() -> str:
     return tr("Write a message to the assistant...")
@@ -82,6 +88,7 @@ def waking_text() -> str:
 
 
 IDLE_CHECK_MS = 1000  # how often the empty panel asks whether the local model still loads
+PROBLEM_CHECK_MS = 1000  # how often a shown problem asks whether it still holds
 
 
 # Background and text of the panel follow Thonny's UI theme, like the built-in Assistant it
@@ -164,6 +171,12 @@ def theme_colors(ui_text, syntax_options, rgb):
 
 class AIAView(ttk.Frame):
     """Chat panel that provides AI-powered programming assistance."""
+
+    # Why the assistant does not answer is in the panel once (_show_problem)
+    _problem = None  # (message, link to the options) of the problem shown
+    _problem_readiness = False  # AIACore.ready_problem() says it, no request failed with it
+    _problem_settings = None  # AIACore.settings_signature() when it was shown
+    _problem_timer = None
 
     def __init__(self, master):
         super().__init__(master)
@@ -325,6 +338,97 @@ class AIAView(ttk.Frame):
             self._insert("\n")
             self._insert(settings_link_text(), "settings_link")
 
+    def _show_problem(self, message: str, settings: bool, readiness: bool = False):
+        """Why the assistant does not answer: in the panel once, at its end, until it can.
+
+        Until beta 9 every message and every failed run of the student's program added the same
+        lines again ("The AI assistant needs an API key or a local model."), and a panel without
+        a provider filled up with them (Jakub 2026-11-25). Now the same problem stays where it
+        is, or moves below what the student wrote since, and another one takes its place. It
+        goes away when the assistant can answer again (_check_problem, the first part of an
+        answer).
+
+        ``readiness``: AIACore.ready_problem() says it (no provider, no key, the local model
+        not prepared) and no request was sent.
+        """
+        if readiness and self._idle_says(message):
+            return  # the empty panel says it already, with the local model's progress
+        if self._problem == (message, settings) and self._problem_is_last():
+            self._problem_readiness = readiness
+            self._schedule_problem_check()
+            return
+        self._remove_problem(idle=False)
+        self._insert("\n" + message, ("error_text", "problem"))
+        if settings:
+            self._insert("\n", "problem")
+            self._insert(settings_link_text(), ("settings_link", "problem"))
+        self._insert("\n", "problem")
+        self._problem = (message, settings)
+        self._problem_readiness = readiness
+        self._problem_settings = self._core.settings_signature()
+        self._schedule_problem_check()
+
+    def _idle_says(self, message: str) -> bool:
+        """Whether the empty panel says this already (how the local model is being prepared)."""
+        if not getattr(self, "_idle", False):
+            return False
+        text = self._idle_content()[0]
+        return text == message or text.startswith(message + "\n")
+
+    def _problem_is_last(self) -> bool:
+        text = self._messages_text
+        ranges = text.tag_ranges("problem")
+        return bool(ranges) and bool(text.compare(ranges[-1], "==", "end-1c"))
+
+    def _remove_problem(self, idle: bool = True):
+        """Take the shown problem out of the panel; an emptied panel shows its line again."""
+        if self._problem_timer is not None:
+            self.after_cancel(self._problem_timer)
+            self._problem_timer = None
+        if self._problem is None:
+            return
+        self._problem = None
+        text = self._messages_text
+        ranges = text.tag_ranges("problem")
+
+        def remove():
+            for i in range(len(ranges) - 2, -1, -2):
+                text.delete(ranges[i], ranges[i + 1])
+
+        self._edit_messages(remove)
+        if idle:
+            self._show_idle()  # only when nothing else is left in the panel
+
+    def _schedule_problem_check(self):
+        if self._problem_timer is not None:
+            self.after_cancel(self._problem_timer)
+        self._problem_timer = self.after(PROBLEM_CHECK_MS, self._check_problem)
+
+    def _check_problem(self):
+        """While a problem is shown: does it still hold?
+
+        What ready_problem() says is asked again: it goes away with the choice of a provider,
+        with a key or with the local model prepared, and its text follows the preparation. A
+        failed request (a refused key, no connection) stays until the settings change or an
+        answer comes.
+        """
+        self._problem_timer = None
+        if self._problem is None:
+            return
+        if self._cancel_event is None:  # a running request appends to the panel's end
+            current = self._core.ready_problem()
+            if current is not None:
+                self._show_problem(*current, readiness=True)
+                if self._problem is None:
+                    return
+            elif (
+                self._problem_readiness
+                or self._core.settings_signature() != self._problem_settings
+            ):
+                self._remove_problem()
+                return
+        self._schedule_problem_check()
+
     def _apply_theme(self, event=None):
         """Colours of the active themes; also called when a theme changes."""
         from thonny.codeview import get_syntax_options_for_tag
@@ -441,7 +545,8 @@ class AIAView(ttk.Frame):
         change()
         self._messages_text.configure(state="disabled")
 
-    def _insert(self, text: str, tag: Optional[str] = None):
+    def _insert(self, text: str, tag=None):
+        """Append to the messages; ``tag`` is a tag name or a tuple of them."""
         self._hide_idle()
         if not self._messages_text.get("1.0", "end-1c"):
             text = text.lstrip("\n")  # the first message starts at the top
@@ -505,16 +610,29 @@ class AIAView(ttk.Frame):
         """AIA opens the conversation itself: the report goes to the model, not to the panel."""
         if self._cancel_event is not None:
             return  # the student sent a message in the meantime
-        report = error_report(error_info, last_run_shell_output(get_workbench()))
-        self._conversation.append({"role": "user", "content": report, "hidden": True})
+        self._add_report(error_report(error_info, last_run_shell_output(get_workbench())))
         self._request_llm_response()
+
+    def _add_report(self, report: str):
+        """An automatic report for the model, not shown in the panel.
+
+        A report that got no answer (its request failed or was cancelled) gives way to the newer
+        one: until beta 9 they piled up, and the first request that got through carried them all.
+        """
+        self._forget_unanswered_reports()
+        self._conversation.append({"role": "user", "content": report, "hidden": True})
+
+    def _forget_unanswered_reports(self):
+        while self._conversation and self._conversation[-1].get("hidden"):
+            self._conversation.pop()
 
     def handle_install_failure(self, event):
         """PackageInstallFailed from the package manager: react like to a runtime error."""
         self._abort_current_request()
         get_workbench().show_view("AIAView", set_focus=False)
-        report = install_error_report(getattr(event, "command", ""), getattr(event, "output", ""))
-        self._conversation.append({"role": "user", "content": report, "hidden": True})
+        self._add_report(
+            install_error_report(getattr(event, "command", ""), getattr(event, "output", ""))
+        )
         self._request_llm_response()
 
     def _on_enter(self, event):
@@ -572,9 +690,13 @@ class AIAView(ttk.Frame):
         """Collect everything on the UI thread, then stream in a worker thread."""
         problem = self._core.ready_problem()
         if problem:
-            self._insert_problem(*problem)
-            self._insert("\n")
+            # The assistant is not set up and saw nothing: a report of this moment is not sent
+            # later with the first message either
+            self._forget_unanswered_reports()
+            self._show_problem(*problem, readiness=True)
             return
+        if self._problem is not None and self._problem_readiness:
+            self._remove_problem(idle=False)  # it can answer now, _check_problem did not run yet
 
         wb = get_workbench()
         provider_id = self._core.get_current_provider_id()
@@ -597,6 +719,11 @@ class AIAView(ttk.Frame):
         self._cancel_event = threading.Event()
         self._partial = []
         self._set_busy(True)
+        self._hide_idle()
+        # where the lines of this request start: one that fails before its answer leaves only
+        # the problem in the panel (_drop_request_lines)
+        self._messages_text.mark_set("request_start", "end-1c")
+        self._messages_text.mark_gravity("request_start", "left")
         self._insert("\nAIA: ", "assistant_header")
         # While the keeper loads the model, the empty panel said "waking up": go on with it
         # right away, not with "Thinking..." until Ollama answers (_report_local_model)
@@ -689,16 +816,26 @@ class AIAView(ttk.Frame):
                         self._show_note(payload)
                 elif kind == "chunk":
                     self._hide_loading()
+                    self._remove_problem(idle=False)  # the assistant answers again
                     self._partial.append(payload)
                     self._insert(payload)
                 elif kind == "done":
+                    if not payload and not self._partial:
+                        self._hide_loading()
+                        self._insert(no_answer_text(), "system_text")
                     self._finish(payload)
                     if self._request_provider_id == "ollama":
                         model_answered()  # the keeper may have given up on the load
                 elif kind == "error":
                     self._hide_loading()
-                    self._insert_problem(*payload)
-                    self._finish("")
+                    if self._partial:
+                        # in the middle of an answer: it stays there, part of the conversation
+                        self._insert_problem(*payload)
+                        self._finish("")
+                    else:
+                        self._drop_request_lines()
+                        self._end_request()
+                        self._show_problem(*payload)
         except queue.Empty:
             pass
 
@@ -728,11 +865,18 @@ class AIAView(ttk.Frame):
             text.delete(ranges[i], ranges[i + 1])
         text.configure(state="disabled")
 
+    def _drop_request_lines(self):
+        """Remove "AIA: " of a request that failed before its answer started."""
+        self._edit_messages(lambda: self._messages_text.delete("request_start", "end-1c"))
+
     def _finish(self, suffix: str):
         self._hide_loading()
         if suffix:
             self._insert(suffix)
         self._insert("\n")
+        self._end_request()
+
+    def _end_request(self):
         full_response = "".join(self._partial)
         if full_response:
             self._conversation.append({"role": "assistant", "content": full_response})
@@ -746,6 +890,7 @@ class AIAView(ttk.Frame):
         """Forget the chat history (starts a fresh conversation)."""
         self._abort_current_request()
         self._conversation.clear()
+        self._remove_problem(idle=False)
         self._messages_text.configure(state="normal")
         self._messages_text.delete("1.0", "end")
         self._messages_text.configure(state="disabled")

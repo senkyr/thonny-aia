@@ -11,18 +11,6 @@ import tkinter as tk
 import pytest
 
 
-@pytest.fixture(scope="module")
-def root():
-    # one interpreter for the module: a second Tk() in a process sometimes misses init.tcl
-    try:
-        root = tk.Tk()
-    except tk.TclError as e:
-        pytest.skip(f"no Tk: {e}")
-    root.withdraw()
-    yield root
-    root.destroy()
-
-
 @pytest.fixture
 def panel_view(fake_thonny):
     from thonny.plugins.aia._panel import view as module
