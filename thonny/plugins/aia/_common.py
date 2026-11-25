@@ -85,6 +85,7 @@ API_KEY_URLS = {
 MAX_HISTORY_MESSAGES = 20
 MAX_IMPORTED_FILES = 10
 MAX_IMPORTED_FILE_CHARS = 50_000
+MAX_EDITOR_CHARS = 50_000  # the file in the editor: far above a student's program
 
 # Seconds to wait for a Tk-thread callback from a worker thread
 UI_CALL_TIMEOUT = 5.0
@@ -184,11 +185,16 @@ def snapshot_editor_context(wb) -> Dict[str, Optional[object]]:
         logger.debug("Could not get editor content for context", exc_info=True)
         return result
 
-    result["code"] = code
     result["file_name"] = os.path.basename(path) if path else "unnamed file"
 
     if wb.get_option("aia.include_local_imports") and path and code:
-        result["imported_files"] = find_local_imports(path, code)
+        result["imported_files"] = find_local_imports(path, code)  # from the whole file
+
+    # Until beta 9 the whole file went with every request, whatever its size: a data file
+    # open in the editor made the request expensive, or the provider refused it
+    if code and len(code) > MAX_EDITOR_CHARS:
+        code = code[:MAX_EDITOR_CHARS] + "\n# ... (truncated)"
+    result["code"] = code
 
     return result
 
@@ -411,6 +417,10 @@ def friendly_error(exc: BaseException, provider_id: str = "", model: str = "") -
         )
     if "Timeout" in name:
         return tr("The AI service did not answer in time. Try again.")
+    if status is not None and status >= 500:
+        # the provider's own failure (500, 503, Anthropic's 529 "Overloaded"), or a proxy on
+        # the way: until beta 9 the panel showed the exception's raw English text
+        return tr("The AI service is not available right now. Try again in a moment.")
     if "Connect" in name or isinstance(exc, OSError):
         if provider_id == "ollama":
             from thonny.plugins.aia import local_ui

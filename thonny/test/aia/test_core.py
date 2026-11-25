@@ -695,3 +695,60 @@ def test_no_text_sends_the_student_to_a_teacher():
         for node in ast.walk(tree):  # the texts, not the comments explaining why
             if isinstance(node, ast.Constant) and isinstance(node.value, str):
                 assert "teacher" not in node.value.lower(), (path.name, node.value)
+
+
+def test_a_server_error_gets_a_plain_message(fake_thonny):
+    """A provider's own failure (500, 503, Anthropic's 529 "Overloaded") or a proxy on the
+    way: before Thonny AIA beta 10 the panel showed the exception's raw English text."""
+    from thonny.plugins.aia._common import error_opens_settings, friendly_error
+
+    plain = "The AI service is not available right now. Try again in a moment."
+    for status in (500, 502, 503, 529):
+        text = "Error code: %d - {'type': 'error', 'error': {'type': 'overloaded_error'}}" % status
+        exc = _StatusError(status, text)
+        assert friendly_error(exc, "anthropic", "claude-haiku-5-5") == plain
+        assert not error_opens_settings(exc, "anthropic")
+
+    class ServerError(Exception):  # google-genai carries the status in .code
+        code = 503
+
+    assert friendly_error(ServerError("UNAVAILABLE"), "gemini", "m") == plain
+    # Ollama: a model that does not fit keeps its own message, another 500 gets the plain one
+    assert "does not fit" in friendly_error(_StatusError(500, "out of memory"), "ollama", "m")
+    crash = _StatusError(500, "error reading llama-server response")
+    assert friendly_error(crash, "ollama", "m") == plain
+    # an error of the request itself keeps its text
+    assert "Bad request" in friendly_error(_StatusError(400, "Bad request"), "openai", "m")
+
+
+def test_a_big_file_in_the_editor_is_cut(fake_thonny, tmp_path):
+    """Before Thonny AIA beta 10 the whole file of the editor went with every request,
+    whatever its size (a data file open in the editor)."""
+    from thonny.plugins.aia import _common
+
+    (tmp_path / "helper.py").write_text("X = 1\n", "utf-8")
+    main = tmp_path / "main.py"
+    content = ["import helper\n" + "x = 1\n" * 20000]  # 120 000 characters
+    main.write_text(content[0], "utf-8")
+
+    class _Editor:
+        def get_content(self):
+            return content[0]
+
+        def get_filename(self):
+            return str(main)
+
+    fake_thonny.editor = _Editor()
+    fake_thonny.options.update(
+        {"aia.auto_attach_context": True, "aia.include_local_imports": True}
+    )
+
+    ctx = _common.snapshot_editor_context(fake_thonny)
+
+    assert ctx["code"].startswith("import helper\n")
+    assert ctx["code"].endswith("\n# ... (truncated)")
+    assert len(ctx["code"]) == _common.MAX_EDITOR_CHARS + len("\n# ... (truncated)")
+    assert set(ctx["imported_files"]) == {"helper.py"}  # found in the whole file
+
+    content[0] = "import helper\nprint(helper.X)\n"
+    assert _common.snapshot_editor_context(fake_thonny)["code"] == content[0]
