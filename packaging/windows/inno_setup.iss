@@ -56,11 +56,11 @@ UsePreviousAppDir=yes
 DisableReadyPage=no
 AlwaysShowDirOnReadyPage=yes
 
-; Thonny AIA: Czech (the first of [Languages]) is the wizard's default language, like in the
-; application's welcome dialog (Jakub 2026-11-26): not the language of Windows and not the one
-; of the previous installation, which preselected English after an English installation
-; while the dialog itself spoke the language of Windows
-LanguageDetectionMethod=none
+; Thonny AIA: the language of Windows decides the wizard's language (Jakub 2026-11-26): Czech
+; on a Czech Windows, English on an English one, Czech (the first of [Languages]) on any
+; other. Not the language of the previous installation, which preselected English after an
+; English installation while the dialog itself spoke the language of Windows.
+LanguageDetectionMethod=uilanguage
 UsePreviousLanguage=no
 
 
