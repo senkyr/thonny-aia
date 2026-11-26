@@ -183,6 +183,12 @@ Type: dirifempty; Name: "{localappdata}\Thonny AIA"
 [Messages]
 english.FinishedHeadingLabel=Great success!
 czech.FinishedHeadingLabel=Povedlo se!
+; Thonny AIA: the sentence of the language dialog one line lower, in the middle of the space
+; between the title bar and the list (Jakub 2026-11-26). Inno Setup gives a script no way to
+; place the dialog's controls, so the label starts with an empty line; its texts are Inno
+; Setup's own and fit on one line.
+english.SelectLanguageLabel=%nSelect the language to use during the installation.
+czech.SelectLanguageLabel=%nZvolte jazyk, který se má použít během instalace.
 
 ; Thonny AIA: the texts that upstream's [Code] wrote in English whatever the language chosen
 ; (Jakub 2026-11-26: the first and the last page were English with Czech selected). Czech is
