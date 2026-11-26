@@ -57,9 +57,9 @@ DisableReadyPage=no
 AlwaysShowDirOnReadyPage=yes
 
 ; Thonny AIA: the language of Windows decides the wizard's language (Jakub 2026-11-26): Czech
-; on a Czech Windows, English on an English one, Czech (the first of [Languages]) on any
-; other. Not the language of the previous installation, which preselected English after an
-; English installation while the dialog itself spoke the language of Windows.
+; on a Czech Windows, English (the first of [Languages]) on any other. Not the language of
+; the previous installation, which preselected English after an English installation while
+; the dialog itself spoke the language of Windows.
 LanguageDetectionMethod=uilanguage
 UsePreviousLanguage=no
 
@@ -94,8 +94,9 @@ ChangesAssociations=yes
 
 
 [Languages]
-Name: "czech"; MessagesFile: "compiler:Languages\Czech.isl"
+; English first: it is the language of every Windows that is not Czech
 Name: "english"; MessagesFile: "compiler:Default.isl"
+Name: "czech"; MessagesFile: "compiler:Languages\Czech.isl"
 
 [InstallDelete]
 ; Clean old installation before copying new files
