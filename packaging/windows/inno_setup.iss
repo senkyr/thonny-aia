@@ -158,7 +158,7 @@ Root: HKA; Subkey: "Software\Classes\.py\ShellNew";  ValueType: string; ValueDat
 Root: HKA; Subkey: "Software\Classes\.py\ShellNew";  ValueType: string; ValueName: "NullFile"; ValueData: "";  
 
 [Run]
-Filename: "{app}\pythonw.exe"; Parameters: "-m compileall ."; StatusMsg: "Compiling standard library... (takes a while)"
+Filename: "{app}\pythonw.exe"; Parameters: "-m compileall ."; StatusMsg: "{cm:CompilingLibrary}"
 ; "Launch Thonny AIA" on the last page, checked (Jakub 2026-11-25, from 5.5.0); postinstall runs
 ; it as the user who started the installer, not elevated; not after /SILENT or /VERYSILENT
 Filename: "{app}\{#ExeName}"; Description: "{cm:LaunchProgram,{#AppTitle}}"; Flags: postinstall nowait skipifsilent
@@ -173,7 +173,67 @@ Type: filesandordirs; Name: "{localappdata}\Thonny AIA\local-models"
 Type: dirifempty; Name: "{localappdata}\Thonny AIA"
 
 [Messages]
-FinishedHeadingLabel=Great success!
+english.FinishedHeadingLabel=Great success!
+czech.FinishedHeadingLabel=Povedlo se!
+
+; Thonny AIA: the texts that upstream's [Code] wrote in English whatever the language chosen
+; (Jakub 2026-11-26: the first and the last page were English with Czech selected). Czech is
+; informal like AIA's own texts; %1 is the application's name, %2 its version.
+[CustomMessages]
+english.WelcomeTitle=Welcome to using %1!
+english.InstallAllUsers=This wizard will install %1 %2 for all users.
+english.UpgradeAllUsers=This wizard will upgrade %1 to version %2 for all users.
+english.InstallThisUser=This wizard will install %1 %2 for your account.
+english.UpgradeThisUser=This wizard will upgrade %1 to version %2 for your account.
+english.DualWarningThisUser=Warning!%n%nLooks like you have already installed %1 for your account. In order to avoid confusion, you may want to cancel this wizard and uninstall single-user %1 first.
+english.DualWarningAllUsers=Warning!%n%nLooks like %1 is already installed for all users. In order to avoid confusion, you may want to cancel this wizard and uninstall all-users %1 first.
+english.NowUpgraded=%1 is now upgraded.
+english.NowInstalled=%1 is now installed.
+english.HowToRun=Run it via shortcut or right-click a *.py file and select "Edit with %1".
+english.AmpersandInPath=Directory paths containing "&" are known to cause problems in %1%nPlease choose another directory!
+english.OldInstallation=A previous %1 installation created by an older installer was found.%n%nIf you continue, %1 may be installed twice.%nIt is recommended to uninstall the old version first.%n%nDo you want to continue anyway?
+english.CompilingLibrary=Compiling standard library... (takes a while)
+czech.WelcomeTitle=Vítej v %1!
+czech.InstallAllUsers=Tento průvodce nainstaluje %1 %2 pro všechny uživatele.
+czech.UpgradeAllUsers=Tento průvodce aktualizuje %1 na verzi %2 pro všechny uživatele.
+czech.InstallThisUser=Tento průvodce nainstaluje %1 %2 pro tvůj účet.
+czech.UpgradeThisUser=Tento průvodce aktualizuje %1 na verzi %2 pro tvůj účet.
+czech.DualWarningThisUser=Pozor!%n%nVypadá to, že pro tvůj účet už instalace %1 existuje. Aby v tom nebyl zmatek, můžeš tohoto průvodce zrušit a napřed odinstalovat %1 nainstalované pro jeden účet.
+czech.DualWarningAllUsers=Pozor!%n%nVypadá to, že instalace %1 pro všechny uživatele už existuje. Aby v tom nebyl zmatek, můžeš tohoto průvodce zrušit a napřed odinstalovat %1 nainstalované pro všechny uživatele.
+czech.NowUpgraded=Aktualizace %1 je hotová.
+czech.NowInstalled=Instalace %1 je hotová.
+czech.HowToRun=Spustíš ho zástupcem, nebo klikni pravým tlačítkem na soubor *.py a vyber „Edit with %1“.
+czech.AmpersandInPath=Cesty ke složkám se znakem „&“ dělají v %1 potíže.%nVyber prosím jinou složku!
+czech.OldInstallation=Byla nalezena předchozí instalace %1 vytvořená starším instalátorem.%n%nKdyž budeš pokračovat, může být %1 nainstalované dvakrát.%nDoporučujeme starou verzi napřed odinstalovat.%n%nChceš přesto pokračovat?
+czech.CompilingLibrary=Kompiluje se standardní knihovna... (chvíli to trvá)
+english.Quote0=Ninety-ninety rule: The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts for the other 90 percent of the development time.%n– Tom Cargill 
+english.Quote1=Now is better than never.%n– Tim Peters 
+english.Quote2=Give someone a program, frustrate them for a day; teach them how to program, frustrate them for a lifetime.%n%n– David Leinweber 
+english.Quote3=Talk is cheap. Show me the code.%n%n– Linus Torvalds 
+english.Quote4=Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.%n%n– Patrick McKenzie 
+english.Quote5=Formal education will make you a living. Self-education will make you a fortune.%n%n– Jim Rohn 
+english.Quote6=First do it, then do it right, then do it better.%n%n– Addy Osmani 
+english.Quote7=If you want to set off and go develop some grand new thing, you don't need millions of dollars of capitalization. You need enough pizza and Diet Coke to stick in your refrigerator, a cheap PC to work on and the dedication to go through with it.%n– John Carmack 
+english.Quote8=Computers are useless. They can only give you answers.%n%n– Pablo Picasso 
+english.Quote9=The best way to predict the future is to invent it.%n%n– Alan Kay 
+english.Quote10=Programming isn't about what you know; it's about what you can figure out.%n%n– Chris Pine 
+english.Quote11=The only way to learn a new programming language is by writing programs in it.%n%n– Dennis Ritchie 
+english.Quote12=Code is like humor. When you have to explain it, it's bad.%n%n– Cory House 
+english.Quote13=Just keep swimming!%n%n– Dory 
+czech.Quote0=Pravidlo devadesát na devadesát: Prvních 90 procent kódu zabere prvních 90 procent času vývoje. Zbývajících 10 procent kódu zabere dalších 90 procent času vývoje.%n– Tom Cargill 
+czech.Quote1=Teď je lepší než nikdy.%n– Tim Peters 
+czech.Quote2=Dej někomu program a potrápíš ho na jeden den; nauč ho programovat a potrápíš ho na celý život.%n%n– David Leinweber 
+czech.Quote3=Řeči jsou laciné. Ukaž mi kód.%n%n– Linus Torvalds 
+czech.Quote4=Každý skvělý vývojář, kterého znáš, se jím stal tak, že řešil problémy, na které nestačil, dokud je opravdu nevyřešil.%n%n– Patrick McKenzie 
+czech.Quote5=Formální vzdělání ti zajistí živobytí. Samostudium ti přinese jmění.%n%n– Jim Rohn 
+czech.Quote6=Nejdřív to udělej, pak to udělej správně, pak to udělej líp.%n%n– Addy Osmani 
+czech.Quote7=Když se chceš pustit do vývoje nějaké velké nové věci, nepotřebuješ miliony dolarů kapitálu. Potřebuješ dost pizzy a dietní koly v ledničce, levné PC na práci a odhodlání to dotáhnout.%n– John Carmack 
+czech.Quote8=Počítače jsou k ničemu. Umějí dávat jen odpovědi.%n%n– Pablo Picasso 
+czech.Quote9=Nejlepší způsob, jak předpovědět budoucnost, je vynalézt ji.%n%n– Alan Kay 
+czech.Quote10=Programování není o tom, co víš, ale o tom, na co dokážeš přijít.%n%n– Chris Pine 
+czech.Quote11=Jediný způsob, jak se naučit nový programovací jazyk, je psát v něm programy.%n%n– Dennis Ritchie 
+czech.Quote12=Kód je jako vtip. Když ho musíš vysvětlovat, je špatný.%n%n– Cory House 
+czech.Quote13=Prostě plav dál!%n%n– Dory 
 
 
 
@@ -210,25 +270,9 @@ end;
 
 
 function GetRandomQuote(): String;
-var
-    Quotes: array[0..13] of string;
 begin
-    Quotes[0] := 'Ninety-ninety rule: The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts for the other 90 percent of the development time.'#13#10'– Tom Cargill ';
-    Quotes[1] := 'Now is better than never.'#13#10'– Tim Peters ';
-    Quotes[2] := 'Give someone a program, frustrate them for a day; teach them how to program, frustrate them for a lifetime.'#13#10#13#10'– David Leinweber ';
-    Quotes[3] := 'Talk is cheap. Show me the code.'#13#10#13#10'– Linus Torvalds ';
-    Quotes[4] := 'Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.'#13#10#13#10'– Patrick McKenzie ';
-    Quotes[5] := 'Formal education will make you a living. Self-education will make you a fortune.'#13#10#13#10'– Jim Rohn ';
-    Quotes[6] := 'First do it, then do it right, then do it better.'#13#10#13#10'– Addy Osmani ';
-    Quotes[7] := 'If you want to set off and go develop some grand new thing, you don''t need millions of dollars of capitalization. You need enough pizza and Diet Coke to stick in your refrigerator, a cheap PC to work on and the dedication to go through with it.'#13#10'– John Carmack ';
-    Quotes[8] := 'Computers are useless. They can only give you answers.'#13#10#13#10'– Pablo Picasso ';
-    Quotes[9] := 'The best way to predict the future is to invent it.'#13#10#13#10'– Alan Kay ';
-    Quotes[10] := 'Programming isn''t about what you know; it''s about what you can figure out.'#13#10#13#10'– Chris Pine ';
-    Quotes[11] := 'The only way to learn a new programming language is by writing programs in it.'#13#10#13#10'– Dennis Ritchie ';
-    Quotes[12] := 'Code is like humor. When you have to explain it, it''s bad.'#13#10#13#10'– Cory House ';
-    Quotes[13] := 'Just keep swimming!'#13#10#13#10'– Dory ';
-
-    Result := Quotes[StrToInt(GetDateTimeString('ss', #0, #0)) mod Length(Quotes)];
+    // Quote0 .. Quote13 in [CustomMessages], in the language of the wizard
+    Result := CustomMessage('Quote' + IntToStr(StrToInt(GetDateTimeString('ss', #0, #0)) mod 14));
 end;
 
 procedure InitializeWizard;
@@ -236,39 +280,33 @@ var
   DualWarningLabel: TLabel;
 begin
   Upgraded := False;
-  WizardForm.WelcomeLabel1.Caption := 'Welcome to using {#AppTitle}!';
+  WizardForm.WelcomeLabel1.Caption := FmtMessage(CustomMessage('WelcomeTitle'), ['{#AppTitle}']);
 
   DualWarningLabel := TLabel.Create(WizardForm);
 
   if StartedForAllUsers() then
   begin
-    WizardForm.WelcomeLabel2.Caption := 'This wizard will install {#AppTitle} {#AppVer} for all users.';
+    WizardForm.WelcomeLabel2.Caption := FmtMessage(CustomMessage('InstallAllUsers'), ['{#AppTitle}', '{#AppVer}']);
     if InstalledForThisUser() then
     begin    
-      DualWarningLabel.Caption := 'Warning!'
-          + ''#13#10''
-          + ''#13#10''
-          + 'Looks like you have already installed {#AppTitle} for your account. In order to avoid confusion, you may want to cancel this wizard and uninstall single-user {#AppTitle} first.';
+      DualWarningLabel.Caption := FmtMessage(CustomMessage('DualWarningThisUser'), ['{#AppTitle}']);
     end
     else if InstalledForAllUsers() then
     begin
-      WizardForm.WelcomeLabel2.Caption := 'This wizard will upgrade {#AppTitle} to version {#AppVer} for all users.';
+      WizardForm.WelcomeLabel2.Caption := FmtMessage(CustomMessage('UpgradeAllUsers'), ['{#AppTitle}', '{#AppVer}']);
       Upgraded := True;
     end;
   end
   else  // single user
   begin
-    WizardForm.WelcomeLabel2.Caption := 'This wizard will install {#AppTitle} {#AppVer} for your account.';
+    WizardForm.WelcomeLabel2.Caption := FmtMessage(CustomMessage('InstallThisUser'), ['{#AppTitle}', '{#AppVer}']);
     if InstalledForAllUsers() then
     begin    
-      DualWarningLabel.Caption := 'Warning!'
-        + ''#13#10''
-        + ''#13#10''
-        + 'Looks like {#AppTitle} is already installed for all users. In order to avoid confusion, you may want to cancel this wizard and uninstall all-users {#AppTitle} first.';
+      DualWarningLabel.Caption := FmtMessage(CustomMessage('DualWarningAllUsers'), ['{#AppTitle}']);
     end
     else if InstalledForThisUser() then
     begin
-      WizardForm.WelcomeLabel2.Caption := 'This wizard will upgrade {#AppTitle} to version {#AppVer} for your account.';
+      WizardForm.WelcomeLabel2.Caption := FmtMessage(CustomMessage('UpgradeThisUser'), ['{#AppTitle}', '{#AppVer}']);
       Upgraded := True;
     end;
 
@@ -301,9 +339,7 @@ function NextButtonClick(CurPageID: Integer): Boolean;
 begin
   if (CurPageID = wpSelectDir) and (pos('&', WizardDirValue) > 1) then
   begin
-    MsgBox('Directory paths containing "&" are known to cause problems in {#AppTitle}'
-          + ''#13#10''
-          + 'Please choose another directory!', mbError, MB_OK);
+    MsgBox(FmtMessage(CustomMessage('AmpersandInPath'), ['{#AppTitle}']), mbError, MB_OK);
     Result := False
   end
   else
@@ -317,11 +353,11 @@ begin
     if CurPageID = wpFinished then
     begin
       if Upgraded then
-        WizardForm.FinishedLabel.Caption := '{#AppTitle} is now upgraded.'
+        WizardForm.FinishedLabel.Caption := FmtMessage(CustomMessage('NowUpgraded'), ['{#AppTitle}'])
       else
-        WizardForm.FinishedLabel.Caption := '{#AppTitle} is now installed.';
+        WizardForm.FinishedLabel.Caption := FmtMessage(CustomMessage('NowInstalled'), ['{#AppTitle}']);
       WizardForm.FinishedLabel.Caption := WizardForm.FinishedLabel.Caption 
-        + ' Run it via shortcut or right-click a *.py file and select "Edit with Thonny AIA".';
+        + ' ' + FmtMessage(CustomMessage('HowToRun'), ['{#AppTitle}']);
 
       WizardForm.FinishedLabel.AutoSize := True;
 
@@ -335,11 +371,24 @@ begin
       begin
         QuoteLabel.Height := ScaleY(80);
       end;
+      // Thonny AIA: the longest quotes take five lines and the author's line was cut off
+      if Length(QuoteLabel.Caption) > 150 then
+      begin
+        QuoteLabel.Height := ScaleY(130);
+      end;
       QuoteLabel.Left := WizardForm.FinishedLabel.Left + (WizardForm.FinishedLabel.Width - QuoteLabel.Width);
       QuoteLabel.Alignment := taRightJustify;
       //QuoteLabel.Font.Style := [fsItalic]; // causes cropping in leftmost letters
       
       QuoteLabel.Top := WizardForm.FinishedPage.Height - QuoteLabel.Height - ScaleY(20);
+
+      // Thonny AIA: the list with "Launch Thonny AIA" reaches the bottom of the page and, being
+      // a window, covered the quote (a label drawn on the page); it ends above the quote now
+      if WizardForm.RunList.Visible then
+      begin
+        WizardForm.RunList.Top := WizardForm.FinishedLabel.Top + WizardForm.FinishedLabel.Height + ScaleY(20);
+        WizardForm.RunList.Height := QuoteLabel.Top - WizardForm.RunList.Top - ScaleY(8);
+      end;
     end;
 end;
 
@@ -361,12 +410,7 @@ begin
   if (InstalledForAllUsers() or InstalledForThisUser()) 
     and not (Modern64BitInstallMarkerExists(HKEY_CURRENT_USER) or Modern64BitInstallMarkerExists(HKEY_LOCAL_MACHINE)) then
   begin
-      Msg := 'A previous {#AppTitle} installation created by an older installer was found.';
-
-    Msg := Msg + #13#10#13#10 +
-      'If you continue, {#AppTitle} may be installed twice.' + #13#10 +
-      'It is recommended to uninstall the old version first.' + #13#10#13#10 +
-      'Do you want to continue anyway?';
+    Msg := FmtMessage(CustomMessage('OldInstallation'), ['{#AppTitle}']);
 
     if MsgBox(Msg, mbConfirmation, MB_YESNO) <> IDYES then
       Result := False;
