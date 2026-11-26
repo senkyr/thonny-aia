@@ -183,14 +183,6 @@ Type: dirifempty; Name: "{localappdata}\Thonny AIA"
 [Messages]
 english.FinishedHeadingLabel=Great success!
 czech.FinishedHeadingLabel=Povedlo se!
-; Thonny AIA: the language dialog speaks both languages. Inno Setup draws it once, in the
-; language Windows gave, and does not redraw it when another language is chosen; a script
-; cannot restart Setup in the chosen language either (Exec of Setup itself is refused before
-; the installation starts). Jakub 2026-11-26: the dialog should follow the chosen language.
-english.SelectLanguageTitle=Setup Language / Jazyk instalace
-english.SelectLanguageLabel=Select the language of the installation.%nVyber jazyk instalace.
-czech.SelectLanguageTitle=Jazyk instalace / Setup Language
-czech.SelectLanguageLabel=Vyber jazyk instalace.%nSelect the language of the installation.
 
 ; Thonny AIA: the texts that upstream's [Code] wrote in English whatever the language chosen
 ; (Jakub 2026-11-26: the first and the last page were English with Czech selected). Czech is
