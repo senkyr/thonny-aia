@@ -220,7 +220,7 @@ def test_loaded_local_model_is_not_said_to_load(panel_view):
     view._stream_in_background(request_id, cancel_event, ollama, "ollama", "", [], "gpt-oss:20b")
 
     notes = [p for _, kind, p in _drain(view) if kind == "note"]
-    assert notes == [panel_view.thinking_text()]  # the same note as at the start: nothing changes
+    assert notes == [panel_view.THINKING]  # the same wait as at the start: nothing changes
 
 
 def test_loading_note_turns_into_thinking_note_once_loaded(panel_view, monkeypatch):
@@ -243,7 +243,7 @@ def test_loading_note_turns_into_thinking_note_once_loaded(panel_view, monkeypat
     worker.join(5)
 
     notes = [p for _, kind, p in list(view._events.queue) if kind == "note"]
-    assert notes == [panel_view.waking_text(), panel_view.thinking_text()]
+    assert notes == [panel_view.WAKING, panel_view.THINKING]
     view._messages_text = _FakeText()
     view._poll_events()
     assert "Ahoj" in view.inserted and view._note is False
@@ -258,9 +258,9 @@ def test_note_after_the_answer_is_ignored(panel_view):
     view._poll_events()
     assert cancel_event.is_set()  # stops the watch of a loading model
 
-    view._events.put((request_id, "note", panel_view.thinking_text()))
+    view._events.put((request_id, "note", panel_view.THINKING))
     view._poll_events()
-    assert panel_view.thinking_text() not in view.inserted
+    assert not set(view.inserted) & set(panel_view.warmup_texts() + [panel_view.thinking_text()])
 
 
 def test_unreachable_ollama_shows_no_note(panel_view):
@@ -344,18 +344,45 @@ class _Core:
         return ("anthropic", "key", "claude-haiku-5-5", None)
 
 
-def test_thinking_note_follows_the_header_until_the_answer(panel_view):
-    """Jakub 2026-10-13 (#74): "AIA: Thinking..." while waiting, replaced by the answer."""
+def _waiting_view(panel_view, conversation):
     view = make_view(panel_view)
     view._insert = lambda text, tag=None: view.inserted.append((text, tag))
     view._core = _Core()
     view._stream_in_background = lambda *args: None
-    view._conversation = [{"role": "user", "content": "Co je cyklus?"}]
+    view._conversation = conversation
+    view.timers = []
+    view.after = lambda ms, func: view.timers.append((ms, func)) or len(view.timers)
+    view.after_cancel = lambda timer: view.timers.__setitem__(timer - 1, None)
+    return view
+
+
+def _turns(view):
+    """The pending timers of the wait (not the polling of the events)."""
+    return [
+        (i, t)
+        for i, t in enumerate(view.timers)
+        if t is not None and getattr(t[1], "__name__", "") == "_take_turn"
+    ]
+
+
+def _run_timer(view):
+    """Run the one pending timer of the wait; returns its delay."""
+    pending = _turns(view)
+    assert len(pending) == 1, pending
+    i, (ms, func) = pending[0]
+    view.timers[i] = None
+    func()
+    return ms
+
+
+def test_thinking_note_follows_the_header_until_the_answer(panel_view):
+    """Jakub 2026-10-13 (#74): a note while waiting, replaced by the answer."""
+    view = _waiting_view(panel_view, [{"role": "user", "content": "Co je cyklus?"}])
 
     view._request_llm_response()
 
     assert view.inserted[-2][1] == "assistant_header"
-    assert view.inserted[-1] == (panel_view.thinking_text(), "loading_text")
+    assert view.inserted[-1][1] == "loading_text"
     assert view._note is True
 
     view._messages_text = _FakeText()
@@ -363,6 +390,88 @@ def test_thinking_note_follows_the_header_until_the_answer(panel_view):
     view._poll_events()
     assert view._messages_text.deleted == [("2.5", "2.31")]  # the note is gone
     assert view.inserted[-1] == ("Cyklus", None)
+    assert _turns(view) == []  # no more lines take turns
+
+
+def test_first_answer_warms_up_with_lines_taking_turns(panel_view):
+    """Jakub 2026-11-26: the first answer takes much longer; the assistant, away in the empty
+    panel, is coming, a new line every 3 seconds, none twice in a row."""
+    view = _waiting_view(panel_view, [{"role": "user", "content": "Ahoj"}])
+    view._messages_text = _FakeText()
+
+    view._request_llm_response()
+
+    shown = [view.inserted[-1][0]]
+    for _ in range(2 * len(panel_view.warmup_texts())):
+        assert _run_timer(view) == panel_view.WARMUP_TURN_MS
+        assert view.inserted[-1][1] == "loading_text"
+        shown.append(view.inserted[-1][0])
+    assert set(shown) == set(panel_view.warmup_texts())  # every line comes in each round
+    assert all(a != b for a, b in zip(shown, shown[1:]))
+
+
+def test_later_answer_thinks_with_a_six_second_period(panel_view):
+    """Jakub 2026-11-26: the thinking lines keep a 6 s period all along."""
+    view = _waiting_view(
+        panel_view,
+        [
+            {"role": "user", "content": "Ahoj"},
+            {"role": "assistant", "content": "Ahoj, s čím ti pomůžu?"},
+            {"role": "user", "content": "Co je cyklus?"},
+        ],
+    )
+    view._messages_text = _FakeText()
+
+    view._request_llm_response()
+
+    assert view.inserted[-1] == (panel_view.thinking_text(), "loading_text")
+    assert panel_view.THINKING_TURN_MS == 6000
+    for _ in range(3):
+        assert _run_timer(view) == panel_view.THINKING_TURN_MS
+        assert view.inserted[-1][0] in panel_view.thinking_texts()
+
+
+def test_a_turn_after_the_answer_started_changes_nothing(panel_view):
+    view = _waiting_view(panel_view, [{"role": "user", "content": "Ahoj"}])
+    view._messages_text = _FakeText()
+    view._request_llm_response()
+    turn = _turns(view)[0][1][1]
+    view._events.put((view._request_id, "chunk", "Ahoj"))
+    view._poll_events()
+    shown = list(view.inserted)
+
+    turn()  # Tk ran it before it was cancelled
+
+    assert view.inserted == shown
+
+
+def test_the_local_model_wakes_up_with_its_morning_routine_then_warms_up(panel_view, monkeypatch):
+    """Jakub 2026-11-26: a long load goes on with the morning routine every 5 s; once loaded,
+    the first answer warms up."""
+    now = [100.0]
+    monkeypatch.setattr(panel_view, "clock", lambda: now[0])
+    monkeypatch.setattr(panel_view, "is_loading", lambda: True)
+    view = _waiting_view(panel_view, [{"role": "user", "content": "Ahoj"}])
+    view._core = _LocalCore()
+    view._messages_text = _FakeText()
+
+    view._request_llm_response()
+
+    assert view.inserted[-1] == (panel_view.waking_text(), "loading_text")
+    shown = [(now[0], panel_view.waking_text())]
+    for _ in range(4 * len(panel_view.morning_texts())):
+        now[0] += panel_view.WAKING_CHECK_MS / 1000
+        assert _run_timer(view) == panel_view.WAKING_CHECK_MS
+        if view.inserted[-1][0] != shown[-1][1]:
+            shown.append((now[0], view.inserted[-1][0]))
+    changes = [t for t, _ in shown]
+    assert all(b - a == panel_view.WAKING_TURN_MS / 1000 for a, b in zip(changes, changes[1:]))
+    assert {line for _, line in shown[1:]} <= set(panel_view.morning_texts())
+    assert len(shown) >= 4
+    view._events.put((view._request_id, "note", panel_view.THINKING))
+    view._poll_events()
+    assert view.inserted[-1][0] in panel_view.warmup_texts()
+    assert _run_timer(view) == panel_view.WARMUP_TURN_MS
 
 
 class _LocalCore(_Core):
@@ -389,8 +498,26 @@ def test_request_during_the_load_goes_on_waking_up(panel_view, monkeypatch, load
 
     view._request_llm_response()
 
-    expected = panel_view.waking_text() if loading else panel_view.thinking_text()
-    assert view.inserted[-1] == (expected, "loading_text")
+    if loading:
+        assert view.inserted[-1] == (panel_view.waking_text(), "loading_text")
+    else:  # the first answer of the conversation
+        assert view.inserted[-1][0] in panel_view.warmup_texts()
+
+
+def test_empty_panel_and_message_share_the_morning_routine(panel_view, monkeypatch):
+    """A message sent in the middle of the load goes on with the panel's line."""
+    now = [0.0]
+    monkeypatch.setattr(panel_view, "clock", lambda: now[0])
+    view = make_view(panel_view)
+    assert view._waking_line() == panel_view.waking_text()
+    for _ in range(12):  # the empty panel asks every second
+        now[0] += 1
+        line = view._waking_line()
+    assert line in panel_view.morning_texts()
+    now[0] += 0.5
+    assert view._waking_line() == line  # the note after "AIA: " goes on with it
+    now[0] += panel_view.WAKING_GAP_S + 1  # an earlier load
+    assert view._waking_line() == panel_view.waking_text()
 
 
 def test_same_note_again_changes_nothing(panel_view):
@@ -740,7 +867,7 @@ def test_empty_panel_links_a_model_that_is_not_downloaded(panel_view, fake_thonn
     view = make_idle_view(panel_view)
     view._show_idle()
     assert view._messages_text.parts == [
-        ("The local model is not downloaded yet.", "system_text"),
+        ("The local model is not downloaded yet.", "error_text"),  # a problem: red
         ("\n", None),
         (panel_view.settings_link_text(), "settings_link"),
     ]

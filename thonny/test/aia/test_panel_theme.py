@@ -72,7 +72,7 @@ def test_every_theme_combination_gives_readable_panel_colours(panel_view, root, 
             bg = widget["background"]
             assert bg == ui_text["background"]
             dark = luminance(root, bg) < 0.5
-            assert set(tags) == set(panel_view.TAG_COLORS), name
+            assert set(tags) == OWN_TAGS | set(panel_view.TAG_COLORS), name
             for tag, color in tags.items():
                 # light text on a dark background and the other way round
                 assert (luminance(root, color) > luminance(root, bg)) == dark, (
@@ -82,6 +82,50 @@ def test_every_theme_combination_gives_readable_panel_colours(panel_view, root, 
                     color,
                 )
             assert border is not None
+            # the assistant's own lines: blue, readable, never the comment colour
+            playful = tags["system_text"]
+            assert tags["loading_text"] == playful
+            r, g, b = root.winfo_rgb(playful)
+            assert b > r and b > g, (ui_name, name, playful)
+            assert panel_view.contrast(root.winfo_rgb(playful), root.winfo_rgb(bg)) >= 4.5
+            # the hint lies between the background and the text
+            fg = luminance(root, widget["foreground"])
+            hint = luminance(root, tags["placeholder"])
+            assert min(fg, luminance(root, bg)) < hint < max(fg, luminance(root, bg))
+
+
+OWN_TAGS = {"system_text", "loading_text", "placeholder"}  # not from the syntax theme
+
+
+def test_idle_classic_comments_do_not_make_the_panel_red(panel_view, root, monkeypatch):
+    """Jakub 2026-11-26: the hint and the playful lines took the comment colour, red (#dd0000)
+    in IDLE Classic; red is for errors only."""
+    options = builtin_syntax_themes(monkeypatch)["IDLE Classic"]
+    assert options["comment"]["foreground"] == "#dd0000"
+
+    _, tags, _ = panel_view.theme_colors(UI_TEXTS["Windows"], options, root.winfo_rgb)
+
+    for tag in OWN_TAGS:
+        r, g, b = (c // 257 for c in root.winfo_rgb(tags[tag]))
+        assert not (r > 150 and g < 100 and b < 100), (tag, tags[tag])
+    r, g, b = (c // 257 for c in root.winfo_rgb(tags["placeholder"]))
+    assert max(r, g, b) - min(r, g, b) < 10  # grey: black text into a white background
+    assert tags["error_text"] == options["stderr"]["foreground"]  # errors stay red
+
+
+def test_playful_blue_follows_a_blue_background(panel_view, root):
+    """On a blue background the blue is made lighter until it is readable."""
+    bg = "#2a4a8a"
+    options = {"TEXT": {"foreground": "#ffffff", "background": bg}}
+    rgb = root.winfo_rgb
+    assert panel_view.contrast(rgb(panel_view.PLAYFUL_BLUE[True]), rgb(bg)) < 4.5
+
+    _, tags, _ = panel_view.theme_colors({}, options, rgb)
+
+    playful = tags["system_text"]
+    assert panel_view.contrast(rgb(playful), rgb(bg)) >= 4.5
+    r, g, b = rgb(playful)
+    assert b > r and b > g  # still blue
 
 
 def test_dark_ui_with_dark_syntax_theme_uses_its_colours(panel_view, root, monkeypatch):
@@ -105,7 +149,7 @@ def test_dark_ui_with_light_syntax_theme_stays_dark(panel_view, root, monkeypatc
     widget, tags, _ = panel_view.theme_colors(UI_TEXTS["Clean Dark"], options, root.winfo_rgb)
 
     assert widget["background"] == "#2d2d2d"
-    assert tags == panel_view.FALLBACK_COLORS[True]
+    assert {tag: tags[tag] for tag in panel_view.TAG_COLORS} == panel_view.FALLBACK_COLORS[True]
     assert "selectbackground" not in widget
 
 
@@ -115,7 +159,7 @@ def test_light_ui_keeps_the_colours_of_beta_1_with_a_dark_syntax_theme(panel_vie
     widget, tags, _ = panel_view.theme_colors(UI_TEXTS["Windows"], options, root.winfo_rgb)
 
     assert widget["background"] == "SystemWindow"
-    assert tags == panel_view.FALLBACK_COLORS[False]
+    assert {tag: tags[tag] for tag in panel_view.TAG_COLORS} == panel_view.FALLBACK_COLORS[False]
 
 
 def test_without_ui_text_style_the_syntax_theme_decides(panel_view, root):
@@ -128,8 +172,10 @@ def test_without_ui_text_style_the_syntax_theme_decides(panel_view, root):
         "foreground": "#eeeeee",
         "insertbackground": "#eeeeee",
     }
-    assert set(tags.values()) == {"#eeeeee"}  # the theme has no tag colours
+    # the theme has no tag colours
+    assert {tags[tag] for tag in panel_view.TAG_COLORS} == {"#eeeeee"}
     assert border == "#696969"  # 0.4 * 0xee + 0.6 * 0x11 = 105
+    assert tags["placeholder"] == "#747474"  # 0.45 * 0xee + 0.55 * 0x11 = 116
 
 
 def test_no_theme_colours_leave_tk_defaults(panel_view, root):

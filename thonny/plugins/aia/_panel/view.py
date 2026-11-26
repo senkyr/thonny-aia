@@ -14,6 +14,7 @@ import logging
 import queue
 import random
 import threading
+import time
 import tkinter as tk
 from tkinter import messagebox, ttk
 from typing import Dict, List, Optional
@@ -42,15 +43,57 @@ from thonny.plugins.aia.prompts import build_system_prompt
 
 logger = logging.getLogger(__name__)
 
+clock = time.monotonic  # the morning routine's clock (tests replace it)
 POLL_MS = 50
 SHELL_SETTLE_MS = 300  # the Shell draws the output of a run a little after the run ends
 LOAD_CHECK_S = 2.0  # while the local model loads, how often to ask Ollama whether it is in memory
 
 
 # Shown after "AIA: " until the first part of the answer arrives, with every provider (Jakub
-# 2026-10-13, cortex-zamestnani#74): until then the panel showed nothing and looked stuck.
+# 2026-10-13, cortex-zamestnani#74): until then the panel showed nothing and looked stuck. In
+# the third person like the other playful lines (Jakub 2026-11-26: "asistent přemýšlí"; until
+# then "Thinking...", cs "Přemýšlím...").
 def thinking_text() -> str:
-    return tr("Thinking...")
+    return tr("The assistant is thinking...")
+
+
+# When the thinking takes longer, these follow it, more slowly than the warm-up below (Jakub
+# 2026-11-26: the waiting lines should have a dynamics of their own; a 6 s period all along)
+def thinking_texts() -> List[str]:
+    return [
+        tr("The assistant is thinking hard..."),
+        tr("The assistant is weighing its words..."),
+        tr("The assistant is leafing through the documentation..."),
+        tr("The assistant is scratching its head..."),
+        tr("The assistant is drawing it on a napkin..."),
+        tr("The assistant is almost there..."),
+    ]
+
+
+# The first answer of a conversation takes much longer than the next ones (the SDK is imported,
+# the connection opened, the provider has nothing cached), so it gets lines of its own that
+# take turns every few seconds: the assistant, away in the empty panel (idle_texts), is coming
+# (Jakub 2026-11-26: "protahování, rozcvičování, dodělávání domácího úkolu, venčení psa,
+# vaření si čaje").
+def warmup_texts() -> List[str]:
+    return [
+        tr("The assistant is stretching..."),
+        tr("The assistant is warming up..."),
+        tr("The assistant is finishing its homework..."),
+        tr("The assistant is walking the dog..."),
+        tr("The assistant is making tea..."),
+        tr("The assistant is putting on its slippers..."),
+        tr("The assistant is looking for its glasses..."),
+        tr("The assistant is sharpening its pencils..."),
+        tr("The assistant is on its way..."),
+    ]
+
+
+WARMUP_TURN_MS = 3000  # a warm-up line takes the next one's place
+THINKING_TURN_MS = 6000  # "thinking", then each of its variants, stays this long
+WAKING_TURN_MS = 5000  # a line of the local model's morning routine stays this long
+WAKING_CHECK_MS = 500  # how often the note of a loading model follows the routine's clock
+WAKING_GAP_S = 3.0  # a routine not asked for this long belongs to an earlier load
 
 
 # Shown after "AIA: " when the answer ends without any text (the provider's filter stopped it,
@@ -77,7 +120,10 @@ def not_ready_hint_text() -> str:
 
 # The empty panel shows one of these, in the font of the conversation, instead of the title and
 # instructions it had until beta 3 (Jakub 2026-10-13, cortex-zamestnani#75: "Asistent
-# odpočívá...", "Asistent lelkuje...", "Asistent je na obědě...", they may take turns).
+# odpočívá...", "Asistent lelkuje...", "Asistent je na obědě...", they may take turns). The
+# assistant is there for the student but away for now, so that "Write a message to the
+# assistant" calls it back (Jakub 2026-11-26: "asistent je na obědě", "na procházce", "si
+# odskočil"); it does not change until Clear. Stretching moved to warmup_texts().
 def idle_texts() -> List[str]:
     return [
         tr("The assistant is resting..."),
@@ -86,20 +132,45 @@ def idle_texts() -> List[str]:
         tr("The assistant is having a coffee..."),
         tr("The assistant is reading a book..."),
         tr("The assistant is looking out of the window..."),
-        tr("The assistant is stretching..."),
+        tr("The assistant is out for a walk..."),
+        tr("The assistant has stepped out for a moment..."),
+        tr("The assistant is watering the plants..."),
+        tr("The assistant is taking a nap..."),
     ]
 
 
 # While the local model loads at startup (35-55 s on CPU), the empty panel says so: the load
 # starts with Thonny, not with the first message (Jakub 2026-10-13, cortex-zamestnani#75).
 # A request sent while the model is not in memory shows it after "AIA: " in place of
-# thinking_text() (_report_local_model), so the whole load has one playful line (Jakub
-# 2026-10-13, cortex-zamestnani#76: in beta 4 it changed to "Loading the local model...").
-# Only while the model is really not loaded (Jakub 2026-10-10: with the model loaded at
-# startup a note on every request made it look as if it loaded only now).
+# thinking_text() (_report_local_model), so the whole load is one waking up (Jakub 2026-10-13,
+# cortex-zamestnani#76: in beta 4 it changed to "Loading the local model..."). Only while the
+# model is really not loaded (Jakub 2026-10-10: with the model loaded at startup a note on
+# every request made it look as if it loaded only now).
 def waking_text() -> str:
     return tr("The assistant is waking up...")
 
+
+# A long load goes on with the assistant's morning routine, every WAKING_TURN_MS, in the empty
+# panel and after "AIA: " alike, by one clock (_waking_line), so a message sent in the middle
+# of it does not start it again (Jakub 2026-11-26: "čistí si zuby", "vybírá ponožky").
+def morning_texts() -> List[str]:
+    return [
+        tr("The assistant is brushing its teeth..."),
+        tr("The assistant is choosing its socks..."),
+        tr("The assistant is yawning..."),
+        tr("The assistant is rubbing its eyes..."),
+        tr("The assistant is making its bed..."),
+        tr("The assistant is combing its hair..."),
+        tr("The assistant is having breakfast..."),
+        tr("The assistant is opening the curtains..."),
+    ]
+
+
+# What the worker tells the panel about the wait (its "note" events): the local model is not in
+# memory yet (waking up and the morning routine, _waking_line), or the provider works on the answer
+# (the lines of the request's wait, see _show_waiting)
+WAKING = "waking"
+THINKING = "thinking"
 
 IDLE_CHECK_MS = 1000  # how often the empty panel asks whether the local model still loads
 PROBLEM_CHECK_MS = 1000  # how often a shown problem asks whether it still holds
@@ -114,8 +185,6 @@ STATE_CHECK_MS = 1000  # how often the panel asks whether the assistant can answ
 TAG_COLORS = {  # tag -> syntax theme tag whose foreground it takes
     "user_header": "builtin",
     "assistant_header": "string",
-    "system_text": "comment",
-    "loading_text": "comment",
     "error_text": "stderr",  # the colour of an error in the Shell
     "settings_link": "builtin",  # like the student's label: readable, not the error's colour
 }
@@ -124,8 +193,6 @@ FALLBACK_COLORS = {
     False: {
         "user_header": "#1a5276",
         "assistant_header": "#117a65",
-        "system_text": "#7f8c8d",
-        "loading_text": "#7f8c8d",
         "error_text": "#c0392b",
         "settings_link": "#1a5276",
     },
@@ -133,18 +200,62 @@ FALLBACK_COLORS = {
     True: {
         "user_header": "#A9B1C9",
         "assistant_header": "#8DC76F",
-        "system_text": "#D4D44E",
-        "loading_text": "#D4D44E",
         "error_text": "#EB5B83",
         "settings_link": "#A9B1C9",
     },
 }
+# The assistant's own lines (the empty panel, waiting for the answer, the local model's
+# preparation) are blue and the hint in the input is light grey, in every theme (Jakub
+# 2026-11-26: until then both took the syntax theme's comment colour, red in IDLE Classic,
+# yellow in Default Dark; red is for errors only). Not from the syntax theme, which has no
+# colour of that meaning: a blue of the panel's lightness, made lighter or darker until it is
+# readable on the background, and a mix of the text colour into the background.
+PLAYFUL_BLUE = {False: "#1f66b8", True: "#79aaf0"}
+PLAYFUL_CONTRAST = 4.5  # WCAG AA for normal text
+HINT_MIX = 0.45  # hint in the input: at least this much of the text colour, the rest background
+HINT_CONTRAST = 3.0  # ... and more of it until this contrast (Clean Dark's text is dim itself)
 BORDER_MIX = 0.4  # border of the input: this much of the text colour, the rest background
+PLAYFUL_TAGS = ("system_text", "loading_text")
 
 
 def is_dark(color, rgb) -> bool:
     r, g, b = (c / 65535 for c in rgb(color))
     return 0.2126 * r + 0.7152 * g + 0.0722 * b < 0.5
+
+
+def _luminance(rgb16) -> float:
+    """Relative luminance (WCAG) of (r, g, b) in 0-65535."""
+
+    def linear(c):
+        c = c / 65535
+        return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+
+    r, g, b = (linear(c) for c in rgb16)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def contrast(rgb_a, rgb_b) -> float:
+    la, lb = sorted((_luminance(rgb_a), _luminance(rgb_b)), reverse=True)
+    return (la + 0.05) / (lb + 0.05)
+
+
+def mix(fg16, bg16, share: float) -> str:
+    """``share`` of ``fg16`` and the rest of ``bg16`` (both 0-65535) as "#rrggbb"."""
+    mixed = [round(f * share + b * (1 - share)) // 257 for f, b in zip(fg16, bg16)]
+    return "#%02x%02x%02x" % tuple(mixed)
+
+
+def readable(color, bg, rgb, minimum: float = PLAYFUL_CONTRAST) -> str:
+    """``color``, made lighter on a dark ``bg`` or darker on a light one until the contrast
+    reaches ``minimum`` (a blue on the dark blue of Tomorrow Night Blue, for example)."""
+    bg16 = rgb(bg)
+    toward = (65535,) * 3 if is_dark(bg, rgb) else (0, 0, 0)
+    color16 = rgb(color)
+    for step in range(11):
+        candidate = mix(toward, color16, step / 10)
+        if contrast(rgb(candidate), bg16) >= minimum:
+            return candidate
+    return mix(toward, color16, 1.0)
 
 
 def theme_colors(ui_text, syntax_options, rgb):
@@ -153,8 +264,9 @@ def theme_colors(ui_text, syntax_options, rgb):
     ``ui_text`` holds background and foreground of the UI theme's "Text" style (empty if
     the theme has none), ``syntax_options`` the syntax theme (theme tag -> Tk options),
     ``rgb`` turns a Tk colour into (r, g, b) in 0-65535, like ``winfo_rgb``. Returns the
-    options of both Text widgets, the foreground of each tag and the border colour of the
-    input (None without theme colours).
+    options of both Text widgets, the foreground of each tag (of the messages, and
+    "placeholder" of the input) and the border colour of the input (None without theme
+    colours).
     """
     syntax_text = syntax_options.get("TEXT", {})
     bg = ui_text.get("background") or syntax_text.get("background")
@@ -179,9 +291,23 @@ def theme_colors(ui_text, syntax_options, rgb):
     else:
         tags = dict(FALLBACK_COLORS[dark])
 
-    mixed = [round(f * BORDER_MIX + b * (1 - BORDER_MIX)) // 257 for f, b in zip(rgb(fg), rgb(bg))]
-    return widget, tags, "#%02x%02x%02x" % tuple(mixed)
+    playful = readable(PLAYFUL_BLUE[dark], bg, rgb)
+    for tag in PLAYFUL_TAGS:
+        tags[tag] = playful
+    tags["placeholder"] = hint_color(rgb(fg), rgb(bg))
+    return widget, tags, mix(rgb(fg), rgb(bg), BORDER_MIX)
 
+
+def hint_color(fg16, bg16) -> str:
+    """Grey of the hint: HINT_MIX of the text colour, more until HINT_CONTRAST."""
+    share = HINT_MIX
+    while share < 1.0:
+        color = mix(fg16, bg16, share)
+        rgb16 = tuple(int(color[i : i + 2], 16) * 257 for i in (1, 3, 5))
+        if contrast(rgb16, bg16) >= HINT_CONTRAST:
+            return color
+        share = min(1.0, share + 0.05)
+    return mix(fg16, bg16, 1.0)
 
 
 class AIAView(ttk.Frame):
@@ -205,6 +331,14 @@ class AIAView(ttk.Frame):
     _request_message = None  # what the student wrote for the running request
     _request_signature = None  # the settings of the running request
     _placeholder_text = None  # the hint shown in the input
+
+    # The lines while waiting for the answer (_show_waiting)
+    _warmup = False  # the request waits for the first answer of the conversation
+    _note_kind = None  # WAKING or THINKING: what the note shown says
+    _turn_timer = None  # the next line of the wait takes the place of the shown one
+    _turn_lines = None  # the lines still to come in this round
+    _waking = None  # (line, shown since, last asked) of the local model's load (_waking_line)
+    _waking_round = None  # the morning routine's lines still to come in this round
 
     def __init__(self, master):
         super().__init__(master)
@@ -235,6 +369,7 @@ class AIAView(ttk.Frame):
         if self._state_timer is not None:
             self.after_cancel(self._state_timer)
             self._state_timer = None
+        self._stop_turns()
         super().destroy()
 
     # --- UI ---
@@ -624,12 +759,17 @@ class AIAView(ttk.Frame):
         if border:
             self._input_text.configure(highlightbackground=border, highlightcolor=border)
         for tag, color in tags.items():
-            self._messages_text.tag_configure(tag, foreground=color)
-        if "system_text" in tags:
-            self._input_text.tag_configure("placeholder", foreground=tags["system_text"])
+            if tag == "placeholder":
+                self._input_text.tag_configure(tag, foreground=color)
+            else:
+                self._messages_text.tag_configure(tag, foreground=color)
 
     def _idle_content(self):
-        """(text, link to the options, progress 0-1 / "busy" / None) of the empty panel."""
+        """(text, link to the options, progress 0-1 / "busy" / None, tag) of the empty panel.
+
+        The tag is "system_text" (blue) for the assistant's own lines and "error_text" (red)
+        for why the local model cannot answer (Jakub 2026-11-26: red is for errors).
+        """
         from thonny.plugins.aia import local_ui
         from thonny.plugins.aia import local_models as lm
 
@@ -642,21 +782,24 @@ class AIAView(ttk.Frame):
             if status.get("resumed"):
                 text += "\n" + local_ui.resumed_text()
             if status.get("stage") == "model" and status.get("total"):
-                return text, False, status.get("done", 0) / status["total"]
-            return text, False, "busy"
+                return text, False, status.get("done", 0) / status["total"], "system_text"
+            return text, False, "busy", "system_text"
         if phase in (lm.CHECKING, lm.STARTING):
-            return waking_text(), False, None
+            return self._waking_line(), False, None, "system_text"
         problem = local_ui.problem(status) if phase else None
         if problem:
-            return problem[0], problem[1], None
+            return problem[0], problem[1], None, "error_text"
         if phase == lm.READY and status.get("just_prepared"):
             text = local_ui.ready_text()
-            return (text + "\n" + waking_text() if is_loading() else text), False, None
+            text = text + "\n" + self._waking_line() if is_loading() else text
+            return text, False, None, "system_text"
         if is_loading():
-            return waking_text(), False, None
+            return self._waking_line(), False, None, "system_text"
+        self._waking = None  # loaded: a later load wakes up from the start
         if self._idle_text in idle_texts():
-            return self._idle_text, False, None  # the playful line stays until Clear
-        return random.choice(idle_texts()), False, None
+            # the playful line stays until Clear
+            return self._idle_text, False, None, "system_text"
+        return random.choice(idle_texts()), False, None, "system_text"
 
     def _show_idle(self, playful_again: bool = False):
         """The empty panel: a playful line, that the local model is loading, or how its
@@ -666,13 +809,13 @@ class AIAView(ttk.Frame):
         if playful_again and self._idle_text in idle_texts():
             # another playful line after Clear
             self._idle_text = random.choice([t for t in idle_texts() if t != self._idle_text])
-        text, link, progress = self._idle_content()
+        text, link, progress, tag = self._idle_content()
         self._idle_text = text
-        self._idle_key = (text, link, progress)
+        self._idle_key = (text, link, progress, tag)
         self._idle = True
 
         def fill():
-            self._messages_text.insert("end", text, "system_text")
+            self._messages_text.insert("end", text, tag)
             if link:
                 self._messages_text.insert("end", "\n")
                 self._messages_text.insert("end", settings_link_text(), "settings_link")
@@ -917,9 +1060,10 @@ class AIAView(ttk.Frame):
         self._messages_text.mark_set("request_start", "end-1c")
         self._messages_text.mark_gravity("request_start", "left")
         self._insert("\nAIA: ", "assistant_header")
+        self._warmup = not any(m["role"] == "assistant" for m in self._conversation)
         # While the keeper loads the model, the empty panel said "waking up": go on with it
-        # right away, not with "Thinking..." until Ollama answers (_report_local_model)
-        self._show_note(waking_text() if provider_id == "ollama" and is_loading() else thinking_text())
+        # right away, not with the thinking lines until Ollama answers (_report_local_model)
+        self._show_waiting(WAKING if provider_id == "ollama" and is_loading() else THINKING)
 
         threading.Thread(
             target=self._stream_in_background,
@@ -975,10 +1119,10 @@ class AIAView(ttk.Frame):
             logger.debug("AIA: could not ask Ollama for loaded models", exc_info=True)
             return
         if loaded:
-            # thinking_text() is shown already, unless the keeper's load ended just now
-            put((request_id, "note", thinking_text()))
+            # the thinking lines go on already, unless the keeper's load ended just now
+            put((request_id, "note", THINKING))
             return
-        put((request_id, "note", waking_text()))
+        put((request_id, "note", WAKING))
 
         def watch():
             while not cancel_event.wait(LOAD_CHECK_S):
@@ -986,7 +1130,7 @@ class AIAView(ttk.Frame):
                     return  # superseded or finished
                 try:
                     if provider.is_loaded(model):
-                        put((request_id, "note", thinking_text()))
+                        put((request_id, "note", THINKING))
                         return
                 except Exception:
                     return
@@ -1006,7 +1150,7 @@ class AIAView(ttk.Frame):
                     continue  # superseded request
                 if kind == "note":
                     if self._cancel_event is not None and not self._partial:  # not started yet
-                        self._show_note(payload)
+                        self._show_waiting(payload)
                 elif kind == "chunk":
                     self._hide_loading()
                     self._remove_problem(idle=False)  # the assistant answers again
@@ -1016,7 +1160,7 @@ class AIAView(ttk.Frame):
                 elif kind == "done":
                     if not payload and not self._partial:
                         self._hide_loading()
-                        self._insert(no_answer_text(), "system_text")
+                        self._insert(no_answer_text(), "error_text")
                     self._finish(payload)
                     if self._request_provider_id == "ollama":
                         model_answered()  # the keeper may have given up on the load
@@ -1044,17 +1188,100 @@ class AIAView(ttk.Frame):
         else:
             self._polling = False
 
+    def _show_waiting(self, kind: str):
+        """The note after "AIA: " while the answer is coming; each wait has its own pace.
+
+        WAKING: the local model is loading: waking up, then its morning routine every
+        WAKING_TURN_MS, on the same clock as the empty panel (_waking_line).
+        THINKING: the first answer of a conversation takes long (the assistant was away, see
+        idle_texts()), so its warm-up lines take turns every WARMUP_TURN_MS from the start; a
+        later answer starts with thinking_text(), then the thinking lines follow, each for
+        THINKING_TURN_MS (Jakub 2026-11-26).
+        """
+        if self._note_kind == kind and getattr(self, "_note", False):
+            return  # the same wait goes on
+        self._stop_turns()
+        self._note_kind = kind
+        if kind == WAKING:
+            self._show_note(self._waking_line())
+            self._turn_timer = self.after(WAKING_CHECK_MS, self._take_turn)
+            return
+        self._waking = None  # the model is loaded: a later load wakes up from the start
+        if self._warmup:
+            self._show_note(self._next_line(warmup_texts()))
+            self._turn_timer = self.after(WARMUP_TURN_MS, self._take_turn)
+        else:
+            self._show_note(thinking_text())
+            self._turn_timer = self.after(THINKING_TURN_MS, self._take_turn)
+
+    def _waking_line(self) -> str:
+        """The line of the local model's load now: waking up, then the morning routine.
+
+        One clock for the empty panel and the note after "AIA: ": a message sent in the middle
+        of the load goes on with the line the panel showed. A routine nobody asked for longer
+        than WAKING_GAP_S belongs to an earlier load and starts again.
+        """
+        now = clock()
+        if self._waking is None or now - self._waking[2] > WAKING_GAP_S:
+            self._waking = (waking_text(), now, now)
+            self._waking_round = []
+        line, since, _ = self._waking
+        if now - since >= WAKING_TURN_MS / 1000:
+            if not self._waking_round:
+                self._waking_round = [t for t in morning_texts() if t != line]
+                random.shuffle(self._waking_round)
+            line, since = self._waking_round.pop(), now
+        self._waking = (line, since, now)
+        return line
+
+    def _next_line(self, pool: List[str]) -> str:
+        """The next line of a round through ``pool`` in random order, never the one shown."""
+        if not self._turn_lines:
+            shown = getattr(self, "_note_text", None) if getattr(self, "_note", False) else None
+            self._turn_lines = [line for line in pool if line != shown]
+            random.shuffle(self._turn_lines)
+        return self._turn_lines.pop()
+
+    def _take_turn(self):
+        """The next line of the wait, while the answer has not started."""
+        self._turn_timer = None
+        if self._cancel_event is None or self._partial or not getattr(self, "_note", False):
+            return
+        if self._note_kind == WAKING:
+            self._show_note(self._waking_line())
+            self._turn_timer = self.after(WAKING_CHECK_MS, self._take_turn)
+            return
+        if self._note_kind != THINKING:
+            return
+        if self._warmup:
+            self._show_note(self._next_line(warmup_texts()))
+            self._turn_timer = self.after(WARMUP_TURN_MS, self._take_turn)
+        else:
+            self._show_note(self._next_line(thinking_texts()))
+            self._turn_timer = self.after(THINKING_TURN_MS, self._take_turn)
+
+    def _stop_turns(self):
+        if self._turn_timer is not None:
+            self.after_cancel(self._turn_timer)
+            self._turn_timer = None
+        self._turn_lines = None
+
     def _show_note(self, text: str):
         """Show a note after "AIA: " in place of the previous one."""
         if getattr(self, "_note", False) and getattr(self, "_note_text", None) == text:
             return
-        self._hide_loading()
+        self._remove_note()
         self._insert(text, "loading_text")
         self._note = True
         self._note_text = text
 
     def _hide_loading(self):
         """Remove the note once the answer (or an error, or Cancel) takes its place."""
+        self._stop_turns()
+        self._note_kind = None
+        self._remove_note()
+
+    def _remove_note(self):
         if not getattr(self, "_note", False):
             return
         self._note = False
