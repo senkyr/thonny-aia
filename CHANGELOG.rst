@@ -6,6 +6,13 @@ Thonny AIA
 ==========
 Thonny AIA is an unofficial fork of Thonny 5.0.1 with the AI assistant AIA (https://github.com/senkyr/thonny-aia). It is not published or supported by the Thonny project. Its versions are below, Thonny's own history follows after them.
 
+5.5.0b12 (2026-11-26)
+---------------------
+* The installer speaks the chosen language on every page. Until beta 11 the first and the last page of the wizard (the welcome, "Great success!", how to run Thonny AIA, the quote) and three of its messages were English also with Czech chosen. They are Czech now, informal like the texts of AIA, the quotes of the last page included.
+* The language of Windows decides the installer's language: Czech on a Czech Windows, English on any other; the other one can be chosen in the language dialog, which comes in the language it preselects. Until beta 11 the dialog preselected the language of the previous installation and spoke the language of Windows, so the two could differ.
+* The quote on the last page of the installer is visible again (in beta 11 the new "Launch Thonny AIA" covered it), and the longest quotes no longer lose their author's line.
+* The application itself is the same as in beta 11.
+
 5.5.0b11 (2026-11-26)
 ---------------------
 * An assistant known not to work takes no message. With a key the AI provider refuses (a typo, an expired key), without a provider or before the local model is prepared, the panel says so by itself, without any message, and the input and Send are off until it is fixed; the hint in the input says why ("You cannot write to the assistant until it has a valid API key or a local model."). Until beta 10 the empty panel showed its playful line, the first message got the error and stayed in the panel unanswered, also after the key was fixed. The key is checked when Thonny starts and after every change of the settings. A message refused for the key before the check knew it goes back to the input.
