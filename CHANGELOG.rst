@@ -6,6 +6,15 @@ Thonny AIA
 ==========
 Thonny AIA is an unofficial fork of Thonny 5.0.1 with the AI assistant AIA (https://github.com/senkyr/thonny-aia). It is not published or supported by the Thonny project. Its versions are below, Thonny's own history follows after them.
 
+5.5.0b11 (2026-11-26)
+---------------------
+* An assistant known not to work takes no message. With a key the AI provider refuses (a typo, an expired key), without a provider or before the local model is prepared, the panel says so by itself, without any message, and the input and Send are off until it is fixed; the hint in the input says why ("You cannot write to the assistant until it has a valid API key or a local model."). Until beta 10 the empty panel showed its playful line, the first message got the error and stayed in the panel unanswered, also after the key was fixed. The key is checked when Thonny starts and after every change of the settings. A message refused for the key before the check knew it goes back to the input.
+* Each wait has its own lines and pace. Before the first answer of a conversation, which takes the longest, the assistant warms up ("The assistant is stretching...", "... is walking the dog...", "... is making tea..."), a new line every 3 seconds. A later answer shows "The assistant is thinking..." (until beta 10 "Thinking...") and its variants, every 6 seconds. While the local model loads, the assistant wakes up and goes through its morning routine ("... is brushing its teeth...", "... is choosing its socks..."), every 5 seconds, in the empty panel and after "AIA:" alike.
+* The empty panel's lines say the assistant is away but there for the student (out for a walk, stepped out for a moment, watering the plants, taking a nap).
+* Red is for errors only. The assistant's own lines (the empty panel, the waiting note) are blue and the hint in the input is light grey, in every theme; until beta 10 they took the comment colour of the syntax theme, red in IDLE Classic and yellow in Default Dark. What stops the assistant (the local model not downloaded, paused or failed, an answer without text) is red.
+* The installer offers to launch Thonny AIA on its last page.
+* The Windows installer bundles Python 3.14.10 with Tk 9.0.4 (until beta 10 Python 3.14.3 with Tk 8.6.15), like Thonny 5.0.1.
+
 5.5.0b10 (2026-11-25)
 ---------------------
 * Why the assistant does not answer is in its panel once. Until beta 9 every message and every failed run of a program added the same lines again ("The AI assistant needs an API key or a local model."), so a panel without a provider filled up with them. Now the message stays where it is, or moves below what the student wrote since, and it goes away by itself: with the choice of a provider, with a key or once the local model is prepared, and after a refused key or a lost connection when the settings change or the assistant answers again. A request that fails before its answer starts no longer leaves an empty "AIA:" line.
