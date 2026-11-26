@@ -2074,10 +2074,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Nincs kiválasztva szolgáltató: az AIA bekapcsolva marad, de nem válaszol."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Gondolkodom..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Törlöd a beszélgetést?"
 
@@ -2365,3 +2361,111 @@ msgstr "Az asszisztensnek addig nem írhatsz, amíg nincs érvényes API-kulcsa 
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Az asszisztensnek addig nem írhatsz, amíg nem áll készen."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Az asszisztens sétálni ment..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Az asszisztens kiugrott egy percre..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Az asszisztens locsolja a virágokat..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Az asszisztens szundikál..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Az asszisztens bemelegít..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Az asszisztens befejezi a házi feladatát..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Az asszisztens sétáltatja a kutyát..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Az asszisztens teát főz..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Az asszisztens felhúzza a papucsát..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Az asszisztens a szemüvegét keresi..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Az asszisztens hegyezi a ceruzáit..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Az asszisztens már úton van..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Az asszisztens gondolkodik..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Az asszisztens nagyon gondolkodik..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Az asszisztens megválogatja a szavait..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Az asszisztens lapozgatja a dokumentációt..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Az asszisztens vakarja a fejét..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Az asszisztens szalvétára rajzolja..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Az asszisztens mindjárt megvan vele..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Az asszisztens fogat mos..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Az asszisztens zoknit választ..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Az asszisztens ásítozik..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Az asszisztens dörzsölgeti a szemét..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Az asszisztens megágyaz..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Az asszisztens fésülködik..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Az asszisztens reggelizik..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Az asszisztens elhúzza a függönyt..."

@@ -2087,10 +2087,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Δεν έχει επιλεγεί πάροχος: το AIA παραμένει ενεργό, αλλά δεν απαντά."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Σκέφτομαι..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Καθάρισμα της συνομιλίας;"
 
@@ -2378,3 +2374,111 @@ msgstr "Δεν μπορείς να γράψεις στον βοηθό μέχρι
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Δεν μπορείς να γράψεις στον βοηθό μέχρι να είναι έτοιμος."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Ο βοηθός κάνει μια βόλτα..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Ο βοηθός έφυγε για λίγο..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Ο βοηθός ποτίζει τα φυτά..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Ο βοηθός παίρνει έναν υπνάκο..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Ο βοηθός ζεσταίνεται..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Ο βοηθός τελειώνει τις εργασίες του..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Ο βοηθός βγάζει βόλτα τον σκύλο..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Ο βοηθός φτιάχνει τσάι..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Ο βοηθός φοράει τις παντόφλες του..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Ο βοηθός ψάχνει τα γυαλιά του..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Ο βοηθός ξύνει τα μολύβια του..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Ο βοηθός έρχεται..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Ο βοηθός σκέφτεται..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Ο βοηθός σκέφτεται πολύ..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Ο βοηθός ζυγίζει τα λόγια του..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Ο βοηθός ξεφυλλίζει την τεκμηρίωση..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Ο βοηθός ξύνει το κεφάλι του..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Ο βοηθός το ζωγραφίζει σε μια χαρτοπετσέτα..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Ο βοηθός είναι σχεδόν εκεί..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Ο βοηθός βουρτσίζει τα δόντια του..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Ο βοηθός διαλέγει κάλτσες..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Ο βοηθός χασμουριέται..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Ο βοηθός τρίβει τα μάτια του..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Ο βοηθός φτιάχνει το κρεβάτι του..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Ο βοηθός χτενίζεται..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Ο βοηθός παίρνει πρωινό..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Ο βοηθός ανοίγει τις κουρτίνες..."

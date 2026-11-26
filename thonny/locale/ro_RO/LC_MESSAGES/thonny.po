@@ -2096,10 +2096,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Nu este ales niciun furnizor: AIA rămâne pornit, dar nu răspunde."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Mă gândesc..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Ștergi conversația?"
 
@@ -2387,3 +2383,111 @@ msgstr "Nu poți scrie asistentului până nu are o cheie API validă sau un mod
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Nu poți scrie asistentului până nu este pregătit."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Asistentul e la plimbare..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Asistentul a ieșit puțin..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Asistentul udă florile..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Asistentul trage un pui de somn..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Asistentul se încălzește..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Asistentul își termină temele..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Asistentul își plimbă câinele..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Asistentul își face un ceai..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Asistentul își pune papucii..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Asistentul își caută ochelarii..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Asistentul își ascute creioanele..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Asistentul e pe drum..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Asistentul se gândește..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Asistentul se gândește intens..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Asistentul caută cuvintele potrivite..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Asistentul răsfoiește documentația..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Asistentul se scarpină în cap..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Asistentul desenează pe un șervețel..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Asistentul aproape a ajuns..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Asistentul își spală dinții..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Asistentul își alege șosetele..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Asistentul căscă..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Asistentul se frecă la ochi..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Asistentul își face patul..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Asistentul se piaptănă..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Asistentul ia micul dejun..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Asistentul dă draperiile la o parte..."

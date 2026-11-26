@@ -2096,10 +2096,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Ez da hornitzailerik hautatu: AIA piztuta geratzen da, baina ez du erantzuten."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Pentsatzen..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Elkarrizketa garbitu?"
 
@@ -2387,3 +2383,111 @@ msgstr "Ezin diozu laguntzaileari idatzi API gako baliodun bat edo eredu lokal b
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Ezin diozu laguntzaileari idatzi prest egon arte."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Laguntzailea paseatzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Laguntzailea une batez kanpora atera da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Laguntzailea loreak ureztatzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Laguntzailea siesta egiten ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Laguntzailea berotzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Laguntzailea etxeko lanak amaitzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Laguntzailea txakurrarekin paseatzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Laguntzailea tea prestatzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Laguntzailea zapatilak jartzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Laguntzailea betaurrekoen bila ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Laguntzailea arkatzak zorrozten ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Laguntzailea bidean da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Laguntzailea pentsatzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Laguntzailea gogor pentsatzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Laguntzailea hitzak neurtzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Laguntzailea dokumentazioa orrialdez orrialde begiratzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Laguntzailea burua marruskatzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Laguntzailea ezpainzapi batean marrazten ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Laguntzaileak ia lortu du..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Laguntzailea hortzak garbitzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Laguntzailea galtzerdiak aukeratzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Laguntzailea aharrausika ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Laguntzailea begiak igurtzitzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Laguntzailea ohea egiten ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Laguntzailea ilea orrazten ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Laguntzailea gosaltzen ari da..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Laguntzailea gortinak irekitzen ari da..."

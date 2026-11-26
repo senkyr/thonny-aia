@@ -2097,10 +2097,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Nessun fornitore scelto: AIA resta attivo, ma non risponde."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Sto pensando..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Cancellare la conversazione?"
 
@@ -2388,3 +2384,111 @@ msgstr "Non puoi scrivere all'assistente finché non ha una chiave API valida o 
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Non puoi scrivere all'assistente finché non è pronto."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "L'assistente è a fare una passeggiata..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "L'assistente è uscito un attimo..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "L'assistente sta innaffiando le piante..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "L'assistente si fa un pisolino..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "L'assistente si sta riscaldando..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "L'assistente sta finendo i compiti..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "L'assistente porta fuori il cane..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "L'assistente si prepara un tè..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "L'assistente si mette le pantofole..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "L'assistente cerca gli occhiali..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "L'assistente sta temperando le matite..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "L'assistente sta arrivando..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "L'assistente sta pensando..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "L'assistente sta pensando intensamente..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "L'assistente pesa le parole..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "L'assistente sfoglia la documentazione..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "L'assistente si gratta la testa..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "L'assistente lo sta disegnando su un tovagliolo..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "L'assistente ci è quasi..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "L'assistente si lava i denti..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "L'assistente sceglie i calzini..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "L'assistente sbadiglia..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "L'assistente si stropiccia gli occhi..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "L'assistente rifà il letto..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "L'assistente si pettina..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "L'assistente fa colazione..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "L'assistente apre le tende..."

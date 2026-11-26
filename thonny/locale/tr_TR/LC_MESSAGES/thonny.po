@@ -2095,10 +2095,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Hiçbir sağlayıcı seçilmedi: AIA açık kalır, ancak yanıt vermez."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Düşünüyorum..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Sohbet temizlensin mi?"
 
@@ -2386,3 +2382,111 @@ msgstr "Asistanın geçerli bir API anahtarı veya yerel bir modeli olana kadar 
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Asistan hazır olana kadar ona yazamazsın."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Yardımcı yürüyüşe çıktı..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Yardımcı bir an dışarı çıktı..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Yardımcı çiçekleri suluyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Yardımcı şekerleme yapıyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Yardımcı ısınıyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Yardımcı ödevini bitiriyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Yardımcı köpeği gezdiriyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Yardımcı çay demliyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Yardımcı terliklerini giyiyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Yardımcı gözlüğünü arıyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Yardımcı kalemlerini açıyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Yardımcı yolda..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Yardımcı düşünüyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Yardımcı kafa patlatıyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Yardımcı kelimeleri tartıyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Yardımcı belgeleri karıştırıyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Yardımcı başını kaşıyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Yardımcı bunu peçeteye çiziyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Yardımcı neredeyse tamam..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Yardımcı dişlerini fırçalıyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Yardımcı çoraplarını seçiyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Yardımcı esniyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Yardımcı gözlerini ovuşturuyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Yardımcı yatağını topluyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Yardımcı saçlarını tarıyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Yardımcı kahvaltı yapıyor..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Yardımcı perdeleri açıyor..."

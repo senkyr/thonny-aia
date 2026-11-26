@@ -2088,10 +2088,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "कोई प्रोवाइडर नहीं चुना गया है: AIA चालू रहता है, लेकिन जवाब नहीं देता।"
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "सोच रहा हूँ..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "बातचीत मिटाएँ?"
 
@@ -2379,3 +2375,111 @@ msgstr "जब तक सहायक के पास मान्य API क�
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "जब तक सहायक तैयार न हो, उसे संदेश नहीं लिखा जा सकता।"
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "असिस्टेंट सैर पर गया है..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "असिस्टेंट थोड़ी देर के लिए बाहर गया है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "असिस्टेंट पौधों को पानी दे रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "असिस्टेंट झपकी ले रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "असिस्टेंट वॉर्म-अप कर रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "असिस्टेंट होमवर्क पूरा कर रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "असिस्टेंट कुत्ते को टहला रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "असिस्टेंट चाय बना रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "असिस्टेंट चप्पलें पहन रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "असिस्टेंट अपना चश्मा ढूँढ रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "असिस्टेंट पेंसिलें छील रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "असिस्टेंट बस आ ही रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "असिस्टेंट सोच रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "असिस्टेंट गहराई से सोच रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "असिस्टेंट सही शब्द तौल रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "असिस्टेंट डॉक्यूमेंटेशन के पन्ने पलट रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "असिस्टेंट सिर खुजला रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "असिस्टेंट उसे नैपकिन पर बना रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "असिस्टेंट लगभग तैयार है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "असिस्टेंट दाँत ब्रश कर रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "असिस्टेंट मोज़े चुन रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "असिस्टेंट जम्हाई ले रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "असिस्टेंट आँखें मल रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "असिस्टेंट बिस्तर ठीक कर रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "असिस्टेंट बाल सँवार रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "असिस्टेंट नाश्ता कर रहा है..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "असिस्टेंट पर्दे खोल रहा है..."

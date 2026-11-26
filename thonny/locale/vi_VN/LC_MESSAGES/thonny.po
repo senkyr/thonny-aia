@@ -2095,10 +2095,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Chưa chọn nhà cung cấp nào: AIA vẫn được bật, nhưng không trả lời."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Đang suy nghĩ..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Xóa cuộc trò chuyện?"
 
@@ -2386,3 +2382,111 @@ msgstr "Chưa thể nhắn cho trợ lý cho đến khi trợ lý có khóa API 
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Chưa thể nhắn cho trợ lý cho đến khi trợ lý sẵn sàng."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Trợ lý đang đi dạo..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Trợ lý vừa ra ngoài một lát..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Trợ lý đang tưới cây..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Trợ lý đang ngủ một giấc ngắn..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Trợ lý đang khởi động..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Trợ lý đang làm nốt bài tập về nhà..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Trợ lý đang dắt chó đi dạo..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Trợ lý đang pha trà..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Trợ lý đang xỏ dép đi trong nhà..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Trợ lý đang tìm kính..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Trợ lý đang gọt bút chì..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Trợ lý đang trên đường tới..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Trợ lý đang suy nghĩ..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Trợ lý đang nghĩ nát óc..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Trợ lý đang cân nhắc từng chữ..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Trợ lý đang lật giở tài liệu..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Trợ lý đang gãi đầu..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Trợ lý đang vẽ ra trên khăn giấy..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Trợ lý sắp xong rồi..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Trợ lý đang đánh răng..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Trợ lý đang chọn tất..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Trợ lý đang ngáp..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Trợ lý đang dụi mắt..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Trợ lý đang dọn giường..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Trợ lý đang chải tóc..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Trợ lý đang ăn sáng..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Trợ lý đang kéo rèm ra..."

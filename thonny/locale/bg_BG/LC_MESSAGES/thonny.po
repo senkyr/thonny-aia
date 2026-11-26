@@ -2058,10 +2058,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Не е избран доставчик: AIA остава включен, но не отговаря."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Мисля..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Да се изчисти ли разговорът?"
 
@@ -2349,3 +2345,111 @@ msgstr "Не можеш да пишеш на асистента, докато н
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Не можеш да пишеш на асистента, докато не е готов."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Асистентът е на разходка..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Асистентът излезе за малко..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Асистентът полива цветята..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Асистентът подремва..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Асистентът се загрява..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Асистентът дописва домашното си..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Асистентът разхожда кучето..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Асистентът си прави чай..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Асистентът обува чехлите си..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Асистентът търси очилата си..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Асистентът си подостря моливите..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Асистентът вече идва..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Асистентът мисли..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Асистентът мисли усилено..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Асистентът подбира думите си..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Асистентът прелиства документацията..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Асистентът се почесва по главата..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Асистентът го скицира на салфетка..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Асистентът почти е готов..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Асистентът си мие зъбите..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Асистентът избира чорапи..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Асистентът се прозява..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Асистентът си търка очите..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Асистентът оправя леглото си..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Асистентът се реши..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Асистентът закусва..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Асистентът дърпа завесите..."

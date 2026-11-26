@@ -2079,10 +2079,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "未選擇服務供應商：AIA 會保持開啟，但不會回答。"
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "正在思考..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "清除對話？"
 
@@ -2370,3 +2366,111 @@ msgstr "助理有了有效的 API 金鑰或本機模型後，才能傳訊息給�
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "助理準備好後，才能傳訊息給它。"
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "助理正在散步..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "助理出去了一下..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "助理正在澆花..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "助理正在打盹..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "助理正在熱身..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "助理正在趕作業..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "助理正在遛狗..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "助理正在泡茶..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "助理正在穿拖鞋..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "助理正在找眼鏡..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "助理正在削鉛筆..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "助理正在趕來..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "助理正在思考..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "助理正在苦思..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "助理正在斟酌用字..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "助理正在翻閱文件..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "助理正在抓頭..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "助理正在餐巾紙上畫圖..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "助理快好了..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "助理正在刷牙..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "助理正在挑襪子..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "助理正在打哈欠..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "助理正在揉眼睛..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "助理正在整理床鋪..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "助理正在梳頭髮..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "助理正在吃早餐..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "助理正在拉開窗簾..."

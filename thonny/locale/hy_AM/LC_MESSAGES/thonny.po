@@ -2087,10 +2087,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Մատակարար ընտրված չէ․ AIA֊ն մնում է միացված, բայց չի պատասխանում։"
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Մտածում եմ..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Մաքրե՞լ զրույցը։"
 
@@ -2378,3 +2374,111 @@ msgstr "Օգնականին չես կարող գրել, քանի դեռ նա չո
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Օգնականին չես կարող գրել, քանի դեռ նա պատրաստ չէ։"
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Օգնականը զբոսնելու է գնացել..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Օգնականը մի պահ դուրս է եկել..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Օգնականը ծաղիկներին ջուր է տալիս..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Օգնականը մի քիչ քնում է..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Օգնականը մարմնամարզվում է..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Օգնականը տնային առաջադրանքն է վերջացնում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Օգնականը շանն է զբոսացնում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Օգնականը թեյ է պատրաստում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Օգնականը հողաթափերն է հագնում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Օգնականը ակնոցն է փնտրում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Օգնականը մատիտներն է սրում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Օգնականն արդեն գալիս է..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Օգնականը մտածում է..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Օգնականը լարված մտածում է..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Օգնականը ճիշտ բառերն է ընտրում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Օգնականը փաստաթղթերն է թերթում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Օգնականը գլուխն է քորում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Օգնականը դա անձեռոցիկի վրա է նկարում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Օգնականը գրեթե պատրաստ է..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Օգնականը ատամներն է լվանում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Օգնականը գուլպաներ է ընտրում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Օգնականը հորանջում է..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Օգնականը աչքերն է տրորում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Օգնականը անկողինն է հավաքում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Օգնականը մազերն է սանրում..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Օգնականը նախաճաշում է..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Օգնականը վարագույրներն է բացում..."

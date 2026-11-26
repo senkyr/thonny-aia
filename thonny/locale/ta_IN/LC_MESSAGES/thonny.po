@@ -2089,10 +2089,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "எந்த வழங்குநரும் தேர்ந்தெடுக்கப்படவில்லை: AIA இயக்கத்தில் இருக்கும், ஆனால் பதிலளிக்காது."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "யோசிக்கிறேன்..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "உரையாடலை அழிக்கவா?"
 
@@ -2380,3 +2376,111 @@ msgstr "சரியான API விசை அல்லது உள்ளூ�
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "உதவியாளர் தயாராகும் வரை எழுத முடியாது."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "உதவியாளர் நடைப்பயிற்சிக்குச் சென்றுள்ளார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "உதவியாளர் சற்று வெளியே சென்றுள்ளார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "உதவியாளர் செடிகளுக்குத் தண்ணீர் ஊற்றுகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "உதவியாளர் ஒரு குட்டித் தூக்கம் போடுகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "உதவியாளர் உடற்பயிற்சி செய்து தயாராகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "உதவியாளர் வீட்டுப்பாடத்தை முடிக்கிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "உதவியாளர் நாயை நடைப்பயிற்சிக்கு அழைத்துச் செல்கிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "உதவியாளர் தேநீர் தயாரிக்கிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "உதவியாளர் செருப்புகளை அணிந்துகொள்கிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "உதவியாளர் தன் கண்ணாடியைத் தேடுகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "உதவியாளர் பென்சில்களைச் சீவுகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "உதவியாளர் வந்துகொண்டிருக்கிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "உதவியாளர் யோசிக்கிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "உதவியாளர் தீவிரமாக யோசிக்கிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "உதவியாளர் சரியான வார்த்தைகளைத் தேடுகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "உதவியாளர் ஆவணங்களைப் புரட்டுகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "உதவியாளர் தலையைச் சொறிகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "உதவியாளர் அதை ஒரு நாப்கினில் வரைகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "உதவியாளர் கிட்டத்தட்ட முடித்துவிட்டார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "உதவியாளர் பல் துலக்குகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "உதவியாளர் காலுறைகளைத் தேர்ந்தெடுக்கிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "உதவியாளர் கொட்டாவி விடுகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "உதவியாளர் கண்களைத் தேய்த்துக்கொள்கிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "உதவியாளர் படுக்கையை ஒழுங்குபடுத்துகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "உதவியாளர் தலைமுடியை சீவுகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "உதவியாளர் காலை உணவு சாப்பிடுகிறார்..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "உதவியாளர் திரைச்சீலைகளை விலக்குகிறார்..."

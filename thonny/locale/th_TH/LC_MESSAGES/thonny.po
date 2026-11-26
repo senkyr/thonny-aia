@@ -2096,10 +2096,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "ยังไม่ได้เลือกผู้ให้บริการ: AIA ยังคงเปิดอยู่ แต่จะไม่ตอบ"
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "กำลังคิด..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "ล้างบทสนทนาหรือไม่?"
 
@@ -2387,3 +2383,111 @@ msgstr "ยังเขียนถึงผู้ช่วยไม่ได้
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "ยังเขียนถึงผู้ช่วยไม่ได้จนกว่าผู้ช่วยจะพร้อม"
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "ผู้ช่วยกำลังไปเดินเล่น..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "ผู้ช่วยแวบออกไปครู่หนึ่ง..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "ผู้ช่วยกำลังรดน้ำต้นไม้..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "ผู้ช่วยกำลังงีบหลับ..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "ผู้ช่วยกำลังวอร์มอัป..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "ผู้ช่วยกำลังทำการบ้านให้เสร็จ..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "ผู้ช่วยกำลังพาหมาไปเดินเล่น..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "ผู้ช่วยกำลังชงชา..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "ผู้ช่วยกำลังใส่รองเท้าแตะ..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "ผู้ช่วยกำลังหาแว่นตา..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "ผู้ช่วยกำลังเหลาดินสอ..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "ผู้ช่วยกำลังเดินทางมา..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "ผู้ช่วยกำลังคิด..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "ผู้ช่วยกำลังคิดหนักมาก..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "ผู้ช่วยกำลังเลือกคำพูด..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "ผู้ช่วยกำลังพลิกดูเอกสารประกอบ..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "ผู้ช่วยกำลังเกาหัว..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "ผู้ช่วยกำลังวาดลงบนกระดาษเช็ดปาก..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "ผู้ช่วยใกล้จะได้คำตอบแล้ว..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "ผู้ช่วยกำลังแปรงฟัน..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "ผู้ช่วยกำลังเลือกถุงเท้า..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "ผู้ช่วยกำลังหาว..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "ผู้ช่วยกำลังขยี้ตา..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "ผู้ช่วยกำลังจัดที่นอน..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "ผู้ช่วยกำลังหวีผม..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "ผู้ช่วยกำลังกินอาหารเช้า..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "ผู้ช่วยกำลังเปิดม่าน..."

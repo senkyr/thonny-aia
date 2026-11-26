@@ -2328,10 +2328,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Není vybraný žádný poskytovatel: AIA zůstává zapnutá, ale neodpovídá."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Přemýšlím..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Smazat konverzaci?"
 
@@ -2619,3 +2615,111 @@ msgstr "Asistentovi nejde psát, dokud nebude mít platný API klíč nebo loká
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Asistentovi nejde psát, dokud nebude připravený."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Asistent je na procházce..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Asistent si odskočil..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Asistent zalévá kytky..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Asistent si dává šlofíka..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Asistent se rozcvičuje..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Asistent dodělává domácí úkol..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Asistent venčí psa..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Asistent si vaří čaj..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Asistent si obouvá bačkory..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Asistent hledá brýle..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Asistent si ořezává tužky..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Asistent už jde..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Asistent přemýšlí..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Asistent usilovně přemýšlí..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Asistent hledá ta správná slova..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Asistent listuje v dokumentaci..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Asistent se drbe na hlavě..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Asistent si to kreslí na ubrousek..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Asistent to už skoro má..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Asistent si čistí zuby..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Asistent vybírá ponožky..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Asistent zívá..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Asistent si mne oči..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Asistent si stele postel..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Asistent se češe..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Asistent snídá..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Asistent roztahuje závěsy..."

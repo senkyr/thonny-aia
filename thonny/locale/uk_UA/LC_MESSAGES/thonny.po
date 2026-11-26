@@ -2079,10 +2079,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Постачальника не вибрано: AIA залишається увімкненим, але не відповідає."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Думаю..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Очистити розмову?"
 
@@ -2370,3 +2366,111 @@ msgstr "Писати асистентові не можна, доки в ньо�
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Писати асистентові не можна, доки він не готовий."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Асистент гуляє..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Асистент ненадовго відлучився..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Асистент поливає квіти..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Асистент куняє..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Асистент розминається..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Асистент доробляє домашку..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Асистент вигулює пса..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Асистент заварює чай..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Асистент взуває капці..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Асистент шукає окуляри..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Асистент гострить олівці..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Асистент уже йде..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Асистент думає..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Асистент наполегливо думає..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Асистент добирає слова..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Асистент гортає документацію..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Асистент чухає потилицю..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Асистент малює це на серветці..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Асистент майже впорався..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Асистент чистить зуби..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Асистент вибирає шкарпетки..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Асистент позіхає..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Асистент протирає очі..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Асистент застеляє ліжко..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Асистент розчісується..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Асистент снідає..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Асистент розсуває штори..."

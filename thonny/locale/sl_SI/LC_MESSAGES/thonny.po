@@ -2110,10 +2110,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Noben ponudnik ni izbran: AIA ostane vklopljen, vendar ne odgovarja."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Razmišljam..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Počistim pogovor?"
 
@@ -2401,3 +2397,111 @@ msgstr "Pomočniku ne moreš pisati, dokler nima veljavnega ključa API ali loka
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Pomočniku ne moreš pisati, dokler ni pripravljen."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Pomočnik je na sprehodu..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Pomočnik je za hip odskočil..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Pomočnik zaliva rože..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Pomočnik si privošči dremež..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Pomočnik se ogreva..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Pomočnik dokončuje domačo nalogo..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Pomočnik sprehaja psa..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Pomočnik si kuha čaj..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Pomočnik si obuva copate..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Pomočnik išče očala..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Pomočnik si ostri svinčnike..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Pomočnik je že na poti..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Pomočnik razmišlja..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Pomočnik trdo razmišlja..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Pomočnik tehta besede..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Pomočnik prebira dokumentacijo..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Pomočnik se praska po glavi..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Pomočnik to riše na serviko..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Pomočnik je skoraj na cilju..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Pomočnik si umiva zobe..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Pomočnik izbira nogavice..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Pomočnik zeha..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Pomočnik si mane oči..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Pomočnik postilja posteljo..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Pomočnik se česa..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Pomočnik zajtrkuje..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Pomočnik odgrinja zavese..."

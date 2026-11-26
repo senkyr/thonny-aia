@@ -2089,10 +2089,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Ingen leverandør er valgt: AIA forblir slått på, men svarer ikke."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Tenker..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Vil du tømme samtalen?"
 
@@ -2380,3 +2376,111 @@ msgstr "Du kan ikke skrive til assistenten før den har en gyldig API-nøkkel el
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Du kan ikke skrive til assistenten før den er klar."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Assistenten er ute på tur..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Assistenten stakk ut et øyeblikk..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Assistenten vanner blomstene..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Assistenten tar seg en høneblund..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Assistenten varmer opp..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Assistenten gjør ferdig leksene..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Assistenten lufter hunden..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Assistenten lager te..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Assistenten tar på seg tøflene..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Assistenten leter etter brillene..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Assistenten spisser blyantene..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Assistenten er på vei..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Assistenten tenker..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Assistenten tenker grundig..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Assistenten veier ordene..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Assistenten blar i dokumentasjonen..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Assistenten klør seg i hodet..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Assistenten tegner det på en serviett..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Assistenten er nesten i mål..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Assistenten pusser tennene..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Assistenten velger sokker..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Assistenten gjesper..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Assistenten gnir seg i øynene..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Assistenten re opp sengen..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Assistenten kjemmer håret..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Assistenten spiser frokost..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Assistenten trekker fra gardinene..."

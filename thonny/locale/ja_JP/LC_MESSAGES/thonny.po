@@ -2096,10 +2096,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "プロバイダーが選択されていません。AIAはオンのままですが、応答しません。"
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "考えています..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "会話をクリアしますか？"
 
@@ -2387,3 +2383,111 @@ msgstr "有効なAPIキーかローカルモデルが設定されるまで、ア
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "準備ができるまで、アシスタントにメッセージを送れません。"
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "アシスタントは散歩中..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "アシスタントはちょっと席を外しています..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "アシスタントは水やり中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "アシスタントはお昼寝中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "アシスタントはウォームアップ中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "アシスタントは宿題を仕上げ中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "アシスタントは犬の散歩中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "アシスタントはお茶を淹れ中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "アシスタントはスリッパを履き中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "アシスタントはメガネを探し中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "アシスタントは鉛筆を削り中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "アシスタントが向かっています..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "アシスタントは考え中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "アシスタントは一生懸命考え中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "アシスタントは言葉を選び中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "アシスタントはドキュメントをめくり中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "アシスタントは頭をかき中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "アシスタントはナプキンに図を描き中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "アシスタントはもう少しで完了..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "アシスタントは歯みがき中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "アシスタントは靴下を選び中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "アシスタントはあくび中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "アシスタントは目をこすっています..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "アシスタントはベッドメイク中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "アシスタントは髪をとかしています..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "アシスタントは朝食中..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "アシスタントはカーテンを開けています..."

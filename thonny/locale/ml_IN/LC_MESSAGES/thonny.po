@@ -2046,10 +2046,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "ഒരു ദാതാവിനെയും തിരഞ്ഞെടുത്തിട്ടില്ല: AIA ഓണായിത്തന്നെ തുടരും, പക്ഷേ മറുപടി നൽകില്ല."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "ചിന്തിക്കുന്നു..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "സംഭാഷണം മായ്ക്കണോ?"
 
@@ -2337,3 +2333,111 @@ msgstr "സാധുവായ API കീ അല്ലെങ്കിൽ ലോ�
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "സഹായി തയ്യാറാകുന്നതുവരെ എഴുതാൻ കഴിയില്ല."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "സഹായി നടക്കാൻ പോയി..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "സഹായി ഒരു നിമിഷം പുറത്തേക്ക് പോയി..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "സഹായി ചെടികൾ നനയ്ക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "സഹായി ഒന്ന് മയങ്ങുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "സഹായി വാം അപ്പ് ചെയ്യുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "സഹായി ഹോംവർക്ക് തീർക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "സഹായി നായയെ നടത്താൻ കൊണ്ടുപോകുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "സഹായി ചായ ഉണ്ടാക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "സഹായി ചെരുപ്പ് ഇടുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "സഹായി കണ്ണട തിരയുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "സഹായി പെൻസിൽ ചെത്തുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "സഹായി വന്നുകൊണ്ടിരിക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "സഹായി ചിന്തിക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "സഹായി നന്നായി ആലോചിക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "സഹായി ശരിയായ വാക്കുകൾ തിരഞ്ഞെടുക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "സഹായി ഡോക്യുമെന്റേഷൻ മറിച്ചുനോക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "സഹായി തല ചൊറിയുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "സഹായി അത് ഒരു നാപ്കിനിൽ വരയ്ക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "സഹായി ഏകദേശം എത്തി..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "സഹായി പല്ല് തേക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "സഹായി സോക്സ് തിരഞ്ഞെടുക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "സഹായി കോട്ടുവായിടുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "സഹായി കണ്ണ് തിരുമ്മുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "സഹായി കിടക്ക വിരിക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "സഹായി മുടി ചീകുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "സഹായി പ്രഭാതഭക്ഷണം കഴിക്കുന്നു..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "സഹായി കർട്ടനുകൾ നീക്കുന്നു..."

@@ -2089,10 +2089,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "هیچ ارائه‌دهنده‌ای انتخاب نشده است: AIA روشن می‌ماند، اما پاسخ نمی‌دهد."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "در حال فکر کردن..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "گفتگو پاک شود؟"
 
@@ -2380,3 +2376,111 @@ msgstr "تا وقتی دستیار کلید API معتبر یا مدل محلی 
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "تا وقتی دستیار آماده نشده، نمی‌توانی به او پیام بنویسی."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "دستیار رفته قدم بزند..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "دستیار یک لحظه بیرون رفته است..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "دستیار دارد به گل‌ها آب می‌دهد..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "دستیار دارد چرت می‌زند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "دستیار دارد خودش را گرم می‌کند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "دستیار دارد تکلیفش را تمام می‌کند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "دستیار دارد سگ را بیرون می‌برد..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "دستیار دارد چای دم می‌کند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "دستیار دارد دمپایی‌هایش را می‌پوشد..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "دستیار دارد دنبال عینکش می‌گردد..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "دستیار دارد مدادهایش را تیز می‌کند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "دستیار دارد می‌آید..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "دستیار دارد فکر می‌کند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "دستیار دارد خیلی فکر می‌کند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "دستیار دارد حرف‌هایش را سبک‌سنگین می‌کند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "دستیار دارد مستندات را ورق می‌زند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "دستیار دارد سرش را می‌خاراند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "دستیار دارد آن را روی دستمال سفره می‌کشد..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "دستیار تقریباً به نتیجه رسیده است..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "دستیار دارد دندان‌هایش را مسواک می‌زند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "دستیار دارد جوراب‌هایش را انتخاب می‌کند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "دستیار دارد خمیازه می‌کشد..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "دستیار دارد چشم‌هایش را می‌مالد..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "دستیار دارد تختش را مرتب می‌کند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "دستیار دارد موهایش را شانه می‌کند..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "دستیار دارد صبحانه می‌خورد..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "دستیار دارد پرده‌ها را کنار می‌زند..."

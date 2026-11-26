@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-11-25 11:46+0100\n"
+"POT-Creation-Date: 2026-11-26 12:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -274,7 +274,7 @@ msgstr ""
 
 #: thonny/base_file_browser.py:1382 thonny/config_ui.py:42 thonny/export.py:28
 #: thonny/plugins/aia/_panel/config_page.py:257
-#: thonny/plugins/aia/_panel/view.py:312
+#: thonny/plugins/aia/_panel/view.py:447
 #: thonny/plugins/backend_config_page.py:288 thonny/plugins/pip_gui.py:1420
 #: thonny/ui_utils.py:161 thonny/ui_utils.py:1749 thonny/ui_utils.py:1835
 #: thonny/workdlg.py:206 thonny/workdlg.py:261
@@ -679,7 +679,7 @@ msgstr ""
 msgid "Plotter"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:316 thonny/shell.py:319
+#: thonny/plugins/aia/_panel/view.py:451 thonny/shell.py:319
 msgid "Clear"
 msgstr ""
 
@@ -2474,77 +2474,182 @@ msgstr ""
 msgid "Could not connect to the AI provider, so the key cannot be checked now."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:53
-msgid "Thinking..."
-msgstr ""
-
-#: thonny/plugins/aia/_panel/view.py:59
-msgid "The assistant gave no answer. Try asking again."
+#: thonny/plugins/aia/_panel/view.py:57
+msgid "The assistant is thinking..."
 msgstr ""
 
 #: thonny/plugins/aia/_panel/view.py:64
+msgid "The assistant is thinking hard..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:65
+msgid "The assistant is weighing its words..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:66
+msgid "The assistant is leafing through the documentation..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:67
+msgid "The assistant is scratching its head..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:68
+msgid "The assistant is drawing it on a napkin..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:69
+msgid "The assistant is almost there..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:80
+msgid "The assistant is stretching..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:81
+msgid "The assistant is warming up..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:82
+msgid "The assistant is finishing its homework..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:83
+msgid "The assistant is walking the dog..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:84
+msgid "The assistant is making tea..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:85
+msgid "The assistant is putting on its slippers..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:86
+msgid "The assistant is looking for its glasses..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:87
+msgid "The assistant is sharpening its pencils..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:88
+msgid "The assistant is on its way..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:102
+msgid "The assistant gave no answer. Try asking again."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:107
 msgid "Write a message to the assistant..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:70
+#: thonny/plugins/aia/_panel/view.py:113
 msgid ""
 "You cannot write to the assistant until it has a valid API key or a local"
 " model."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:75
+#: thonny/plugins/aia/_panel/view.py:118
 msgid "You cannot write to the assistant until it is ready."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:83
+#: thonny/plugins/aia/_panel/view.py:129
 msgid "The assistant is resting..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:84
+#: thonny/plugins/aia/_panel/view.py:130
 msgid "The assistant is loafing around..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:85
+#: thonny/plugins/aia/_panel/view.py:131
 msgid "The assistant is out for lunch..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:86
+#: thonny/plugins/aia/_panel/view.py:132
 msgid "The assistant is having a coffee..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:87
+#: thonny/plugins/aia/_panel/view.py:133
 msgid "The assistant is reading a book..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:88
+#: thonny/plugins/aia/_panel/view.py:134
 msgid "The assistant is looking out of the window..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:89
-msgid "The assistant is stretching..."
+#: thonny/plugins/aia/_panel/view.py:135
+msgid "The assistant is out for a walk..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:101
+#: thonny/plugins/aia/_panel/view.py:136
+msgid "The assistant has stepped out for a moment..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:137
+msgid "The assistant is watering the plants..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:138
+msgid "The assistant is taking a nap..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:150
 msgid "The assistant is waking up..."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:308
+#: thonny/plugins/aia/_panel/view.py:158
+msgid "The assistant is brushing its teeth..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:159
+msgid "The assistant is choosing its socks..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:160
+msgid "The assistant is yawning..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:161
+msgid "The assistant is rubbing its eyes..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:162
+msgid "The assistant is making its bed..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:163
+msgid "The assistant is combing its hair..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:164
+msgid "The assistant is having breakfast..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:165
+msgid "The assistant is opening the curtains..."
+msgstr ""
+
+#: thonny/plugins/aia/_panel/view.py:443
 msgid "Send"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:844
+#: thonny/plugins/aia/_panel/view.py:987
 msgid "Clear the conversation?"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:845
+#: thonny/plugins/aia/_panel/view.py:988
 msgid "The whole conversation with AIA will be deleted. This cannot be undone."
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:866
+#: thonny/plugins/aia/_panel/view.py:1009
 msgid "You"
 msgstr ""
 
-#: thonny/plugins/aia/_panel/view.py:876 thonny/plugins/aia/_panel/view.py:951
+#: thonny/plugins/aia/_panel/view.py:1019
+#: thonny/plugins/aia/_panel/view.py:1095
 msgid "cancelled"
 msgstr ""
 

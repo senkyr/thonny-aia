@@ -2086,10 +2086,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Belum ada penyedia yang dipilih: AIA tetap aktif, tetapi tidak menjawab."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Sedang berpikir..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Hapus percakapan?"
 
@@ -2377,3 +2373,111 @@ msgstr "Asisten belum bisa diberi pesan sampai memiliki kunci API yang valid ata
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Asisten belum bisa diberi pesan sampai siap."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Asisten sedang jalan-jalan..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Asisten sedang keluar sebentar..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Asisten sedang menyiram tanaman..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Asisten sedang tidur siang..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Asisten sedang pemanasan..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Asisten sedang mengerjakan PR..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Asisten sedang mengajak anjing jalan-jalan..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Asisten sedang membuat teh..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Asisten sedang memakai sandal rumah..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Asisten sedang mencari kacamata..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Asisten sedang meruncingkan pensil..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Asisten sedang dalam perjalanan..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Asisten sedang berpikir..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Asisten sedang berpikir keras..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Asisten sedang memilih kata-kata yang tepat..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Asisten sedang membolak-balik dokumentasi..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Asisten sedang menggaruk kepala..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Asisten sedang menggambarnya di tisu..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Asisten hampir selesai..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Asisten sedang menyikat gigi..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Asisten sedang memilih kaus kaki..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Asisten sedang menguap..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Asisten sedang mengucek mata..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Asisten sedang merapikan tempat tidur..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Asisten sedang menyisir rambut..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Asisten sedang sarapan..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Asisten sedang membuka tirai..."

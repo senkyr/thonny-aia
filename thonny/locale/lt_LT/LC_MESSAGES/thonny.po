@@ -2078,10 +2078,6 @@ msgid "No provider is chosen: AIA stays switched on, but it does not answer."
 msgstr "Nepasirinktas joks teikėjas: AIA lieka įjungtas, bet neatsako."
 
 #: thonny/plugins/aia
-msgid "Thinking..."
-msgstr "Galvoju..."
-
-#: thonny/plugins/aia
 msgid "Clear the conversation?"
 msgstr "Išvalyti pokalbį?"
 
@@ -2369,3 +2365,111 @@ msgstr "Asistentui negalėsi rašyti, kol jis neturės galiojančio API rakto ar
 #: thonny/plugins/aia
 msgid "You cannot write to the assistant until it is ready."
 msgstr "Asistentui negalėsi rašyti, kol jis nebus pasiruošęs."
+
+#: thonny/plugins/aia
+msgid "The assistant is out for a walk..."
+msgstr "Asistentas vaikšto..."
+
+#: thonny/plugins/aia
+msgid "The assistant has stepped out for a moment..."
+msgstr "Asistentas trumpam išėjo..."
+
+#: thonny/plugins/aia
+msgid "The assistant is watering the plants..."
+msgstr "Asistentas laisto gėles..."
+
+#: thonny/plugins/aia
+msgid "The assistant is taking a nap..."
+msgstr "Asistentas numigo valandėlę..."
+
+#: thonny/plugins/aia
+msgid "The assistant is warming up..."
+msgstr "Asistentas mankštinasi..."
+
+#: thonny/plugins/aia
+msgid "The assistant is finishing its homework..."
+msgstr "Asistentas baigia namų darbus..."
+
+#: thonny/plugins/aia
+msgid "The assistant is walking the dog..."
+msgstr "Asistentas vedžioja šunį..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making tea..."
+msgstr "Asistentas verda arbatą..."
+
+#: thonny/plugins/aia
+msgid "The assistant is putting on its slippers..."
+msgstr "Asistentas apsiauna šlepetes..."
+
+#: thonny/plugins/aia
+msgid "The assistant is looking for its glasses..."
+msgstr "Asistentas ieško akinių..."
+
+#: thonny/plugins/aia
+msgid "The assistant is sharpening its pencils..."
+msgstr "Asistentas drožia pieštukus..."
+
+#: thonny/plugins/aia
+msgid "The assistant is on its way..."
+msgstr "Asistentas jau ateina..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking..."
+msgstr "Asistentas mąsto..."
+
+#: thonny/plugins/aia
+msgid "The assistant is thinking hard..."
+msgstr "Asistentas stipriai mąsto..."
+
+#: thonny/plugins/aia
+msgid "The assistant is weighing its words..."
+msgstr "Asistentas renkasi tinkamus žodžius..."
+
+#: thonny/plugins/aia
+msgid "The assistant is leafing through the documentation..."
+msgstr "Asistentas vartalioja dokumentaciją..."
+
+#: thonny/plugins/aia
+msgid "The assistant is scratching its head..."
+msgstr "Asistentas krapštosi galvą..."
+
+#: thonny/plugins/aia
+msgid "The assistant is drawing it on a napkin..."
+msgstr "Asistentas piešia tai ant servetėlės..."
+
+#: thonny/plugins/aia
+msgid "The assistant is almost there..."
+msgstr "Asistentas jau beveik baigė..."
+
+#: thonny/plugins/aia
+msgid "The assistant is brushing its teeth..."
+msgstr "Asistentas valosi dantis..."
+
+#: thonny/plugins/aia
+msgid "The assistant is choosing its socks..."
+msgstr "Asistentas renkasi kojines..."
+
+#: thonny/plugins/aia
+msgid "The assistant is yawning..."
+msgstr "Asistentas žiovauja..."
+
+#: thonny/plugins/aia
+msgid "The assistant is rubbing its eyes..."
+msgstr "Asistentas trinasi akis..."
+
+#: thonny/plugins/aia
+msgid "The assistant is making its bed..."
+msgstr "Asistentas klojasi lovą..."
+
+#: thonny/plugins/aia
+msgid "The assistant is combing its hair..."
+msgstr "Asistentas šukuojasi..."
+
+#: thonny/plugins/aia
+msgid "The assistant is having breakfast..."
+msgstr "Asistentas pusryčiauja..."
+
+#: thonny/plugins/aia
+msgid "The assistant is opening the curtains..."
+msgstr "Asistentas atitraukia užuolaidas..."
